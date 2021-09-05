@@ -4,6 +4,19 @@
 bindkey -s ^f "~/scripts/bg -a\n"
 bindkey -s ^u "~/scripts/bg -v\n"
 
+<<<<<<< HEAD
+bindkey -s ^@ "~/scripts/tmux2\n"
+
+alias clangd="/Users/yonikosiner/Downloads/clang+llvm-12.0.0-aarch64-linux-gnu/bin/clangd"
+
+alias urlS="/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -dump URLSchemeBinding"
+
+alias iCloud="cd /Users/yonikosiner/Library/Mobile\ Documents/com~apple~CloudDocs"
+
+alias obsidian="cd /Users/yonikosiner/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Main\ obsidian\ vault"
+
+=======
+>>>>>>> 9d7287444a36ec10245996295ef72885b7564ffd
 alias ls="ls -A"
 
 

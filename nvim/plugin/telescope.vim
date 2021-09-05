@@ -1,11 +1,11 @@
 "lua require("yoni")
 
 nnoremap <C-p> <cmd>lua require('telescope.builtin').find_files()<cr>
-"nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
+nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
 nnoremap <leader>pb :lua require('telescope.builtin').buffers()<CR>
 
 nnoremap <leader>vrc :lua require('yoni.telescope').search_dotfiles()<CR>
-nnoremap <leader>ps :lua require('yoni.telescope').grep()<CR>
+nnoremap <leader>vrcm :lua require('yoni.telescope').search_dotfiles_mac()<CR>
 
 nnoremap <leader>va :lua require('yoni.telescope').anime_selector()<CR>
 
