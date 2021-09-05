@@ -33,63 +33,69 @@ require('telescope').load_extension('fzy_native')
 local M = {}
 M.search_dotfiles = function()
     require("telescope.builtin").find_files({
-        prompt_title = "< VimRC >",
+        prompt_title = " dotfiles ",
         cwd = "/Users/yonikosiner/.dotfiles",
     })
 end
 
 M.grep = function()
     require("telescope.builtin").live_grep({
-        prompt_title = "< Grep >"
+        prompt_title = " Grep "
     })
 end
 
 
---local function set_background(content)
-    --vim.fn.system(
-        --"osascript -e 'tell application Finder' to set desktop picture to POSIX file \"'"
-        --...content
-        --.."'/"""
-    --)
---end
+--"osascript -e 'tell application Finder' to set desktop picture to POSIX file content"
+--
+ --"dconf write /org/mate/desktop/background/picture-filename \"'"
+            --.. content
+            --.. "'\""
 
---local function select_background(prompt_bufnr, map)
-    --local function set_the_background(close)
-        --local content = require("telescope.actions.state").get_selected_entry(
-            --prompt_bufnr
-        --)
-        --set_background(content)
-        --if close then
-            --require("telescope.actions").close(prompt_bufnr)
-        --end
-    --end
+local function set_background(content)
+    os.execute(cmd,
+        "osascript -e 'tell application \"Finder\" to set desktop picture to POSIX file \"'"
+            .. content
+            .. "'\""
+    )
+end
 
-    --map("i", "<C-p>", function()
-        --set_the_background()
-    --end)
+local function select_background(prompt_bufnr, map)
+    local function set_the_background(close)
+       local content = require("telescope.actions.state").get_selected_entry(
+            prompt_bufnr
+        )
+        set_background(content)
+        if close then
+            require("telescope.actions").close(prompt_bufnr)
+        end
+    end
 
-    --map("i", "<CR>", function()
-        --set_the_background(true)
-    --end)
---end
+    map("i", "<C-p>", function()
+        set_the_background()
+    end)
 
---local function image_selector(prompt, cwd)
-    --return function()
-        --require("telescope.builtin").find_files({
-            --prompt_title = prompt,
-            --cwd = cwd,
+    map("i", "<CR>", function()
+        set_the_background(true)
+    end)
+end
 
-            --attach_mappings = function(prompt_bufnr, map)
-                --select_background(prompt_bufnr, map)
+local function image_selector(prompt, cwd)
+    return function()
+        require("telescope.builtin").find_files({
+            prompt_title = prompt,
+            cwd = cwd,
 
-                ---- Please continue mapping (attaching additional key maps):
-                ---- Ctrl+n/p to move up and down the list.
-                --return true
-            --end,
-        --})
-    --end
---end
+            attach_mappings = function(prompt_bufnr, map)
+                select_background(prompt_bufnr, map)
 
---M.anime_selector = image_selector("< Anime Bobs > ", "~/Documents/anime")
+                -- Please continue mapping (attaching additional key maps):
+                -- Ctrl+n/p to move up and down the list.
+                return true
+            end,
+        })
+    end
+end
+
+M.anime_selector = image_selector("< Anime Bobs > ", "~/.dotfiles/anime")
 
 return M

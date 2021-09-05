@@ -16,6 +16,8 @@ precmd() {
 bindkey -s ^f "~/scripts/bg -a\n"
 bindkey -s ^u "~/scripts/bg -v\n"
 
+bindkey -s ^@ "~/scripts/tmux2\n"
+
 alias clangd="/Users/yonikosiner/Downloads/clang+llvm-12.0.0-aarch64-linux-gnu/bin/clangd"
 
 alias urlS="/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -dump URLSchemeBinding"
