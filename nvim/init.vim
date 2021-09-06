@@ -4,6 +4,10 @@ Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 Plug 'ThePrimeagen/git-worktree.nvim'
 
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
 Plug 'skanehira/preview-markdown.vim'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -54,11 +58,6 @@ nnoremap <silent> <C-q> :lua require("harpoon.term").sendCommand(1, "~/scripts/b
 nnoremap <silent> <leader> f :lua require("harpoon.term").sendCommand(1, "~/scripts/tmux2\n"); require("harpoon.term").gotoTerminal(1)<CR>
 nnoremap <silent> <leader> bk :lua require("harpoon.term").sendCommand(1, "setxkbmap -layout real-prog-dvorak\n"); require("harpoon.term").gotoTerminal(1)<CR>
 
-nnoremap <leader>h :wincmd h<CR>
-nnoremap <leader>j :wincmd j<CR>
-nnoremap <leader>k :wincmd k<CR>
-nnoremap <leader>l :wincmd l<CR>
-
 "For when reading docs turn of numbers
 fun! ReadingDocs()
     :set norelativenumber
@@ -73,8 +72,8 @@ nmap ++ <plug>NERDCommenterToggle
 nnoremap <leader>fl :Ex<CR>
 
 nnoremap <leader>u :UndotreeToggle<CR>
-nnoremap <leader>pv :Ex<CR>
-nnoremap <leader>ft :Sex!<CR>
+nnoremap <leader>pv :NERDTreeToggle<CR> :vertical resize 100<CR>
+nnoremap <leader>ft :NERDTreeToggle<CR> :vertical resize 30<CR>
 nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
 
 nnoremap <Leader>+ :vertical resize +5<CR>

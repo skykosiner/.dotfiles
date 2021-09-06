@@ -21,6 +21,7 @@ alias ll="ls -lh"
 alias ..="cd .."
 alias keyboard="setxkbmap -layout real-prog-dvorak"
 
+alias commitDotfiles="cd ~/.dotfiles && git add . && git commit -am 'Hello futre me this is from the past' && git push"
 
 alias bg="~/scripts/bg"
 
