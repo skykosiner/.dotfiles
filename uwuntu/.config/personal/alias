@@ -11,3 +11,5 @@ alias mv='mv -i'
 alias rm='rm -i'
 
 alias vim="nvim"
+
+alias evrc="vim ~/.dotfiles/nvim/.config/nvim"
