@@ -11,3 +11,7 @@ commitDotFiles() {
     git push origin master
     popd
 }
+
+snyc_mail() {
+    mw -y
+}
