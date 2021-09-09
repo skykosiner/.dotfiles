@@ -1,10 +1,16 @@
+export XDG_CONFIG_HOME=$HOME/.config
+VIM="nvim"
+
+PERSONAL=$XDG_CONFIG_HOME/personal
+
+for i in `find -L $PERSONAL`; do
+    source $i
+done
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 #
-bindkey -s ^f "~/scripts/bg -a\n"
-bindkey -s ^u "~/scripts/bg -v\n"
-
-bindkey -s ^@ "~/scripts/tmux2\n"
+bindkey -s ^f "tmux2\n"
 
 alias clangd="/Users/yonikosiner/Downloads/clang+llvm-12.0.0-aarch64-linux-gnu/bin/clangd"
 
@@ -14,27 +20,7 @@ alias iCloud="cd /Users/yonikosiner/Library/Mobile\ Documents/com~apple~CloudDoc
 
 alias obsidian="cd /Users/yonikosiner/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Main\ obsidian\ vault"
 
-alias ls="ls -A"
-
-alias c="clear"
-alias ll="ls -lh"
-alias ..="cd .."
-alias keyboard="setxkbmap -layout real-prog-dvorak"
-
-alias commitDotfiles="cd ~/.dotfiles && git add . && git commit -am 'Hello futre me this is from the past' && git push --force"
-
-alias bg="~/scripts/bg"
-
-alias :q="exit"
-
-alias mv='mv -i'
-alias rm='rm -i'
-
-alias vim="nvim"
-
 bindkey -v
-
-
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/yoni/.oh-my-zsh"

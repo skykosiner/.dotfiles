@@ -1,0 +1,11 @@
+change_background() {
+    feh --bg-scale "'$(ls ~/.dotfiles/anime | fzf)'"
+}
+
+commitDotFiles() {
+    pushd $DOTFILES
+    git add .
+    git commit -m "automagic messaging from me in the past.  Have you checked up your butthole?"
+    git push origin master
+    popd
+}

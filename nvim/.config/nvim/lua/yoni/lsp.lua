@@ -1,6 +1,6 @@
 local on_attach = require'completion'.on_attach
 
---require'lspconfig'.cssls.setup{}
+require'lspconfig'.cssls.setup{ on_attach=on_attach }
 
 require'lspconfig'.tsserver.setup{ on_attach=on_attach }
 

@@ -1,0 +1,13 @@
+alias ls="ls -A"
+
+alias c="clear"
+alias ll="ls -lh"
+alias ..="cd .."
+alias keyboard="setxkbmap -layout real-prog-dvorak"
+
+alias :q="exit"
+
+alias mv='mv -i'
+alias rm='rm -i'
+
+alias vim="nvim"
