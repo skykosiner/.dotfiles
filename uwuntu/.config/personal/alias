@@ -15,3 +15,5 @@ alias vim="nvim"
 alias evrc="vim ~/.dotfiles/nvim/.config/nvim"
 
 alias sync_mail="mw -Y"
+
+alias math="expr"

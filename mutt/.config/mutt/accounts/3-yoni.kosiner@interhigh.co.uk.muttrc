@@ -40,3 +40,5 @@ set record = "+Sent Items"
 macro index,pager gs "<change-folder>=Sent Items<enter>" "go to sent"
 macro index,pager Ms ";<save-message>=Sent Items<enter>" "move mail to sent"
 macro index,pager Cs ";<copy-message>=Sent Items<enter>" "copy mail to sent"
+
+macro index,pager gt "<change-folder>=Deleted Items<enter>" "go to deleted items"

@@ -15,3 +15,11 @@ commitDotFiles() {
 snyc_mail() {
     mw -y
 }
+
+commitSchoolWork() {
+    pushd $SCHOOLWORK
+    git add .
+    git commit -m "automagic messaging from me in the past.  Have you checked up your butthole?"
+    git push origin master
+    popd
+}

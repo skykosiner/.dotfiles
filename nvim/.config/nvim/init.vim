@@ -4,11 +4,11 @@ Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 Plug 'ThePrimeagen/git-worktree.nvim'
 
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'nvim-lua/plenary.nvim'
 
-Plug 'skanehira/preview-markdown.vim'
+"Plug 'preservim/nerdtree'
+"Plug 'Xuyuanp/nerdtree-git-plugin'
+"Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
@@ -50,7 +50,7 @@ lua require("yoni")
 "lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
 
 let mapleader = " "
-let NERDTreeShowHidden=1
+"let NERDTreeShowHidden=1
 
 "lua require'nvim-treesitter.configs'.setup { highlight = { enable = true }, incremental_selection = { enable = true }, textobjects = { enable = true }}
 
@@ -73,8 +73,8 @@ nmap ++ <plug>NERDCommenterToggle
 nnoremap <leader>fl :Ex<CR>
 
 nnoremap <leader>u :UndotreeToggle<CR>
-nnoremap <leader>pv :NERDTreeToggle<CR> :wincmd l<CR> :wq<CR>
-nnoremap <leader>ft :NERDTreeToggle<CR> :vertical resize 30<CR>
+nnoremap <leader>pv :Ex<CR>
+nnoremap <leader>ft :Sex!<CR>
 nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
 
 nnoremap <Leader>+ :vertical resize +5<CR>
@@ -114,8 +114,8 @@ nnoremap # #zzzv
 nnoremap , ,zzzv
 nnoremap ; ;zzzv
 
-nnoremap <C-\> :cnext<CR>
-nnoremap <C-l> :cprev<CR>
+nnoremap <C-j> :cnext<CR>
+nnoremap <C-k> :cprev<CR>
 nnoremap <C-v> :lnext<CR>
 nnoremap <C-z> :lprevious<CR>
 nnoremap <leader>po :copen<CR>

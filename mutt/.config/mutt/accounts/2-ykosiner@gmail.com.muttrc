@@ -41,3 +41,6 @@ macro index,pager gt "<change-folder>=[Gmail]/Trash<enter>" "go to trash"
 macro index,pager Mt ";<save-message>=[Gmail]/Trash<enter>" "move mail to trash"
 macro index,pager Ct ";<copy-message>=[Gmail]/Trash<enter>" "copy mail to trash"
 set trash = "+[Gmail]/Trash"
+
+macro index,pager Ma ";<save-message>=[Gmail]/Important<enter>" "move mail to archive"
+macro index,pager Gi ";<change-folder>=[Gmail]/Important<enter>" "go to archive folder"
