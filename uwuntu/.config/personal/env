@@ -1,7 +1,5 @@
 change_background() {
-    directory="/home/yoni/.dotfiles/anime"
-    result=$(rg --files $directory| fzf)
-    feh --bg-scale $result
+    feh --bg-scale $HOME/.dotfiles/anime/$(ls ~/.dotfiles/anime | fzf)
 }
 
 commitDotFiles() {

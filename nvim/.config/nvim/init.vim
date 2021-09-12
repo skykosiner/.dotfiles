@@ -65,8 +65,13 @@ nnoremap <silent> <leader> bk :silent lua require("harpoon.term").sendCommand(1,
 
 "For when reading docs turn of numbers
 fun! ReadingDocs()
-    :set norelativenumber
-    :set nonumber
+    if &number
+        :set norelativenumber
+        :set nonumber
+    else
+        :set relativenumber
+        :set number
+    endif
 endfun
 
 nnoremap <leader>rrd :call ReadingDocs()<CR>
@@ -151,6 +156,10 @@ vnoremap > >gv
 
 noremap <Leader>o o<Esc>^Da
 nnoremap <Leader>O O<Esc>^Da
+
+"Switch between tabs
+nnoremap <Right> gt
+nnoremap <Left>  gT
 
 augroup YONI
     autocmd!

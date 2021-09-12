@@ -12,7 +12,7 @@ done
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 #
-bindkey -s ^f "tmux2\n"
+bindkey -s ^f "tmux-sessionizer\n"
 
 alias clangd="/Users/yonikosiner/Downloads/clang+llvm-12.0.0-aarch64-linux-gnu/bin/clangd"
 

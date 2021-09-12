@@ -8,8 +8,8 @@ set shiftwidth=4
 set expandtab
 set smartindent
 
-"set undofile
-"set undodir=~/.vim/undodir
+set undofile
+set undodir=~/.vim/undodir
 
 set exrc
 set guicursor=

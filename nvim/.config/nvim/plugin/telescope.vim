@@ -5,6 +5,8 @@ nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>
 nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
 nnoremap <leader>pb :lua require('telescope.builtin').buffers()<CR>
 
+nnoremap <leader>lps :lua require('telescope.builtin').lsp_references()<CR>
+
 nnoremap <leader>vrc :lua require('yoni.telescope').search_dotfiles()<CR>
 nnoremap <leader>vrcm :lua require('yoni.telescope').search_dotfiles_mac()<CR>
 
