@@ -2,7 +2,7 @@ set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
 fun! LspLocationList()
-    lua vim.lsp.diagnostic.set_loclist({open_loclist = false})
+    "lua vim.lsp.diagnostic.set_loclist({open_loclist = false})
 endfun
 
 nnoremap <leader>vd :lua vim.lsp.buf.definition()<CR>

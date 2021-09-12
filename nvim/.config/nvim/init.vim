@@ -23,9 +23,12 @@ Plug 'ThePrimeagen/git-worktree.nvim'
 
 "Lsp pulgins
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
-Plug 'tjdevries/nlua.nvim'
-Plug 'tjdevries/lsp_extensions.nvim'
+Plug 'hrsh7th/nvim-compe'
+" Plug 'nvim-lua/completion-nvim'
+Plug 'glepnir/lspsaga.nvim'
+Plug 'simrat39/symbols-outline.nvim'
+" Plug 'tjdevries/nlua.nvim'
+" Plug 'tjdevries/lsp_extensions.nvim'
 
 Plug 'dense-analysis/ale'
 Plug 'scrooloose/nerdcommenter'
@@ -54,10 +57,11 @@ let mapleader = " "
 
 "lua require'nvim-treesitter.configs'.setup { highlight = { enable = true }, incremental_selection = { enable = true }, textobjects = { enable = true }}
 
-nnoremap <silent> <C-f> :lua require("harpoon.term").sendCommand(1, "~/scripts/bg -a\n"); require("harpoon.term").gotoTerminal(1)<CR>
-nnoremap <silent> <C-q> :lua require("harpoon.term").sendCommand(1, "~/scripts/bg -v\n"); require("harpoon.term").gotoTerminal(1)<CR>
-nnoremap <silent> <leader> f :lua require("harpoon.term").sendCommand(1, "~/scripts/tmux2\n"); require("harpoon.term").gotoTerminal(1)<CR>
-nnoremap <silent> <leader> bk :lua require("harpoon.term").sendCommand(1, "setxkbmap -layout real-prog-dvorak\n"); require("harpoon.term").gotoTerminal(1)<CR>
+"This is defiantly not copied from thePrimeagens vimrc
+"https://github.com/thePrimeagen/.dotfiles
+nnoremap <silent> <C-f> :silent lua require("harpoon.term").sendCommand(1, "tmux2\n"); require("harpoon.term").gotoTerminal(1)<CR>
+nnoremap <silent> <C-q> :silent lua require("harpoon.term").sendCommand(1, "change_background\n"); require("harpoon.term").gotoTerminal(1)<CR>
+nnoremap <silent> <leader> bk :silent lua require("harpoon.term").sendCommand(1, "setxkbmap -layout real-prog-dvorak\n"); require("harpoon.term").gotoTerminal(1)<CR>
 
 "For when reading docs turn of numbers
 fun! ReadingDocs()
@@ -66,6 +70,20 @@ fun! ReadingDocs()
 endfun
 
 nnoremap <leader>rrd :call ReadingDocs()<CR>
+
+"Toggle spelling on and off with one keybind
+fun! SetSpell()
+    "Check if spell is on
+    if &spell
+        "If spell in on then set spell off
+        :set nospell
+    else
+        "If spell is off then set spell on
+        :set spell
+    endif
+endfun
+
+nnoremap <leader>sp :call SetSpell()<CR>
 
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle

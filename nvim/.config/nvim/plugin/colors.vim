@@ -1,4 +1,4 @@
-let g:yoni_colorscheme = "gruvbox"
+let g:yoni_colorscheme = 'gruvbox'
 
 fun! ColorMyPencils()
     let g:gruvbox_contrast_dark = 'hard'
@@ -12,7 +12,7 @@ fun! ColorMyPencils()
     if has('nvim')
         call luaeval('vim.cmd("colorscheme " .. _A[1])', [g:yoni_colorscheme])
     else
-        colorscheme gruvbox
+        exe 'colorscheme' g:yoni_colorscheme
     endif
 
     highlight ColorColumn ctermbg=0 guibg=grey
