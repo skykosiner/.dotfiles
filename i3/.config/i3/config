@@ -198,6 +198,6 @@ exec --no-startup-id xcompmgr -c -f -n
 exec --no-startup-id setxbmap -layout real-prog-dvorak
 exec --bg-scale /home/yoni/.dotfiles/anime/girl-with-gu.png
 
-bindsym $mod+shift+s exec --no-startup-id xrandr --output eDP-1 --primary --mode 1920x1080 --pos 3859x0 --rotate normal --output DP-1 --off --output HDMI-1 --mode 2560x1440 --pos 0x0 --rotate normal
+bindsym $mod+shift+s exec --no-startup-id xrandr --output eDP-1 --off --output DP-1 --off --output HDMI-1 --mode 2560x1440 --pos 0x0 --rotate normal
 
-bindsym $mod+shift+o exec --no-startup-id xrandr --output eDP-1 --primary --mode 1920x1080 --pos 3859x0 --rotate normal --output DP-1 --off --output HDMI-1 --off
+bindsym $mod+shift+o exec --no-startup-id xrandr --output eDP-1 --primary --mode 2736x1824 --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-1 --off

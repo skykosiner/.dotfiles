@@ -1,0 +1,1 @@
+tmux switch-client -t 0

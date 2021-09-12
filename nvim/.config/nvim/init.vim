@@ -59,7 +59,7 @@ let mapleader = " "
 
 "This is defiantly not copied from thePrimeagens vimrc
 "https://github.com/thePrimeagen/.dotfiles
-nnoremap <silent> <C-f> :silent lua require("harpoon.term").sendCommand(1, "tmux2\n"); require("harpoon.term").gotoTerminal(1)<CR>
+nnoremap <silent> <C-f> :silent lua require("harpoon.term").sendCommand(1, "tmux-sessionizer\n"); require("harpoon.term").gotoTerminal(1)<CR>
 nnoremap <silent> <C-q> :silent lua require("harpoon.term").sendCommand(1, "change_background\n"); require("harpoon.term").gotoTerminal(1)<CR>
 nnoremap <silent> <leader> bk :silent lua require("harpoon.term").sendCommand(1, "setxkbmap -layout real-prog-dvorak\n"); require("harpoon.term").gotoTerminal(1)<CR>
 
