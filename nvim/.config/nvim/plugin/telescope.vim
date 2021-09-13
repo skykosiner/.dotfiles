@@ -11,7 +11,7 @@ nnoremap <leader>vrc :lua require('yoni.telescope').search_dotfiles()<CR>
 nnoremap <leader>vrcm :lua require('yoni.telescope').search_dotfiles_mac()<CR>
 
 nnoremap <leader>pw :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
-nnoremap <leader>vh :lua require('telescope.builtin').help_tags()<CR>
+nnoremap <leader>vih :lua require('telescope.builtin').help_tags()<CR>
 
 nnoremap <leader>va :lua require('yoni.telescope').anime_selector()<CR>
 

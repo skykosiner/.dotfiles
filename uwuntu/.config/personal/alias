@@ -1,4 +1,4 @@
-alias ls="ls -A"
+alias ls="ls -A | lolcat"
 
 alias c="clear"
 alias ll="ls -lh"
@@ -17,3 +17,5 @@ alias evrc="vim ~/.dotfiles/nvim/.config/nvim"
 alias sync_mail="mw -Y"
 
 alias math="expr"
+
+alias dvorakBTW="cowsay 'I Use Dvorak Btw' | lolcat"
