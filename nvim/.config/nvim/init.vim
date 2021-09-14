@@ -56,9 +56,9 @@ let mapleader = " "
 
 "This is defiantly not copied from thePrimeagens vimrc
 "https://github.com/thePrimeagen/.dotfiles
-nnoremap <silent> <C-f> :silent lua require("harpoon.term").sendCommand(1, "tmux-sessionizer\n"); require("harpoon.term").gotoTerminal(1)<CR>
-nnoremap <silent> <C-q> :silent lua require("harpoon.term").sendCommand(1, "change_background\n"); require("harpoon.term").gotoTerminal(1)<CR>
-nnoremap <silent> <leader> bk :silent lua require("harpoon.term").sendCommand(1, "setxkbmap -layout real-prog-dvorak\n"); require("harpoon.term").gotoTerminal(1)<CR>
+nnoremap <silent> <C-f> :silent !tmux neww tmux-sessionizer<CR>
+nnoremap <silent> <C-q> :silent !tmux neww tmux-cht<CR>
+nnoremap <silent> <leader> bk :silent !setxkbmap -layout real-prog-dvorak<CR>
 
 "For when reading docs turn of numbers
 fun! ReadingDocs()

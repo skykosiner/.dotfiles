@@ -15,12 +15,10 @@ set $mod Mod1
 # is used in the bar {} block below.
 font pango:monospace 8
 
-# GET DEM BORDERS OUT OF HEREc:w
-#
-# Thanks Childz
+# GET DEM BORDERS OUT OF HERE
 for_window [class="^.*"] border pixel 1
-                          # class                 border  backgr. text    indicator child_border
-#for_window [class="^.*"] client.focused          #77dd77 #285577 #ffffff #2e9ef4   #285577
+                           #class                 border  backgr. text    indicator child_border
+for_window [class="^.*"] client.focused          #77dd77 #285577 #ffffff #2e9ef4   #285577
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -192,8 +190,9 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 
 # Open apps
 bindsym $mod+shift+a			exec $term -e neomutt
-bindsym $mod+shift+f			exec $term -e ranger
+bindsym $mod+shift+f			exec /usr/bin/files
 bindsym $mod+shift+w			exec /usr/bin/brave-browser
+bindsym $mod+shift+g			exec /usr/bin/gimp
 
 exec --no-startup-id xcompmgr -c -f -n
 exec --no-startup-id setxbmap -layout real-prog-dvorak

@@ -1,9 +1,20 @@
-alias ls="ls -A | lolcat"
+alias aoeu="setxkbmap -layout us"
+alias asdf="setxkbmap -layout real-prog-dvorak"
+
+alias python="python3"
+#alias ebp="$VIM $DOTFILES/.zsh_profile"
+alias etc="$VIM $DOTFILES/tmux"
+alias bp="dotFileInstall && source ~/.zshrc"
+alias evrc="nvim $DOTFILES/nvim/.config/nvim"
+alias eirc="nvim $DOTFILES/i3/.config"
+alias ezsh="nvim $DOTFILES/uwuntu/.config/personal"
+alias dotFileInstall="$DOTFILES/install"
+
+alias ls="ls -A"
 
 alias c="clear"
 alias ll="ls -lh"
 alias ..="cd .."
-alias keyboard="setxkbmap -layout real-prog-dvorak"
 
 alias :q="exit"
 
@@ -12,10 +23,11 @@ alias rm='rm -i'
 
 alias vim="nvim"
 
-alias evrc="vim ~/.dotfiles/nvim/.config/nvim"
-
 alias sync_mail="mw -Y"
 
 alias math="expr"
 
 alias dvorakBTW="cowsay 'I Use Dvorak Btw' | lolcat"
+
+alias livestream_screenkey="screenkey -s large --scr 2 -p bottom --geometry 2560+1440+810";
+alias yt_screenkey="screenkey -s large --scr 1 -p bottom --geometry 510x300+1412+850";

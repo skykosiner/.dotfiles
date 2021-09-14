@@ -1,5 +1,3 @@
-"lua require("yoni")
-
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files({ hidden = true })<cr>
 nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>
 nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
@@ -14,7 +12,6 @@ nnoremap <leader>pw :lua require('telescope.builtin').grep_string { search = vim
 nnoremap <leader>vih :lua require('telescope.builtin').help_tags()<CR>
 
 nnoremap <leader>va :lua require('yoni.telescope').anime_selector()<CR>
-
 
 nnoremap <leader>gb :Telescope git_branches<CR>
 nnoremap <leader>gc :Telescope git_commits<CR>
