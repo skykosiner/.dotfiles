@@ -31,3 +31,6 @@ alias dvorakBTW="cowsay 'I Use Dvorak Btw' | lolcat"
 
 alias livestream_screenkey="screenkey -s large --scr 2 -p bottom --geometry 2560+1440+810";
 alias yt_screenkey="screenkey -s large --scr 1 -p bottom --geometry 510x300+1412+850";
+
+alias shutdown="sudo shutdown -h now";
+alias restart="sudo shutdown -r now";

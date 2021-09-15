@@ -126,7 +126,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplae (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+@ exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -189,7 +189,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 #bindsym $mod+Shift+period exec systemctl suspend
 
 # Open apps
-bindsym $mod+shift+a			exec $term -e neomutt
+bindsym $mod+shift+e		    exec $term -e neomutt
 bindsym $mod+shift+f			exec /usr/bin/files
 bindsym $mod+shift+w			exec /usr/bin/brave-browser
 bindsym $mod+shift+g			exec /usr/bin/gimp

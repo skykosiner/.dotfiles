@@ -136,8 +136,8 @@ nnoremap ; ;zzzv
 
 nnoremap <C-j> :cnext<CR>
 nnoremap <C-k> :cprev<CR>
-nnoremap <C-v> :lnext<CR>
-nnoremap <C-z> :lprevious<CR>
+nnoremap <leader>j :lnext<CR>
+nnoremap <leader>k :lprevious<CR>
 nnoremap <leader>po :copen<CR>
 nnoremap <leader>lo :lopen<CR>
 
