@@ -13,7 +13,7 @@ local function reload(prompt_bufnr)
     if content.value == "todo_me_daddy" then
         content.value = "todo-me-daddy"
     elseif content.value == "color-scheme" then
-        require("yoni.colors").SetColorScheme()
+        require("sky.colors").SetColorScheme()
     end
 
     require('plenary.reload').reload_module(content.value)
@@ -26,7 +26,7 @@ function M.reload_module()
             results = {
                 "todo_me_daddy",
                 "harpoon",
-                "yoni.statusline",
+                "sky.statusline",
                 "color-scheme",
             }
         }),

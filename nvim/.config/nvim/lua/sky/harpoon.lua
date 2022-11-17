@@ -1,4 +1,4 @@
-local normal = require("yoni.keymaps").normal
+local normal = require("sky.keymaps").normal
 
 require("harpoon").setup({
     nav_first_in_list = true,

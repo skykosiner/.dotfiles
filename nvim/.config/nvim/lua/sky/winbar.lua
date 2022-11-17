@@ -16,6 +16,6 @@ M.Winbar = function()
         "%f")
 end
 
-vim.opt.winbar = '%!v:lua.require("yoni.winbar").Winbar()'
+vim.opt.winbar = '%!v:lua.require("sky.winbar").Winbar()'
 
 return M

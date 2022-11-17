@@ -112,12 +112,12 @@ M.StatusLine = function()
         M.get_line_info())
 end
 
-vim.o.statusline = '%!v:lua.require("yoni.statusline").StatusLine()'
+vim.o.statusline = '%!v:lua.require("sky.statusline").StatusLine()'
 
 local group = vim.api.nvim_create_augroup("YONI_STATUSLINE", { clear = true })
 
 vim.api.nvim_create_autocmd("BufWritePre", { callback = function()
-    vim.cmd("silent! lua require('yoni.statusline').on_write()")
+    vim.cmd("silent! lua require('sky.statusline').on_write()")
 end, group = group })
 
 --TODO: play around with getting colors on the status bar

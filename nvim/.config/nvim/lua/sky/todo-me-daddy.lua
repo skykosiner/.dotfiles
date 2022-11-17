@@ -1,7 +1,7 @@
-local normal = require("yoni.keymaps").normal
+local normal = require("sky.keymaps").normal
 
 require("todo-me-daddy").setup {
-    your_name = "yoni",
+    your_name = "Sky",
     get_markdown_todo = true,
     ignore_folders = {
         node_modules = "node_modules",

@@ -1,5 +1,5 @@
-local normal = require("yoni.keymaps").normal
-local visual = require("yoni.keymaps").visual
+local normal = require("sky.keymaps").normal
+local visual = require("sky.keymaps").visual
 
 -- visual("<leader>rw", ":lua require('yoni.telescope').refactors()<CR>")
 

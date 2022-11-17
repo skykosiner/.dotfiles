@@ -6,8 +6,8 @@ let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 local sumneko_root_path = "/home/yoni/personal/lua-language-server"
 local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
 
-local normal = require("yoni.keymaps").normal
-local insert = require("yoni.keymaps").insert
+local normal = require("sky.keymaps").normal
+local insert = require("sky.keymaps").insert
 
 -- setup nvim-cmp.
 local cmp = require 'cmp'
@@ -114,7 +114,7 @@ local function config(_config)
             normal("]d", ":lua vim.diagnostic.goto_prev()<CR>")
             normal("<leader>vca", ":lua vim.lsp.buf.code_action()<CR>")
             normal("<leader>vrr", ":lua vim.lsp.buf.references()<CR>")
-            normal("<leader>vrn", ":lua require('yoni.lsp.rename').rename()<CR>")
+            normal("<leader>vrn", ":lua require('sky.lsp.rename').rename()<CR>")
             insert("<C-h>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
 
             local group = vim.api.nvim_create_augroup("LSP_FORMAT", { clear = true })

@@ -75,3 +75,6 @@ alias shutdown="sudo shutdown -h now";
 alias restart="sudo shutdown -r now";
 
 alias lf="lfub"
+
+# Yes I know this is not a true VPN
+alias enableVPN="warp-cli connect"

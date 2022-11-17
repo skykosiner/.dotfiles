@@ -1,6 +1,6 @@
 local actions = require('telescope.actions')
 local themes = require('telescope.themes')
-local normal = require("yoni.keymaps").normal
+local normal = require("sky.keymaps").normal
 
 --TODO: setup function to quickly delete a file
 function delete_file(file)
@@ -227,14 +227,14 @@ normal("<leader>pb", ":lua require('telescope.builtin').buffers()<CR>")
 normal("<leader>lps", ":lua require('telescope.builtin').lsp_references()<CR>")
 normal("<leader>ld", ":Telescope diagnostics<cr>")
 
-normal("<leader>vrc", ":lua require('yoni.telescope').search_dotfiles()<CR>")
-normal("<leader>src", ":lua require('yoni.telescope').search_school()<CR>")
+normal("<leader>vrc", ":lua require('sky.telescope').search_dotfiles()<CR>")
+normal("<leader>src", ":lua require('sky.telescope').search_school()<CR>")
 
 normal("<leader>pw", ":lua require('telescope.builtin').grep_string { search = vim.fn.expand('<cword>') }<CR>")
 normal("<leader>vih", ":lua require('telescope.builtin').help_tags()<CR>")
 
-normal("<leader>va", ":lua require('yoni.telescope').anime_selector()<CR>")
-normal("<leader>pa", ":lua require('yoni.telescope').password_selector()<CR>")
+normal("<leader>va", ":lua require('sky.telescope').anime_selector()<CR>")
+normal("<leader>pa", ":lua require('sky.telescope').password_selector()<CR>")
 
 normal("<leader>gb", ":Telescope git_branches<CR>")
 normal("<leader>gc", ":Telescope git_commits<CR>")

@@ -72,7 +72,7 @@ M.normal("<leader>gu", ":diffget //2<CR>")
 M.normal("<leader>gs", ":G<CR>")
 
 -- Spelling
-M.normal("<leader>sp", ":lua require('yoni.utils').toggleSpell()<CR>")
+M.normal("<leader>sp", ":lua require('sky.utils').toggleSpell()<CR>")
 
 -- JSON stuff
 M.normal("<left>", ":lua require('jvim').to_parent()<CR>")
@@ -94,14 +94,14 @@ M.visual("<leader>Y", '"+Y')
 
 M.normal("<silent>Q", "<Nop>")
 
-M.normal("<leader>r", ":lua require('yoni.utils').reload_module()<CR>")
+M.normal("<leader>r", ":lua require('sky.utils').reload_module()<CR>")
 
 M.normal("<leader>ee", "oif err != nil {<CR>}<CR><esc>kkI<esc>")
 
 -- Open my current dir in nnn (termianl file manger) with a quick hotkey, this is very handy
-M.normal("<leader><C-o>", ":lua require('yoni.utils').open_dir_nnn()<CR>")
-M.normal("<leader><C-p>", ":lua require('yoni.utils').pxToRem()<CR>")
-M.normal("<leader><C-d>", ":lua require('yoni.utils').currentDate()<CR>")
+M.normal("<leader><C-o>", ":lua require('sky.utils').open_dir_nnn()<CR>")
+M.normal("<leader><C-p>", ":lua require('sky.utils').pxToRem()<CR>")
+M.normal("<leader><C-d>", ":lua require('sky.utils').currentDate()<CR>")
 
 -- Add tags in go
 M.normal("<leader>t", ":GoAddTag<CR>")
