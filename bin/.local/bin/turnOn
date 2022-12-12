@@ -8,6 +8,7 @@ currentBackground=$(dconf read /org/mate/desktop/background/picture-filename)
 ~/.local/bin/change_background_random
 dconf write /org/mate/desktop/background/picture-filename "$currentBackground"
 
+i3 restart
 
 i3 workspace 1
 i3 move workspace to output left

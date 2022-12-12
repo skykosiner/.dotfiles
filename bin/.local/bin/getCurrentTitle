@@ -7,10 +7,5 @@ if [ $? -eq 1 ]; then
     echo "Desktop"
 else
     size=${#title}
-
-    if [ size > 50 ]; then
-        echo "${title:0:50}..."
-    else
-        echo "$title"
-    fi
+    echo "$title"
 fi

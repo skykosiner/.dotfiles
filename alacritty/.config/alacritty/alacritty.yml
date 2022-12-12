@@ -11,14 +11,15 @@ window.dynamic_title: true
 # Font Customization
 font:
   normal:
-    family: Fira Code
-    # family: Iosevka
+    # family: Fira Code
+    family: Iosevka
+    # family: JetBrainsMono Nerd Font
     style: Retina
   bold:
-    family: Fira Code
+    family: Iosevka
     style: Bold
   italic:
-    family: Fira Code
+    family: Iosevka
     style: Bold Italic
   size: 22
 
