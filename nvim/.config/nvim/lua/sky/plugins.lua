@@ -2,6 +2,13 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
+    use {
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+            'nvim-tree/nvim-web-devicons', -- optional, for file icons
+        },
+    }
+
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
     -- Lsp
@@ -10,6 +17,11 @@ return require('packer').startup(function(use)
 
     -- Org mode shit
     use 'jceb/vim-orgmode'
+
+    use({
+        'rose-pine/neovim',
+        as = 'rose-pine',
+    })
 
     use 'norcalli/nvim-colorizer.lua'
     use 'tjdevries/gruvbuddy.nvim'
@@ -21,7 +33,6 @@ return require('packer').startup(function(use)
     use 'tjdevries/colorbuddy.nvim'
     use 'onsails/lspkind-nvim'
     use 'projekt0n/github-nvim-theme'
-    -- use 'romgrk/nvim-treesitter-context'
     use 'kyazdani42/nvim-web-devicons'
     use 'akinsho/bufferline.nvim'
     use 'nvim-lua/lsp_extensions.nvim'

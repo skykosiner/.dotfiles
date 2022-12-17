@@ -4,7 +4,7 @@ local group = vim.api.nvim_create_augroup("YONI", { clear = true })
 -- Give that sweet little yellow thing for a second on a yank, so I know what I
 -- have yanked
 vim.api.nvim_create_autocmd("TextYankPost", { callback = function()
-    require 'vim.highlight'.on_yank({ timeout = 25 })
+    require 'vim.highlight'.on_yank({ timeout = 50 })
 end, group = group })
 
 -- Clear whitespace on save

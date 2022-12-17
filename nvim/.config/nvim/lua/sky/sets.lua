@@ -1,3 +1,5 @@
+vim.opt.guicursor = ""
+
 vim.opt.laststatus = 3
 
 vim.opt.number = true
@@ -31,7 +33,9 @@ vim.opt.wrap = false
 vim.opt.belloff = "all" -- Just turn the dang bell off
 
 vim.opt.swapfile = false -- Living on the edge
-vim.opt.undodir = "/home/yoni/.vim/pluged"
+vim.opt.backup = false
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undofile = true
 
 vim.opt.wildignore = "__pycache__"
 vim.opt.wildignore = "*.pyc"

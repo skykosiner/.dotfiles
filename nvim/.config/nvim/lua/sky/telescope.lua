@@ -219,7 +219,7 @@ M.refactors = function()
 end
 
 -- Remaps
-normal("<leader>ff", "<cmd>lua require('telescope.builtin').find_files({ hidden = true })<cr>")
+normal("<leader>pf", "<cmd>lua require('telescope.builtin').find_files({ hidden = true })<cr>")
 normal("<C-p>", ":lua require('telescope.builtin').git_files()<CR>")
 normal("<leader>ps", ":lua require('telescope.builtin').grep_string({ search = vim.fn.input('Grep For > ')})<CR>")
 normal("<leader>pb", ":lua require('telescope.builtin').buffers()<CR>")

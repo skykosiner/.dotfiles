@@ -1,6 +1,9 @@
 -- Make sure my leader is set befdore anything happens
 vim.g.mapleader = " "
 
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- Local vim porjects
 vim.opt.rtp:append(vim.fn.expand "~/personal/todo-me-daddy/fix-shit-coide/")
 vim.opt.rtp:append(vim.fn.expand "~/personal/twitch-bot/ui")

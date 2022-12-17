@@ -6,16 +6,19 @@ require("colorbuddy").setup()
 -- Remove window border color thing - does not work 100% on gruvbox btw
 Group.new("WinSeparator", nil, nil)
 
-vim.g.yoni_colorscheme = 'gruvbox'
+vim.g.tokyonight_transparent = true
+vim.g.tokyonight_transparent_sidebar = true
+vim.opt.background = "dark"
+
+vim.g.sky_colorscheme = 'gruvbox'
 
 -- Make that gruvbox look good
-vim.g.tokyonight_transparent = 1
 vim.g.gruvbox_contrast_dark = 'hard'
 vim.g.gruvbox_contrast_dark = 'hard'
 vim.g.gruvbox_invert_selection = '0'
 vim.g.gruvbox_italic = 1
 
-require('colorbuddy').colorscheme(vim.g.yoni_colorscheme)
+require('colorbuddy').colorscheme(vim.g.sky_colorscheme)
 
 local hl = function(thing, opts)
     vim.api.nvim_set_hl(0, thing, opts)
@@ -27,7 +30,6 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 highlight ColorColumn ctermbg=0 guibg=#555555
 highlight SignColumn guibg=none
-highlight Normal guibg=none
 highlight LineNr guifg=#aaaaff guibg=None
 highlight netrwDir guifg=#aaaaff
 highlight qfFileName guifg=#aed75f
@@ -47,3 +49,6 @@ highlight background_color guifg=#373b40 guibg=#7fa3c0
 " highlight netrwDir guifg=#5eacd3
 highlight LineNr guifg=#5eacd3 guibg=None
 ]])
+
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })

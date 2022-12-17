@@ -33,9 +33,6 @@ M.normal("<leader>k", ":lprevious<CR>")
 M.normal("<leader>po", ":copen<CR>")
 M.normal("<leader>lo", ":lopen<CR>")
 
-M.visual("J", "<cmd>m '>+1<CR>gv=gv")
-M.visual("K", "<cmd>m '<-2<CR>gv=gv")
-
 M.normal("*", "*zzzv")
 M.normal("#", "#zzzv")
 M.normal(",", ",zzzv")
@@ -54,9 +51,9 @@ M.visual("<", "<gv")
 M.visual(">", ">gv")
 
 -- File stuff
-M.normal("<leader>pv", ":Ex<cr>")
+M.normal("<leader>pv", ":NvimTreeToggle<CR>:wincmd l<CR>:wq<CR>")
 -- Have some sex on the side baby
-M.normal("<leader>ft", "<cmd>Sex!<CR>")
+M.normal("<leader>ft", ":NvimTreeToggle<CR>")
 
 -- Connect to that twitch bot gurlll
 M.normal("<leader>ea", "[[ <cmd>lua require('twitch-bot').init()<CR> ]]")
@@ -112,11 +109,12 @@ M.normal("<leader>guc", ":norm ^df*f*D<CR>")
 
 -- M.visual("J", ":m '>+1<CR>gv=gv")
 -- M.visual("k", ":m '<-2<CR>gv=gv")
-
+--
 -- Yes, I'm british btw
 M.visual("<leader>bow", ":,'<,'>s/bottle of water/bo'o'woh'ooah'a'<CR>")
 
-
 M.normal("<leader>o", "o<esc>ko")
+
+M.normal("<leader>ss", ':lua require("plenary.reload").reload_module("sky.statusline")<CR>')
 
 return M
