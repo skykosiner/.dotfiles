@@ -1,5 +1,3 @@
-vim.g.mapleader = " "
-
 vim.opt.guicursor = ""
 
 vim.opt.laststatus = 3
@@ -8,6 +6,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 vim.opt.termguicolors = true
+-- vim.opt.exrc = true
 vim.opt.undofile = true
 vim.opt.incsearch = true
 vim.opt.cmdheight = 1

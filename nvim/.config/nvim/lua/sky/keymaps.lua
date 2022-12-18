@@ -1,120 +1,64 @@
-local M = {}
-
-function M.bind(mode, keys, func)
-    vim.api.nvim_set_keymap(mode, keys, func, { noremap = true, silent = true })
-end
-
-function M.normal(key, func)
-    M.bind("n", key, func)
-end
-
-function M.visual(key, func)
-    M.bind("v", key, func)
-end
-
-function M.insert(key, func)
-    M.bind("i", key, func)
-end
-
--- Sweet tmux things
-M.normal("<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 -- Sweet resizes baby
-M.normal("<leader>+", "<cmd>vertical resize +5<CR>")
-M.normal("<leader>-", "<cmd>vertical resize -5<CR>")
-M.normal("<leader>t+", "<cmd>top resize +5<CR>")
-M.normal("<leader>t-", "<cmd>top resize -5<CR>")
+vim.keymap.set("n","<leader>+", "<cmd>vertical resize +5<CR>")
+vim.keymap.set("n", "<leader>-", "<cmd>vertical resize -5<CR>")
+vim.keymap.set("n", "<leader>t+", "<cmd>top resize +5<CR>")
+vim.keymap.set("n", "<leader>t-", "<cmd>top resize -5<CR>")
 
--- Remaps to move around
-M.normal("<C-j>", ":cnext<CR>")
-M.normal("<C-k>", ":cprev<CR>")
-M.normal("<leader>j", ":lnext<CR>")
-M.normal("<leader>k", ":lprevious<CR>")
-M.normal("<leader>po", ":copen<CR>")
-M.normal("<leader>lo", ":lopen<CR>")
+vim.keymap.set("n", "<C-j>", ":cnext<CR>")
+vim.keymap.set("n", "<C-k>", ":cprev<CR>")
+vim.keymap.set("n", "<leader>j", ":lnext<CR>")
+vim.keymap.set("n", "<leader>k", ":lprevious<CR>")
+vim.keymap.set("n", "<leader>po", ":copen<CR>")
+vim.keymap.set("n", "<leader>lo", ":lopen<CR>")
 
-M.normal("*", "*zzzv")
-M.normal("#", "#zzzv")
-M.normal(",", ",zzzv")
-M.normal(";", ";zzzv")
-M.normal("n", "nzzzv")
-M.normal("N", "Nzzzv")
+vim.keymap.set("n", "*", "*zzzv")
+vim.keymap.set("n", "#", "#zzzv")
+vim.keymap.set("n", ",", ",zzzv")
+vim.keymap.set("n", ";", ";zzzv")
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
 
-M.normal("<leader>o", "o<Esc>^Da")
-M.normal("<leader>O", "O<Esc>^Da")
+vim.keymap.set("n", "<leader>o", "o<Esc>^Da")
+vim.keymap.set("n", "<leader>O", "O<Esc>^Da")
 
 -- Use control-c instead of esc, please don't fire me
-M.normal("<C-c>", "<Esc>")
+vim.keymap.set("n", "<C-c>", "<Esc>")
 
 -- Sweet remaps to tab stuff gurlll
-M.visual("<", "<gv")
-M.visual(">", ">gv")
-
--- File stuff
-M.normal("<leader>pv", ":NvimTreeToggle<CR>:wincmd l<CR>:wq<CR>")
--- Have some sex on the side baby
-M.normal("<leader>ft", ":NvimTreeToggle<CR>")
-
--- Connect to that twitch bot gurlll
-M.normal("<leader>ea", "[[ <cmd>lua require('twitch-bot').init()<CR> ]]")
-M.normal("<leader>ed", "[[ <cmd>lua require('twitch-bot').disconnect()<CR> ]]")
-
-
--- Git stuff
-M.normal("<leader>ga", ":Git fetch --all<CR>")
-M.normal("<leader>grum", ":Git rebase upstream/master<CR>")
-M.normal("<leader>grom", ":Git rebase origin/master<CR>")
-M.normal("nmap <leader>gh", ":diffget //3<CR>")
-M.normal("<leader>gu", ":diffget //2<CR>")
-M.normal("<leader>gs", ":G<CR>")
+vim.keymap.set("v", "<", "<gv")
+vim.keymap.set("v", ">", ">gv")
 
 -- Spelling
-M.normal("<leader>sp", ":lua require('sky.utils').toggleSpell()<CR>")
+vim.keymap.set("n", "<leader>sp", ":lua require('sky.utils').toggleSpell()<CR>")
 
--- JSON stuff
-M.normal("<left>", ":lua require('jvim').to_parent()<CR>")
-M.normal("<right>", ":lua require('jvim').descend()<CR>")
-M.normal("<up>", ":lua require('jvim').prev_sibling()<CR>")
-M.normal("<down>", ":lua require('jvim').next_sibling()<CR>")
+vim.keymap.set("n", "<leader>ch", "<cmd>!chmod +x %<CR>")
 
--- Misc
-M.normal("<leader>ch", "<cmd>!chmod +x %<CR>")
-M.normal("<leader>u", "<cmd>UndotreeToggle<CR>")
+vim.keymap.set("n", "<leader>y", '"+y')
+vim.keymap.set("n", "<leader>Y", '"+y$')
+vim.keymap.set("n", "<leader>d", '"_d')
+vim.keymap.set("n", "<leader>x", '"_x')
+vim.keymap.set("v", "<leader>p", '"_dP')
+vim.keymap.set("v", "<leader>y", '"+y')
+vim.keymap.set("v", "<leader>Y", '"+Y')
 
-M.normal("<leader>y", '"+y')
-M.normal("<leader>Y", '"+y$')
-M.normal("<leader>d", '"_d')
-M.normal("<leader>x", '"_x')
-M.visual("<leader>p", '"_dP')
-M.visual("<leader>y", '"+y')
-M.visual("<leader>Y", '"+Y')
+vim.keymap.set("n", "<silent>Q", "<Nop>")
 
-M.normal("<silent>Q", "<Nop>")
+vim.keymap.set("n", "<leader>r", ":lua require('sky.utils').reload_module()<CR>")
 
-M.normal("<leader>r", ":lua require('sky.utils').reload_module()<CR>")
+vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<CR><esc>kkI<esc>")
 
-M.normal("<leader>ee", "oif err != nil {<CR>}<CR><esc>kkI<esc>")
+vim.keymap.set("n", "<leader><C-o>", ":lua require('sky.utils').open_dir_nnn()<CR>")
 
--- Open my current dir in nnn (termianl file manger) with a quick hotkey, this is very handy
-M.normal("<leader><C-o>", ":lua require('sky.utils').open_dir_nnn()<CR>")
-M.normal("<leader><C-p>", ":lua require('sky.utils').pxToRem()<CR>")
-M.normal("<leader><C-d>", ":lua require('sky.utils').currentDate()<CR>")
+vim.keymap.set("n", "<leader>gcc", ":norm ^i{/*<esc>A*/}<esc><CR>")
+vim.keymap.set("n", "<leader>guc", ":norm ^df*f*D<CR>")
 
--- Add tags in go
-M.normal("<leader>t", ":GoAddTag<CR>")
+vim.keymap.set("n", "<leader>o", "o<esc>ko")
 
--- React sucks with comments
-M.normal("<leader>gcc", ":norm ^i{/*<esc>A*/}<esc><CR>")
-M.normal("<leader>guc", ":norm ^df*f*D<CR>")
+vim.keymap.set("n", "<leader>ss", ':lua require("plenary.reload").reload_module("sky.statusline")<CR>')
 
--- M.visual("J", ":m '>+1<CR>gv=gv")
--- M.visual("k", ":m '<-2<CR>gv=gv")
---
--- Yes, I'm british btw
-M.visual("<leader>bow", ":,'<,'>s/bottle of water/bo'o'woh'ooah'a'<CR>")
-
-M.normal("<leader>o", "o<esc>ko")
-
-M.normal("<leader>ss", ':lua require("plenary.reload").reload_module("sky.statusline")<CR>')
-
-return M
+-- File stuff
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+-- Have some sex on the side baby
+vim.keymap.set("n", "<leader>ft", ":Sex!<CR>")

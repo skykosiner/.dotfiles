@@ -1,8 +1,7 @@
--- Make sure my leader is set befdore anything happens
-vim.g.mapleader = " "
-
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+require("sky.sets")
+require("sky.keymaps")
+require("sky.telescope")
+require("sky.statusline")
 
 -- Local vim porjects
 vim.opt.rtp:append(vim.fn.expand "~/personal/todo-me-daddy/fix-shit-coide/")
@@ -10,32 +9,26 @@ vim.opt.rtp:append(vim.fn.expand "~/personal/twitch-bot/ui")
 vim.opt.rtp:append(vim.fn.expand "~/personal/harpoon/auto-group")
 vim.opt.rtp:append(vim.fn.expand "~/personal/duckytype.nvim")
 
-require("sky.plugins")
+-- We create a grop which will be cleared each time, this is so we don't have multiple autocommands running (or something like that)
+local group = vim.api.nvim_create_augroup("SKY", { clear = true })
 
--- vim.notify = require("notify")
+-- Give that sweet little yellow thing for a second on a yank, so I know what I
+-- have yanked
+vim.api.nvim_create_autocmd("TextYankPost", { callback = function()
+    require 'vim.highlight'.on_yank({ timeout = 50 })
+end, group = group })
 
-require("sky.globals")
-require("sky.autocmd")
-require("sky.disable_builtin")
-require("sky.telescope")
-require("sky.lsp")
-require("sky.treesitter")
-require("sky.git-worktree")
-require("sky.comment")
-require("sky.utils")
-require("sky.todo-me-daddy")
-require("sky.sets")
-require("sky.colors")
-require("sky.keymaps")
-require("sky.refactoring")
-require("sky.luasnip")
-require("sky.harpoon")
-require("sky.statusline")
-require("sky.winbar")
+-- Clear whitespace on save
+vim.api.nvim_create_autocmd("BufWritePre", { callback = function()
+    -- This is scuffed, but lua won't let me use \ to escapee a Character, and
+    -- vim does not like it when you use |
+    vim.cmd([[:%s/\s\+$//e]])
+end, group = group })
 
-require("go").setup()
+vim.g.netrw_browse_split = 0
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 25
+vim.g.netrw_localrmdir='rm -rf'
 
-require("duckytype").setup {
-    number_of_words = 69,
-    average_word_length = 5.69,
-}
+vim.g.python3_host_skip_check = 1
+vim.g.python3_host_prog='/bin/python3'

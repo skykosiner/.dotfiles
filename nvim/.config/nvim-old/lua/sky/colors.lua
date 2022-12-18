@@ -10,7 +10,7 @@ vim.g.tokyonight_transparent = true
 vim.g.tokyonight_transparent_sidebar = true
 vim.opt.background = "dark"
 
-vim.g.sky_colorscheme = 'gruvbox'
+vim.g.sky_colorscheme = 'rose-pine'
 
 -- Make that gruvbox look good
 vim.g.gruvbox_contrast_dark = 'hard'
