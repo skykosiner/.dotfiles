@@ -27,7 +27,7 @@ for i in `find -L $PERSONAL`; do
     source $i
 done
 
-megaMind
+# megaMind
 
 # MacOS stuff
 alias urlS="/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -dump URLSchemeBinding"

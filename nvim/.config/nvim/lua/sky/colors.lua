@@ -1,7 +1,7 @@
 local Group = require("colorbuddy.group").Group
 
 function Colors(color)
-    vim.g.sky_colorscheme = color or 'rose-pine'
+    vim.g.sky_colorscheme = color or 'gruvbuddy'
     Group.new("WinSeparator", nil, nil)
 
     require("colorizer").setup()
@@ -46,6 +46,12 @@ function Colors(color)
 
     " highlight netrwDir guifg=#5eacd3
     highlight LineNr guifg=#5eacd3 guibg=None
+
+    " gray
+    highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#880808
+    " blue
+    highlight! CmpItemAbbrMatch guibg=NONE guifg=#aaaaff
+    highlight! link CmpItemAbbrMatchFuzzy CmpItemAbbrMatch
     ]])
 
     vim.api.nvim_set_hl(0, "Normal", { bg = "none" })

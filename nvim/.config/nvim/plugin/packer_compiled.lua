@@ -244,15 +244,15 @@ _G.packer_plugins = {
     path = "/home/yoni/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
-  ["nvim-tree.lua"] = {
-    loaded = true,
-    path = "/home/yoni/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
-    url = "https://github.com/nvim-tree/nvim-tree.lua"
-  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/home/yoni/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
+  ["nvim-treesitter-context"] = {
+    loaded = true,
+    path = "/home/yoni/.local/share/nvim/site/pack/packer/start/nvim-treesitter-context",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter-context"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
@@ -314,6 +314,11 @@ _G.packer_plugins = {
     path = "/home/yoni/.local/share/nvim/site/pack/packer/start/telescope-fzy-native.nvim",
     url = "https://github.com/nvim-telescope/telescope-fzy-native.nvim"
   },
+  ["telescope-media-files.nvim"] = {
+    loaded = true,
+    path = "/home/yoni/.local/share/nvim/site/pack/packer/start/telescope-media-files.nvim",
+    url = "https://github.com/nvim-telescope/telescope-media-files.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/yoni/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -343,11 +348,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yoni/.local/share/nvim/site/pack/packer/start/vim-hybrid",
     url = "https://github.com/w0ng/vim-hybrid"
-  },
-  ["vim-orgmode"] = {
-    loaded = true,
-    path = "/home/yoni/.local/share/nvim/site/pack/packer/start/vim-orgmode",
-    url = "https://github.com/jceb/vim-orgmode"
   },
   ["vim-rfc"] = {
     loaded = true,

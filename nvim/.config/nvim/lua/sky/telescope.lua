@@ -1,11 +1,26 @@
 local actions = require('telescope.actions')
 local themes = require('telescope.themes')
 
+local function delete_file()
+    local content = require("telescope.actions.state").get_selected_entry()
+
+    local path = content.cwd .. "/" .. content.value
+    local shortPath = vim.fn.pathshorten(vim.fn.fnamemodify(path, ":."))
+
+    vim.ui.input({ prompt = "Do you want to delete the file (y/n): " .. shortPath .. " " }, function(input)
+        if input == "y" then
+            vim.cmd("!rm -rf " .. path)
+        end
+    end)
+end
+
 require('telescope').setup {
-    defaults = themes.get_ivy({
+    defaults = themes.get_dropdown({
+        winbled = 10,
         file_sorter = require('telescope.sorters').get_fzy_sorter,
         prompt_prefix = ' > ',
         color_devicons = true,
+        respect_gitignore = true,
 
         file_previewer   = require('telescope.previewers').vim_buffer_cat.new,
         grep_previewer   = require('telescope.previewers').vim_buffer_vimgrep.new,
@@ -16,6 +31,9 @@ require('telescope').setup {
                 ["<C-x>"] = false,
                 ["<C-q>"] = actions.send_to_qflist,
                 ["<C-s>"] = actions.select_horizontal,
+                ["<C-r>"] = function()
+                    delete_file()
+                end
             },
         }
     }),
@@ -43,7 +61,6 @@ require('telescope').setup {
         },
         buffers = {
             sort_mru = true,
-            theme = "ivy",
             mappings = {
                 i = { ["<c-d>"] = actions.delete_buffer },
             },
@@ -123,7 +140,8 @@ M.anime_selector = image_selector("< Change background> ", "~/.dotfiles/anime")
 -- Remaps
 vim.keymap.set("n", "<leader>pf", "<cmd>lua require('telescope.builtin').find_files({ hidden = true })<cr>")
 vim.keymap.set("n", "<C-p>", ":lua require('telescope.builtin').git_files()<CR>")
-vim.keymap.set("n", "<leader>ps", ":lua require('telescope.builtin').grep_string({ search = vim.fn.input('Grep For > ')})<CR>")
+vim.keymap.set("n", "<leader>ps",
+    ":lua require('telescope.builtin').grep_string({ search = vim.fn.input('Grep For > ')})<CR>")
 vim.keymap.set("n", "<leader>pb", ":lua require('telescope.builtin').buffers()<CR>")
 
 vim.keymap.set("n", "<leader>lps", ":lua require('telescope.builtin').lsp_references()<CR>")
@@ -131,7 +149,8 @@ vim.keymap.set("n", "<leader>ld", ":Telescope diagnostics<cr>")
 
 vim.keymap.set("n", "<leader>vrc", ":lua require('sky.telescope').search_dotfiles()<CR>")
 
-vim.keymap.set("n", "<leader>pw", ":lua require('telescope.builtin').grep_string { search = vim.fn.expand('<cword>') }<CR>")
+vim.keymap.set("n", "<leader>pw",
+    ":lua require('telescope.builtin').grep_string { search = vim.fn.expand('<cword>') }<CR>")
 vim.keymap.set("n", "<leader>vih", ":lua require('telescope.builtin').help_tags()<CR>")
 
 vim.keymap.set("n", "<leader>va", ":lua require('sky.telescope').anime_selector()<CR>")
@@ -139,7 +158,11 @@ vim.keymap.set("n", "<leader>va", ":lua require('sky.telescope').anime_selector(
 vim.keymap.set("n", "<leader>gb", ":Telescope git_branches<CR>")
 vim.keymap.set("n", "<leader>gc", ":Telescope git_commits<CR>")
 
-vim.keymap.set("n", "<leader>gw", ":lua require('telescope').extensions.git_worktree.git_worktrees({ layout_config = { width = 0.5, height = 0.5 }})<CR>")
-vim.keymap.set("n", "<leader>gm", ":lua require('telescope').extensions.git_worktree.create_git_worktree({ layout_config = { width = 0.5, height = 0.5 }})<CR>")
+vim.keymap.set("n", "<leader>gw",
+    ":lua require('telescope').extensions.git_worktree.git_worktrees({ layout_config = { width = 0.5, height = 0.5 }})<CR>")
+vim.keymap.set("n", "<leader>gm",
+    ":lua require('telescope').extensions.git_worktree.create_git_worktree({ layout_config = { width = 0.5, height = 0.5 }})<CR>")
+
+vim.keymap.set("n", "<leader>sc", ":lua require('sky.utils').set_color()<CR>")
 
 return M

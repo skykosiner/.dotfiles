@@ -206,10 +206,6 @@ require('symbols-outline').setup(opts)
 -- TOOD: get collor stuff working
 -- local Group, groups, styles = require('colorbuddy').setup()
 
-vim.cmd([[
-highlight CmpItemAbbrMatchFuzzy guibg=#aaafff guifg=#aaafff
-]])
-
 -- Group.new("CmpItemAbbr", "#aaafff")
 -- Group.new("CmpItemAbbrDeprecated", groups.Error)
 -- Group.new("CmpItemAbbrMatchFuzzy", groups.CmpItemAbbr, nil, styles.italic)

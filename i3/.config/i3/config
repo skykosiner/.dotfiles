@@ -39,7 +39,7 @@ smart_gaps on
 floating_modifier $mod
 
 # start a terminal
-set $term --no-startup-id alacritty
+set $term --no-startup-id kitty
 bindsym $mod+Return exec $term
 
 # kill focused window
@@ -188,7 +188,7 @@ bindsym Mod4+m                  exec --no-startup-id ~/.local/bin/volumeControl 
 #bindsym $mod+Shift+period exec systemctl suspend
 
 # Open apps
-bindsym $mod+shift+f			exec alacritty -e "nnn"
+bindsym $mod+shift+f			exec kitty -e "nnn"
 bindsym Mod4+shift+f			exec /usr/bin/pcmanfm
 bindsym $mod+shift+w			exec --no-startup-id /usr/bin/brave
 bindsym $mod+Shift+g		    exec --no-startup-id /usr/bin/gimp; workspace $ws6

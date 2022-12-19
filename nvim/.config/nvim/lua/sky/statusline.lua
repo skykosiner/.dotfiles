@@ -42,7 +42,8 @@ M.get_line_info = function()
     local line = vim.fn.line(".")
     local offset = vim.fn.col(".")
 
-    if offset == 1 or offset == 2 or offset == 3 or offset == 4 or offset == 5 or offset == 6 or offset == 7 or offset == 8 or offset == 9 then
+    if offset == 1 or offset == 2 or offset == 3 or offset == 4 or offset == 5 or offset == 6 or offset == 7 or
+        offset == 8 or offset == 9 then
         offset = "0" .. offset
     end
 
@@ -88,12 +89,14 @@ end
 M.on_write = function()
     write_count = write_count + 1
 
-    if write_count == 1 or write_count == 2 or write_count == 3 or write_count == 4 or write_count == 5 or write_count == 6 or write_count == 7 or write_count == 8 or write_count == 9 then
+    if write_count == 1 or write_count == 2 or write_count == 3 or write_count == 4 or write_count == 5 or
+        write_count == 6 or write_count == 7 or write_count == 8 or write_count == 9 then
         write_count = "0" .. write_count
     end
 end
 
-local statusline = "%%#Modes#" .. " %s%%)" .. "%%#Ignore#" .. "%s%% %s%%)  %%-5.100(%s%%) %s%% %%-1.50(%s%%) %%-5.20(%s%%)%%-6.6)"
+local statusline = "%%#Modes#" ..
+    " %s%%)" .. "%%#Ignore#" .. "%s%% %s%%)  %%-5.100(%s%%) %s%% %%-1.50(%s%%) %%-5.20(%s%%)%%-6.6)"
 
 -- if msg or not msg == "" then
 --     statusline = statusline .. "| %s%%)"
@@ -114,7 +117,7 @@ end
 
 vim.o.statusline = '%!v:lua.require("sky.statusline").StatusLine()'
 
-local group = vim.api.nvim_create_augroup("YONI_STATUSLINE", { clear = true })
+local group = vim.api.nvim_create_augroup("SKY_STATUSLINE", { clear = true })
 
 vim.api.nvim_create_autocmd("BufWritePre", { callback = function()
     vim.cmd("silent! lua require('sky.statusline').on_write()")

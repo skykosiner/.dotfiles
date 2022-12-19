@@ -2,6 +2,8 @@ require("sky.sets")
 require("sky.keymaps")
 require("sky.telescope")
 require("sky.statusline")
+require("sky.colors")
+require("sky.winbar")
 
 -- Local vim porjects
 vim.opt.rtp:append(vim.fn.expand "~/personal/todo-me-daddy/fix-shit-coide/")
