@@ -27,7 +27,6 @@ function M.set_color()
         sorter = require("telescope.config").values.generic_sorter({}),
         attach_mappings = function(_, map)
             map("i", "<CR>", change_color)
-            map("n", "<CR>", change_color)
             return true
         end,
     }):find()

@@ -6,7 +6,7 @@ require("statusLine").setup({
         ModeInfo = true,
         LineInfo = true,
         GitInfo = true,
-        LspInfo = true,
+        LspInfo = false,
         HarpoonInfo = false,
         SaveInfo = false,
     },

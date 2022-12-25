@@ -62,12 +62,12 @@ modkey = "Mod1"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
     awful.layout.suit.tile,
+    awful.layout.suit.spiral,
     awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
     awful.layout.suit.fair,
     awful.layout.suit.fair.horizontal,
-    awful.layout.suit.spiral,
     awful.layout.suit.spiral.dwindle,
     awful.layout.suit.max,
     awful.layout.suit.max.fullscreen,
@@ -232,12 +232,20 @@ globalkeys = gears.table.join(
         awful.util.spawn("brave")
     end),
 
+    awful.key({ modkey, "Shift" }, "g", function()
+        awful.util.spawn("gimp")
+    end),
+
     awful.key({ "Mod4", }, "d", function()
         awful.spawn(terminal .. " -e setxkbmap -layout real-prog-dvorak")
     end),
 
     awful.key({ "Mod4", }, "q", function()
         awful.spawn(terminal .. " -e setxkbmap -layout us")
+    end),
+
+    awful.key({ "Mod4", "Shift" }, "g", function()
+        awful.spawn(terminal .. " -e picomToggle")
     end),
 
     -- TODO: Get picom toggle to work
@@ -358,7 +366,12 @@ clientkeys = gears.table.join(
         { description = "toggle floating", group = "client" }),
     awful.key({ modkey, "Control" }, "Return", function(c) c:swap(awful.client.getmaster()) end,
         { description = "move to master", group = "client" }),
-    awful.key({ modkey, }, "m", function(c) c:move_to_screen() end,
+    awful.key({ modkey, }, "m", function(c)
+        -- Get current window tag
+        -- Then move to that tag on the second screen
+        -- For now just using the defualt that just moves to whatever workspace is open on the other screen
+        c:move_to_screen()
+    end,
         { description = "move to screen", group = "client" }),
     awful.key({ modkey, }, "n",
         function(c)
@@ -582,3 +595,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 awful.util.spawn("picom")
 awful.util.spawn("pulseaudio")
 awful.util.spawn("dunst")
+awful.util.spawn("setxkbmap -layout real-prog-dvorak")
