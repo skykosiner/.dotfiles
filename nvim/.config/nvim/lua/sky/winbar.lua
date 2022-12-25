@@ -1,3 +1,4 @@
+-- Don't know if I like this option or not as it makes my vim look less clean but it's also kind of helpful hmmm
 local M = {}
 
 local msg = ""

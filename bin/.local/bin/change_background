@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [[ $# -eq 1 ]]; then
-    dconf write /org/mate/desktop/background/picture-filename "'$1'"
+    # dconf write /org/mate/desktop/background/picture-filename "'$1'"
 else
-    dconf write /org/mate/desktop/background/picture-filename "'$HOME/.dotfiles/anime/$(ls ~/.dotfiles/anime | fzf)'"
+    # dconf write /org/mate/desktop/background/picture-filename "'$HOME/.dotfiles/anime/$(ls ~/.dotfiles/anime | fzf)'"
 fi

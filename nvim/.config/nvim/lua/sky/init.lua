@@ -1,15 +1,15 @@
+-- Local vim porjects
+vim.opt.rtp:append(vim.fn.expand "~/personal/todo-me-daddy/fix-everything")
+vim.opt.rtp:append(vim.fn.expand "~/personal/twitch-bot/ui")
+vim.opt.rtp:append(vim.fn.expand "~/personal/harpoon/auto-group")
+vim.opt.rtp:append(vim.fn.expand "~/personal/duckytype.nvim")
+vim.opt.rtp:append(vim.fn.expand "~/personal/statusline.nvim/")
+
 require("sky.sets")
 require("sky.keymaps")
 require("sky.telescope")
 require("sky.statusline")
-require("sky.colors")
-require("sky.winbar")
-
--- Local vim porjects
-vim.opt.rtp:append(vim.fn.expand "~/personal/todo-me-daddy/fix-shit-coide/")
-vim.opt.rtp:append(vim.fn.expand "~/personal/twitch-bot/ui")
-vim.opt.rtp:append(vim.fn.expand "~/personal/harpoon/auto-group")
-vim.opt.rtp:append(vim.fn.expand "~/personal/duckytype.nvim")
+-- require("sky.winbar")
 
 -- We create a grop which will be cleared each time, this is so we don't have multiple autocommands running (or something like that)
 local group = vim.api.nvim_create_augroup("SKY", { clear = true })
@@ -30,7 +30,7 @@ end, group = group })
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
-vim.g.netrw_localrmdir='rm -rf'
+vim.g.netrw_localrmdir = 'rm -rf'
 
 vim.g.python3_host_skip_check = 1
-vim.g.python3_host_prog='/bin/python3'
+vim.g.python3_host_prog = '/bin/python3'

@@ -11,4 +11,4 @@ set softtabstop=4
 set expandtab
 set autoindent
 set cindent
-set wrap
+set nowrap

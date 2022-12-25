@@ -358,6 +358,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yoni/.local/share/nvim/site/pack/packer/start/vim-vscode-theme",
     url = "https://github.com/dunstontc/vim-vscode-theme"
+  },
+  ["zen-mode.nvim"] = {
+    loaded = true,
+    path = "/home/yoni/.local/share/nvim/site/pack/packer/start/zen-mode.nvim",
+    url = "https://github.com/folke/zen-mode.nvim"
   }
 }
 

@@ -6,6 +6,5 @@ title=$(xdotool getactivewindow getwindowname 2>/dev/null)
 if [ $? -eq 1 ]; then
     echo "Desktop"
 else
-    size=${#title}
     echo "$title"
 fi

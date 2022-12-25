@@ -13,12 +13,21 @@ lsp.ensure_installed({
     'clangd'
 })
 
+require("lspconfig").sumneko_lua.setup {
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            }
+        }
+    }
+}
+
 local lspkind = require "lspkind"
 local source_mapping = {
     buffer = "[Buffer]",
     nvim_lsp = "[LSP]",
     nvim_lua = "[Lua]",
-    cmp_tabnine = "[TN]",
     gh_issues = "[Issues]",
     path = "[Path]",
 }
@@ -52,7 +61,6 @@ cmp.setup({
 
     sources = {
         { name = "nvim_lsp" },
-        { name = "cmp_tabnine", keyword_length = 5 },
         { name = "path" },
         { name = "nvim_lua" },
         { name = "gh_issues" },
@@ -78,7 +86,7 @@ cmp_mappings['<CR>'] = nil
 lspkind.init()
 
 lsp.set_preferences({
-    configure_diagnostics = false,
+    sign_icons = {}
 })
 
 lsp.setup_nvim_cmp({
@@ -100,9 +108,9 @@ lsp.on_attach(function(client, bufnr)
 
     local group = vim.api.nvim_create_augroup("LSP_FORMAT", { clear = true })
 
-    require "lsp_signature".on_attach({
+    --[[ require "lsp_signature".on_attach({
         hint_prefix = "»",
-    })
+    }) ]]
 
     -- Format on save
     vim.api.nvim_create_autocmd("BufWritePre", { callback = function()
@@ -110,15 +118,6 @@ lsp.on_attach(function(client, bufnr)
     end, group = group })
 
 end)
-
-local tabnine = require("cmp_tabnine.config")
-tabnine:setup({
-    max_lines = 1000,
-    max_num_results = 20,
-    sort = true,
-    run_on_every_keystroke = true,
-    snippet_placeholder = "..",
-})
 
 local opts = {
     -- whether to highlight the currently hovered symbol
@@ -131,6 +130,14 @@ local opts = {
     -- default: true
     show_guides = true,
 }
+
+--[[ vim.keymap.set("n", "<Tab>", function()
+    require('luasnip').jump(1)
+end)
+
+vim.keymap.set("n", "<S-Tab>", function()
+    require('luasnip').jump(-1)
+end ]]
 
 require("symbols-outline").setup(opts)
 

@@ -69,7 +69,7 @@ font-0 = "UbuntuMono:size=10;0"
 font-1 = "Noto Color Emoji:scale=13"
 
 modules-left = i3 title
-modules-right = pumps bat corna volume dateTime
+modules-right = bat corna volume dateTime
 
 wm-restack = i3
 
@@ -116,7 +116,7 @@ font-1 = "Noto Color Emoji:scale=13"
 separator = |
 
 modules-left = i3 title
-modules-right = pumps weather upgrade corna wireless-network ram-left filesystem volume bat dateTime
+modules-right = weather upgrade corna wireless-network ram-left filesystem volume bat dateTime
 
 tray-position = right
 tray-scale = 1.0

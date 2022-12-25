@@ -1,11 +1,16 @@
 local Group = require("colorbuddy.group").Group
 
 function Colors(color)
-    vim.g.sky_colorscheme = color or 'gruvbuddy'
+    vim.g.sky_colorscheme = color or 'rose-pine'
     Group.new("WinSeparator", nil, nil)
 
     require("colorizer").setup()
     require("colorbuddy").setup()
+
+    -- Make sure rose-pine is 100% transparent
+    require("rose-pine").setup({
+        disable_background = true
+    })
 
     -- Remove window border color thing - does not work 100% on gruvbox btw
     Group.new("WinSeparator", nil, nil)
@@ -28,7 +33,6 @@ function Colors(color)
 
     highlight ColorColumn ctermbg=0 guibg=#555555
     highlight SignColumn guibg=none
-    highlight LineNr guifg=#aaaaff guibg=None
     highlight netrwDir guifg=#aaaaff
     highlight qfFileName guifg=#aed75f
     highlight TelescopeBorder guifg=#5eacd
@@ -45,7 +49,7 @@ function Colors(color)
     highlight background_color guifg=#373b40 guibg=#7fa3c0
 
     " highlight netrwDir guifg=#5eacd3
-    highlight LineNr guifg=#5eacd3 guibg=None
+    " highlight LineNr guifg=#5eacd3 guibg=None
 
     " gray
     highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#880808
@@ -56,6 +60,17 @@ function Colors(color)
 
     vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+
+    -- Make sure tokyonight is 100% transparent
+    require("tokyonight").setup({
+        transparent = true,
+        styles = {
+            comments = { italic = true },
+            keywords = { italic = true },
+            sidebars = "transparent",
+            floats = "transparent",
+        },
+    })
 end
 
 Colors()

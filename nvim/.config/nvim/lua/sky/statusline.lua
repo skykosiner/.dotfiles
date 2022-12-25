@@ -2,7 +2,6 @@
 
 local M = {}
 
-local write_count = 0
 local git_branch = "git"
 
 M.get_file_name = function()
@@ -69,7 +68,6 @@ M.get_mode = function()
 
     if mode == "Insert" then
         vim.cmd([[highlight Modes guifg=#F2F2F2]])
-        -- vim.api.nvim_set_hl(0, "Normal", "#F2F2F2")
     else
         vim.cmd([[highlight Modes guifg=#373b40 guibg=#7fa3c0]])
     end
@@ -86,17 +84,9 @@ M.get_filetype = function()
     return string.format(" %s %s ", icon, filetype):lower()
 end
 
-M.on_write = function()
-    write_count = write_count + 1
-
-    if write_count == 1 or write_count == 2 or write_count == 3 or write_count == 4 or write_count == 5 or
-        write_count == 6 or write_count == 7 or write_count == 8 or write_count == 9 then
-        write_count = "0" .. write_count
-    end
-end
 
 local statusline = "%%#Modes#" ..
-    " %s%%)" .. "%%#Ignore#" .. "%s%% %s%%)  %%-5.100(%s%%) %s%% %%-1.50(%s%%) %%-5.20(%s%%)%%-6.6)"
+    " %s%%)" .. "%%#Ignore#" .. "%s%% %s%%)  %%-5.100(%s%%) %s%%  %%-5.20(%s%%)%%-6.6)"
 
 -- if msg or not msg == "" then
 --     statusline = statusline .. "| %s%%)"
@@ -111,17 +101,10 @@ M.StatusLine = function()
         M.get_file_name(),
         -- Having the double %= makes sure that the file name is in the middle
         "%=",
-        write_count,
         M.get_line_info())
 end
 
 vim.o.statusline = '%!v:lua.require("sky.statusline").StatusLine()'
-
-local group = vim.api.nvim_create_augroup("SKY_STATUSLINE", { clear = true })
-
-vim.api.nvim_create_autocmd("BufWritePre", { callback = function()
-    vim.cmd("silent! lua require('sky.statusline').on_write()")
-end, group = group })
 
 --TODO: play around with getting colors on the status bar
 

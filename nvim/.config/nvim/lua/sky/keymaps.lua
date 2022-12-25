@@ -1,7 +1,7 @@
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 -- Sweet resizes baby
-vim.keymap.set("n","<leader>+", "<cmd>vertical resize +5<CR>")
+vim.keymap.set("n", "<leader>+", "<cmd>vertical resize +5<CR>")
 vim.keymap.set("n", "<leader>-", "<cmd>vertical resize -5<CR>")
 vim.keymap.set("n", "<leader>t+", "<cmd>top resize +5<CR>")
 vim.keymap.set("n", "<leader>t-", "<cmd>top resize -5<CR>")
@@ -56,7 +56,9 @@ vim.keymap.set("n", "<leader>guc", ":norm ^df*f*D<CR>")
 
 vim.keymap.set("n", "<leader>o", "o<esc>ko")
 
-vim.keymap.set("n", "<leader>ss", ':lua require("plenary.reload").reload_module("sky.statusline")<CR>')
+vim.keymap.set("n", "<leader>ss", function()
+    vim.o.statusline = '%!v:lua.require("sky.statusline").StatusLine()'
+end)
 
 -- File stuff
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)

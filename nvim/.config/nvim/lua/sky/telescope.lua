@@ -7,7 +7,7 @@ local function delete_file()
     local path = content.cwd .. "/" .. content.value
     local shortPath = vim.fn.pathshorten(vim.fn.fnamemodify(path, ":."))
 
-    vim.ui.input({ prompt = "Do you want to delete the file (y/n): " .. shortPath .. " " }, function(input)
+    vim.ui.input({ prompt = "Do you want to delete the file " .. shortPath .. " (y/n): " }, function(input)
         if input == "y" then
             vim.cmd("!rm -rf " .. path)
         end
@@ -21,6 +21,9 @@ require('telescope').setup {
         prompt_prefix = ' > ',
         color_devicons = true,
         respect_gitignore = true,
+        sorting_strategy = "descending",
+        prompt_position = "top",
+        scroll_strategy = "cycle",
 
         file_previewer   = require('telescope.previewers').vim_buffer_cat.new,
         grep_previewer   = require('telescope.previewers').vim_buffer_vimgrep.new,
@@ -75,9 +78,10 @@ require("telescope").load_extension("git_worktree")
 require("telescope").load_extension("fzy_native")
 require("telescope").load_extension("fzf")
 require("telescope").load_extension("harpoon")
--- require("telescope").load_extension("todo_me_daddy")
+require("telescope").load_extension("todo_me_daddy")
 
 local M = {}
+
 M.search_dotfiles = function()
     require("telescope.builtin").find_files({
         prompt_title = "< .dotfiles >",
@@ -143,26 +147,20 @@ vim.keymap.set("n", "<C-p>", ":lua require('telescope.builtin').git_files()<CR>"
 vim.keymap.set("n", "<leader>ps",
     ":lua require('telescope.builtin').grep_string({ search = vim.fn.input('Grep For > ')})<CR>")
 vim.keymap.set("n", "<leader>pb", ":lua require('telescope.builtin').buffers()<CR>")
-
 vim.keymap.set("n", "<leader>lps", ":lua require('telescope.builtin').lsp_references()<CR>")
 vim.keymap.set("n", "<leader>ld", ":Telescope diagnostics<cr>")
-
 vim.keymap.set("n", "<leader>vrc", ":lua require('sky.telescope').search_dotfiles()<CR>")
-
 vim.keymap.set("n", "<leader>pw",
     ":lua require('telescope.builtin').grep_string { search = vim.fn.expand('<cword>') }<CR>")
 vim.keymap.set("n", "<leader>vih", ":lua require('telescope.builtin').help_tags()<CR>")
-
 vim.keymap.set("n", "<leader>va", ":lua require('sky.telescope').anime_selector()<CR>")
-
 vim.keymap.set("n", "<leader>gb", ":Telescope git_branches<CR>")
 vim.keymap.set("n", "<leader>gc", ":Telescope git_commits<CR>")
-
 vim.keymap.set("n", "<leader>gw",
     ":lua require('telescope').extensions.git_worktree.git_worktrees({ layout_config = { width = 0.5, height = 0.5 }})<CR>")
 vim.keymap.set("n", "<leader>gm",
     ":lua require('telescope').extensions.git_worktree.create_git_worktree({ layout_config = { width = 0.5, height = 0.5 }})<CR>")
-
 vim.keymap.set("n", "<leader>sc", ":lua require('sky.utils').set_color()<CR>")
+vim.keymap.set('n', '<leader>or', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 
 return M

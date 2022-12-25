@@ -90,8 +90,4 @@ function M.open_dir_nnn()
     }):start()
 end
 
-function M.delete_file(bufnr)
-    print(bufnr)
-end
-
 return M
