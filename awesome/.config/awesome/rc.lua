@@ -49,7 +49,7 @@ beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "kitty"
-editor = os.getenv("EDITOR") or "nano"
+editor = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
@@ -61,7 +61,6 @@ modkey = "Mod1"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-    awful.layout.suit.floating,
     awful.layout.suit.tile,
     awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
@@ -87,7 +86,7 @@ myawesomemenu = {
     { "manual", terminal .. " -e man awesome" },
     { "edit config", editor_cmd .. " " .. awesome.conffile },
     { "restart", awesome.restart },
-    -- { "quit", function() awesome.quit() end },
+    { "quit", function() awesome.quit() end },
 }
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
@@ -157,7 +156,7 @@ local function set_wallpaper(s)
         if type(wallpaper) == "function" then
             wallpaper = wallpaper(s)
         end
-        gears.wallpaper.maximized(wallpaper, s, true)
+        awful.util.spawn("~/.fehbg")
     end
 end
 
@@ -229,6 +228,23 @@ root.buttons(gears.table.join(
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
+    awful.key({ modkey, "Shift" }, "w", function()
+        awful.util.spawn("brave")
+    end),
+
+    awful.key({ "Mod4", }, "d", function()
+        awful.spawn(terminal .. " -e setxkbmap -layout real-prog-dvorak")
+    end),
+
+    awful.key({ "Mod4", }, "q", function()
+        awful.spawn(terminal .. " -e setxkbmap -layout us")
+    end),
+
+    -- TODO: Get picom toggle to work
+    --[[ awful.key({ :Mod4", "Shift" }, "g", function()
+        awful.util.spawn("picomToggle")
+    end), ]]
+
     awful.key({ modkey, }, "s", hotkeys_popup.show_help,
         { description = "show help", group = "awesome" }),
     awful.key({ modkey, }, "Left", awful.tag.viewprev,
@@ -489,7 +505,7 @@ awful.rules.rules = {
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = { type = { "normal", "dialog" }
-    }, properties = { titlebars_enabled = true }
+    }, properties = { titlebars_enabled = false }
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
@@ -503,7 +519,7 @@ awful.rules.rules = {
 client.connect_signal("manage", function(c)
     -- Set the windows at the slave,
     -- i.e. put it at the end of others instead of setting it master.
-    -- if not awesome.startup then awful.client.setslave(c) end
+    if not awesome.startup then awful.client.setslave(c) end
 
     if awesome.startup
         and not c.size_hints.user_position
@@ -561,3 +577,8 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+-- Auto start programs
+awful.util.spawn("picom")
+awful.util.spawn("pulseaudio")
+awful.util.spawn("dunst")
