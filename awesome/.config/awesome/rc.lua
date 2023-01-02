@@ -46,6 +46,7 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+beautiful.font = "Go 14"
 
 -- This is used later as the default terminal and editor to run.
 terminal = "kitty"
@@ -62,7 +63,7 @@ modkey = "Mod1"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
     awful.layout.suit.tile,
-    awful.layout.suit.spiral,
+    --[[ awful.layout.suit.spiral,
     awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
@@ -72,7 +73,7 @@ awful.layout.layouts = {
     awful.layout.suit.max,
     awful.layout.suit.max.fullscreen,
     awful.layout.suit.magnifier,
-    awful.layout.suit.corner.nw,
+    awful.layout.suit.corner.nw, ]]
     -- awful.layout.suit.corner.ne,
     -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
@@ -209,9 +210,9 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            mykeyboardlayout,
             wibox.widget.systray(),
             mytextclock,
+            awful.widget.watch('bash -c "/home/yoni/.local/bin/aircon status"', 1),
             s.mylayoutbox,
         },
     }
@@ -232,6 +233,14 @@ globalkeys = gears.table.join(
         awful.util.spawn("brave")
     end),
 
+    awful.key({ modkey, "Shift" }, "s", function()
+        awful.util.spawn("flameshot gui -p /home/yoni/Pictures/Captures")
+    end),
+
+    awful.key({ modkey, }, "space", function()
+        awful.util.spawn("sh /home/yoni/.local/bin/menu-emoji")
+    end),
+
     awful.key({ modkey, "Shift" }, "g", function()
         awful.util.spawn("gimp")
     end),
@@ -245,13 +254,21 @@ globalkeys = gears.table.join(
     end),
 
     awful.key({ "Mod4", "Shift" }, "g", function()
-        awful.spawn(terminal .. " -e picomToggle")
+        awful.util.spawn("sh /home/yoni/.local/bin/picomToggle")
     end),
 
-    -- TODO: Get picom toggle to work
-    --[[ awful.key({ :Mod4", "Shift" }, "g", function()
-        awful.util.spawn("picomToggle")
-    end), ]]
+    -- Yes I wrote an app in golang to control my aircon
+    awful.key({ "Mod4", "Shift" }, "o", function()
+        awful.util.spawn("/home/yoni/.local/bin/aircon off")
+    end),
+
+    awful.key({ "Mod4", "Shift" }, "c", function()
+        awful.util.spawn("sh /home/yoni/.local/bin/cold")
+    end),
+
+    awful.key({ "Mod4", "Shift" }, "h", function()
+        awful.util.spawn("sh /home/yoni/.local/bin/hot")
+    end),
 
     awful.key({ modkey, }, "s", hotkeys_popup.show_help,
         { description = "show help", group = "awesome" }),
@@ -596,3 +613,4 @@ awful.util.spawn("picom")
 awful.util.spawn("pulseaudio")
 awful.util.spawn("dunst")
 awful.util.spawn("setxkbmap -layout real-prog-dvorak")
+awful.util.spawn("~/.fehbg")

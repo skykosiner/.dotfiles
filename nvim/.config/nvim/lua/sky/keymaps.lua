@@ -57,10 +57,13 @@ vim.keymap.set("n", "<leader>guc", ":norm ^df*f*D<CR>")
 vim.keymap.set("n", "<leader>o", "o<esc>ko")
 
 vim.keymap.set("n", "<leader>ss", function()
-    vim.o.statusline = '%!v:lua.require("sky.statusline").StatusLine()'
+    vim.o.statusline = '%!v:lua.status()'
 end)
 
 -- File stuff
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 -- Have some sex on the side baby
 vim.keymap.set("n", "<leader>ft", ":Sex!<CR>")
+
+vim.keymap.set("n", "<leader>ea", "[[ <cmd>lua require('twitch-bot').init()<CR> ]]")
+vim.keymap.set("n", "<leader>ed", "[[ <cmd>lua require('twitch-bot').disconnect()<CR> ]]")

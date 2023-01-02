@@ -13,4 +13,4 @@ require("statusLine").setup({
     backgroundColor = "#7fa3c0",
 })
 
--- require("statusLine").setStatus()
+require("statusLine").setStatus()

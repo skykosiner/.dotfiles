@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+while [ "$#" -gt 0 ]; do
+    curr=$1
+    shift
+
+    case "$curr" in
+   "-cold-18-night")
+       aircon cold
+       aircon 18
+       aircon fan-night
+       ;;
+   "-heat-25-2")
+       aircon hot
+       aircon 25
+       aircon fan-2
+       ;;
+    *) echo "Unavailable command... $curr"
+    esac
+done

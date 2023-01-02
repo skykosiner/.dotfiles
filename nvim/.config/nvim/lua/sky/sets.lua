@@ -61,4 +61,5 @@ vim.opt.colorcolumn = "80"
 vim.opt.showmode = false
 
 vim.opt.list = true
+-- Not sure if I like this or not hmmm
 vim.opt.listchars = "tab:· ,nbsp:_,trail: ,multispace:· ,eol:↲"

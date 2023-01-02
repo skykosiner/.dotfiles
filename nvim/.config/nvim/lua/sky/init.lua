@@ -8,7 +8,7 @@ vim.opt.rtp:append(vim.fn.expand "~/personal/statusline.nvim/")
 require("sky.sets")
 require("sky.keymaps")
 require("sky.telescope")
-require("sky.statusline")
+-- require("sky.statusline")
 -- require("sky.winbar")
 
 -- We create a grop which will be cleared each time, this is so we don't have multiple autocommands running (or something like that)

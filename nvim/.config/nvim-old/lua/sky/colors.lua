@@ -39,9 +39,7 @@ highlight Tabline guibg=None
 highlight TablineSel guibg=None
 highlight TablineFill guibg=None
 
-highlight StatusLine ctermbg=24 ctermfg=254 guibg=#373b40 guifg=#7fa3c0
 highlight TelescopePromptPrefix guifg=#96f1ff
-highlight Ignore guifg=#373b40 guibg=#7fa3c0
 
 " Idk make vim.notify shutup
 highlight background_color guifg=#373b40 guibg=#7fa3c0
