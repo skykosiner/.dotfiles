@@ -259,7 +259,7 @@ globalkeys = gears.table.join(
 
     -- Yes I wrote an app in golang to control my aircon
     awful.key({ "Mod4", "Shift" }, "o", function()
-        awful.util.spawn("/home/yoni/.local/bin/aircon off")
+        awful.util.spawn("/home/yoni/.local/bin/aircon toggle")
     end),
 
     awful.key({ "Mod4", "Shift" }, "c", function()
