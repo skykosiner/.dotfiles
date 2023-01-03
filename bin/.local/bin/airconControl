@@ -17,6 +17,19 @@ while [ "$#" -gt 0 ]; do
 
        /home/yoni/.local/bin/aircon $airconNumber
        ;;
+   "-change")
+       airconNumber=$(echo "" | rofi -dmenu -p "Enter Text > ")
+       /home/yoni/.local/bin/aircon $airconNumber
+       ;;
+   "-sellect-fan")
+       fanMode=$(echo "night
+1
+2
+3
+4
+5" | rofi -dmenu -i -p '[ Sellect fan mode ]')
+       /home/yoni/.local/bin/aircon fan-$fanMode
+       ;;
     *) echo "Unavailable command... $curr"
     esac
 done

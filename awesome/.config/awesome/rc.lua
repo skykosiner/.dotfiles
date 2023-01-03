@@ -278,12 +278,20 @@ globalkeys = gears.table.join(
         awful.util.spawn("sh /home/yoni/.local/bin/airconControl -dec-1")
     end),
 
+    awful.key({ "Mod4", "Shift" }, "a", function()
+        awful.util.spawn("sh /home/yoni/.local/bin/airconControl -change")
+    end),
+
     awful.key({ "Mod4", }, "h", function()
         awful.util.spawn("/home/yoni/.local/bin/aircon hot")
     end),
 
     awful.key({ "Mod4", }, "c", function()
         awful.util.spawn("/home/yoni/.local/bin/aircon cold")
+    end),
+
+    awful.key({ "Mod4", }, "s", function()
+        awful.util.spawn("sh /home/yoni/.local/bin/airconControl -sellect-fan")
     end),
 
     awful.key({ modkey, }, "s", hotkeys_popup.show_help,
