@@ -18,6 +18,17 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
+function os.capture(cmd, raw)
+    local f = assert(io.popen(cmd, 'r'))
+    local s = assert(f:read('*a'))
+    f:close()
+    if raw then return s end
+    s = string.gsub(s, '^%s+', '')
+    s = string.gsub(s, '%s+$', '')
+    s = string.gsub(s, '[\n\r]+', ' ')
+    return s
+end
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -260,38 +271,47 @@ globalkeys = gears.table.join(
     -- Yes I wrote an app in golang to control my aircon
     awful.key({ "Mod4", "Shift" }, "o", function()
         awful.util.spawn("/home/yoni/.local/bin/aircon toggle")
+        awful.util.spawn("sh /home/yoni/.local/bin/changeToAircon")
     end),
 
     awful.key({ "Mod4", "Shift" }, "c", function()
         awful.util.spawn("sh /home/yoni/.local/bin/cold")
+        awful.util.spawn("sh /home/yoni/.local/bin/changeToAircon")
     end),
 
     awful.key({ "Mod4", "Shift" }, "h", function()
         awful.util.spawn("sh /home/yoni/.local/bin/hot")
+        awful.util.spawn("sh /home/yoni/.local/bin/changeToAircon")
     end),
 
     awful.key({ "Mod4", "Shift" }, "i", function()
         awful.util.spawn("sh /home/yoni/.local/bin/airconControl -inc-1")
+        awful.util.spawn("sh /home/yoni/.local/bin/changeToAircon")
     end),
 
     awful.key({ "Mod4", "Shift" }, "m", function()
         awful.util.spawn("sh /home/yoni/.local/bin/airconControl -dec-1")
+        awful.util.spawn("sh /home/yoni/.local/bin/changeToAircon")
     end),
 
-    awful.key({ "Mod4", "Shift" }, "a", function()
+    awful.key({ "Mod4", }, "n", function()
         awful.util.spawn("sh /home/yoni/.local/bin/airconControl -change")
+        awful.util.spawn("sh /home/yoni/.local/bin/changeToAircon")
     end),
 
     awful.key({ "Mod4", }, "h", function()
         awful.util.spawn("/home/yoni/.local/bin/aircon hot")
+        awful.util.spawn("sh /home/yoni/.local/bin/changeToAircon")
     end),
 
     awful.key({ "Mod4", }, "c", function()
         awful.util.spawn("/home/yoni/.local/bin/aircon cold")
+        awful.util.spawn("sh /home/yoni/.local/bin/changeToAircon")
     end),
 
-    awful.key({ "Mod4", }, "s", function()
+    awful.key({ "Mod4", }, "f", function()
         awful.util.spawn("sh /home/yoni/.local/bin/airconControl -sellect-fan")
+        awful.util.spawn("sh /home/yoni/.local/bin/changeToAircon")
     end),
 
     awful.key({ modkey, }, "s", hotkeys_popup.show_help,

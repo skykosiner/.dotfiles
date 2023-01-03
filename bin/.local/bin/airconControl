@@ -18,7 +18,7 @@ while [ "$#" -gt 0 ]; do
        /home/yoni/.local/bin/aircon $airconNumber
        ;;
    "-change")
-       airconNumber=$(echo "" | rofi -dmenu -p "Enter Text > ")
+       airconNumber=$(echo "" | rofi -dmenu -p "Enter Temp > ")
        /home/yoni/.local/bin/aircon $airconNumber
        ;;
    "-sellect-fan")
