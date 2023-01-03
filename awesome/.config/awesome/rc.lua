@@ -274,6 +274,10 @@ globalkeys = gears.table.join(
         awful.util.spawn("sh /home/yoni/.local/bin/changeToAircon")
     end),
 
+    awful.key({ modkey, "Shift" }, "c", function()
+        awful.util.spawn("/home/yoni/.local/bin/aircon conflict")
+    end),
+
     awful.key({ "Mod4", "Shift" }, "c", function()
         awful.util.spawn("sh /home/yoni/.local/bin/cold")
         awful.util.spawn("sh /home/yoni/.local/bin/changeToAircon")
