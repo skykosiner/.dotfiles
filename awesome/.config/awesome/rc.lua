@@ -212,7 +212,7 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             wibox.widget.systray(),
             mytextclock,
-            awful.widget.watch('bash -c "/home/yoni/.local/bin/aircon status"', 1),
+            awful.widget.watch('bash -c "/home/yoni/.local/bin/aircon status | sed s/{// | sed s/}//"', 1),
             s.mylayoutbox,
         },
     }

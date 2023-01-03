@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+while [ "$#" -gt 0 ]; do
+    curr=$1
+    shift
+
+    case "$curr" in
+   "-inc-1")
+       airconNumber=$(aircon status | awk '{print $1}' | sed s/{// | sed s/.0//)
+       airconNumber=$(( $airconNumber + 1 ))
+
+       aircon $airconNumber
+       ;;
+   "-dec-1")
+       airconNumber=$(aircon status | awk '{print $1}' | sed s/{// | sed s/.0//)
+       airconNumber=$(( $airconNumber - 1 ))
+
+       aircon $airconNumber
+       ;;
+    *) echo "Unavailable command... $curr"
+    esac
+done
