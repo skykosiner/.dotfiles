@@ -6,16 +6,16 @@ while [ "$#" -gt 0 ]; do
 
     case "$curr" in
    "-inc-1")
-       airconNumber=$(aircon status | awk '{print $1}' | sed s/{// | sed s/.0//)
+       airconNumber=$(/home/yoni/.local/bin/aircon status | awk '{print $1}' | sed s/{// | awk -F "." '{print $1}')
        airconNumber=$(( $airconNumber + 1 ))
 
-       aircon $airconNumber
+       /home/yoni/.local/bin/aircon $airconNumber
        ;;
    "-dec-1")
-       airconNumber=$(aircon status | awk '{print $1}' | sed s/{// | sed s/.0//)
+       airconNumber=$(/home/yoni/.local/bin/aircon status | awk '{print $1}' | sed s/{// | awk -F "." '{print $1}')
        airconNumber=$(( $airconNumber - 1 ))
 
-       aircon $airconNumber
+       /home/yoni/.local/bin/aircon $airconNumber
        ;;
     *) echo "Unavailable command... $curr"
     esac
