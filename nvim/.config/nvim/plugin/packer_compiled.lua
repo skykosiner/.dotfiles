@@ -119,11 +119,6 @@ _G.packer_plugins = {
     path = "/home/yoni/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
-  ["cmp-tabnine"] = {
-    loaded = true,
-    path = "/home/yoni/.local/share/nvim/site/pack/packer/start/cmp-tabnine",
-    url = "https://github.com/tzachar/cmp-tabnine"
-  },
   cmp_luasnip = {
     loaded = true,
     path = "/home/yoni/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
@@ -194,11 +189,6 @@ _G.packer_plugins = {
     path = "/home/yoni/.local/share/nvim/site/pack/packer/start/lsp_extensions.nvim",
     url = "https://github.com/nvim-lua/lsp_extensions.nvim"
   },
-  ["lsp_signature.nvim"] = {
-    loaded = true,
-    path = "/home/yoni/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim",
-    url = "https://github.com/ray-x/lsp_signature.nvim"
-  },
   ["lspkind-nvim"] = {
     loaded = true,
     path = "/home/yoni/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
@@ -218,6 +208,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yoni/.local/share/nvim/site/pack/packer/start/neoformat",
     url = "https://github.com/sbdchd/neoformat"
+  },
+  neogit = {
+    loaded = true,
+    path = "/home/yoni/.local/share/nvim/site/pack/packer/start/neogit",
+    url = "https://github.com/TimUntersberger/neogit"
   },
   ["nvim-Dap"] = {
     loaded = true,
@@ -314,11 +309,6 @@ _G.packer_plugins = {
     path = "/home/yoni/.local/share/nvim/site/pack/packer/start/telescope-fzy-native.nvim",
     url = "https://github.com/nvim-telescope/telescope-fzy-native.nvim"
   },
-  ["telescope-media-files.nvim"] = {
-    loaded = true,
-    path = "/home/yoni/.local/share/nvim/site/pack/packer/start/telescope-media-files.nvim",
-    url = "https://github.com/nvim-telescope/telescope-media-files.nvim"
-  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/yoni/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -338,11 +328,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yoni/.local/share/nvim/site/pack/packer/start/vim-code-dark",
     url = "https://github.com/tomasiser/vim-code-dark"
-  },
-  ["vim-fugitive"] = {
-    loaded = true,
-    path = "/home/yoni/.local/share/nvim/site/pack/packer/start/vim-fugitive",
-    url = "https://github.com/tpope/vim-fugitive"
   },
   ["vim-hybrid"] = {
     loaded = true,

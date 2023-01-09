@@ -57,10 +57,11 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-beautiful.font = "Go 14"
+beautiful.font = "Go 16"
+-- beautiful.useless_gap = 5
 
 -- This is used later as the default terminal and editor to run.
-terminal = "kitty"
+terminal = "alacritty"
 editor = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -224,6 +225,7 @@ awful.screen.connect_for_each_screen(function(s)
             wibox.widget.systray(),
             mytextclock,
             awful.widget.watch('bash -c "/home/yoni/.local/bin/aircon status | sed s/{// | sed s/}//"', 1),
+            awful.widget.watch('bash -c "/home/yoni/.local/bin/weather"', 1),
             s.mylayoutbox,
         },
     }

@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 sleep 4
-notify-send "aircon change" "$(/home/yoni/.local/bin/aircon status | sed s/{// | sed s/}//)"
+notify-send "Aircon Change" "$(/home/yoni/.local/bin/aircon status | sed s/{// | sed s/}//)"

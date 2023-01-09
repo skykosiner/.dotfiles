@@ -54,12 +54,19 @@ vim.opt.breakindent = true
 vim.opt.linebreak = true
 
 vim.opt.hlsearch = false
-vim.opt.mouse = "nv"
 
-vim.opt.colorcolumn = "80"
+-- vim.opt.colorcolumn = "80"
 
 vim.opt.showmode = false
 
 vim.opt.list = true
 -- Not sure if I like this or not hmmm
-vim.opt.listchars = "tab:· ,nbsp:_,trail: ,multispace:· ,eol:↲"
+-- vim.opt.listchars = "tab:· ,nbsp:_,trail: ,multispace:· ,eol:↲"
+-- vim.opt.listchars = { eol = "↲", tab = ">", space = ">" }
+
+vim.opt.listchars = {
+    -- eol = '⤶',
+    tab = '  ',
+}
+
+vim.opt.mouse = nil

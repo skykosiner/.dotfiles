@@ -1,17 +1,18 @@
-return require("packer").startup(function(use)
-    --TODO: Use packer to manage local plugins too
+vim.cmd([[packadd packer.nvim]])
 
+return require("packer").startup(function(use)
     -- Packer can manage itself
     use "wbthomason/packer.nvim"
     use "folke/zen-mode.nvim"
 
-    use "nvim-telescope/telescope-media-files.nvim"
+    use "mkitt/tabline.vim"
 
     use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
 
     -- Lsp
     -- use "ray-x/lsp_signature.nvim"
     use "j-hui/fidget.nvim"
+    use "simrat39/inlay-hints.nvim"
 
     use {
         "VonHeikemen/lsp-zero.nvim",
@@ -64,6 +65,7 @@ return require("packer").startup(function(use)
     use "nvim-treesitter/playground"
     use "nvim-treesitter/nvim-treesitter-context"
     use "tpope/vim-fugitive"
+    use "TimUntersberger/neogit"
     use "ThePrimeagen/git-worktree.nvim"
     use "neovim/nvim-lspconfig"
     use "hrsh7th/cmp-nvim-lsp"

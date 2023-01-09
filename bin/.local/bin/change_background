@@ -5,5 +5,6 @@ if [[ $# -eq 1 ]]; then
     feh --bg-fill $1
 else
     # dconf write /org/mate/desktop/background/picture-filename "'$HOME/.dotfiles/anime/$(ls ~/.dotfiles/anime | fzf)'"
-    feh --bg-fill "'$HOME/.dotfiles/anime/$(ls ~/.dotfiles/anime | fzf)'"
+    item="$(echo $HOME)/.dotfiles/anime/$(ls ~/.dotfiles/anime | fzf)"
+    feh --bg-fill $item
 fi

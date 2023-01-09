@@ -1,6 +1,8 @@
 local lsp = require("lsp-zero")
+local ih = require("inlay-hints")
 
 lsp.preset("recommended")
+require("inlay-hints").setup()
 
 lsp.ensure_installed({
     'tsserver',
@@ -11,6 +13,25 @@ lsp.ensure_installed({
     'bashls',
     'pyright',
     'clangd'
+})
+
+require("lspconfig").gopls.setup({
+    on_attach = function(c, b)
+        ih.on_attach(c, b)
+    end,
+    settings = {
+        gopls = {
+            hints = {
+                assignVariableTypes = true,
+                compositeLiteralFields = true,
+                compositeLiteralTypes = true,
+                constantValues = true,
+                functionTypeParameters = true,
+                parameterNames = true,
+                rangeVariableTypes = true,
+            },
+        },
+    },
 })
 
 require("lspconfig").sumneko_lua.setup {
@@ -142,3 +163,7 @@ end ]]
 require("symbols-outline").setup(opts)
 
 lsp.setup()
+
+vim.diagnostic.config({
+    virtual_text = true
+})

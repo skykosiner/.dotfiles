@@ -1,7 +1,7 @@
 local Group = require("colorbuddy.group").Group
 
 function Colors(color)
-    vim.g.sky_colorscheme = color or 'ayu'
+    vim.g.sky_colorscheme = color or 'gruvbuddy'
 
     require("colorizer").setup()
     require("colorbuddy").setup()
@@ -46,6 +46,7 @@ function Colors(color)
 
     " highlight netrwDir guifg=#5eacd3
     " highlight LineNr guifg=#5eacd3 guibg=None
+    highlight LineNr guibg=None
 
     " gray
     highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#880808
@@ -67,6 +68,10 @@ function Colors(color)
             floats = "transparent",
         },
     })
+
+    -- Set statusline to correct colors
+    vim.api.nvim_set_hl(0, "Ignore", { bg = "#7fa3c0", fg = "#2e2e2e" })
+    vim.api.nvim_set_hl(0, "", {})
 end
 
 Colors()
