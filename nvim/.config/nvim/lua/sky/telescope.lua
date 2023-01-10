@@ -1,19 +1,6 @@
 local actions = require('telescope.actions')
 local themes = require('telescope.themes')
 
-local function delete_file()
-    local content = require("telescope.actions.state").get_selected_entry()
-
-    local path = content.cwd .. "/" .. content.value
-    local shortPath = vim.fn.pathshorten(vim.fn.fnamemodify(path, ":."))
-
-    vim.ui.input({ prompt = "Do you want to delete the file " .. shortPath .. " (y/n): " }, function(input)
-        if input == "y" then
-            vim.cmd("!rm -rf " .. path)
-        end
-    end)
-end
-
 require('telescope').setup {
     defaults = themes.get_dropdown({
         winbled = 10,
@@ -34,9 +21,6 @@ require('telescope').setup {
                 ["<C-x>"] = false,
                 ["<C-q>"] = actions.send_to_qflist,
                 ["<C-s>"] = actions.select_horizontal,
-                ["<C-r>"] = function()
-                    delete_file()
-                end
             },
         }
     }),

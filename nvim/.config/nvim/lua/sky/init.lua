@@ -1,7 +1,3 @@
--- Local vim porjects
-vim.opt.rtp:append(vim.fn.expand "~/personal/todo-me-daddy/fix-everything")
-vim.opt.rtp:append(vim.fn.expand "~/personal/statusline.nvim/")
-
 require("sky.sets")
 require("sky.keymaps")
 require("sky.telescope")
@@ -15,21 +11,21 @@ local group = vim.api.nvim_create_augroup("SKY", { clear = true })
 -- Give that sweet little yellow thing for a second on a yank, so I know what I
 -- have yanked
 vim.api.nvim_create_autocmd("TextYankPost", { callback = function()
-    require 'vim.highlight'.on_yank({ timeout = 50 })
+  require 'vim.highlight'.on_yank({ timeout = 50 })
 end, group = group })
 
 -- Clear whitespace on save
 vim.api.nvim_create_autocmd("BufWritePre", { callback = function()
-    -- This is scuffed, but lua won't let me use \ to escapee a Character, and
-    -- vim does not like it when you use |
-    vim.cmd([[:%s/\s\+$//e]])
+  -- This is scuffed, but lua won't let me use \ to escapee a Character, and
+  -- vim does not like it when you use |
+  vim.cmd([[:%s/\s\+$//e]])
 end, group = group })
 
 vim.api.nvim_create_autocmd("BufReadPost", {
-    pattern = { "*NeogitStatus" },
-    callback = function()
-        vim.cmd(":stopinsert")
-    end, group = group
+  pattern = { "*NeogitStatus" },
+  callback = function()
+    vim.cmd(":stopinsert")
+  end, group = group
 })
 
 vim.g.netrw_browse_split = 0

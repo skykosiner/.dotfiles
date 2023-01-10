@@ -70,9 +70,7 @@ vim.keymap.set("n", "<leader>ed", "[[ <cmd>lua require('twitch-bot').disconnect(
 
 -- Terminal stuff
 vim.keymap.set("n", "<leader>ts", function()
-    vim.cmd("split")
-    vim.cmd("wincmd J")
-    vim.api.nvim_win_set_height(0, 12)
+    vim.cmd("12split")
     vim.cmd("set winfixheight")
     vim.cmd("term")
     vim.cmd("startinsert")
@@ -92,7 +90,7 @@ end)
 vim.keymap.set("v", "<leader>ps",
     "\"gy<cmd>lua require(\"telescope.builtin\").grep_string({ search = vim.fn.getreg(\"g\") })<cr>")
 
--- Switch between tabs
+-- Tab stuff
 vim.keymap.set("n", "<right>", "gt")
 vim.keymap.set("n", "<left>", "gT")
 vim.keymap.set("n", "<leader>nn", ":tabnew<CR>")

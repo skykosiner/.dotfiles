@@ -2,7 +2,8 @@
 export ZSH="/home/yoni/.oh-my-zsh"
 
 # ZSH_THEME="powerlevel10k/powerlevel10k"
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
+eval "$(starship init zsh)"
 plugins=(git command-time zsh-fzf-history-search)
 
 export XDG_CONFIG_HOME=$HOME/.config

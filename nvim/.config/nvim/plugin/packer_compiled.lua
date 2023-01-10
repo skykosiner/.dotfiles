@@ -134,6 +134,11 @@ _G.packer_plugins = {
     path = "/home/yoni/.local/share/nvim/site/pack/packer/start/fidget.nvim",
     url = "https://github.com/j-hui/fidget.nvim"
   },
+  ["fix-everything"] = {
+    loaded = true,
+    path = "/home/yoni/.local/share/nvim/site/pack/packer/start/fix-everything",
+    url = "/home/yoni/personal/todo-me-daddy/fix-everything"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/yoni/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -173,6 +178,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yoni/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/ThePrimeagen/harpoon"
+  },
+  ["inlay-hints.nvim"] = {
+    loaded = true,
+    path = "/home/yoni/.local/share/nvim/site/pack/packer/start/inlay-hints.nvim",
+    url = "https://github.com/simrat39/inlay-hints.nvim"
   },
   ["jvim.nvim"] = {
     loaded = true,
@@ -294,10 +304,20 @@ _G.packer_plugins = {
     path = "/home/yoni/.local/share/nvim/site/pack/packer/start/rust.vim",
     url = "https://github.com/rust-lang/rust.vim"
   },
+  ["statusline.nvim"] = {
+    loaded = true,
+    path = "/home/yoni/.local/share/nvim/site/pack/packer/start/statusline.nvim",
+    url = "/home/yoni/personal/statusline.nvim/"
+  },
   ["symbols-outline.nvim"] = {
     loaded = true,
     path = "/home/yoni/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim",
     url = "https://github.com/simrat39/symbols-outline.nvim"
+  },
+  ["tabline.vim"] = {
+    loaded = true,
+    path = "/home/yoni/.local/share/nvim/site/pack/packer/start/tabline.vim",
+    url = "https://github.com/mkitt/tabline.vim"
   },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
@@ -312,7 +332,7 @@ _G.packer_plugins = {
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/yoni/.local/share/nvim/site/pack/packer/start/telescope.nvim",
-    url = "https://github.com/nvim-telescope/telescope.nvim"
+    url = "/home/yoni/personal/telescope.nvim/"
   },
   ["tokyonight.nvim"] = {
     loaded = true,
@@ -328,6 +348,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yoni/.local/share/nvim/site/pack/packer/start/vim-code-dark",
     url = "https://github.com/tomasiser/vim-code-dark"
+  },
+  ["vim-fugitive"] = {
+    loaded = true,
+    path = "/home/yoni/.local/share/nvim/site/pack/packer/start/vim-fugitive",
+    url = "https://github.com/tpope/vim-fugitive"
   },
   ["vim-hybrid"] = {
     loaded = true,
