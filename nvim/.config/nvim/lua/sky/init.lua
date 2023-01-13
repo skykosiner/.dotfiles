@@ -1,3 +1,16 @@
+--[[ local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath) ]]
+
 require("sky.sets")
 require("sky.keymaps")
 require("sky.telescope")
@@ -20,13 +33,6 @@ vim.api.nvim_create_autocmd("BufWritePre", { callback = function()
   -- vim does not like it when you use |
   vim.cmd([[:%s/\s\+$//e]])
 end, group = group })
-
-vim.api.nvim_create_autocmd("BufReadPost", {
-  pattern = { "*NeogitStatus" },
-  callback = function()
-    vim.cmd(":stopinsert")
-  end, group = group
-})
 
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0

@@ -227,6 +227,8 @@ awful.screen.connect_for_each_screen(function(s)
       wibox.widget.systray(),
       mytextclock,
       awful.widget.watch('bash -c "/home/yoni/.local/bin/aircon status | sed s/{// | sed s/}//"', 1),
+      awful.widget.watch('echo " "', 1),
+      -- awful.widget.watch('bash -c "/home/yoni/.local/bin/lights status"', 1),
       s.mylayoutbox,
     },
   }
@@ -332,6 +334,10 @@ globalkeys = gears.table.join(
 
   awful.key({ "Mod4", "Shift" }, "r", function()
     awful.util.spawn("/home/yoni/.local/bin/lights others")
+  end),
+
+  awful.key({ "Mod4", "Shift" }, "a", function()
+    awful.util.spawn("/home/yoni/.local/bin/lights all")
   end),
 
   awful.key({ "Mod4", "Shift" }, "a", function()

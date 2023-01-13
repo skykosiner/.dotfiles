@@ -57,7 +57,7 @@ vim.keymap.set("n", "<leader>guc", ":norm ^df*f*D<CR>")
 vim.keymap.set("n", "<leader>o", "o<esc>ko")
 
 vim.keymap.set("n", "<leader>ss", function()
-    vim.o.statusline = '%!v:lua.status()'
+  vim.o.statusline = '%!v:lua.status()'
 end)
 
 -- File stuff
@@ -70,25 +70,31 @@ vim.keymap.set("n", "<leader>ed", "[[ <cmd>lua require('twitch-bot').disconnect(
 
 -- Terminal stuff
 vim.keymap.set("n", "<leader>ts", function()
-    vim.cmd("12split")
-    vim.cmd("set winfixheight")
-    vim.cmd("term")
-    vim.cmd("startinsert")
+  vim.cmd("12split")
+  vim.cmd("set winfixheight")
+  vim.cmd("term")
+  vim.cmd("startinsert")
 end)
 vim.keymap.set("n", "<leader>tu", function()
-    vim.cmd("terminal")
-    vim.cmd("startinsert")
+  vim.cmd("terminal")
+  vim.cmd("startinsert")
 end)
 
 vim.keymap.set("n", "<leader>tt", function()
-    vim.cmd("tabnew")
-    vim.cmd("terminal")
-    vim.cmd("startinsert")
+  vim.cmd("tabnew")
+  vim.cmd("terminal")
+  vim.cmd("startinsert")
+end)
+
+vim.keymap.set("n", "<leader>tv", function()
+  vim.cmd("vsplit")
+  vim.cmd("terminal")
+  vim.cmd("startinsert")
 end)
 
 -- Grep the current highlighted selction
 vim.keymap.set("v", "<leader>ps",
-    "\"gy<cmd>lua require(\"telescope.builtin\").grep_string({ search = vim.fn.getreg(\"g\") })<cr>")
+  "\"gy<cmd>lua require(\"telescope.builtin\").grep_string({ search = vim.fn.getreg(\"g\") })<cr>")
 
 -- Tab stuff
 vim.keymap.set("n", "<right>", "gt")

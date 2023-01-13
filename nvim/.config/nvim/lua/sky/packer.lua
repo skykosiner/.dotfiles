@@ -1,14 +1,13 @@
 vim.cmd([[packadd packer.nvim]])
 
 return require("packer").startup(function(use)
-  -- Packer can manage itself
-  use "wbthomason/packer.nvim"
-
   -- Local plugins
-
   use "~/personal/todo-me-daddy/fix-everything"
   use "~/personal/statusline.nvim/"
   use "~/personal/telescope.nvim/"
+
+  -- Packer can manage itself
+  use "wbthomason/packer.nvim"
 
   use "folke/zen-mode.nvim"
 
@@ -88,7 +87,7 @@ return require("packer").startup(function(use)
   use "w0ng/vim-hybrid"
   use "chriskempson/base16-vim"
   use "nvim-lua/popup.nvim"
-  use "nvim-telescope/telescope.nvim"
+  -- use "nvim-telescope/telescope.nvim"
   use "nvim-telescope/telescope-fzy-native.nvim"
   use "mhinz/vim-rfc"
   use "mbbill/undotree"

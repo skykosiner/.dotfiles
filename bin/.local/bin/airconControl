@@ -27,7 +27,7 @@ while [ "$#" -gt 0 ]; do
 2
 3
 4
-5" | rofi -dmenu -i -p '[ Sellect fan mode ]')
+5" | dmenu -l 30)
        /home/yoni/.local/bin/aircon fan-$fanMode
        ;;
     *) echo "Unavailable command... $curr"
