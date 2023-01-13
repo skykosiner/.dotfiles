@@ -344,6 +344,10 @@ globalkeys = gears.table.join(
     awful.util.spawn("/home/yoni/.local/bin/lights all")
   end),
 
+  awful.key({ "Mod4", "Shift" }, "m", function()
+    awful.util.spawn("sh /home/yoni/.local/bin/montiors")
+  end),
+
   awful.key({ modkey, }, "s", hotkeys_popup.show_help,
     { description = "show help", group = "awesome" }),
   awful.key({ modkey, }, "Left", awful.tag.viewprev,
