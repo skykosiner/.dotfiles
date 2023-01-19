@@ -1,105 +1,80 @@
 local lsp = require("lsp-zero")
-local ih = require("inlay-hints")
+local lspkind = require "lspkind"
+local cmp = require('cmp')
+
+-- Make sure to get autocomplete with vim apis
+require("neodev").setup()
 
 lsp.preset("recommended")
 require("inlay-hints").setup()
 
 lsp.ensure_installed({
-    'tsserver',
-    'eslint',
-    'sumneko_lua',
-    'rust_analyzer',
-    'gopls',
-    'bashls',
-    'pyright',
-    'clangd'
-})
-
-require("lspconfig").gopls.setup({
-    on_attach = function(c, b)
-        ih.on_attach(c, b)
-    end,
-    settings = {
-        gopls = {
-            hints = {
-                assignVariableTypes = true,
-                compositeLiteralFields = true,
-                compositeLiteralTypes = true,
-                constantValues = true,
-                functionTypeParameters = true,
-                parameterNames = true,
-                rangeVariableTypes = true,
-            },
-        },
-    },
+  'tsserver',
+  'eslint',
+  'sumneko_lua',
+  'rust_analyzer',
+  'gopls',
+  'bashls',
+  'pyright',
+  'clangd'
 })
 
 require("lspconfig").sumneko_lua.setup {
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { 'vim' }
-            }
-        }
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { "vim" }
+      }
     }
+  }
 }
-
-local lspkind = require "lspkind"
-local source_mapping = {
-    buffer = "[Buffer]",
-    nvim_lsp = "[LSP]",
-    nvim_lua = "[Lua]",
-    gh_issues = "[Issues]",
-    path = "[Path]",
-}
-
-local cmp = require('cmp')
 
 cmp.setup({
-    formatting = {
-        format = lspkind.cmp_format({
-            mode = 'symbol', -- show only symbol annotations
-            maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-            ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+  formatting = {
+    format = lspkind.cmp_format({
+      mode = 'symbol', -- show only symbol annotations
+      maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+      ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
 
-            -- The function below will be called before any actual modifications from lspkind
-            -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-            before = function(entry, vim_item)
-                vim_item.kind = lspkind.presets.default[vim_item.kind]
-                return vim_item
-            end
-        })
-    },
-    experimental = {
-        ghost_text = true,
-    },
+      -- The function below will be called before any actual modifications from lspkind
+      -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+      before = function(entry, vim_item)
+        vim_item.kind = lspkind.presets.default[vim_item.kind]
+        return vim_item
+      end
+    })
+  },
+  experimental = {
+    ghost_text = true,
+  },
 
-    snippet = {
-        expand = function(args)
-            require("luasnip").lsp_expand(args.body)
-        end,
-    },
+  snippet = {
+    expand = function(args)
+      require("luasnip").lsp_expand(args.body)
+    end,
+  },
 
-    sources = {
-        { name = "nvim_lsp" },
-        { name = "path" },
-        { name = "nvim_lua" },
-        { name = "gh_issues" },
-        { name = "luasnip" },
-        { name = "buffer", keyword_length = 5 },
-    }
+  sources = {
+    { name = "nvim_lua" },
+    { name = "nvim_lsp" },
+    { name = "path" },
+    { name = "gh_issues" },
+    { name = "luasnip" },
+    { name = "buffer", keyword_length = 5 },
+  }
 })
 
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
-    ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-    ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-    ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-    ["<C-Space>"] = cmp.mapping.complete(),
-    ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-    ["<C-f>"] = cmp.mapping.scroll_docs(4),
+  ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+  ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+  ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+  ["<C-Space>"] = cmp.mapping.complete({}),
+  ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+  ["<C-f>"] = cmp.mapping.scroll_docs(4),
 })
 
+-- TURN OFF TABS AND ENTER
 cmp_mappings['<Tab>'] = nil
 cmp_mappings['<S-Tab>'] = nil
 cmp_mappings['<CR>'] = nil
@@ -107,63 +82,55 @@ cmp_mappings['<CR>'] = nil
 lspkind.init()
 
 lsp.set_preferences({
-    sign_icons = {}
+  sign_icons = {}
 })
 
 lsp.setup_nvim_cmp({
-    mapping = cmp_mappings
+  mapping = cmp_mappings
 })
 
 lsp.on_attach(function(client, bufnr)
-    local opts = { buffer = bufnr, remap = false }
-    vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-    vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-    vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-    vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
-    vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-    vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
-    vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-    vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
-    vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-    vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+  local opts = { buffer = bufnr, remap = false }
+  vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+  vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
+  vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
+  vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
+  vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
+  vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
+  vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
+  vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
+  vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
+  vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 
-    local group = vim.api.nvim_create_augroup("LSP_FORMAT", { clear = true })
+  local group = vim.api.nvim_create_augroup("LSP_FORMAT", { clear = true })
 
-    --[[ require "lsp_signature".on_attach({
+  --[[ require "lsp_signature".on_attach({
         hint_prefix = "»",
     }) ]]
 
-    -- Format on save
-    vim.api.nvim_create_autocmd("BufWritePre", { callback = function()
-        vim.lsp.buf.format { async = true }
-    end, group = group })
-
+  -- Format on save
+  vim.api.nvim_create_autocmd("BufWritePre", { callback = function()
+    vim.lsp.buf.format { async = true }
+  end, group = group })
 end)
 
 local opts = {
-    -- whether to highlight the currently hovered symbol
-    -- disable if your cpu usage is higher than you want it
-    -- or you just hate the highlight
-    -- default: true
-    highlight_hovered_item = true,
+  -- whether to highlight the currently hovered symbol
+  -- disable if your cpu usage is higher than you want it
+  -- or you just hate the highlight
+  -- default: true
+  highlight_hovered_item = true,
 
-    -- whether to show outline guides
-    -- default: true
-    show_guides = true,
+  -- whether to show outline guides
+  -- default: true
+  show_guides = true,
 }
-
---[[ vim.keymap.set("n", "<Tab>", function()
-    require('luasnip').jump(1)
-end)
-
-vim.keymap.set("n", "<S-Tab>", function()
-    require('luasnip').jump(-1)
-end ]]
 
 require("symbols-outline").setup(opts)
 
 lsp.setup()
 
 vim.diagnostic.config({
-    virtual_text = true
+  -- Get the errors on the side
+  virtual_text = true
 })

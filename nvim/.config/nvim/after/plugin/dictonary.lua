@@ -1,4 +1,4 @@
-function CreateWordSearch(word)
+function SearchWord(word)
   local width = 90
   local height = 20
 
@@ -8,9 +8,13 @@ function CreateWordSearch(word)
   local buf = vim.api.nvim_create_buf(false, true)
 
   local lines = 0
-  for _, value in pairs(output) do
-    vim.api.nvim_buf_set_lines(buf, lines, -1, true, { value })
+  local lineNum = 1
+
+  for _, line in pairs(output) do
+    line = lineNum .. ". " .. line
+    vim.api.nvim_buf_set_lines(buf, lines, -1, true, { line })
     lines = lines + 1
+    lineNum = lineNum + 1
   end
 
   local opts = {
@@ -22,13 +26,14 @@ function CreateWordSearch(word)
   }
 
   vim.api.nvim_open_win(buf, true, opts)
+  vim.opt_local.wrap = true
+  vim.opt_local.filetype = "markdown"
+  vim.opt_local.number = false
+  vim.opt_local.relativenumber = false
 end
 
 vim.keymap.set("n", "<leader>dd", function()
-  local currentWord = vim.fn.expand('<cword>')
-
-  CreateWordSearch(currentWord)
+  SearchWord(vim.fn.expand('<cword>'))
 end)
 
-vim.keymap.set("v", "<leader>dd",
-  "\"dy<cmd>lua CreateWordSearch(vim.fn.getreg(\"d\"))<cr>")
+vim.keymap.set("v", "<leader>dd", "\"dy<cmd>lua SearchWord(vim.fn.getreg(\"d\"))<cr>")

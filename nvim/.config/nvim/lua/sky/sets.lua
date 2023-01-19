@@ -1,12 +1,11 @@
 vim.g.mapleader = " "
 
-vim.opt.guicursor = ""
+-- vim.opt.guicursor = ""
 
 vim.opt.laststatus = 3
 
 vim.opt.number = true
 vim.opt.relativenumber = true
-
 
 vim.opt.termguicolors = true
 vim.opt.undofile = true
@@ -32,9 +31,9 @@ vim.opt.autoindent = true
 vim.opt.cindent = true
 vim.opt.wrap = false
 
-vim.opt.belloff = "all" -- Just turn the dang bell off
+vim.opt.belloff = "all" -- WHO THE FUCK HAS THIS OPTION ON???
 
-vim.opt.swapfile = false -- Living on the edge
+vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
@@ -66,8 +65,18 @@ vim.opt.list = true
 -- vim.opt.listchars = { eol = "↲", tab = ">", space = ">" }
 
 vim.opt.listchars = {
-    -- eol = '⤶',
-    tab = '  ',
+    eol = '⤶',
+    tab = '· ',
+    multispace = '· ',
 }
 
+-- Turn off that mouse
 vim.opt.mouse = nil
+
+vim.g.netrw_browse_split = 0
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 25
+vim.g.netrw_localrmdir = 'rm -rf'
+
+vim.g.python3_host_skip_check = 1
+vim.g.python3_host_prog = '/bin/python3'

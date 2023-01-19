@@ -55,6 +55,7 @@ bindkey -v
 export KEYTIMEOUT=1
 
 bindkey -s ^f "tmux-sessionizer\n"
+bindkey -s ^n "tmux-sessionizer ~/notes\n"
 bindkey -s ^o "nnn\n"
 bindkey -s ^p "password\n"
 

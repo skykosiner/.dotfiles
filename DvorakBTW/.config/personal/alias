@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+
 
 alias aoeu="setxkbmap -layout us"
 alias asdf="setxkbmap -layout real-prog-dvorak"
@@ -21,7 +21,7 @@ alias eog="devour eog"
 
 alias e="vim"
 alias v="vim"
-alias vi="vim"
+alias vi="/usr/bin/vim"
 
 alias V="sudo /usr/local/bin/nvim -"
 
@@ -69,7 +69,8 @@ alias vim="nvim"
 alias dvorakBTW="cowsay 'I Use Dvorak Btw' | lolcat"
 alias flex="cowsay 'I Use Neovim, Dvorak, and arch linux BTW' | lolcat && neofetch --ascii_art 'Arch'"
 
-alias livestream_screenkey="/usr/bin/screenkey -s large --scr 0 -p bottom --geometry 1210x300+3270+1180 --timeout 0.5";
+# alias livestream_screenkey="/usr/bin/screenkey -s large --scr 0 -p bottom --geometry 1210x300+3270+1180 --timeout 0.5";
+alias livestream_screenkey="/usr/bin/screenkey -s large --scr 0 -p bottom --geometry 800x300+1760+1650 --timeout 0.5";
 
 alias shutdown="sudo shutdown -h now";
 alias restart="sudo shutdown -r now";
@@ -78,3 +79,5 @@ alias lf="lfub"
 
 # Yes I know this is not a true VPN
 alias enableVPN="warp-cli connect"
+
+alias razer="polychromatic-controller"

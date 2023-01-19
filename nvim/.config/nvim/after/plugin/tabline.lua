@@ -1,1 +1,0 @@
--- Set a custom tabline in my neovim

@@ -1,3 +1,4 @@
+-- Stollen from the vim man him self
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 -- Sweet resizes baby
@@ -20,19 +21,17 @@ vim.keymap.set("n", ";", ";zzzv")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
-vim.keymap.set("n", "<leader>o", "o<Esc>^Da")
-vim.keymap.set("n", "<leader>O", "O<Esc>^Da")
-
--- Use control-c instead of esc, please don't fire me
+-- Use control-c instead of esc. Yes I vim in style
 vim.keymap.set("n", "<C-c>", "<Esc>")
 
--- Sweet remaps to tab stuff gurlll
+-- Sweet remaps to tab stuff
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
--- Spelling
+-- Spelling as I suck at it
 vim.keymap.set("n", "<leader>sp", ":lua require('sky.utils').toggleSpell()<CR>")
 
+-- CHMOD ME DADDY
 vim.keymap.set("n", "<leader>ch", "<cmd>!chmod +x %<CR>")
 
 vim.keymap.set("n", "<leader>y", '"+y')
@@ -45,17 +44,17 @@ vim.keymap.set("v", "<leader>Y", '"+Y')
 
 vim.keymap.set("n", "<silent>Q", "<Nop>")
 
-vim.keymap.set("n", "<leader>r", ":lua require('sky.utils').reload_module()<CR>")
-
 vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<CR><esc>kkI<esc>")
 
+-- Open the current dir in nnn (a terminal based file manger)
 vim.keymap.set("n", "<leader><C-o>", ":lua require('sky.utils').open_dir_nnn()<CR>")
 
-vim.keymap.set("n", "<leader>gcc", ":norm ^i{/*<esc>A*/}<esc><CR>")
-vim.keymap.set("n", "<leader>guc", ":norm ^df*f*D<CR>")
+-- Make comments in react, don't realy code in react though, so don't think I need this
+-- vim.keymap.set("n", "<leader>gcc", ":norm ^i{/*<esc>A*/}<esc><CR>")
+-- vim.keymap.set("n", "<leader>guc", ":norm ^df*f*D<CR>")
 
-vim.keymap.set("n", "<leader>o", "o<esc>ko")
 
+-- Set the status line as sometimes it glitechs
 vim.keymap.set("n", "<leader>ss", function()
   vim.o.statusline = '%!v:lua.status()'
 end)
@@ -65,6 +64,7 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 -- Have some sex on the side baby
 vim.keymap.set("n", "<leader>ft", ":Sex!<CR>")
 
+-- TWITCH BOT
 vim.keymap.set("n", "<leader>ea", "[[ <cmd>lua require('twitch-bot').init()<CR> ]]")
 vim.keymap.set("n", "<leader>ed", "[[ <cmd>lua require('twitch-bot').disconnect()<CR> ]]")
 
@@ -75,6 +75,7 @@ vim.keymap.set("n", "<leader>ts", function()
   vim.cmd("term")
   vim.cmd("startinsert")
 end)
+
 vim.keymap.set("n", "<leader>tu", function()
   vim.cmd("terminal")
   vim.cmd("startinsert")
@@ -100,3 +101,7 @@ vim.keymap.set("v", "<leader>ps",
 vim.keymap.set("n", "<right>", "gt")
 vim.keymap.set("n", "<left>", "gT")
 vim.keymap.set("n", "<leader>nn", ":tabnew<CR>")
+
+-- MOVE STUFF BABY
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")

@@ -2,23 +2,27 @@ vim.cmd([[packadd packer.nvim]])
 
 return require("packer").startup(function(use)
   -- Local plugins
-  use "~/personal/todo-me-daddy/fix-everything"
+  use "~/personal/todo-me-daddy/master/"
   use "~/personal/statusline.nvim/"
   use "~/personal/telescope.nvim/"
+  use "~/personal/wiki.nvim/"
 
   -- Packer can manage itself
   use "wbthomason/packer.nvim"
 
   use "folke/zen-mode.nvim"
-
   use "mkitt/tabline.vim"
-
   use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
+
+  -- ASYNC AWAIT ME DADDY
+  use { "ms-jpq/lua-async-await", branch = "neo" }
 
   -- Lsp
   -- use "ray-x/lsp_signature.nvim"
   use "j-hui/fidget.nvim"
   use "simrat39/inlay-hints.nvim"
+
+  use "folke/neodev.nvim"
 
   use {
     "VonHeikemen/lsp-zero.nvim",

@@ -20,17 +20,6 @@ local APW = require("apw/widget")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
-function os.capture(cmd, raw)
-  local f = assert(io.popen(cmd, 'r'))
-  local s = assert(f:read('*a'))
-  f:close()
-  if raw then return s end
-  s = string.gsub(s, '^%s+', '')
-  s = string.gsub(s, '%s+$', '')
-  s = string.gsub(s, '[\n\r]+', ' ')
-  return s
-end
-
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -346,6 +335,18 @@ globalkeys = gears.table.join(
 
   awful.key({ "Mod4", "Shift" }, "m", function()
     awful.util.spawn("sh /home/yoni/.local/bin/montiors")
+  end),
+
+  awful.key({ modkey, "Shift" }, "b", function()
+    awful.util.spawn("sh /home/yoni/.local/bin/change_background_dmenu")
+  end),
+
+  awful.key({ "Mod4", }, "]", function()
+    awful.util.spawn("sh /home/yoni/.local/bin/brightness --dec")
+  end),
+
+  awful.key({ "Mod4", }, "[", function()
+    awful.util.spawn("sh /home/yoni/.local/bin/brightness --inc")
   end),
 
   awful.key({ modkey, }, "s", hotkeys_popup.show_help,
@@ -691,4 +692,5 @@ awful.util.spawn("picom")
 awful.util.spawn("pulseaudio")
 awful.util.spawn("dunst")
 awful.util.spawn("setxkbmap -layout real-prog-dvorak")
+awful.util.spawn("~/.fehbg")
 awful.util.spawn("~/.fehbg")

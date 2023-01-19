@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-dconf write /org/mate/desktop/background/picture-filename "'$HOME/.dotfiles/anime/$(ls ~/.dotfiles/anime | rofi -dmenu -p "Backgrounds")'"
+item="$(echo $HOME)/.dotfiles/anime/$(ls ~/.dotfiles/anime | dmenu -p "Backgrounds" -l 30)"
+feh --bg-fill $item

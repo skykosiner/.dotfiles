@@ -1,23 +1,23 @@
 require("Comment").setup {
-    opleader = {
-        line = "gc",
-        block = "gb",
-    },
+  opleader = {
+    line = "gc",
+    block = "gb",
+  },
 
-    mappings = {
-        basic = true,
-        extra = true,
-        extended = true,
-    },
+  mappings = {
+    basic = true,
+    extra = true,
+    extended = true,
+  },
 
-    toggler = {
-        line = "gcc",
-        block = "gbc",
-    },
+  toggler = {
+    line = "gcc",
+    block = "gbc",
+  },
 
-    pre_hook = nil,
-    post_hook = nil,
-    ignore = nil,
+  pre_hook = nil,
+  post_hook = nil,
+  ignore = nil,
 }
 
 local comment_ft = require "Comment.ft"
