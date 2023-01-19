@@ -1,7 +1,7 @@
 # Window Customization
 # background_opacity: 0.8
 window:
-  opacity: 0.90
+  opacity: 0.85
   decorations: full
 scrolling:
   history: 10000
@@ -19,7 +19,7 @@ font:
   italic:
     family: Inconsolata
     style: Bold Italic
-  size: 18
+  size: 24
 
 colors:
   # Default colors

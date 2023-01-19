@@ -32,12 +32,6 @@ function Colors(color)
   vim.api.nvim_set_hl(0, "background_color", { fg = "#373b40", bg = "#7fa3c0" })
   vim.api.nvim_set_hl(0, "LineNr", { bg = "none", fg = "#373b40" })
 
-  vim.cmd([[
-    highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#880808
-    highlight! CmpItemAbbrMatch guibg=NONE guifg=#aaaaff
-    highlight! link CmpItemAbbrMatchFuzzy CmpItemAbbrMatch
-    ]])
-
   -- Make sure tokyonight is 100% transparent
   require("tokyonight").setup({
     transparent = true,

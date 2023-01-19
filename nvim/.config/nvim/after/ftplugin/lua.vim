@@ -1,6 +1,5 @@
-vim.localopt.textwidth = 120
-
-vim.localopt.shiftwidth = 2
+setlocal textwidth=120
+setlocal shiftwidth=2
 setlocal formatoptions-=o
 
 setlocal commentstring=--%s
