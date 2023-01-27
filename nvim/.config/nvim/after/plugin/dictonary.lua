@@ -1,12 +1,9 @@
 function SearchWord(word)
+  word = string.gsub(word, "\n", "")
   local width = 90
   local height = 20
-
-  word = string.gsub(word, "\n", "")
-
   local output = vim.fn.systemlist("echo " .. word .. "| ~/.local/bin/dictonary")
   local buf = vim.api.nvim_create_buf(false, true)
-
   local lines = 0
   local lineNum = 1
 

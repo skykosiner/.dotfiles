@@ -1,8 +1,9 @@
+---@param color string
 function Colors(color)
+  vim.g.sky_colorscheme = color
+  require('colorbuddy').colorscheme(vim.g.sky_colorscheme)
   require("colorizer").setup()
   require("colorbuddy").setup()
-
-  vim.g.sky_colorscheme = color or 'gruvbuddy'
 
   -- Make sure rose-pine is 100% transparent
   require("rose-pine").setup({
@@ -19,7 +20,7 @@ function Colors(color)
   vim.g.gruvbox_invert_selection = '0'
   vim.g.gruvbox_italic = 1
 
-  require('colorbuddy').colorscheme(vim.g.sky_colorscheme)
+  vim.cmd("highlight ColorColumn ctermbg=0 guibg=#555555")
 
   vim.api.nvim_set_hl(0, "WinSeparator", { bg = "none", fg = "none" })
   vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
@@ -47,4 +48,4 @@ function Colors(color)
   -- vim.api.nvim_set_hl(0, "Ignore", { bg = "#2e2e2e", fg = "#7fa3c0" })
 end
 
-Colors()
+Colors("gruvbuddy")

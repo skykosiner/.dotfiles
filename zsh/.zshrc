@@ -1,6 +1,8 @@
 # OH MY ZSH stuff
 export ZSH="/home/yoni/.oh-my-zsh"
 
+cowsay "GAY" | lolcat
+
 # ZSH_THEME="powerlevel10k/powerlevel10k"
 # ZSH_THEME="robbyrussell"
 eval "$(starship init zsh)"
@@ -15,7 +17,6 @@ export XDG_RUNTIME_DIR=/run/user/1000
 export TERM="xterm-256color"
 
 VIM="nvim"
-export YONIKOSINER=$HOME/personal/yonikosiner-com.git
 export TODO_ME_DADDY=$HOME/personal/todo-me-daddy/
 
 export EDITOR="nvim"
@@ -34,13 +35,15 @@ done
 alias urlS="/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -dump URLSchemeBinding"
 
 alias iCloud="cd /Users/yonikosiner/Library/Mobile\ Documents/com~apple~CloudDocs"
+
+# Normall stuff and Linux
 autoload -U colors && colors
 
 #[[ $(fgconsole 2>/dev/null) == 1 ]] && exec startx -- vt1
 
 export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json
 
-# autoload -Uz vcs_info
+autoload -Uz vcs_info
 # zstyle ':vcs_info:*' enable git svn
 # zstyle ':vcs_info:git*' formats " %%B%{$fg[yellow]λ %%B%{$fg[green]%b"
 #
@@ -55,7 +58,7 @@ bindkey -v
 export KEYTIMEOUT=1
 
 bindkey -s ^f "tmux-sessionizer\n"
-bindkey -s ^n "tmux-sessionizer ~/notes\n"
+bindkey -s ^n "tmux-sessionizer ~/personal/notes\n"
 bindkey -s ^o "nnn\n"
 bindkey -s ^p "password\n"
 

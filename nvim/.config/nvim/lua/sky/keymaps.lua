@@ -1,6 +1,9 @@
 -- Stollen from the vim man him self
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
+-- SOURCE ME DADDY
+vim.keymap.set("n", "<leader>so", ":so %<CR>")
+
 -- Sweet resizes baby
 vim.keymap.set("n", "<leader>+", "<cmd>vertical resize +5<CR>")
 vim.keymap.set("n", "<leader>-", "<cmd>vertical resize -5<CR>")
@@ -22,7 +25,7 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- Use control-c instead of esc. Yes I vim in style
-vim.keymap.set("n", "<C-c>", "<Esc>")
+vim.keymap.set("n", "<C-c>", "<esc>")
 
 -- Sweet remaps to tab stuff
 vim.keymap.set("v", "<", "<gv")

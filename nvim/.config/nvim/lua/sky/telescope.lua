@@ -107,11 +107,6 @@ local function image_selector(prompt, cwd)
       prompt_title = prompt,
       cwd = cwd,
 
-      layout_config = {
-        width = 0.5,
-        height = 0.9,
-      },
-
       attach_mappings = function(prompt_bufnr, map)
         select_background(prompt_bufnr, map)
 

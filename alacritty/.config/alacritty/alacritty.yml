@@ -1,7 +1,7 @@
 # Window Customization
 # background_opacity: 0.8
 window:
-  opacity: 0.85
+  opacity: 0.90
   decorations: full
 scrolling:
   history: 10000
@@ -11,15 +11,17 @@ window.dynamic_title: true
 # Font Customization
 font:
   normal:
-    family: Inconsolata
-    style: Medium
+        family: JetBrainsMono Nerd Font
+    # family: Inconsolata
   bold:
-    family: Inconsolata
+    family: JetBrainsMono Nerd Font
+    # family: Inconsolata
     style: Bold
   italic:
-    family: Inconsolata
+    family: JetBrainsMono Nerd Font
+    # family: Inconsolata
     style: Bold Italic
-  size: 24
+  size: 20
 
 colors:
   # Default colors
@@ -28,8 +30,8 @@ colors:
     # background: '0x282c34'
     # background: '0x1d2021'
     # background: '0x272a33'
-    # background: '0x1e1e1e'
-    background: '0x000000'
+    background: '0x111111'
+    # background: '0x000000'
     # soft contrast: background = '0x32302f'
     foreground: '0xffffff'
 

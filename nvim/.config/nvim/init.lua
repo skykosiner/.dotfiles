@@ -2,13 +2,13 @@ require("sky")
 
 -- Just playing around with some stuff json stuff in vim
 --[[ function Test()
-  local testJSON = '{"test": 123}'
   local testTable = {
     ["test"] = 123
   }
 
-  print(vim.inspect(vim.fn.json_decode(testJSON)))
-  print(vim.fn.json_encode(testTable))
+  local encodedJson = vim.fn.json_encode(testTable)
+  print(encodedJson)
+  vim.pretty_print(vim.fn.json_decode(encodedJson))
 end
 
 vim.keymap.set("n", "<leader>te", function()

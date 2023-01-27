@@ -30,9 +30,10 @@ dotfilesStatus() {
     popd
 }
 
+#TODO: Get this working
 searchDotFiles() {
-    items=`cd $DOTFILES && find .`
-    echo "$items" | fzf --height=15 | xargs -I {} nvim "~/.dotfiles/{}"
+    fileName="'$HOME/.dotfiles$(ls ~/.dotfiles | fzf)'"
+    nvim $fileName
 }
 
 password() {

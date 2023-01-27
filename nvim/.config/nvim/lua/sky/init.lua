@@ -18,14 +18,14 @@ require("sky.packer")
 require("sky.telescope")
 -- Don't use any of these two right now
 -- require("sky.statusline")
--- require("sky.winbar")
+require("sky.winbar")
 
 -- We create a grop which will be cleared each time, this is so we don't have multiple autocommands running (or something like that)
 local group = vim.api.nvim_create_augroup("SKY", { clear = true })
 
 -- Give that sweet little thing for a second on a yank, so I know what I have yanked
 vim.api.nvim_create_autocmd("TextYankPost", { callback = function()
-  require 'vim.highlight'.on_yank({ timeout = 50 })
+  vim.highlight.on_yank({ timeout = 50 })
 end, group = group })
 
 -- Clear whitespace on save

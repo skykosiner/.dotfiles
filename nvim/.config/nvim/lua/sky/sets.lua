@@ -55,7 +55,7 @@ vim.opt.linebreak = true
 
 vim.opt.hlsearch = false
 
--- vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "80"
 
 vim.opt.showmode = false
 
@@ -65,9 +65,9 @@ vim.opt.list = true
 -- vim.opt.listchars = { eol = "↲", tab = ">", space = ">" }
 
 vim.opt.listchars = {
-    eol = '⤶',
-    tab = '· ',
-    multispace = '· ',
+  eol = '⤶',
+  tab = '· ',
+  multispace = '· ',
 }
 
 -- Turn off that mouse

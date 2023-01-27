@@ -1,32 +1,9 @@
 #!/usr/bin/env bash
 
 # Long story
-
-~/screen.sh
-
+xrandr --output DP-0 --off --output DP-1 --off --output DP-2 --off --output DP-3 --off --output HDMI-0 --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-4 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output eDP-1-1 --off
 currentBackground=$(dconf read /org/mate/desktop/background/picture-filename)
 ~/.local/bin/change_background_random
 dconf write /org/mate/desktop/background/picture-filename "$currentBackground"
 
 i3 restart
-
-i3 workspace 1
-i3 move workspace to output left
-i3 workspace 2
-i3 move workspace to output left
-i3 workspace 3
-i3 move workspace to output left
-i3 workspace 4
-i3 move workspace to output left
-i3 workspace 5
-i3 move workspace to output left
-i3 workspace 6
-i3 move workspace to output left
-i3 workspace 7
-i3 move workspace to output left
-i3 workspace 8
-i3 move workspace to output left
-i3 workspace 9
-i3 move workspace to output left
-i3 workspace 10
-i3 move workspace to output left

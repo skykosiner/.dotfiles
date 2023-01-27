@@ -30,7 +30,7 @@ tztime local {
 }
 
 load {
-        format = "Load: %1min"
+    format = "Load: %1min"
 }
 
 memory {
