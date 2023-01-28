@@ -134,10 +134,10 @@ _G.packer_plugins = {
     path = "/home/yoni/.local/share/nvim/site/pack/packer/start/fidget.nvim",
     url = "https://github.com/j-hui/fidget.nvim"
   },
-  ["fix-everything"] = {
+  firenvim = {
     loaded = true,
-    path = "/home/yoni/.local/share/nvim/site/pack/packer/start/fix-everything",
-    url = "/home/yoni/personal/todo-me-daddy/fix-everything"
+    path = "/home/yoni/.local/share/nvim/site/pack/packer/start/firenvim",
+    url = "https://github.com/glacambre/firenvim"
   },
   ["friendly-snippets"] = {
     loaded = true,
@@ -204,6 +204,11 @@ _G.packer_plugins = {
     path = "/home/yoni/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
     url = "https://github.com/onsails/lspkind-nvim"
   },
+  ["lua-async-await"] = {
+    loaded = true,
+    path = "/home/yoni/.local/share/nvim/site/pack/packer/start/lua-async-await",
+    url = "https://github.com/ms-jpq/lua-async-await"
+  },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
     path = "/home/yoni/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
@@ -213,6 +218,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yoni/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
+  },
+  master = {
+    loaded = true,
+    path = "/home/yoni/.local/share/nvim/site/pack/packer/start/master",
+    url = "/home/yoni/personal/todo-me-daddy/master/"
+  },
+  ["neodev.nvim"] = {
+    loaded = true,
+    path = "/home/yoni/.local/share/nvim/site/pack/packer/start/neodev.nvim",
+    url = "https://github.com/folke/neodev.nvim"
   },
   neoformat = {
     loaded = true,
@@ -368,6 +383,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yoni/.local/share/nvim/site/pack/packer/start/vim-vscode-theme",
     url = "https://github.com/dunstontc/vim-vscode-theme"
+  },
+  ["wiki.nvim"] = {
+    loaded = true,
+    path = "/home/yoni/.local/share/nvim/site/pack/packer/start/wiki.nvim",
+    url = "/home/yoni/personal/wiki.nvim/"
   },
   ["zen-mode.nvim"] = {
     loaded = true,

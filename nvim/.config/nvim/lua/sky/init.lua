@@ -34,3 +34,8 @@ vim.api.nvim_create_autocmd("BufWritePre", { callback = function()
   -- vim does not like it when you use |
   vim.cmd([[:%s/\s\+$//e]])
 end, group = group })
+
+vim.api.nvim_create_autocmd("UIEnter", { callback = function()
+  vim.opt.winbar = ""
+  vim.opt.colorcolumn = nil
+end, group = group })

@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-pulseaudio &
-dunst &
-pciom &
-~/.local/bin/screen-stuff
-
-pkill mate-panel

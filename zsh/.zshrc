@@ -1,7 +1,7 @@
+cowsay "GAY" | lolcat
+
 # OH MY ZSH stuff
 export ZSH="/home/yoni/.oh-my-zsh"
-
-cowsay "GAY" | lolcat
 
 # ZSH_THEME="powerlevel10k/powerlevel10k"
 # ZSH_THEME="robbyrussell"

@@ -21,7 +21,7 @@ font:
     family: JetBrainsMono Nerd Font
     # family: Inconsolata
     style: Bold Italic
-  size: 20
+  size: 25
 
 colors:
   # Default colors

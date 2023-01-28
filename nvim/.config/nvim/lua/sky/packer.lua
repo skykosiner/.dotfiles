@@ -7,6 +7,13 @@ return require("packer").startup(function(use)
   use "~/personal/telescope.nvim/"
   use "~/personal/wiki.nvim/"
 
+  -- NEOVIM IN THE BROWESER
+  use {
+    'glacambre/firenvim',
+    run = function() vim.fn['firenvim#install'](0) end
+  }
+
+
   -- Packer can manage itself
   use "wbthomason/packer.nvim"
 

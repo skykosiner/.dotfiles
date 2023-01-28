@@ -172,3 +172,12 @@ bitches() {
 —————————————————————————————
     "
 }
+
+screenZoom() {
+    xrandr --output DP-4 --scale 0.8x0.8
+}
+
+# Edit my dotfiles
+de() {
+    du -a ~/.dotfiles/ | cut -f2- -d '.'| fzf | xargs -I {} nvim ~/.{}
+}

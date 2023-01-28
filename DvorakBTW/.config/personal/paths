@@ -2,7 +2,8 @@
 export DOTFILES=$HOME/.dotfiles
 export SCHOOLWORK=$HOME/school-work
 export STOW_FOLDERS="bin,i3,nvim,tmux,zsh,DvorakBTW,kitty,dunst,polybar,fonts,vim"
-export PATH=$HOME/.local/bin:.:$PATH
+export PATH="$PATH:$(du ~/.dotfiles/bin/.local/bin | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+# export PATH=$HOME/.local/bin:.:$PATH
 export SHELL=/usr/bin/zsh
 export RUSTUP=/home/yoni/.cargo/bin/rustup
 export PATH=$PATH:/bin:$RUSTUP

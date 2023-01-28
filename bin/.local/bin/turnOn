@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-# Long story
-xrandr --output DP-0 --off --output DP-1 --off --output DP-2 --off --output DP-3 --off --output HDMI-0 --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-4 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output eDP-1-1 --off
-currentBackground=$(dconf read /org/mate/desktop/background/picture-filename)
-~/.local/bin/change_background_random
-dconf write /org/mate/desktop/background/picture-filename "$currentBackground"
-
-i3 restart

@@ -22,7 +22,7 @@ while [ "$#" -gt 0 ]; do
        /home/yoni/.local/bin/aircon $airconNumber
        ;;
    "-sellect-fan")
-       fanMode=$(echo "night
+       fanMode=$(echo "Night
 1
 2
 3

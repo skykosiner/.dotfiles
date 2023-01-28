@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+capacity=$(cat /sys/class/power_supply/BAT0/capacity) || exit
+status=$(cat /sys/class/power_supply/BAT0/status)
+
+if [[ $status == "Full" ]]; then
+    echo "🔌"$capacity"%"
+else
+    echo "🔋"$capacity"%"
+fi

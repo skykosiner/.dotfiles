@@ -216,8 +216,8 @@ bindsym Mod4+shift+m exec sh /home/yoni/.local/bin/montiors
 bindsym  $mod+shift+b exec /home/yoni/.local/bin/change_background_dmenu
 
 # bindsym Mod4+] exec /home/yoni/.local/bin/brightness --dec
-
 # bindsym Mod4+[ exec /home/yoni/.local/bin/brightness --inc")
 
 exec --no-startup-id pulseaduio
 exec --no-startup-id dunst
+exec --no-startup-id pkill mate-panel
