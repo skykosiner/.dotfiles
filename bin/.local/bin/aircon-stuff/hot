@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-/home/yoni/.local/bin/aircon hot
-/home/yoni/.local/bin/aircon 25
-/home/yoni/.local/bin/aircon fan-2
+/home/yoni/.local/bin/aircon-stuff/aircon hot
+/home/yoni/.local/bin/aircon-stuff/aircon 25
+/home/yoni/.local/bin/aircon-stuff/aircon fan-2

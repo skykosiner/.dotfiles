@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+path=$2
+case $1 in
+    "--pdf")
+        pathPDF=$(echo $2 | sed s/md/pdf/)
+        pandoc -f markdown -t pdf $2 > $pathPDF
+        ;;
+    # Apparently people use word documents???????????
+    "--word")
+        pathWord=$(echo $2 | sed s/md/docx/)
+        pandoc -f markdown -t docx $2 > $pathWord
+        ;;
+    "--html")
+        pathHTML=$(echo $2 | sed s/md/html/)
+        pandoc -f markdown -t html $2 > $pathHTML
+        ;;
+    *) echo "Unavailable command... $curr"
+esac

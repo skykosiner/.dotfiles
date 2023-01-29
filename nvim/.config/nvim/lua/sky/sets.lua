@@ -1,6 +1,6 @@
 vim.g.mapleader = " "
 
--- vim.opt.guicursor = ""
+vim.opt.guicursor = ""
 
 vim.opt.laststatus = 3
 

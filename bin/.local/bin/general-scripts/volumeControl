@@ -8,10 +8,12 @@ while [ "$#" -gt 0 ]; do
    "-up")
        pactl set-sink-volume @DEFAULT_SINK@ +5%
        notify-send "Volume up by +5" "$(~/.local/bin/volume)" -t 300
+       pkill -SIGRTMIN+10 i3blocks
        ;;
     "-down")
         pactl set-sink-volume @DEFAULT_SINK@ -5%
         notify-send "Volume down by -5" "$(~/.local/bin/volume)" -t 300
+        pkill -SIGRTMIN+10 i3blocks
         ;;
     "-mute-vol")
         MUTEVOL=$(pactl get-sink-mute @DEFAULT_SINK@ | xargs | sed 's/Mute://g' | awk '{print $1}')
@@ -25,6 +27,7 @@ while [ "$#" -gt 0 ]; do
 
         notify-send "Toggle mute volume" "$volMuteVal" -t 300
         pactl set-sink-mute @DEFAULT_SINK@ toggle
+        pkill -SIGRTMIN+10 i3blocks
         ;;
     "-mute-mic")
         MICMUTE=$(pactl list sources | grep "Mute" | sed 's/Mute://g' | xargs | awk '{print $1}')

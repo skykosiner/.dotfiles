@@ -1,7 +1,7 @@
 # Window Customization
 # background_opacity: 0.8
 window:
-  opacity: 0.90
+  opacity: 0.80
   decorations: full
 scrolling:
   history: 10000

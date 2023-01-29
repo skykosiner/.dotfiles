@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+case "$1" in
+    "-togglePlay")
+        ~/.local/bin/spotifycli --playpause
+        ;;
+    "-prev")
+        ~/.local/bin/spotifycli --prev
+        ;;
+    "-next")
+        ~/.local/bin/spotifycli --next
+        ;;
+    "-status")
+        status=$(~/.local/bin/spotifycli --status)
+        album=$(~/.local/bin/spotifycli --album)
+        echo "$status on $album |"
+        ;;
+    *) echo "Not a command... $1"
+esac

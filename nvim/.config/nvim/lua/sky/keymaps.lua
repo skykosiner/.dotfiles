@@ -1,5 +1,5 @@
 -- Stollen from the vim man him self
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww ~/.local/bin/tmux-stuff/tmux-sessionizer<CR>")
 
 -- SOURCE ME DADDY
 vim.keymap.set("n", "<leader>so", ":so %<CR>")

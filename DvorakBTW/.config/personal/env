@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 # Set the caps key to super, as it is easier to hit on my kinesis then the super key
-setxkbmap -option caps:super
+# setxkbmap -option caps:super
 #tmux-start-zsh
 
 TODO() {

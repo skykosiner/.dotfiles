@@ -2,7 +2,7 @@ local notes = require("wiki.notes")
 local links = require("wiki.notes.links")
 
 -- Set the path to where my notes will be
-require("wiki").setup(string.format("%s/notes", os.getenv("HOME")))
+require("wiki").setup(string.format("%s/personal/notes", os.getenv("HOME")))
 
 vim.keymap.set("n", "<leader>l", function()
   links.find_link_file()
