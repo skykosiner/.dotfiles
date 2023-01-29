@@ -11,9 +11,27 @@ case "$1" in
         ~/.local/bin/spotifycli --next
         ;;
     "-status")
-        status=$(~/.local/bin/spotifycli --status)
-        album=$(~/.local/bin/spotifycli --album)
-        echo "$status on $album |"
+        if ~/.local/bin/spotifycli --status;
+        then
+                echo "$(~/.local/bin/spotifycli --status)"
+            else
+            echo ""
+        fi
+        ;;
+    "-status-wm")
+        if ~/.local/bin/spotifycli --status;
+        then
+            echo "$(~/.local/bin/spotifycli --status)"
+        else
+            echo ""
+        fi
+        ;;
+        "-select-album")
+            id=$(cat $DOTFILES/album_list | awk -F '|' '{print $1 " - "  $2 " id: " $3}' | dmenu -l 20 -i  -fn 'FiraCode-15' | awk -F 'id: ' '{print $2}')
+            qdbus org.mpris.MediaPlayer2.spotify \
+                /org/mpris/MediaPlayer2 \
+                org.mpris.MediaPlayer2.Player.OpenUri \
+                spotify:album:$id
         ;;
     *) echo "Not a command... $1"
 esac
