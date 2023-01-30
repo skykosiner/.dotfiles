@@ -25,4 +25,5 @@ let fc['https?://youtube.com'] = {'takeover': 'never', 'priority': 1}
 let fc['https?://replit.com'] = {'takeover': 'never', 'priority': 1}
 let fc['https?://interhigh.adobeconnect.com'] = {'takeover': 'never', 'priority': 1}
 let fc['https?://discord.com'] = {'takeover': 'never', 'priority': 1}
+let fc['https?://web.whatsapp.com'] = {'takeover': 'never', 'priority': 1}
 ]])

@@ -57,9 +57,6 @@ alias ..="cd .."
 
 alias :q="exit"
 
-alias mv='mv -i'
-alias rm='rm -i'
-
 alias vim="nvim"
 
 # alias sync_mail="mw -Y"
@@ -78,6 +75,4 @@ alias restart="sudo shutdown -r now";
 alias lf="lfub"
 
 # Yes I know this is not a true VPN
-alias enableVPN="warp-cli connect"
-
 alias razer="polychromatic-controller"

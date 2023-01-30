@@ -7,6 +7,8 @@ return require("packer").startup(function(use)
   use "~/personal/telescope.nvim/"
   use "~/personal/wiki.nvim/"
 
+  use "rcarriga/nvim-notify"
+
   -- NEOVIM IN THE BROWESER
   use {
     'glacambre/firenvim',

@@ -1,7 +1,6 @@
 set nu
 set relativenumber
 set scrolloff=8
-set syntax
 set ignorecase
 set smartcase
 
@@ -12,3 +11,6 @@ set expandtab
 set autoindent
 set cindent
 set nowrap
+
+syntax enable
+colorscheme habamax

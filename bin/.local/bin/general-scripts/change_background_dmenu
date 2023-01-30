@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
 
 item="$(echo $HOME)/.dotfiles/anime/$(ls ~/.dotfiles/anime | dmenu -p "Backgrounds" -l 30)"
-dconf write /org/mate/desktop/background/picture-filename "'$item'"
+
+if [[ $item != "$HOME/.dotfiles/anime/" ]]; then
+    dconf write /org/mate/desktop/background/picture-filename "'$item'"
+fi

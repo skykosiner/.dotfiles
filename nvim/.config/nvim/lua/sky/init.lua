@@ -12,6 +12,8 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath) ]]
 
+vim.notify = require("notify")
+
 require("sky.sets")
 require("sky.keymaps")
 require("sky.packer")
@@ -40,3 +42,8 @@ vim.api.nvim_create_autocmd("UIEnter", { callback = function()
   vim.opt.winbar = ""
   vim.opt.colorcolumn = nil
 end, group = group })
+
+-- idk really, make vim.notify shut up lol
+require("notify").setup({
+  background_colour = "#000000",
+})

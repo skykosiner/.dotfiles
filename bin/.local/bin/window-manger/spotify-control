@@ -27,11 +27,14 @@ case "$1" in
         fi
         ;;
         "-select-album")
-            id=$(cat $DOTFILES/album_list | awk -F '|' '{print $1 " - "  $2 " id: " $3}' | dmenu -l 20 -i  -fn 'FiraCode-15' | awk -F 'id: ' '{print $2}')
-            qdbus org.mpris.MediaPlayer2.spotify \
-                /org/mpris/MediaPlayer2 \
-                org.mpris.MediaPlayer2.Player.OpenUri \
-                spotify:album:$id
+            id=$(cat ~/.dotfiles/album_list | awk -F '|' '{print $1 " - "  $2 " id: " $3}' | dmenu -l 20 -i  -fn 'JetBrainsMono Nerd Font-15' | awk -F 'id: ' '{print $2}')
+
+            if [[ ! -z $id ]]; then
+                qdbus org.mpris.MediaPlayer2.spotify \
+                    /org/mpris/MediaPlayer2 \
+                    org.mpris.MediaPlayer2.Player.OpenUri \
+                    spotify:album:$id
+            fi
         ;;
     *) echo "Not a command... $1"
 esac

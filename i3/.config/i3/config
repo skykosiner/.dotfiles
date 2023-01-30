@@ -196,7 +196,7 @@ bindsym $mod+a exec "~/.local/bin/window-manger/spotify-control -select-album"
 
 bindsym Mod4+shift+f			exec /usr/bin/pcmanfm
 bindsym Mod4+o			        exec alacritty -e "/usr/bin/nnn"
-bindsym $mod+shift+w			exec --no-startup-id /usr/bin/brave
+bindsym $mod+shift+w			exec --no-startup-id /usr/bin/qutebrowser
 bindsym $mod+Shift+g		    exec --no-startup-id /usr/bin/gimp; workspace $ws6
 
 bindsym $mod+m          move workspace to output left
@@ -240,5 +240,9 @@ bindsym $mod+u [instance="dropdown"] scratchpad show; [instance="dropdown"] move
 
 bindsym Mod4+Shift+1 exec /home/yoni/.local/bin/brightness --dec
 bindsym Mod4+Shift+minus exec /home/yoni/.local/bin/brightness --inc")
+
+# Get me into my reputation era
+
+bindsym Mod4+$mod+r exec /home/yoni/.local/bin/general-scripts/reputationEra
 
 exec /home/yoni/.local/bin/window-manger/startup
