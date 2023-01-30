@@ -245,4 +245,6 @@ bindsym Mod4+Shift+minus exec /home/yoni/.local/bin/brightness --inc")
 
 bindsym Mod4+$mod+r exec /home/yoni/.local/bin/general-scripts/reputationEra
 
+bindsym Mod4+shift+e exec alacritty -e "neomutt"
+
 exec /home/yoni/.local/bin/window-manger/startup

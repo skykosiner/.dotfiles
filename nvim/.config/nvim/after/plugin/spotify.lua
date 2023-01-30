@@ -11,11 +11,11 @@ local function play_playlist(prompt_bufnr, map)
     local id = vim.fn.systemlist(string.format([[ echo "%s" | awk -F 'id: ' '{print $2}' ]], content.value))[1]
 
     vim.fn.system(string.format([[
-  qdbus org.mpris.MediaPlayer2.spotify \
-  /org/mpris/MediaPlayer2 \
-  org.mpris.MediaPlayer2.Player.OpenUri \
-  spotify:album:%s
-  ]] , id))
+    qdbus org.mpris.MediaPlayer2.spotify \
+    /org/mpris/MediaPlayer2 \
+    org.mpris.MediaPlayer2.Player.OpenUri \
+    spotify:album:%s
+    ]], id))
   end
 
   map("i", "<C-s>", function()

@@ -6,20 +6,23 @@ while [ "$#" -gt 0 ]; do
 
     case "$curr" in
    "-inc-1")
-       airconNumber=$(/home/yoni/.local/bin/aircon status | awk '{print $1}' | sed s/{// | awk -F "." '{print $1}')
+       airconNumber=$(/home/yoni/.local/bin/aircon-stuff/aircon status | awk '{print $1}' | sed s/{// | awk -F "." '{print $1}')
        airconNumber=$(( $airconNumber + 1 ))
 
        /home/yoni/.local/bin/aircon $airconNumber
+       pkill -SIGRTMIN+5 i3blocks
        ;;
    "-dec-1")
-       airconNumber=$(/home/yoni/.local/bin/aircon status | awk '{print $1}' | sed s/{// | awk -F "." '{print $1}')
+       airconNumber=$(/home/yoni/.local/bin/aircona-stuff/aircon status | awk '{print $1}' | sed s/{// | awk -F "." '{print $1}')
        airconNumber=$(( $airconNumber - 1 ))
 
        /home/yoni/.local/bin/aircon $airconNumber
+       pkill -SIGRTMIN+5 i3blocks
        ;;
    "-change")
        airconNumber=$(echo "" | rofi -dmenu -p "Enter Temp > ")
-       /home/yoni/.local/bin/aircon $airconNumber
+       /home/yoni/.local/bin/aircon-stuff/aircon $airconNumber
+       pkill -SIGRTMIN+5 i3blocks
        ;;
    "-sellect-fan")
        fanMode=$(echo "Night
@@ -28,7 +31,8 @@ while [ "$#" -gt 0 ]; do
 3
 4
 5" | dmenu -l 30)
-       /home/yoni/.local/bin/aircon fan-$fanMode
+       /home/yoni/.local/bin/aircon-stuff/aircon fan-$fanMode
+       pkill -SIGRTMIN+5 i3blocks
        ;;
     *) echo "Unavailable command... $curr"
     esac

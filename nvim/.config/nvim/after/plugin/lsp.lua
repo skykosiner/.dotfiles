@@ -103,16 +103,12 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 
-  local group = vim.api.nvim_create_augroup("LSP_FORMAT", { clear = true })
-
-  --[[ require "lsp_signature".on_attach({
-        hint_prefix = "»",
-    }) ]]
+  --[[ local group = vim.api.nvim_create_augroup("LSP_FORMAT", { clear = true })
 
   -- Format on save
   vim.api.nvim_create_autocmd("BufWritePre", { callback = function()
     vim.lsp.buf.format { async = true }
-  end, group = group })
+  end, group = group }) ]]
 end)
 
 local opts = {

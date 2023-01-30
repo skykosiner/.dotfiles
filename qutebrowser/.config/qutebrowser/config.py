@@ -140,7 +140,14 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 
 config.set("colors.webpage.darkmode.enabled", True)
 
-c.url.searchengines = {'DEFAULT': "https://search.brave.com/search?q={}&source=desktop"}
+
+config.bind('<Ctrl-y>', 'hint links spawn mpv {hint-url}')
+
+c.url.searchengines = {'DEFAULT':
+                       "https://search.brave.com/search?q={}&source=desktop",
+                       "tw": "https://twitter.com/{}"}
 c.url.start_pages = "https://search.brave.com"
 c.content.blocking.method = 'both'
+
+# Find a way to set defualt zoom to 150%
 c.zoom.default = "150"
