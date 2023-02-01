@@ -181,3 +181,9 @@ screenZoom() {
 de() {
     du -a ~/.dotfiles/ | cut -f2- -d '.'| fzf | xargs -I {} nvim ~/.{}
 }
+
+changeToEmacs() {
+    pkill emacs
+    ~/.emacs.d/bin/doom sync
+    emacs --daemon &
+}

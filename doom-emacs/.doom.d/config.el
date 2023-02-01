@@ -110,8 +110,19 @@
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c C-l") 'org-insert-link)
 
+;; Lsp stuff
 (global-set-key (kbd "C-c d") 'helm-lsp-diagnostics)
+
+(map! :i "C-y" 'company-complete-selection)
+;; Find way to unmap enter from company-complete-selection
+;; (global-set-key (kbd "C-m") nil)
+
+;; Open magit
 (global-set-key (kbd "C-c g") 'magit)
+
+;; Note stuff with org
+(global-set-key (kbd "C-c i") (lambda () (interactive) (find-file "~/org/index.org")))
+
 (setq org-agenda-files (list "~/org"))
 
 ;; Spell me daddy

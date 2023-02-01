@@ -4,7 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(org-agenda-files
-   '("~/org/work/youtube/switching-to-emacs.org" "/home/yoni/org/school/english/tutor/Tutor.org" "/home/yoni/org/school/film-studies/NEA.org"))
+   '("~/org/index.org" "/home/yoni/org/work/youtube/switching-to-emacs.org" "/home/yoni/org/school/english/tutor/Tutor.org" "/home/yoni/org/school/film-studies/NEA.org"))
  '(package-selected-packages '(undo-tree)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
