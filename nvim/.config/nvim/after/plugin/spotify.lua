@@ -1,8 +1,6 @@
 local function play_playlist(prompt_bufnr, map)
   local function run_me_daddy(close)
-    local content = require("telescope.actions.state").get_selected_entry(
-      prompt_bufnr
-    )
+    local content = require("telescope.actions.state").get_selected_entry(prompt_bufnr)
 
     if close then
       require("telescope.actions").close(prompt_bufnr)

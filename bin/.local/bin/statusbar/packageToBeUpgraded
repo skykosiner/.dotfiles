@@ -8,3 +8,7 @@ then
 else
     echo "📦 $count"
 fi
+
+case $BLOCK_BUTTON in
+    1) alacritty -e sudo pacman -Syyu
+esac

@@ -7,6 +7,11 @@ make
 sudo make install
 cd ..
 
+# Install doom emacs
+sudo pacman -S emacs
+git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d
+~/.emacs.d/bin/doom install
+
 sudo pacman -S stow
 # Stow dotfiles
 ./linux
