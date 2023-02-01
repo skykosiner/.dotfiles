@@ -57,3 +57,4 @@
 (package! tree-sitter-langs)
 (package! all-the-icons)
 (package! all-the-icons-dired)
+(package! base16-theme)
