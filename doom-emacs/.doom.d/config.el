@@ -111,6 +111,7 @@
 (global-set-key (kbd "C-c C-l") 'org-insert-link)
 
 (global-set-key (kbd "C-c d") 'helm-lsp-diagnostics)
+(global-set-key (kbd "C-c g") 'magit)
 (setq org-agenda-files (list "~/org"))
 
 ;; Spell me daddy
