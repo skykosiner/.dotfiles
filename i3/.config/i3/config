@@ -251,11 +251,11 @@ bindsym Mod4+Shift+1 exec /home/yoni/.local/bin/brightness --dec
 bindsym Mod4+Shift+minus exec /home/yoni/.local/bin/brightness --inc")
 
 # Get me into my reputation era
-
 bindsym Mod4+$mod+r exec /home/yoni/.local/bin/general-scripts/reputationEra
 
 bindsym Mod4+shift+e exec alacritty -e "neomutt"
 
+# Get me into my taylor swfit eras
 bindsym Mod4+2 exec "~/.local/bin/taylor-albums taylor-swift"
 bindsym Mod4+3 exec "~/.local/bin/taylor-albums fearless"
 bindsym Mod4+4 exec "~/.local/bin/taylor-albums speak-now"
@@ -269,6 +269,8 @@ bindsym Mod4+r exec "~/.local/bin/taylor-albums midnights"
 
 bindsym Mod4+space exec "~/.local/bin/general-scripts/menu-emoji"
 
+# Yes, I'm using emacs now 💀
+# Make sure to connect to the daemon running otherwise it takes longer for emacs to startup
 bindsym Mod4+e exec "emacsclient -c"
 
 exec /home/yoni/.local/bin/window-manger/startup
