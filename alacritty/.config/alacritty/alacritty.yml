@@ -29,14 +29,15 @@ colors:
     # hard contrast: background = '0x1d2021'
     # background: '0x282c34'
     # background: '0x1d2021'
-    # background: '0x272a33'
-    background: '0x111111'
+    background: '0x272a33'
+    # background: '0x111111'
     # background: '0x000000'
     # soft contrast: background = '0x32302f'
     foreground: '0xffffff'
 
   # Normal colors
-  # Gruvbox
+
+  # Gruvbox dark
   normal:
     black:   '0x272727'
     red:     '0xcc231c'

@@ -12,11 +12,36 @@ killall xcap 2>/dev/null ; xcape -e 'Super_L=Escape'
 # Turn off caps lock if on since there is no longer a key for it
 xset -q | grep "Caps Lock:\s*on" && xdotool key Caps_Lock
 
+# DROP ME DOWN DADDY
+# kitty --name dropdown -e node &
+
+# Set those notifications
+dunst &
+
+# Emacs daemon me daddy
+emacs --daemon &
+
+# Set my screen layout
+mainScreen=$(xrandr --listmonitors | awk /DP/)
+
+# If the main screen is not connected set the output to laptop display or set the output to main display, and HDMI-0 display
+if [[ -z $mainScreen ]]; then
+    xrandr --output DP-0 --off --output DP-1 --off --output DP-2 --off --output DP-3 --off --output HDMI-0 --off --output DP-4 --off --output eDP-1-1 --mode 1920x1080
+else
+    xrandr --output DP-0 --off --output DP-1 --off --output DP-2 --off --output DP-3 --off --output HDMI-0 --mode 1920x1080 --pos 64x0 --rotate normal --output DP-4 --primary --mode 2560x1440 --pos 0x1080 --rotate normal --output eDP-1-1 --off
+fi
+
+# Set my keyboard layout
+setxkbmap -layout real-prog-dvorak
+
+# PICOM
+picom &
+
+# Set last used background
+~/.fehbg
+
+# Set them dwmblocks
+dwmblocks &
+
 # AUDIO WORKING ON ARCHV?????????????????????????????
 pulseaudio &
-
-# DROP ME DOWN DADDY
-kitty --name dropdown -e node &
-
-dunst &
-emacs --daemon &

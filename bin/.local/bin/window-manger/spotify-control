@@ -27,7 +27,7 @@ case "$1" in
         fi
         ;;
         "-select-album")
-            id=$(cat ~/.dotfiles/album_list | awk -F '|' '{print $1 " - "  $2 " id: " $3}' | dmenu -l 20 -i  -fn 'JetBrainsMono Nerd Font-15' | awk -F 'id: ' '{print $2}')
+            id=$(cat ~/.dotfiles/album_list | sort | awk -F '|' '{print $1 " - "  $2 " id: " $3}' | dmenu -l 20 -i  -fn 'JetBrainsMono Nerd Font-15' | awk -F 'id: ' '{print $2}')
 
             if [[ ! -z $id ]]; then
                 qdbus org.mpris.MediaPlayer2.spotify \

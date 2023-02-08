@@ -10,19 +10,19 @@ while [ "$#" -gt 0 ]; do
        airconNumber=$(( $airconNumber + 1 ))
 
        /home/yoni/.local/bin/aircon $airconNumber
-       pkill -SIGRTMIN+5 i3blocks
+       pkill -SIGRTMIN+5 dwmblocks
        ;;
    "-dec-1")
        airconNumber=$(/home/yoni/.local/bin/aircona-stuff/aircon status | awk '{print $1}' | sed s/{// | awk -F "." '{print $1}')
        airconNumber=$(( $airconNumber - 1 ))
 
        /home/yoni/.local/bin/aircon $airconNumber
-       pkill -SIGRTMIN+5 i3blocks
+       pkill -SIGRTMIN+5 dwmblocks
        ;;
    "-change")
        airconNumber=$(echo "" | rofi -dmenu -p "Enter Temp > ")
        /home/yoni/.local/bin/aircon-stuff/aircon $airconNumber
-       pkill -SIGRTMIN+5 i3blocks
+       pkill -SIGRTMIN+5 dwmblocks
        ;;
    "-sellect-fan")
        fanMode=$(echo "Night
@@ -32,7 +32,7 @@ while [ "$#" -gt 0 ]; do
 4
 5" | dmenu -l 30)
        /home/yoni/.local/bin/aircon-stuff/aircon fan-$fanMode
-       pkill -SIGRTMIN+5 i3blocks
+       pkill -SIGRTMIN+5 dwmblocks
        ;;
     *) echo "Unavailable command... $curr"
     esac

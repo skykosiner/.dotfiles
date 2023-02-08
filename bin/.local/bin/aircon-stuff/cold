@@ -4,4 +4,4 @@
 /home/yoni/.local/bin/aircon-stuff/aircon cold
 /home/yoni/.local/bin/aircon-stuff/aircon fan-night
 
-pkill -SIGRTMIN+5 i3blocks
+pkill -SIGRTMIN+5 dwmblocks

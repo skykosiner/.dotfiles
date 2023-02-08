@@ -21,7 +21,7 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 30))
+(setq doom-font (font-spec :family "Inconsolata Nerd Font" :size 40))
 (after! doom-themes
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t))
@@ -45,7 +45,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'base16-tokyo-night-dark)
+(setq doom-theme 'base16-ayu-mirage)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -123,7 +123,8 @@
 ;; Note stuff with org
 (global-set-key (kbd "C-c i") (lambda () (interactive) (find-file "~/org/index.org")))
 
-(setq org-agenda-files (list "~/org"))
+;; (setq org-agenda-files (list "~/org"))
+(setq org-agenda-files (directory-files-recursively "~/org/" "\\.org$"))
 
 ;; Spell me daddy
 (define-key ctl-x-map "\C-i"
@@ -167,3 +168,24 @@
 
 (setq save-abbrevs 'silently)
 (setq-default abbrev-mode t)
+
+;; SPOTIFY CONTROL IN EMACS
+(setq smudge-oauth2-client-secret "499f45c0540c42a4afab64d38b3f5ab2")
+(setq smudge-oauth2-client-id "3b360e20f6e44db28e576110ae6975e7")
+(global-set-key (kbd "C-c .") 'smudge-command-map)
+
+(setq elfeed-feeds
+      '(
+        ;; programming
+        ("https://www.reddit.com/r/programming.rss" programming)
+        ("https://www.reddit.com/r/emacs.rss" emacs)
+
+        ;; programming languages
+        ("https://www.reddit.com/r/golang.rss" golang)
+        ("https://www.reddit.com/r/javascript.rss" javascript)
+        ("https://www.reddit.com/r/typescript.rss" typescript)
+))
+
+(setq-default elfeed-search-filter "@2-days-ago +unread")
+(setq-default elfeed-search-title-max-width 100)
+(setq-default elfeed-search-title-min-width 100)

@@ -5,6 +5,8 @@ status=$(cat /sys/class/power_supply/BAT0/status)
 
 if [[ $status == "Full" ]]; then
     echo "🔌"$capacity"%"
+elif [[ $status == "Charging" ]]; then
+    echo "🔌"$capacity"%"
 else
     echo "🔋"$capacity"%"
 fi

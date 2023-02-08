@@ -19,7 +19,7 @@ export TERM="xterm-256color"
 VIM="nvim"
 export TODO_ME_DADDY=$HOME/personal/todo-me-daddy/
 
-export EDITOR="nvim"
+export EDITOR="emacsclient -c -a emacs"
 
 source $ZSH/oh-my-zsh.sh
 
