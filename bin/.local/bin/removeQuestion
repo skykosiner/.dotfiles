@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+currentNames=$(find ~/Documents/Memes | grep "?")
+newNames=$(echo $currentNames | sed s/\?//g)
+
+mv $(echo $currentNames | tr "\n" " ") $(echo $newNames | tr "\n" " ")

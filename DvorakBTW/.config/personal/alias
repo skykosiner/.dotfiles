@@ -15,10 +15,6 @@ alias cat="bat --theme gruvbox-dark"
 
 alias caps="xdotool key Caps_Lock"
 
-alias mpv="devour mpv"
-alias vlc="devour vlc"
-alias sxiv="devour sixv"
-
 alias e="vim"
 alias v="vim"
 alias vi="/usr/bin/vim"
@@ -76,3 +72,6 @@ alias lf="lfub"
 
 # Yes I know this is not a true VPN
 alias razer="polychromatic-controller"
+
+# GAY
+alias gay="unimatrix -s 95 | lolcat"

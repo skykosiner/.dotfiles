@@ -33,6 +33,7 @@
   (setq
    org-directory "~/org/"
    org-hide-emphasis-markers t)
+  org-agenda-block-separator 45
   )
 
      ;; doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
@@ -176,14 +177,7 @@
 
 (setq elfeed-feeds
       '(
-        ;; programming
-        ("https://www.reddit.com/r/programming.rss" programming)
-        ("https://www.reddit.com/r/emacs.rss" emacs)
-
-        ;; programming languages
-        ("https://www.reddit.com/r/golang.rss" golang)
-        ("https://www.reddit.com/r/javascript.rss" javascript)
-        ("https://www.reddit.com/r/typescript.rss" typescript)
+        ("https://macstories.net/rss" apple)
 ))
 
 (setq-default elfeed-search-filter "@2-days-ago +unread")

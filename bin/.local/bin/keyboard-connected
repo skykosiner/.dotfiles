@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Set the layout to dvorak
+setxkbmap -layout real-prog-dvorak
+
+# Map the caps lock super
+setxkbmap -option caps:super
+
+# When capslock is pressed only once, treat it as escape
+killall xcap 2>/dev/null ; xcape -e 'Super_L=Escape'

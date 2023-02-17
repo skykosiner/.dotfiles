@@ -20,7 +20,7 @@ while [ "$#" -gt 0 ]; do
        pkill -SIGRTMIN+5 dwmblocks
        ;;
    "-change")
-       airconNumber=$(echo "" | rofi -dmenu -p "Enter Temp > ")
+       airconNumber=$(dmenu -p "Enter Temp >" <&- && echo)
        /home/yoni/.local/bin/aircon-stuff/aircon $airconNumber
        pkill -SIGRTMIN+5 dwmblocks
        ;;

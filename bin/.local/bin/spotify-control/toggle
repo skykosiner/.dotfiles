@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+
+~/.local/bin/spotifycli --playpause
