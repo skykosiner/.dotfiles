@@ -1,31 +1,26 @@
 #!/usr/bin/env bash
+#
+send_notif() {
+    volume=$(pulsemixer --get-volume | awk '{print $1}')
+    if [[ $1 == "up" ]]; then
+        dunstify -a "changeVolume" -u low -r 9991 -h int:value:"$volume" "🔊 Volume: $volume%" -t 2000
+    else
+        dunstify -a "changeVolume" -u low -r 9991 -h int:value:"$volume" "🔉 Volume: $volume%" -t 2000
+    fi
+}
 
-while [ "$#" -gt 0 ]; do
-    curr=$1
-    shift
-
-    case "$curr" in
-   "-up")
-       pactl set-sink-volume @DEFAULT_SINK@ +5%
-       notify-send "Volume up by +5" "$(~/.local/bin/volume)" -t 300
-       pkill -SIGRTMIN+10 dwmblocks
-       ;;
-    "-down")
-        pactl set-sink-volume @DEFAULT_SINK@ -5%
-        notify-send "Volume down by -5" "$(~/.local/bin/volume)" -t 300
+case $1 in
+    "up")
+        pactl set-sink-volume @DEFAULT_SINK@ +5%
+        send_notif $1
         pkill -SIGRTMIN+10 dwmblocks
         ;;
-    "-mute-vol")
-        MUTEVOL=$(pactl get-sink-mute @DEFAULT_SINK@ | xargs | sed 's/Mute://g' | awk '{print $1}')
-
-        if [[ $MUTEVOL == "yes" ]];
-        then
-            volMuteVal="Unmute"
-        else
-            volMuteVal="Mute"
-        fi
-
-        notify-send "Toggle mute volume" "$volMuteVal" -t 300
+    "down")
+        pactl set-sink-volume @DEFAULT_SINK@ -5%
+        send_notif $1
+        pkill -SIGRTMIN+10 dwmblocks
+        ;;
+    "mute")
         pactl set-sink-mute @DEFAULT_SINK@ toggle
         pkill -SIGRTMIN+10 dwmblocks
         ;;
@@ -43,5 +38,4 @@ while [ "$#" -gt 0 ]; do
         pactl set-source-mute @DEFAULT_SOURCE@ toggle
         ;;
     *) echo "Unavailable command... $curr"
-    esac
-done
+esac

@@ -3,6 +3,7 @@
 case "$1" in
     "-togglePlay")
         ~/.local/bin/spotifycli --playpause
+        notify-send "Now playing: $(~/.local/bin/spotifycli --status)"
         ;;
     "-prev")
         ~/.local/bin/spotifycli --prev

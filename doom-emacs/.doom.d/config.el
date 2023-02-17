@@ -32,8 +32,8 @@
 (after! org
   (setq
    org-directory "~/org/"
+   org-agenda-block-separator 45
    org-hide-emphasis-markers t)
-  org-agenda-block-separator 45
   )
 
      ;; doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
