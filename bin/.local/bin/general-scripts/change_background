@@ -3,8 +3,11 @@
 if [[ $# -eq 1 ]]; then
     # dconf write /org/mate/desktop/background/picture-filename "'$1'"
     feh --bg-fill $1
+    echo $1
+    notify-send -i $1 "Background set"
 else
     # dconf write /org/mate/desktop/background/picture-filename "'$HOME/.dotfiles/anime/$(ls ~/.dotfiles/anime | fzf)'"
     item=$(echo $HOME)"/.dotfiles/anime/"$(ls ~/.dotfiles/anime | fzf)
     feh --bg-fill $item
+    notify-send -i $item "Background set"
 fi

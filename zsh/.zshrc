@@ -59,7 +59,7 @@ export KEYTIMEOUT=1
 
 bindkey -s ^f "tmux-sessionizer\n"
 bindkey -s ^n "tmux-sessionizer ~/personal/notes\n"
-bindkey -s ^o "nnn\n"
+bindkey -s ^o "lf\n"
 bindkey -s ^p "password\n"
 
 source /home/yoni/personal/fzf-tab-completion/zsh/fzf-zsh-completion.sh

@@ -46,7 +46,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'base16-ayu-mirage)
+(setq doom-theme 'base16-gruvbox-dark-hard)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -183,3 +183,11 @@
 (setq-default elfeed-search-filter "@2-days-ago +unread")
 (setq-default elfeed-search-title-max-width 100)
 (setq-default elfeed-search-title-min-width 100)
+
+
+;; HARPOON
+(global-set-key (kbd "C-c a") 'harpoon-add-file)
+(global-set-key (kbd "C-c h") 'harpoon-go-to-1)
+(global-set-key (kbd "C-c t") 'harpoon-go-to-2)
+(global-set-key (kbd "C-c n") 'harpoon-go-to-3)
+(global-set-key (kbd "C-c s") 'harpoon-go-to-4)

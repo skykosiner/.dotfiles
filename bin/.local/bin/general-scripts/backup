@@ -1,14 +1,32 @@
 #!/usr/bin/env bash
 
+networkName=$(iwgetid -r)
+
+if [[ -z $networkName && ${networkName+x} ]];
+then
+    echo "Connect to Wi-Fi to backup computer"
+    notify-send "Connect to Wi-Fi to backup computer"
+    exit 0
+fi
+
+filesInServerFolder=$(ls ~/server | wc -l)
+
+if [[ $filesInServerFolder -le 1 ]]; then
+    echo "Not mounted to server"
+    notify-send "Not mounted to server"
+    exit 0
+fi
+
+
 notify-send "Starting to backup computer to server"
 
-sudo rsync -aAXv --delete /home/yoni/Music /home/yoni/server/backups
 sudo rsync -aAXv --delete /home/yoni/Documents /home/yoni/server/backups
 sudo rsync -aAXv --delete /home/yoni/work /home/yoni/server/backups
 sudo rsync -aAXv --delete /home/yoni/personal /home/yoni/server/backups
-sudo rsync -aAXv --delete /home/yoni/school-work /home/yoni/server/backups
-sudo rsync -aAXv --delete /home/yoni/school-python /home/yoni/server/backups
-sudo rsync -aAXv --delete /home/yoni/Downloads /home/yoni/server/backups
+sudo rsync -aAXv --delete /home/yoni/work/school-work /home/yoni/server/backups
+sudo rsync -aAXv --delete /home/yoni/work/school-python /home/yoni/server/backups
 sudo rsync -aAXv --delete /home/yoni/Pictures /home/yoni/server/backups
+sudo rsync -aAXv --delete /home/yoni/Camera /home/yoni/server/backups
+sudo rsync -aAXv --delete /home/yoni/org /home/yoni/server/backups
 
 notify-send "Backup is finished"

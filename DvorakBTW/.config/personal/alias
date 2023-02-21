@@ -1,4 +1,4 @@
-
+#!/usr/bin/env bash
 
 alias aoeu="setxkbmap -layout us"
 alias asdf="setxkbmap -layout real-prog-dvorak"
@@ -68,10 +68,12 @@ alias livestream_screenkey="/usr/bin/screenkey -s large --scr 0 -p bottom --geom
 alias shutdown="sudo shutdown -h now";
 alias restart="sudo shutdown -r now";
 
-alias lf="lfub"
-
 # Yes I know this is not a true VPN
 alias razer="polychromatic-controller"
 
 # GAY
 alias gay="unimatrix -s 95 | lolcat"
+
+alias bm="$EDITOR ~/.dotfiles/.bookm"
+alias sn="$EDITOR ~/.dotfiles/snipets"
+alias dw="$EDITOR ~/personal/suckless/dwm"

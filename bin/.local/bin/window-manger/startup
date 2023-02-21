@@ -9,6 +9,8 @@ setxkbmap -option caps:super
 # When capslock is pressed only once, treat it as escape
 killall xcap 2>/dev/null ; xcape -e 'Super_L=Escape'
 
+[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
+
 # Turn off caps lock if on since there is no longer a key for it
 xset -q | grep "Caps Lock:\s*on" && xdotool key Caps_Lock
 
@@ -48,3 +50,12 @@ pulseaudio &
 
 # Screensaver
 xscreensaver -no-splash &
+
+# When shortcuts file in changed update the lf config
+# echo ~/.dotfiles/.bookm | entr ~/.local/bin/bookmarks --lf &
+
+# Every time a new keyboard is plugged in set the layout and remap keys
+~/.local/bin/newKeyboard
+
+# SAVE MY EYES
+redshift -O 4690

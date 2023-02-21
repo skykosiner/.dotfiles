@@ -2,26 +2,21 @@
 set shellopts '-eu'
 set ifs "\n"
 set scrolloff 10
-# set icons
+# set icons true
 set period 1
-set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
-set cleaner '~/.config/lf/cleaner'
-set previewer '~/.config/lf/scope'
+set previewer lf-ueberzug-previewer
+set cleaner lf-ueberzug-cleaner
 
 # cmds/functions
 cmd open ${{
     case $(file --mime-type "$(readlink -f $f)" -b) in
 	application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) localc $fx ;;
 	image/vnd.djvu|application/pdf|application/octet-stream|application/postscript) setsid -f zathura $fx >/dev/null 2>&1 ;;
-        text/*|application/json|inode/x-empty) $EDITOR $fx;;
+        text/*|application/json|inode/x-empty) nvim $fx;;
 	image/x-xcf) setsid -f gimp $f >/dev/null 2>&1 ;;
 	image/svg+xml) display -- $f ;;
 	image/*) rotdir $f | grep -i "\.\(png\|jpg\|jpeg\|gif\|webp\|tif\|ico\)\(_large\)*$" |
-		setsid -f sxiv -aio 2>/dev/null | while read -r file; do
-			[ -z "$file" ] && continue
-			lf -remote "send select \"$file\""
-			lf -remote "send toggle"
-		done &
+    sxiv $fx
 		;;
 	audio/*) mpv --audio-display=no $f ;;
 	video/*) setsid -f mpv $f -quiet >/dev/null 2>&1 ;;
@@ -55,9 +50,9 @@ cmd moveto ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
 	set -f
 	clear; echo "Move to where?"
-	dest="$(sed -e 's/\s*#.*//' -e '/^$/d' -e 's/^\S*\s*//' ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf | sed 's|~|$HOME|')" &&
-	for x in $fx; do
-		eval mv -iv \"$x\" \"$dest\"
+	dest="$(~/.dotfiles/bin/.local/bin/bookmarks --get | fzf)" &&
+	for x in $f; do
+		eval mv -iv "$x" "$dest"
 	done &&
 	notify-send "🚚 File(s) moved." "File(s) moved to $dest."
 }}
@@ -73,16 +68,22 @@ cmd copyto ${{
 	notify-send "📋 File(s) copied." "File(s) copies to $dest."
 }}
 
-cmd setbg feh --bg-fill $1
+cmd dragon ${{
+	dragon "$f"
+}}
+
+cmd setbg ${{
+    ~/.local/bin/general-scripts/change_background $f
+}}
+
 
 cmd bulkrename $vidir
 
 # Bindings
 map <c-f> $lf -remote "send $id select '$(fzf)'"
 map J $lf -remote "send $id cd $(sed -e 's/\s*#.*//' -e '/^$/d' -e 's/^\S*\s*//' ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf)"
-map b setbg
+map b setbg $f
 map gh
-map g top
 map D delete
 map E extract
 map C copyto
@@ -110,3 +111,7 @@ map V push :!nvim<space>
 map W $setsid -f $TERMINAL >/dev/null 2>&1
 
 map Y $printf "%s" "$fx" | xclip -selection clipboard
+
+map <c-l> $dragon
+
+source "~/.config/lf/shortcuts"

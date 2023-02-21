@@ -45,7 +45,7 @@ end
 function M.open_dir_nnn()
   local currentDir = vim.cmd("pwd")
   Job:new({
-    "alacritty",
+    "st",
     "-e",
     "nnn",
     currentDir

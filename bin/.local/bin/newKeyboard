@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# Rerun the remaps script whenever a new input device is added
+
+while :; do
+    # Map the caps lock super
+    setxkbmap -option caps:super
+
+    # When capslock is pressed only once, treat it as escape
+    killall xcap 2>/dev/null ; xcape -e 'Super_L=Escape'
+
+    # Turn off caps lock if on since there is no longer a key for it
+    xset -q | grep "Caps Lock:\s*on" && xdotool key Caps_Lock
+
+    # Set the layout
+    setxkbmap -layout real-prog-dvorak
+
+	grep -qP -m1 '[^un]bind.+\/[^:]+\(usb\)' <(udevadm monitor -u -t seat -s input -s usb)
+done

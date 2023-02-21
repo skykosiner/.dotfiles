@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
+
 export DOTFILES=$HOME/.dotfiles
 export SCHOOLWORK=$HOME/school-work
-export STOW_FOLDERS="bin,i3,nvim,tmux,zsh,DvorakBTW,dunst,polybar,fonts,vim,qutebrowser,alacritty,kitty,zathula,i3blocks,awesome"
+export STOW_FOLDERS="bin,i3,nvim,tmux,zsh,DvorakBTW,dunst,polybar,fonts,vim,qutebrowser,alacritty,kitty,zathula,i3blocks,awesome,lf"
 export PATH="$PATH:$(du ~/.dotfiles/bin/.local/bin | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 # export PATH=$HOME/.local/bin:.:$PATH
 export SHELL=/usr/bin/zsh
@@ -14,3 +15,5 @@ export PATH=$PATH:/$HOME/go/bin
 export PATH=$PATH:/home/yoni/.emacs.d/bin
 export PATH=$PATH:/home/yoni/.cargo/bin
 export BROWSER=qutebrowser
+export TERMINAL=st
+export TFM=lf

@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+case "$1" in
+    "--lf")
+        cat ~/.dotfiles/.bookm > ~/.dotfiles/lf/.config/lf/shortcuts
+        sed -i -e 's/^/map /g;s/\~/cd \~/' ~/.dotfiles/lf/.config/lf/shortcuts
+    ;;
+    "--get")
+        bookMarks=$(cat ~/.dotfiles/.bookm | awk '{print $2}' | sort)
+        for bm in $bookMarks; do
+            echo $bm
+        done
+        ;;
+    *) echo "Not a command... $1"
+esac

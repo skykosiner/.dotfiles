@@ -2,7 +2,10 @@
 
 item="$(echo $HOME)/.dotfiles/anime/$(ls ~/.dotfiles/anime | dmenu -p "Backgrounds" -l 30)"
 
+# Make sure the wallpaper is not blank (basicly if you run the script then
+# decide to exit out of dmenu)
 if [[ $item != "$HOME/.dotfiles/anime/" ]]; then
     feh --bg-fill $item
+    notify-send -i $item "Background set"
     # dconf write /org/mate/desktop/background/picture-filename "'$item'"
 fi

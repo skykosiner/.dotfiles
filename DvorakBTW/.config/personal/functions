@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 # Set the caps key to super, as it is easier to hit on my kinesis then the super key
 # setxkbmap -option caps:super
-#tmux-start-zsh
+# tmux-start-zsh
 
 TODO() {
     if [[ $# -eq 1 ]]; then
@@ -17,11 +17,7 @@ cComp() {
 }
 
 killProcess() {
-    if [[ $# -eq 1 ]]; then
-        ps ax | awk '{print $5}' | dmenu -l 30 | xargs -r pkill $5
-    else
-        ps ax | awk '{print $5}' | rofi -dmenu - | xargs -r pkill $5
-    fi
+    ps ax | awk '{print $5}' | dmenu -l 30 | xargs -r pkill $5
 }
 
 dotfilesStatus() {

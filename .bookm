@@ -1,0 +1,9 @@
+gc ~/.dotfiles
+gs ~/.dotfiles/bin/.local/bin/
+gb ~/.dotfiles/anime/
+gh ~/
+gd ~/Documents
+gD ~/Downloads
+gp ~/personal
+gw ~/work
+gm ~/Movies

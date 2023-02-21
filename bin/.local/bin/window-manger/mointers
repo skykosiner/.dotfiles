@@ -25,5 +25,5 @@ case $montiors in
     "Single montior")
         xrandr --output DP-0 --off --output DP-1 --off --output DP-2 --off --output DP-3 --off --output HDMI-0 --off --output DP-4 --mode 2560x1440 --pos 0x0 --rotate normal --output eDP-1-1 --off
         ;;
-    *) echo "Unavailable command... $curr"
+    *) echo "Unavailable command... $mointors"
 esac

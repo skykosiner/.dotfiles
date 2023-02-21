@@ -21,7 +21,7 @@ font:
     family: JetBrainsMono Nerd Font
     # family: Inconsolata
     style: Bold Italic
-  size: 25
+  size: 15
 
 schemes:
   ### Doom One ###
