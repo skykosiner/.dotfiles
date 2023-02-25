@@ -7,3 +7,4 @@ map gD cd ~/Downloads
 map gp cd ~/personal
 map gw cd ~/work
 map gm cd ~/Movies
+map go cd ~/org

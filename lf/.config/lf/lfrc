@@ -12,7 +12,7 @@ cmd open ${{
     case $(file --mime-type "$(readlink -f $f)" -b) in
 	application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) localc $fx ;;
 	image/vnd.djvu|application/pdf|application/octet-stream|application/postscript) setsid -f zathura $fx >/dev/null 2>&1 ;;
-        text/*|application/json|inode/x-empty) nvim $fx;;
+    text/*|application/json|inode/x-empty) nvim $fx;;
 	image/x-xcf) setsid -f gimp $f >/dev/null 2>&1 ;;
 	image/svg+xml) display -- $f ;;
 	image/*) rotdir $f | grep -i "\.\(png\|jpg\|jpeg\|gif\|webp\|tif\|ico\)\(_large\)*$" |
@@ -61,9 +61,9 @@ cmd copyto ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
 	set -f
 	clear; echo "Copy to where?"
-	dest="$(sed -e 's/\s*#.*//' -e '/^$/d' -e 's/^\S*\s*//' ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf | sed 's|~|$HOME|')" &&
-	for x in $fx; do
-		eval cp -ivr \"$x\" \"$dest\"
+	dest="$(~/.dotfiles/bin/.local/bin/bookmarks --get | fzf)" &&
+	for x in $f; do
+		eval cp -ivr "$x" "$dest"
 	done &&
 	notify-send "📋 File(s) copied." "File(s) copies to $dest."
 }}
@@ -75,7 +75,6 @@ cmd dragon ${{
 cmd setbg ${{
     ~/.local/bin/general-scripts/change_background $f
 }}
-
 
 cmd bulkrename $vidir
 

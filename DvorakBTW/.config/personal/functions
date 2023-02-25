@@ -183,3 +183,22 @@ changeToEmacs() {
     ~/.emacs.d/bin/doom sync
     emacs --daemon &
 }
+
+# I always forget to commit suckless software 💀
+pushSucklessSoftware() {
+    pushd ~/personal/suckless/st/
+    git add .
+    git commit -am "Forget to commit this so fancy commit from me in the past"
+    git push -u origin master
+    popd
+    pushd ~/personal/suckless/dwm/
+    git add .
+    git commit -am "Forget to commit this so fancy commit from me in the past"
+    git push -u origin master
+    popd
+    pushd ~/personal/suckless/dwmblocks/
+    git add .
+    git commit -am "Forget to commit this so fancy commit from me in the past"
+    git push -u origin master
+    popd
+}

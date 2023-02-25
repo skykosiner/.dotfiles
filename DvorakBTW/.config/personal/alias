@@ -77,3 +77,5 @@ alias gay="unimatrix -s 95 | lolcat"
 alias bm="$EDITOR ~/.dotfiles/.bookm"
 alias sn="$EDITOR ~/.dotfiles/snipets"
 alias dw="$EDITOR ~/personal/suckless/dwm"
+
+alias tt="tt -showwpm -notheme"

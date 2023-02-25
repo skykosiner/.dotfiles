@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Rerun the remaps script whenever a new input device is added
+# Remaps keyboard whenever a new input device is added
 
 while :; do
     # Map the caps lock super
