@@ -21,9 +21,9 @@ for file in files:
         if os.stat(f"{dir}/{file}").st_size == 0 or os.stat(f"{dir}/{file}").st_size == 1:
             filesToRm.append(f"{dir}/{file}")
 
-delte = input(f"About to delete\n {filesToRm}\n Y to Delete N to not delete")
+delte = input(f"About to delete\n {filesToRm}\n y to Delete n to not delete ")
 
-if delte == "Y":
+if delte == "y":
     for file in filesToRm:
         os.remove(file)
 else:
