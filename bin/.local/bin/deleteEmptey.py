@@ -15,8 +15,16 @@ def CheckForEmpteyFiles(dir: str) -> list[str]:
 
 
 files = CheckForEmpteyFiles(dir)
+filesToRm: list[str] = []
 
 for file in files:
         if os.stat(f"{dir}/{file}").st_size == 0 or os.stat(f"{dir}/{file}").st_size == 1:
-            print(file)
-            os.remove(f"{dir}/{file}")
+            filesToRm.append(f"{dir}/{file}")
+
+delte = input(f"About to delete\n {filesToRm}\n Y to Delete N to not delete")
+
+if delte == "Y":
+    for file in filesToRm:
+        os.remove(file)
+else:
+    exit(0)
