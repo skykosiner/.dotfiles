@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# Make sure the device has a battery
+[[ ! -d /sys/class/power_supply/BAT0 ]] && exit 0
+
+~/.local/bin/statusbar/batteryLife

@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+# Keyboard stuff
+alias aoeu="setxkbmap -layout us"
+alias asdf="setxkbmap -layout real-prog-dvorak"
+
+alias cat="bat --theme gruvbox-dark"
+
+alias caps="xdotool key Caps_Lock"
+
+alias e="vim"
+alias v="vim"
+alias vi="/usr/bin/vim"
+
+alias V="sudo /usr/local/bin/nvim"
+
+alias anime="~/Documents/Apps/ani-cli/ani-cli"
+
+alias tl="tmux ls"
+alias ta="tmux a"
+
+alias gogoButthole="qutebrowser https://www.youtube.com/watch\?v\=--9kqhzQ-8Q"
+
+alias pdf="unoconv"
+
+alias clip="xclip -in -selection clipboard"
+
+alias c="clear"
+alias ..="cd .."
+
+alias :q="exit"
+
+alias vim="nvim"
+
+alias livestream_screenkey="/usr/bin/screenkey -s large --scr 0 -p bottom --geometry 800x300+1760+1650 --timeout 0.5";
+
+alias shutdown="sudo shutdown -h now";
+alias restart="sudo shutdown -r now";
+
+alias razer="polychromatic-controller"
+
+# GAY
+alias gay="unimatrix -s 95 | lolcat"
+
+alias bm="$EDITOR ~/.dotfiles/.bookm"
+alias sn="$EDITOR ~/.dotfiles/snipets"
+alias dw="$EDITOR ~/personal/suckless/dwm"
+
+alias tt="tt -showwpm -notheme"

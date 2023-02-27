@@ -6,5 +6,5 @@ map gd cd ~/Documents
 map gD cd ~/Downloads
 map gp cd ~/personal
 map gw cd ~/work
-map gm cd ~/Movies
+map gm cd ~/server
 map go cd ~/org

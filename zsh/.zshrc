@@ -1,28 +1,16 @@
 cowsay "GAY" | lolcat
-
+setopt autocd		# Automatically cd into typed directory.
 # OH MY ZSH stuff
 export ZSH="/home/yoni/.oh-my-zsh"
 
 # ZSH_THEME="powerlevel10k/powerlevel10k"
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
 # eval "$(starship init zsh)"
 plugins=(git command-time zsh-fzf-history-search)
 
-export XDG_CONFIG_HOME=$HOME/.config
-export LANG=en_US.UTF-8
-export LC_CTYPE=en_US.UTF-8
-export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
-export XDG_RUNTIME_DIR=/run/user/1000
-# export MANPAGER='nvim +Man!'
-export TERM="xterm-256color"
-
-VIM="nvim"
-export TODO_ME_DADDY=$HOME/personal/todo-me-daddy/
-
-export EDITOR="emacsclient -c -a emacs"
-
 source $ZSH/oh-my-zsh.sh
 
+export XDG_CONFIG_HOME=$HOME/.config
 PERSONAL=$XDG_CONFIG_HOME/personal
 
 for i in `find -L $PERSONAL`; do
@@ -57,9 +45,19 @@ autoload -Uz vcs_info
 bindkey -v
 export KEYTIMEOUT=1
 
+lfcd () {
+    tmp="$(mktemp -uq)"
+    trap 'rm -f $tmp >/dev/null 2>&1 && trap - HUP INT QUIT TERM PWR EXIT' HUP INT QUIT TERM PWR EXIT
+    lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+    fi
+}
+
 bindkey -s ^f "tmux-sessionizer\n"
 bindkey -s ^n "tmux-sessionizer ~/personal/notes\n"
-bindkey -s ^o "lf\n"
+bindkey -s ^o "lfcd\n"
 bindkey -s ^p "password\n"
 
 source /home/yoni/personal/fzf-tab-completion/zsh/fzf-zsh-completion.sh
@@ -76,3 +74,12 @@ source /usr/share/fzf/completion.zsh
 # Edit line in vim with ctrl-e
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
+# PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+autoload -Uz vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+setopt prompt_subst
+RPROMPT=\$vcs_info_msg_0_
+zstyle ':vcs_info:git:*' formats '%F{240}(%b)%r%f'
+zstyle ':vcs_info:*' enable git
+PS1="%B %F{blue}$(~/.local/bin/batteryPrompt)% %F{magenta}%2~ %F{green}> %b$fg[white]"

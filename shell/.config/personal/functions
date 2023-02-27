@@ -11,10 +11,6 @@ TODO() {
     fi
 }
 
-cComp() {
-    cc $1
-    ./a.out
-}
 
 killProcess() {
     ps ax | awk '{print $5}' | dmenu -l 30 | xargs -r pkill $5
@@ -24,12 +20,6 @@ dotfilesStatus() {
     pushd $DOTFILES
     git status
     popd
-}
-
-#TODO: Get this working
-searchDotFiles() {
-    fileName="'$HOME/.dotfiles$(ls ~/.dotfiles | fzf)'"
-    nvim $fileName
 }
 
 password() {
@@ -60,22 +50,6 @@ commitDotFiles() {
         pushd $DOTFILES
         git add .
         git commit -m "commit it baby"
-        git push origin master
-        popd
-    fi
-}
-
-commitSchoolWork() {
-    if [[ $# -eq 1 ]]; then
-        pushd $SCHOOLWORK
-        git add .
-        git commit -m $1
-        git push origin master
-        popd
-    else
-        pushd $SCHOOLWORK
-        git add .
-        git commit -m "another happy landing"
         git push origin master
         popd
     fi
@@ -167,10 +141,6 @@ bitches() {
 ⠀⠀⠀⠀⠁⠇⠡⠩⡫⢿⣝⡻⡮⣒⢽⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 —————————————————————————————
     "
-}
-
-screenZoom() {
-    xrandr --output DP-4 --scale 0.8x0.8
 }
 
 # Edit my dotfiles

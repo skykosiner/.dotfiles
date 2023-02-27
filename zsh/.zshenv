@@ -1,18 +1,4 @@
-export XDG_CONFIG_HOME=$HOME/.config
-export LANG=en_US.UTF-8
-export LC_CTYPE=en_US.UTF-8
-export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
-export XDG_RUNTIME_DIR=/run/user/1000
-export MANPAGER='nvim +Man!'
-export TERM="xterm-256color"
-
-VIM="nvim"
-export YONIKOSINER=$HOME/personal/yonikosiner-com.git
-export TODO_ME_DADDY=$HOME/personal/todo-me-daddy
-
-export EDITOR="nvim"
-
-PERSONAL=$XDG_CONFIG_HOME/personal
+. "$HOME/.cargo/env"
 
 export LESS=-R
 export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"
