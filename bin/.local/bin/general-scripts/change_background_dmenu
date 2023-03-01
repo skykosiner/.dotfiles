@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-item="$(echo $HOME)/.dotfiles/anime/$(ls ~/.dotfiles/anime | dmenu -p "Backgrounds" -l 30)"
+item="$(echo $HOME)/.dotfiles/anime/$(ls ~/.dotfiles/anime | dmenu -p "Backgrounds" -l 15 -fn 'JetBrainsMono Nerd Font-15')"
 
 # Make sure the wallpaper is not blank (basicly if you run the script then
 # decide to exit out of dmenu)

@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-selected=`cat ~/.dotfiles/password |rofi -dmenu -p "Password" -`
+selected=`cat ~/.dotfiles/password |dmenu -p "Password" -fn 'JetBrainsMono Nerd Font-15'`
 pass $selected -c

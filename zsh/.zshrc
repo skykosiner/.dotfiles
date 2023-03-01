@@ -83,3 +83,5 @@ RPROMPT=\$vcs_info_msg_0_
 zstyle ':vcs_info:git:*' formats '%F{240}(%b)%r%f'
 zstyle ':vcs_info:*' enable git
 PS1="%B %F{blue}$(~/.local/bin/batteryPrompt)% %F{magenta}%2~ %F{green}> %b$fg[white]"
+
+source ~/.dotfiles/zsh/bookMarks
