@@ -30,3 +30,12 @@ sudo rsync -aAXv --delete /home/yoni/Camera /home/yoni/server/backups
 sudo rsync -aAXv --delete /home/yoni/org /home/yoni/server/backups
 
 notify-send "Backup is finished"
+
+
+# Make dir of all my tiktoks I've saved lmfao
+pushd ~/server/backups/Camera/Camera/
+for f in *.mp4; do
+    file=$(echo $f | grep -v "^$(date +%Y)")
+    sudo cp /home/yoni/server/backups/Camera/Camera/$file /home/yoni/server/backups/tiktoks/
+done
+popd
