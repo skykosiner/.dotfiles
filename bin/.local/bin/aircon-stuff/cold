@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-/home/yoni/.local/bin/aircon-stuff/aircon 18
-/home/yoni/.local/bin/aircon-stuff/aircon cold
-/home/yoni/.local/bin/aircon-stuff/aircon fan-night
+/home/sky/.local/bin/aircon-stuff/aircon 18
+/home/sky/.local/bin/aircon-stuff/aircon cold
+/home/sky/.local/bin/aircon-stuff/aircon fan-night
 
 pkill -SIGRTMIN+5 dwmblocks

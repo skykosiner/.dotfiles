@@ -47,3 +47,9 @@ alias sn="$EDITOR ~/.dotfiles/snipets"
 alias dw="$EDITOR ~/personal/suckless/dwm"
 
 alias tt="tt -showwpm -notheme"
+
+# COLOR
+alias ls="ls --color=auto"
+alias grep="grep --color=auto"
+
+alias mountServer="sshfs yonikosiner@10.0.0.31:/Volumes/Files /home/sky/server"

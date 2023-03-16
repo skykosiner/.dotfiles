@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-sed -i "$1" /home/yoni/cmd.txt

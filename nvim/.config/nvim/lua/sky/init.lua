@@ -12,8 +12,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath) ]]
 
-vim.notify = require("notify")
-
 require("sky.sets")
 require("sky.keymaps")
 require("sky.packer")

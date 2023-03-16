@@ -11,23 +11,13 @@ require("inlay-hints").setup()
 lsp.ensure_installed({
   'tsserver',
   'eslint',
-  'sumneko_lua',
+  'lua_ls',
   'rust_analyzer',
   'gopls',
   'bashls',
   'pyright',
   'clangd'
 })
-
-require("lspconfig").sumneko_lua.setup {
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = { "vim" }
-      }
-    }
-  }
-}
 
 cmp.setup({
   formatting = {

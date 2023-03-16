@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
 youTubeWork=$(ls ~/work/content/ | fzf)
-path="/home/yoni/work/content/$youTubeWork"
+path="/home/sky/work/content/$youTubeWork"
 
 sudo rsync -a --progress --remove-source-files "$path" ~/server/YouTube/

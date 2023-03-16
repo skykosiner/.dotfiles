@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 read projectName
-mkdir /home/yoni/personal/$projectName
-tmux-sessionizer /home/yoni/personal/$projectName
+mkdir /home/sky/personal/$projectName
+tmux-sessionizer /home/sky/personal/$projectName

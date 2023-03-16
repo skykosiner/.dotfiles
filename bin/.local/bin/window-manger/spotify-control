@@ -3,7 +3,11 @@
 case "$1" in
     "-togglePlay")
         ~/.local/bin/spotifycli --playpause
-        notify-send "Now playing: $(~/.local/bin/spotifycli --status)"
+        if ~/.local/bin/spotifycli --status; then
+            notify-send "Now playing: $(~/.local/bin/spotifycli --status)"
+        else
+            notify-send "Spotify is not running"
+        fi
         ;;
     "-prev")
         ~/.local/bin/spotifycli --prev

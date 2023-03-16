@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-/home/yoni/.local/bin/aircon-stuff/aircon toggle
+/home/sky/.local/bin/aircon-stuff/aircon toggle
 
 pkill -SIGRTMIN+5 dwmblocks

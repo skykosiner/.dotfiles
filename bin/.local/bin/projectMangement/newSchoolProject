@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 read newProject
-mkdir /home/yoni/work/school-python/$newProject
-tmux-sessionizer /home/yoni/work/school-python/$newProject
+mkdir /home/sky/work/school-python/$newProject
+tmux-sessionizer /home/sky/work/school-python/$newProject

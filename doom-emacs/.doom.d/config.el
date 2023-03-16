@@ -21,7 +21,7 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "Inconsolata Nerd Font" :size 40))
+(setq doom-font (font-spec :family "Hack Nerd Font Mono" :size 35))
 (after! doom-themes
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t))
@@ -32,10 +32,8 @@
 (after! org
   (setq
    org-directory "~/org/"
-   org-agenda-block-separator 45
    org-hide-emphasis-markers t)
   )
-
      ;; doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
@@ -177,18 +175,20 @@
 
 (setq elfeed-feeds
       '(
-        ("https://macstories.net/rss" apple)
-        ("https://lukesmith.xyz/rss.xml" tech)
+        ;; programming
+        ("https://www.reddit.com/r/programming.rss" programming)
+        ("https://www.reddit.com/r/emacs.rss" emacs)
+
+        ;; programming languages
+        ("https://www.reddit.com/r/golang.rss" golang)
+        ("https://www.reddit.com/r/javascript.rss" javascript)
+        ("https://www.reddit.com/r/typescript.rss" typescript)
 ))
 
-(setq-default elfeed-search-filter "@90-days-ago +unread")
+(setq-default elfeed-search-filter "@2-days-ago +unread")
 (setq-default elfeed-search-title-max-width 100)
 (setq-default elfeed-search-title-min-width 100)
+(setq shell-file-name "/bin/zsh")
 
-
-;; HARPOON
-(global-set-key (kbd "C-c a") 'harpoon-add-file)
-(global-set-key (kbd "C-c h") 'harpoon-go-to-1)
-(global-set-key (kbd "C-c t") 'harpoon-go-to-2)
-(global-set-key (kbd "C-c n") 'harpoon-go-to-3)
-(global-set-key (kbd "C-c s") 'harpoon-go-to-4)
+(set-frame-parameter (selected-frame) 'alpha '(80 80))
+(add-to-list 'default-frame-alist '(alpha 80 80))

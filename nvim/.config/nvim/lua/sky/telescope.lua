@@ -69,7 +69,7 @@ local M = {}
 M.search_dotfiles = function()
   require("telescope.builtin").find_files({
     prompt_title = "< .dotfiles >",
-    cwd = "/home/yoni/.dotfiles",
+    cwd = "/home/sky/.dotfiles",
     hidden = true,
   })
 end

@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
 
-selected=`cat ~/.dotfiles/password |dmenu -p "Password" -fn 'JetBrainsMono Nerd Font-15'`
-pass $selected -c
+ls ~/.password-store | sed "s/.gpg//" | dmenu -p "Password" -fn 'JetBrainsMono Nerd Font-15'| xargs -r pass -c

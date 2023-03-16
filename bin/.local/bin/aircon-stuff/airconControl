@@ -6,22 +6,22 @@ while [ "$#" -gt 0 ]; do
 
     case "$curr" in
    "-inc-1")
-       airconNumber=$(/home/yoni/.local/bin/aircon-stuff/aircon status | awk '{print $1}' | sed s/{// | awk -F "." '{print $1}')
+       airconNumber=$(/home/sky/.local/bin/aircon-stuff/aircon status | awk '{print $1}' | sed s/{// | awk -F "." '{print $1}')
        airconNumber=$(( $airconNumber + 1 ))
 
-       /home/yoni/.local/bin/aircon $airconNumber
+       /home/sky/.local/bin/aircon $airconNumber
        pkill -SIGRTMIN+5 dwmblocks
        ;;
    "-dec-1")
-       airconNumber=$(/home/yoni/.local/bin/aircona-stuff/aircon status | awk '{print $1}' | sed s/{// | awk -F "." '{print $1}')
+       airconNumber=$(/home/sky/.local/bin/aircona-stuff/aircon status | awk '{print $1}' | sed s/{// | awk -F "." '{print $1}')
        airconNumber=$(( $airconNumber - 1 ))
 
-       /home/yoni/.local/bin/aircon $airconNumber
+       /home/sky/.local/bin/aircon $airconNumber
        pkill -SIGRTMIN+5 dwmblocks
        ;;
    "-change")
        airconNumber=$(dmenu -p "Enter Temp > " -h 40 -fn 'JetBrainsMono Nerd Font-15' <&- && echo)
-       /home/yoni/.local/bin/aircon-stuff/aircon $airconNumber
+       /home/sky/.local/bin/aircon-stuff/aircon $airconNumber
        pkill -SIGRTMIN+5 dwmblocks
        ;;
    "-sellect-fan")
@@ -31,7 +31,7 @@ while [ "$#" -gt 0 ]; do
 3
 4
 5" | dmenu -l 6 -fn 'JetBrainsMono Nerd Font-15')
-       /home/yoni/.local/bin/aircon-stuff/aircon fan-$fanMode
+       /home/sky/.local/bin/aircon-stuff/aircon fan-$fanMode
        pkill -SIGRTMIN+5 dwmblocks
        ;;
     *) echo "Unavailable command... $curr"

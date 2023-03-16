@@ -24,14 +24,14 @@ dunst &
 emacs --daemon &
 
 # Set my screen layout
-mainScreen=$(xrandr --listmonitors | grep "eDP-1-1")
+# mainScreen=$(xrandr --listmonitors | grep "eDP-1-1")
 
 # If the main screen is not connected set the output to laptop display or set the output to main display, and HDMI-0 display
-if [[ $mainScreen ]]; then
-    xrandr --output DP-0 --off --output DP-1 --off --output DP-2 --off --output DP-3 --off --output HDMI-0 --off --output DP-4 --off --output eDP-1-1 --mode 1920x1080
-else
-    xrandr --output DP-0 --off --output DP-1 --off --output DP-2 --off --output DP-3 --off --output HDMI-0 --mode 1920x1080 --pos 64x0 --rotate normal --output DP-4 --primary --mode 2560x1440 --pos 0x1080 --rotate normal --output eDP-1-1 --off
-fi
+# if [[ $mainScreen ]]; then
+    # xrandr --output DP-0 --off --output DP-1 --off --output DP-2 --off --output DP-3 --off --output HDMI-0 --off --output DP-4 --off --output eDP-1-1 --mode 1920x1080
+# else
+    # xrandr --output DP-0 --off --output DP-1 --off --output DP-2 --off --output DP-3 --off --output HDMI-0 --mode 1920x1080 --pos 64x0 --rotate normal --output DP-4 --primary --mode 2560x1440 --pos 0x1080 --rotate normal --output eDP-1-1 --off
+# fi
 
 # Set my keyboard layout
 setxkbmap -layout real-prog-dvorak
@@ -44,12 +44,6 @@ picom &
 
 # Set them dwmblocks
 dwmblocks &
-
-# AUDIO WORKING ON ARCHV?????????????????????????????
-pulseaudio &
-
-# Screensaver
-xscreensaver -no-splash &
 
 # When shortcuts file in changed update the lf config
 # echo ~/.dotfiles/.bookm | entr ~/.local/bin/bookmarks --lf &
