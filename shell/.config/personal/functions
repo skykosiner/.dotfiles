@@ -22,11 +22,6 @@ dotfilesStatus() {
     popd
 }
 
-password() {
-    selected=`cat ~/.dotfiles/password | fzf --height=10`
-    pass $selected -c
-}
-
 addToPath() {
     if [[ "$PATH" != *"$1"* ]]; then
         export PATH=$PATH:$1

@@ -1,3 +1,13 @@
+#+TITLE: LF Config
+#+AUTHOR: Sky Kosiner
+#+PROPERTY: header-args :tangle lfrc
+
+* What is lf, and why I use lf
+- Lf is a TUI file manger
+- I like to use lf as it saves me time with not touching my mouse and unlike a
+  GUI file manger I can write my own scripts to do whatever I want
+* Some basic vars and preview and cleaner script
+#+begin_src bash
 #!/usr/bin/env bash
 
 set shellopts '-eu'
@@ -7,7 +17,12 @@ set icons true
 set period 1
 set previewer "~/.local/bin/lf-preview"
 set cleaner lf-ueberzug-cleaner
+#+end_src
 
+#+RESULTS:
+
+* How to open files
+#+begin_src bash
 cmd open ${{
     case $(file --mime-type "$(readlink -f $f)" -b) in
 	application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) localc $fx ;;
@@ -22,10 +37,13 @@ cmd open ${{
 	video/*) setsid -f mpv $f -quiet >/dev/null 2>&1 ;;
 	application/pdf|application/vnd*|application/epub*) setsid -f zathura $fx >/dev/null 2>&1 ;;
 	application/pgp-encrypted) $EDITOR $fx ;;
-        *) for f in $fx; do setsid -f $OPENER $f >/dev/null 2>&1; done;;
+        ,*) for f in $fx; do setsid -f $OPENER $f >/dev/null 2>&1; done;;
     esac
 }}
+#+end_src
 
+* Custom user functions
+#+begin_src bash
 cmd mkdir $mkdir -p "$(echo $* | tr ' ' '\ ')"
 
 cmd extract ${{
@@ -77,7 +95,10 @@ cmd setbg ${{
 }}
 
 cmd bulkrename $vidir
+#+end_src
 
+* Keymaps
+#+begin_src bash
 map <c-f> $lf -remote "send $id select '$(fzf)'"
 map b setbg $f
 map gh
@@ -112,3 +133,4 @@ map Y $printf "%s" "$fx" | xclip -selection clipboard
 map <c-l> $dragon
 
 source "~/.config/lf/shortcuts"
+#+end_src

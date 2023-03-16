@@ -52,7 +52,6 @@ lfcd () {
 
 bindkey -s ^f "tmux-sessionizer\n"
 bindkey -s ^o "lfcd\n"
-bindkey -s ^p "password\n"
 
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
