@@ -1,6 +1,16 @@
+#+TITLE: Doom emacs Config
+#+AUTHOR: Sky Kosiner
+#+PROPERTY: header-args :tangle config.el
+
+* Basic info on who I am
+#+begin_src emacs-lisp
 (setq user-full-name "Sky Kosiner"
       user-mail-address "yoni@kosiner.co.uk")
-
+#+end_src
+* Fonts
+- I like to have my font big, while yes I see less code on the screen it makes my eyes feel a lot better
+- Italic fonts for comments and bolt fonts for keywords
+#+begin_src emacs-lisp
 (setq doom-font (font-spec :family "Hack Nerd Font Mono" :size 35))
 (after! doom-themes
   (setq doom-themes-enable-bold t
@@ -8,7 +18,9 @@
 (custom-set-faces!
   '(font-lock-comment-face :slant italic)
   '(font-lock-keyword-face :slant italic))
-
+#+end_src
+* Org mode setp
+#+begin_src emacs-lisp
 (after! org
   (setq
    org-directory "~/org/"
@@ -16,9 +28,13 @@
   )
 (setq doom-theme 'doom-one)
 (setq display-line-numbers-type 'relative)
-
+#+end_src
+* AUTO PAIRS SUCK
+#+begin_src emacs-lisp
 (remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
-
+#+end_src
+* Tree sitter to get better colors and all the other fun stuff tree sitter has
+#+begin_src emacs-lisp
 (use-package tree-sitter-langs :ensure t)
 
 (use-package tree-sitter
@@ -27,11 +43,15 @@
   :config
   (global-tree-sitter-mode)
   (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
-
+#+end_src
+* Icons
+#+begin_src emacs-lisp
 (use-package all-the-icons)
 (use-package all-the-icons-dired)
 (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
-
+#+end_src
+* Keybinds
+#+begin_src emacs-lisp
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c C-l") 'org-insert-link)
 
@@ -44,7 +64,9 @@
 (setq org-agenda-files (directory-files-recursively "~/org/" "\\.org$"))
 (define-key ctl-x-map "\C-i"
   #'endless/ispell-word-then-abbrev)
-
+#+end_src
+* Get spelling working
+#+begin_src emacs-lisp
 (defun endless/simple-get-word ()
   (car-safe (save-excursion (ispell-get-word nil))))
 
@@ -76,6 +98,9 @@
 
 (setq save-abbrevs 'silently)
 (setq-default abbrev-mode t)
-
+#+end_src
+* Transparrent emacs so I can see my wallpaper like a true soy dev
+#+begin_src emacs-lisp
 (set-frame-parameter (selected-frame) 'alpha '(80 80))
 (add-to-list 'default-frame-alist '(alpha 80 80))
+#+end_src
