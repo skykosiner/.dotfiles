@@ -1,7 +1,6 @@
 #+TITLE: Doom emacs Config
 #+AUTHOR: Sky Kosiner
 #+PROPERTY: header-args :tangle config.el
-
 * Basic info on who I am
 #+begin_src emacs-lisp
 (setq user-full-name "Sky Kosiner"

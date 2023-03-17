@@ -1,3 +1,9 @@
+#+TITLE: Alacritty Config
+#+AUTHOR: Sky Kosiner
+#+PROPERTY: header-args :tangle alacritty.yml
+
+* Window settings
+#+begin_src yaml
 window:
   opacity: 0.80
   decorations: full
@@ -5,7 +11,10 @@ scrolling:
   history: 10000
   multiplier: 3
 window.dynamic_title: true
-
+#+end_src
+* Fonts
+- Yes I like jebrains mono
+#+begin_src yaml
 font:
   normal:
         family: JetBrainsMono Nerd Font
@@ -16,7 +25,10 @@ font:
     family: JetBrainsMono Nerd Font
     style: Bold Italic
   size: 15
-
+#+end_src
+* Color Schemes
+** Doom one
+#+begin_src yaml
 schemes:
   ### Doom One ###
   DoomOne: &DoomOne
@@ -47,7 +59,9 @@ schemes:
       magenta: '#a9a1e1'
       cyan:    '#46d9ff'
       white:   '#dfdfdf'
-
+#+end_src
+** Dracula
+#+begin_src yaml
   ### Dracula ###
   Dracula: &Dracula
     primary:
@@ -102,7 +116,9 @@ schemes:
       magenta: '#ff46b0'
       cyan:    '#59dffc'
       white:   '#e6e6d1'
-
+#+end_src
+** Gruvbox dark
+#+begin_src yaml
   GruvboxDark: &GruvboxDark
     # Default colors
     primary:
@@ -132,7 +148,9 @@ schemes:
       magenta: '#d3869b'
       cyan:    '#8ec07c'
       white:   '#ebdbb2'
-
+#+end_src
+** MonokaiPro
+#+begin_src yaml
   MonokaiPro: &MonokaiPro
     # Default colors
     primary:
@@ -160,7 +178,9 @@ schemes:
       magenta: '#AB9DF2'
       cyan:    '#78DCE8'
       white:   '#FCFCFA'
-
+#+end_src
+** Nord
+#+begin_src yaml
   Nord: &Nord
     # Default colors
     primary:
@@ -188,7 +208,9 @@ schemes:
       magenta: '#B48EAD'
       cyan:    '#8FBCBB'
       white:   '#ECEFF4'
-
+#+end_src
+** OceanicNext
+#+begin_src yaml
   OceanicNext: &OceanicNext
     # Default colors
     primary:
@@ -221,7 +243,9 @@ schemes:
       magenta: '#c594c5'
       cyan:    '#5fb3b3'
       white:   '#d8dee9'
-
+#+end_src
+** Palenight
+#+begin_src yaml
   Palenight: &Palenight
     # Default colors
     primary:
@@ -249,7 +273,9 @@ schemes:
       magenta: '#e1acff'
       cyan:    '#a3f7ff'
       white:   '#ffffff'
-
+#+end_src
+** Solarized Dark
+#+begin_src yaml
   SolarizedDark: &SolarizedDark
     # Default colors
     primary:
@@ -282,7 +308,9 @@ schemes:
       magenta: '#6c71c4' # violet
       cyan:    '#93a1a1' # base1
       white:   '#fdf6e3' # base3
-
+#+end_src
+** SolarizedLight
+#+begin_src yaml
   SolarizedLight: &SolarizedLight
     # Default colors
     primary:
@@ -315,7 +343,9 @@ schemes:
       magenta: '#6c71c4' # violet
       cyan:    '#93a1a1' # base1
       white:   '#fdf6e3' # base3
-
+#+end_src
+** Tomorrow Night
+#+begin_src yaml
   TomorrowNight: &TomorrowNight
      # Default colors
     primary:
@@ -348,5 +378,19 @@ schemes:
       magenta: '#b77ee0'
       cyan:    '#54ced6'
       white:   '#282a2e'
-
+#+end_src
+** Setting the theme
+- Available themes are:
+- DoomOne
+- Dracula
+- GruvboxDark
+- MonokaiPro
+- Nord
+- OceanicNext
+- Palenight
+- SolarizedLight
+- SolarizedDark
+- TomorrowNight
+#+begin_src yaml
 colors: *GruvboxDark
+#+end_src
