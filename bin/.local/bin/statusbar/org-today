@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+files=$(emacsclient --eval "(org-agenda-files)")
+date=$(date +%Y-%m-%d)
+count=0
+
+for file in $files; do
+    fileName=$(echo $file | sed 's/(//;s/)//;s/"//g')
+    fileCount=$(grep "SCHEDULED: <$date" "$fileName" | wc -l)
+    count=$((count+$fileCount))
+done
+
+echo $count

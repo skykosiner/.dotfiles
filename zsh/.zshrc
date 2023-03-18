@@ -56,10 +56,9 @@ bindkey -s ^o "lfcd\n"
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
-# Edit line in vim with ctrl-e
+# Edit line in $EDITOR with ctrl-e
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
-# PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
@@ -71,7 +70,7 @@ zstyle ':vcs_info:*' enable git
 # Prompt stollen from luke smith
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
-source ~/.config/zsh/bookMarks
+source ~/bookMarks
 
 HISTFILE=~/.zsh_history
 HISTSIZE=100000000

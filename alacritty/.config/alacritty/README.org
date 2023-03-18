@@ -30,7 +30,6 @@ font:
 ** Doom one
 #+begin_src yaml
 schemes:
-  ### Doom One ###
   DoomOne: &DoomOne
     primary:
       background: '#282c34'
@@ -62,7 +61,6 @@ schemes:
 #+end_src
 ** Dracula
 #+begin_src yaml
-  ### Dracula ###
   Dracula: &Dracula
     primary:
       background: '#282a36'

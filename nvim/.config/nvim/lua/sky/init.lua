@@ -45,3 +45,6 @@ end, group = group })
 require("notify").setup({
   background_colour = "#000000",
 })
+
+-- Save as sudo with Sw
+vim.cmd([[ command! -nargs=0 Sw w !sudo tee % > /dev/null ]])

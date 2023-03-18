@@ -150,7 +150,7 @@ changeToEmacs() {
 }
 
 # I always forget to commit suckless software 💀
-pushSucklessSoftware() {
+commitSucklessSoftware() {
     pushd ~/personal/suckless/st/
     git add .
     git commit -am "Forget to commit this so fancy commit from me in the past"
