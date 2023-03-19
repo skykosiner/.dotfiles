@@ -27,6 +27,7 @@ font:
   size: 15
 #+end_src
 * Color Schemes
+- Color Schemes taken from Distro Tube
 ** Doom one
 #+begin_src yaml
 schemes:

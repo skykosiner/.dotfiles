@@ -1,3 +1,9 @@
+#+TITLE: Picom Config
+#+AUTHOR: Sky Kosiner
+#+PROPERTY: header-args :tangle picom.conf
+
+* Blur transparency instead of 100% transparent
+#+begin_src conf
 backend = "glx";
 glx-no-stencil = true;
 glx-copy-from-front = false;
@@ -7,7 +13,9 @@ blur: {
     size = 20;
     deviation = 5;
 };
-
+#+end_src
+* Don't add any transparencyt too windows with these names in the title
+#+begin_src conf
 opacity-rule = [
     "100:name *= 'Netflix'",
     "100:name *= 'YouTube'",
@@ -18,5 +26,8 @@ opacity-rule = [
     "100:name *= 'Disney'",
     "100:name *= 'Year'",
 ];
-
+#+end_src
+* VSYNC ME DADDY
+#+begin_src conf
 vsync = true
+#+end_src
