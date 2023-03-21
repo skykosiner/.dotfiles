@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
 
-randomImage=$(ls "$DOTFILES/anime" | shuf -n 1)
-
-dconf write /org/mate/desktop/background/picture-filename "'/home/sky/.dotfiles/anime/$randomImage'"
-# feh --bg-fill "/home/yoni/.dotfiles/anime/$randomImage"
+randomImage=$(ls "$DOTFILES/anime" | grep -v "README.org" | shuf -n 1)
+feh --bg-fill "/home/yoni/.dotfiles/anime/$randomImage"

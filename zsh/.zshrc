@@ -47,9 +47,9 @@ zstyle ':vcs_info:*' enable git
 
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
-source ~/.config/zsh/bookMarks
+source ~/bookMarks
 
-HISTFILE=~/.config/zsh/.zsh_history
+HISTFILE=~/.zsh_history
 HISTSIZE=100000000
 SAVEHIST=100000000
 setopt appendhistory

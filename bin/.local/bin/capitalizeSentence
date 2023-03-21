@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+word=$(dmenu -p "Enter Sentence > " -h 40 -fn 'JetBrainsMono Nerd Font-15' <&- && echo)
+echo "$word" | awk '{for (i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) substr($i,2)} 1' | xclip -in -selection clipboard

@@ -81,15 +81,18 @@ PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magent
 #+end_src
 * Bookmark aliases
 #+begin_src bash
-source ~/.config/zsh/bookMarks
+source ~/bookMarks
 #+end_src
 * zsh_history
 #+begin_src bash
-HISTFILE=~/.config/zsh/.zsh_history
+HISTFILE=~/.zsh_history
 HISTSIZE=100000000
 SAVEHIST=100000000
 setopt appendhistory
 #+end_src
+
+#+RESULTS:
+
 * Zoxide for quicker cd
 #+begin_src bash
 eval "$(zoxide init zsh)"

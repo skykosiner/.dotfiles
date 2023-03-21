@@ -1,3 +1,6 @@
 [submodule "stream_setings"]
 	path = stream_setings
-	url = https://github.com/yonikosiner/stream_settings
+	url = https://github.com/skykosiner/stream_settings
+[submodule "prvite_stuff"]
+    path = private_stuff
+    url = https://github.com/skykosiner/private_stuff
