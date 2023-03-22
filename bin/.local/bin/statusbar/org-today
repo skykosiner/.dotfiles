@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# TODO only show tasks that don't have a DONE not TODO
 files=$(emacsclient --eval "(org-agenda-files)")
 date=$(date +%Y-%m-%d)
 count=0

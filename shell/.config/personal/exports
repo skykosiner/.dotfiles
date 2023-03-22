@@ -2,7 +2,7 @@
 
 export DOTFILES=$HOME/.dotfiles
 export SCHOOLWORK=$HOME/school-work
-export STOW_FOLDERS="bin,i3,nvim,tmux,zsh,DvorakBTW,dunst,polybar,fonts,vim,qutebrowser,alacritty,kitty,zathula,i3blocks,awesome,lf"
+export STOW_FOLDERS="bin,i3,nvim,tmux,zsh,shell,dunst,fonts,vim,qutebrowser,alacritty,kitty,zathula,lf,doom-emacs,picom"
 export PATH="$PATH:$(du ~/.dotfiles/bin/.local/bin | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 export SHELL=/usr/bin/zsh
 export RUSTUP=/home/sky/.cargo/bin/rustup
@@ -11,7 +11,6 @@ export PATH=$PATH:/home/sky/rust-analyzer/crates/rust-analyzer
 export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:/$HOME/go/bin
-export PATH=$PATH:/home/sky/.config/emacs/bin/
 export PATH=$PATH:/home/sky/.cargo/bin
 export BROWSER=qutebrowser
 export TERMINAL=st
@@ -23,9 +22,6 @@ export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1001/bus
 export XDG_RUNTIME_DIR=/run/user/1001
 # export MANPAGER='nvim +Man!'
 export TERM="xterm-256color"
-
 VIM="nvim"
-export TODO_ME_DADDY=$HOME/personal/todo-me-daddy/
-
 export EDITOR="emacsclient -c -a emacs"
 export FZF_DEFAULT_COMMAND="rg --files --hidden -g'!.git'"

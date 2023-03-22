@@ -41,5 +41,15 @@ case "$1" in
                     spotify:album:$id
             fi
         ;;
+    "-select-playlist")
+            id=$(cat ~/.dotfiles/playlist_list | sort | awk -F '|' '{print $1 " id: " $2}' | dmenu -l 20 -i  -fn 'JetBrainsMono Nerd Font-15' | awk -F 'id: ' '{print $2}')
+
+            if [[ ! -z $id ]]; then
+                qdbus org.mpris.MediaPlayer2.spotify \
+                    /org/mpris/MediaPlayer2 \
+                    org.mpris.MediaPlayer2.Player.OpenUri \
+                    spotify:playlist:$id
+            fi
+            ;;
     *) echo "Not a command... $1"
 esac

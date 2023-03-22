@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+albumAndArtist=$(spotifycli --album && spotifycli --artist)
+echo "$albumAndArtist"
