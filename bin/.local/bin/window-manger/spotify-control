@@ -18,8 +18,8 @@ case "$1" in
     "-status")
         if ~/.local/bin/spotifycli --status;
         then
-                echo "$(~/.local/bin/spotifycli --status)"
-            else
+            echo "$(~/.local/bin/spotifycli --status)"
+        else
             echo ""
         fi
         ;;

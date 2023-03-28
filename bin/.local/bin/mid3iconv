@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import re
 import sys
-from grapejuice.cli.main import easy_install_main
+from mutagen._tools.mid3iconv import entry_point
 if __name__ == '__main__':
     sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
-    sys.exit(easy_install_main())
+    sys.exit(entry_point())

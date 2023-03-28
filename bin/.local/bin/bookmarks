@@ -12,7 +12,7 @@ case "$1" in
     "--get")
         bookMarks=$(cat ~/.dotfiles/.bookm | awk '{print $2}' | sort)
         for bm in $bookMarks; do
-            echo $bm
+            echo "$bm"
         done
         ;;
     *) echo "Not a command... $1"

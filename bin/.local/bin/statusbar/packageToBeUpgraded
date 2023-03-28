@@ -10,5 +10,5 @@ else
 fi
 
 case $BLOCK_BUTTON in
-    1) alacritty -e sudo pacman -Syyu
+    1) st -e sudo pacman -Syyu
 esac
