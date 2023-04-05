@@ -5,8 +5,8 @@ autoload -U colors && colors
 export XDG_CONFIG_HOME=$HOME/.config
 PERSONAL=$XDG_CONFIG_HOME/personal
 
-for i in `find -L $PERSONAL`; do
-    source $i
+for file in `find -L $PERSONAL`; do
+    source $file
 done
 
 alias urlS="/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -dump URLSchemeBinding"
@@ -48,6 +48,7 @@ zstyle ':vcs_info:*' enable git
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
 source ~/bookMarks
+source ~/personal/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 HISTFILE=~/.zsh_history
 HISTSIZE=100000000

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+qoutes=$(cat ~/Documents/bel-qoutes)
+while IFS= read -r qoute ; do echo "$qoute"; done <<< "$qoutes"

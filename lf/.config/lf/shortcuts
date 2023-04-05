@@ -10,3 +10,6 @@ map gm cd ~/server
 map go cd ~/org
 map Jp cd ~/personal/skykosiner-com/
 map Jh cd ~/work/clients/health-box-plus/
+map Sw cd ~/work/school-work/
+map Sp cd ~/work/school-python/
+map Si cd ~/personal/one-year/images/

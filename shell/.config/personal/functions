@@ -140,7 +140,7 @@ bitches() {
 
 # Edit my dotfiles
 de() {
-    du -a ~/.dotfiles/ | cut -f2- -d '.'| fzf | xargs -I {} nvim ~/.{}
+    du -a ~/.dotfiles/ | cut -f2- -d '.'| fzf --height=40% | xargs -I {} nvim ~/.{}
 }
 
 changeToEmacs() {

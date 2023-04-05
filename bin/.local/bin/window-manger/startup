@@ -53,3 +53,12 @@ dwmblocks &
 
 # SAVE MY EYES
 redshift -O 4690
+
+# AUDIO ON LINUX
+/usr/bin/pipewire &
+/usr/bin/pipewire-pulse &
+/usr/bin/wireplumber &
+
+# Nvida drivers btw
+xrandr --setprovideroutputsource modesetting NVIDIA-0
+xrandr --auto

@@ -23,8 +23,6 @@ notify-send "Starting to backup computer to server"
 sudo rsync -aAXv --delete /home/sky/Documents /home/sky/server/backups
 sudo rsync -aAXv --delete /home/sky/work /home/sky/server/backups
 sudo rsync -aAXv --delete /home/sky/personal /home/sky/server/backups
-sudo rsync -aAXv --delete /home/sky/work/school-work /home/sky/server/backups
-sudo rsync -aAXv --delete /home/sky/work/school-python /home/sky/server/backups
 sudo rsync -aAXv --delete /home/sky/Pictures /home/sky/server/backups
 sudo rsync -aAXv --delete /home/sky/Camera /home/sky/server/backups
 sudo rsync -aAXv --delete /home/sky/org /home/sky/server/backups
