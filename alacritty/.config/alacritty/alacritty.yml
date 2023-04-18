@@ -18,7 +18,6 @@ font:
   size: 15
 
 schemes:
-  ### Doom One ###
   DoomOne: &DoomOne
     primary:
       background: '#282c34'
@@ -48,7 +47,6 @@ schemes:
       cyan:    '#46d9ff'
       white:   '#dfdfdf'
 
-  ### Dracula ###
   Dracula: &Dracula
     primary:
       background: '#282a36'
@@ -349,4 +347,27 @@ schemes:
       cyan:    '#54ced6'
       white:   '#282a2e'
 
-colors: *GruvboxDark
+gruvbox_material_hard_light: &gruvbox_material_hard_light
+    primary:
+      background: '0xF5F5F5'
+      foreground: '0x654735'
+    normal:
+      black:   '0x654735'
+      red:     '0xc14a4a'
+      green:   '0x6c782e'
+      yellow:  '0xb47109'
+      blue:    '0x45707a'
+      magenta: '0x945e80'
+      cyan:    '0x4c7a5d'
+      white:   '0xf2e5bc'
+    bright:
+      black:   '0x654735'
+      red:     '0xc14a4a'
+      green:   '0x6c782e'
+      yellow:  '0xb47109'
+      blue:    '0x45707a'
+      magenta: '0x945e80'
+      cyan:    '0x4c7a5d'
+      white:   '0xf2e5bc'
+
+colors: *gruvbox_material_hard_light

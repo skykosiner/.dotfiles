@@ -378,6 +378,31 @@ schemes:
       cyan:    '#54ced6'
       white:   '#282a2e'
 #+end_src
+** Gruvbox lightened
+#+begin_src yaml
+gruvbox_material_hard_light: &gruvbox_material_hard_light
+    primary:
+      background: '0xF5F5F5'
+      foreground: '0x654735'
+    normal:
+      black:   '0x654735'
+      red:     '0xc14a4a'
+      green:   '0x6c782e'
+      yellow:  '0xb47109'
+      blue:    '0x45707a'
+      magenta: '0x945e80'
+      cyan:    '0x4c7a5d'
+      white:   '0xf2e5bc'
+    bright:
+      black:   '0x654735'
+      red:     '0xc14a4a'
+      green:   '0x6c782e'
+      yellow:  '0xb47109'
+      blue:    '0x45707a'
+      magenta: '0x945e80'
+      cyan:    '0x4c7a5d'
+      white:   '0xf2e5bc'
+#+end_src
 ** Setting the theme
 - Available themes are:
 - DoomOne
@@ -391,5 +416,5 @@ schemes:
 - SolarizedDark
 - TomorrowNight
 #+begin_src yaml
-colors: *GruvboxDark
+colors: *gruvbox_material_hard_light
 #+end_src

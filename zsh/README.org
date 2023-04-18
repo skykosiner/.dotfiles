@@ -26,7 +26,6 @@ alias urlS="/System/Library/Frameworks/CoreServices.framework/Versions/A/Framewo
 
 alias iCloud="cd $HOME/Library/Mobile\ Documents/com~apple~CloudDocs"
 #+end_src
-
 * Nvidia crap
 #+begin_src bash
 export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json
@@ -39,6 +38,7 @@ export KEYTIMEOUT=1
 * Keybinds
 - C-o to open lf and when you quit it will stay in the dir you quit in
 - C-f for tmux-sessionizer (script stollen from thePrimeagen)
+- C-d to fuzzy search over dotfiles and open a file in vim
 #+begin_src bash
 lfcd () {
     tmp="$(mktemp -uq)"
@@ -52,6 +52,7 @@ lfcd () {
 
 bindkey -s ^f "tmux-sessionizer\n"
 bindkey -s ^o "lfcd\n"
+bindkey -s ^d "de\n"
 #+end_src
 * Fzf for history searching and filling in file paths
 #+begin_src bash
@@ -90,9 +91,6 @@ HISTSIZE=100000000
 SAVEHIST=100000000
 setopt appendhistory
 #+end_src
-
-#+RESULTS:
-
 * Zoxide for quicker cd
 #+begin_src bash
 eval "$(zoxide init zsh)"

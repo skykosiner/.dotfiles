@@ -4,7 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(org-agenda-files
-   '("/home/sky/org/work/youtube/six-months-on-folding-phones.org" "/home/sky/org/index.org" "/home/sky/org/school/film-studies/NEA.org"))
+   '("~/org/bucket-list.org" "/home/sky/org/school/revison.org" "/home/sky/org/work/youtube/six-months-on-folding-phones.org" "/home/sky/org/index.org" "/home/sky/org/school/film-studies/NEA.org"))
  '(package-selected-packages '(undo-tree)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

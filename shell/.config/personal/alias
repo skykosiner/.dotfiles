@@ -4,7 +4,7 @@
 alias aoeu="setxkbmap -layout us"
 alias asdf="setxkbmap -layout real-prog-dvorak"
 
-alias cat="bat --theme gruvbox-dark"
+alias cat="bat --theme gruvbox-light"
 
 alias caps="xdotool key Caps_Lock"
 
@@ -55,3 +55,6 @@ alias grep="grep --color=auto"
 alias mountServer="sshfs yonikosiner@10.0.0.31:/Volumes/Files /home/sky/server"
 
 alias vpnConnect="openvpn --config ~/client.ovpn"
+
+# Open emacsclient in the current dir
+alias ed="emacsclient -c -a 'emacs'"

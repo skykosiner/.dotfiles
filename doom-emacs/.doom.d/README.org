@@ -10,7 +10,7 @@
 - I like to have my font big, while yes I see less code on the screen it makes my eyes feel a lot better
 - Italic fonts for comments and bolt fonts for keywords
 #+begin_src emacs-lisp
-(setq doom-font (font-spec :family "Hack Nerd Font Mono" :size 35))
+(setq doom-font (font-spec :family "Hack Nerd Font Mono" :size 20))
 (after! doom-themes
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t))
@@ -25,7 +25,7 @@
    org-directory "~/org/"
    org-hide-emphasis-markers t)
   )
-(setq doom-theme 'doom-one)
+(setq doom-theme 'mindre)
 (setq display-line-numbers-type 'relative)
 #+end_src
 * AUTO PAIRS SUCK
@@ -60,6 +60,7 @@
 (map! :i "C-y" 'company-complete-selection)
 (global-set-key (kbd "C-c g") 'magit)
 (global-set-key (kbd "C-c i") (lambda () (interactive) (find-file "~/org/index.org")))
+(global-set-key (kbd "C-c r") (lambda () (interactive) (find-file "~/org/school/revison.org")))
 (setq org-agenda-files (directory-files-recursively "~/org/" "\\.org$"))
 (define-key ctl-x-map "\C-i"
   #'endless/ispell-word-then-abbrev)
@@ -100,6 +101,6 @@
 #+end_src
 * Transparrent emacs so I can see my wallpaper like a true soy dev
 #+begin_src emacs-lisp
-(set-frame-parameter (selected-frame) 'alpha '(80 80))
-(add-to-list 'default-frame-alist '(alpha 80 80))
+;; (set-frame-parameter (selected-frame) 'alpha '(80 80))
+;; (add-to-list 'default-frame-alist '(alpha 80 80))
 #+end_src

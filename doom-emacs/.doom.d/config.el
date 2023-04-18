@@ -1,7 +1,7 @@
 (setq user-full-name "Sky Kosiner"
       user-mail-address "yoni@kosiner.co.uk")
 
-(setq doom-font (font-spec :family "Hack Nerd Font Mono" :size 35))
+(setq doom-font (font-spec :family "Hack Nerd Font Mono" :size 20))
 (after! doom-themes
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t))
@@ -14,7 +14,7 @@
    org-directory "~/org/"
    org-hide-emphasis-markers t)
   )
-(setq doom-theme 'doom-one)
+(setq doom-theme 'nil)
 (setq display-line-numbers-type 'relative)
 
 (remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
@@ -41,6 +41,7 @@
 (map! :i "C-y" 'company-complete-selection)
 (global-set-key (kbd "C-c g") 'magit)
 (global-set-key (kbd "C-c i") (lambda () (interactive) (find-file "~/org/index.org")))
+(global-set-key (kbd "C-c r") (lambda () (interactive) (find-file "~/org/school/revison.org")))
 (setq org-agenda-files (directory-files-recursively "~/org/" "\\.org$"))
 (define-key ctl-x-map "\C-i"
   #'endless/ispell-word-then-abbrev)
@@ -77,5 +78,5 @@
 (setq save-abbrevs 'silently)
 (setq-default abbrev-mode t)
 
-(set-frame-parameter (selected-frame) 'alpha '(80 80))
-(add-to-list 'default-frame-alist '(alpha 80 80))
+;; (set-frame-parameter (selected-frame) 'alpha '(80 80))
+;; (add-to-list 'default-frame-alist '(alpha 80 80))

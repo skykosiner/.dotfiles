@@ -5,8 +5,8 @@ autoload -U colors && colors
 export XDG_CONFIG_HOME=$HOME/.config
 PERSONAL=$XDG_CONFIG_HOME/personal
 
-for file in `find -L $PERSONAL`; do
-    source $file
+for i in `find -L $PERSONAL`; do
+    source $i
 done
 
 alias urlS="/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -dump URLSchemeBinding"
@@ -30,6 +30,7 @@ lfcd () {
 
 bindkey -s ^f "tmux-sessionizer\n"
 bindkey -s ^o "lfcd\n"
+bindkey -s ^d "de\n"
 
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
@@ -48,7 +49,6 @@ zstyle ':vcs_info:*' enable git
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
 source ~/bookMarks
-source ~/personal/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 HISTFILE=~/.zsh_history
 HISTSIZE=100000000
