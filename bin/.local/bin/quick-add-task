@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+newTask=$(dmenu -p "Enter New Task > " -h 40 -fn 'JetBrainsMono Nerd Font-15' <&- && echo)
+todoist-cli quick "$newTask"

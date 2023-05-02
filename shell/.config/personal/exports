@@ -7,6 +7,7 @@ export PATH="$PATH:$(du ~/.dotfiles/bin/.local/bin | cut -f2 | tr '\n' ':' | sed
 export SHELL=/usr/bin/zsh
 export RUSTUP=/home/sky/.cargo/bin/rustup
 export PATH=$PATH:/bin:$RUSTUP
+export PATH=$PATH:/snap/bin
 export PATH=$PATH:/home/sky/rust-analyzer/crates/rust-analyzer
 export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin

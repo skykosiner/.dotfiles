@@ -145,7 +145,8 @@ config.bind('<Ctrl-y>', 'hint links spawn mpv {hint-url}')
 
 c.url.searchengines = {'DEFAULT':
                        "https://search.brave.com/search?q={}&source=desktop",
-                       "tw": "https://twitter.com/{}"}
+                       "tw": "https://twitter.com/{}",
+                       "yt": "https://www.youtube.com/results?search_query={}"}
 c.url.start_pages = "https://search.brave.com"
 c.content.blocking.method = 'both'
 

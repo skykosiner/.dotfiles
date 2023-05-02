@@ -59,3 +59,5 @@
 (package! all-the-icons-dired)
 (package! base16-theme)
 (package! smudge)
+(unpin! org-roam)
+(package! org-roam-ui)

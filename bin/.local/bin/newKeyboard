@@ -11,6 +11,7 @@ while :; do
 
     # Turn off caps lock if on since there is no longer a key for it
     xset -q | grep "Caps Lock:\s*on" && xdotool key Caps_Lock
+    xset r rate 300 50
 
     # Set the layout
     setxkbmap -layout real-prog-dvorak

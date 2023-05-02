@@ -51,9 +51,6 @@ dwmblocks &
 # Every time a new keyboard is plugged in set the layout and remap keys
 ~/.local/bin/newKeyboard
 
-# SAVE MY EYES
-redshift -O 4690
-
 # AUDIO ON LINUX
 /usr/bin/pipewire &
 /usr/bin/pipewire-pulse &
@@ -62,3 +59,6 @@ redshift -O 4690
 # Nvida drivers btw
 xrandr --setprovideroutputsource modesetting NVIDIA-0
 xrandr --auto
+
+# BROWSER BTW
+qutebrowser

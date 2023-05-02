@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+xdotool type "* TODO's"
+xdotool key Return
+xdotool type "* Morning Pages"
