@@ -11,5 +11,5 @@ case $option in
     "Double Side")
         lp -o sides=two-sided-long-edge "$file"
         ;;
-    *) echo "Not a thing $option"
+    *) echo "Not an option $option"
 esac
