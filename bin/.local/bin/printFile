@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+file=$1
+option=$(echo "Single Side
+Double Side" | dmenu -l 2)
+
+case $option in
+    "Single Side")
+        lp "$file"
+        ;;
+    "Double Side")
+        lp -o sides=two-sided-long-edge "$file"
+        ;;
+    *) echo "Not a thing $option"
+esac

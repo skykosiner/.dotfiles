@@ -94,11 +94,16 @@ cmd setbg ${{
     ~/.local/bin/general-scripts/change_background $f
 }}
 
+cmd print ${{
+    ~/.local/bin/printFile $f
+}}
+
 cmd bulkrename $vidir
 #+end_src
 
 * Keymaps
 #+begin_src bash
+map <c-p>
 map <c-f> $lf -remote "send $id select '$(fzf)'"
 map b setbg $f
 map gh
@@ -130,7 +135,8 @@ map W $setsid -f $TERMINAL >/dev/null 2>&1
 
 map Y $printf "%s" "$fx" | xclip -selection clipboard
 
-map <c-l> $dragon
+map <c-p> print $f
+
 source "~/.config/lf/shortcuts"
 #+end_src
 

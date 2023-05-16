@@ -153,3 +153,7 @@
           org-roam-ui-update-on-save t
           org-roam-ui-open-on-start t))
 #+end_src
+** Images in org
+#+begin_src  emacs-lisp
+(setq org-startup-with-inline-images t)
+#+end_src
