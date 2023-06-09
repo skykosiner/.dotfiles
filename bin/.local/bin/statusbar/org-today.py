@@ -26,5 +26,6 @@ def getTasks():
             task = Task(content)
             if task.today and not task.done:
                 tasks.append(task)
+
 getTasks()
 print(tasks)

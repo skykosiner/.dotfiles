@@ -8,7 +8,7 @@ window.dynamic_title: true
 
 font:
   normal:
-        family: JetBrainsMono Nerd Font
+      family: JetBrainsMono Nerd Font
   bold:
     family: JetBrainsMono Nerd Font
     style: Bold
@@ -349,8 +349,8 @@ schemes:
 
 gruvbox_material_hard_light: &gruvbox_material_hard_light
     primary:
-      background: '0xF5F5F5'
-      foreground: '0x654735'
+      background: '0x000000'
+      foreground: '0xFFFFFF'
     normal:
       black:   '0x654735'
       red:     '0xc14a4a'

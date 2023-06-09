@@ -55,8 +55,6 @@ vim.opt.linebreak = true
 
 vim.opt.hlsearch = false
 
-vim.opt.colorcolumn = "80"
-
 vim.opt.showmode = false
 
 vim.opt.list = true
@@ -66,8 +64,10 @@ vim.opt.list = true
 
 vim.opt.listchars = {
   eol = '⤶',
-  tab = '· ',
-  multispace = '· ',
+  -- tab = '· ',
+  -- multispace = '· ',
+  tab = '  ',
+  multispace = '  ',
 }
 
 -- Turn off that mouse
@@ -80,3 +80,8 @@ vim.g.netrw_localrmdir = 'rm -rf'
 
 vim.g.python3_host_skip_check = 1
 vim.g.python3_host_prog = '/bin/python3'
+
+-- vim.opt.colorcolumn = "80"
+vim.cmd[[
+set colorcolumn="80"
+]]

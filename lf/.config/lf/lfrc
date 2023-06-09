@@ -80,6 +80,10 @@ cmd print ${{
     ~/.local/bin/printFile $f
 }}
 
+cmd openHTML ${{
+    qutebrowser $f
+}}
+
 cmd bulkrename $vidir
 
 map <c-p>
@@ -96,7 +100,6 @@ map <c-h> set hidden!
 map <enter> shell
 map x $$f
 map X !$f
-map o &mimeopen $f
 map O $mimeopen --ask $f
 
 map A rename # at the very end
@@ -115,5 +118,6 @@ map W $setsid -f $TERMINAL >/dev/null 2>&1
 map Y $printf "%s" "$fx" | xclip -selection clipboard
 
 map <c-p> print $f
+map o $openHTML
 
 source "~/.config/lf/shortcuts"

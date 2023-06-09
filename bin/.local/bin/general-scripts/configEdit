@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-configs="emacs | ~/.dotfiles/doom-emacs/.doom.d/ ! dwm | ~/personal/suckless/dwm ! zsh | ~/.dotfiles/zsh ! moreZsh | ~/.dotfiles/DvoarkBTW/.config/personal ! scripts | ~/.dotfiles/bin/.local/bin ! lf | ~/.dotfiles/lf/.config/lf ! "
+configs="dwm | ~/personal/suckless/dwm ! zsh | ~/.dotfiles/zsh ! moreZsh | ~/.dotfiles/shell/.config/personal ! scripts | ~/.dotfiles/bin/.local/bin ! lf | ~/.dotfiles/lf/.config/lf ! nvim | ~/.dotfiles/nvim/.config/nvim/"
 config=$(echo "$configs" | tr '!' '\n' | dmenu)
-$EDITOR $(echo $config | awk -F '|' '{print $2}')
+st -e $EDITOR $(echo $config | awk -F '|' '{print $2}')

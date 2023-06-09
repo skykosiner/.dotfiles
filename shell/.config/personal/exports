@@ -24,5 +24,5 @@ export XDG_RUNTIME_DIR=/run/user/1001
 # export MANPAGER='nvim +Man!'
 export TERM="xterm-256color"
 VIM="nvim"
-export EDITOR="emacsclient -c -a emacs"
+export EDITOR="nvim"
 export FZF_DEFAULT_COMMAND="rg --files --hidden -g'!.git'"

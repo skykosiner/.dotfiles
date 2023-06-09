@@ -3,11 +3,17 @@ vim.cmd([[packadd packer.nvim]])
 return require("packer").startup(function(use)
   -- Local plugins
   use "~/personal/todo-me-daddy/master/"
+  use "~/personal/twitch-bot/ui/"
   use "~/personal/statusline.nvim/"
   use "~/personal/telescope.nvim/"
   use "~/personal/wiki.nvim/"
 
   use "rcarriga/nvim-notify"
+
+  use {
+    "brunoos/luasocket",
+    rocks = "luasocket"
+  }
 
   -- NEOVIM IN THE BROWESER
   use {
@@ -118,8 +124,8 @@ return require("packer").startup(function(use)
 
 
   -- Org
-  use {'nvim-orgmode/orgmode', config = function()
-    require('orgmode').setup{}
-  end
-}
+  -- use {'nvim-orgmode/orgmode', config = function()
+    -- require('orgmode').setup{}
+  -- end
+-- }
 end)
