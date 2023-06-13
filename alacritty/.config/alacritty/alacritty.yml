@@ -1,5 +1,5 @@
 window:
-  opacity: 0.80
+  opacity: 0.85
   decorations: full
 scrolling:
   history: 10000
@@ -105,7 +105,7 @@ schemes:
     # Default colors
     primary:
       # hard contrast: background = '0x1d2021'
-      background: '#282828'
+      background: '#111111'
       # soft contrast: background = '0x32302f'
       foreground: '#ebdbb2'
 
@@ -370,4 +370,4 @@ gruvbox_material_hard_light: &gruvbox_material_hard_light
       cyan:    '0x4c7a5d'
       white:   '0xf2e5bc'
 
-colors: *gruvbox_material_hard_light
+colors: *GruvboxDark

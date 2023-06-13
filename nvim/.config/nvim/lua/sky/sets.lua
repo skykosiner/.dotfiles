@@ -62,13 +62,13 @@ vim.opt.list = true
 -- vim.opt.listchars = "tab:· ,nbsp:_,trail: ,multispace:· ,eol:↲"
 -- vim.opt.listchars = { eol = "↲", tab = ">", space = ">" }
 
-vim.opt.listchars = {
+--[[ vim.opt.listchars = {
   eol = '⤶',
-  -- tab = '· ',
-  -- multispace = '· ',
+  tab = '· ',
+  multispace = '· ',
   tab = '  ',
   multispace = '  ',
-}
+} ]]
 
 -- Turn off that mouse
 vim.opt.mouse = nil
@@ -83,5 +83,5 @@ vim.g.python3_host_prog = '/bin/python3'
 
 -- vim.opt.colorcolumn = "80"
 vim.cmd[[
-set colorcolumn="80"
+set colorcolumn=80
 ]]

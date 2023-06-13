@@ -10,6 +10,8 @@ return require("packer").startup(function(use)
 
   use "rcarriga/nvim-notify"
 
+  use "dhruvasagar/vim-table-mode"
+
   use {
     "brunoos/luasocket",
     rocks = "luasocket"
