@@ -56,7 +56,4 @@ alias mountServer="sshfs yonikosiner@10.0.0.31:/Volumes/Files /home/sky/server"
 
 alias vpnConnect="openvpn --config ~/client.ovpn"
 
-# Open emacsclient in the current dir
-alias ed="emacsclient -c -a 'emacs' ."
-
 alias rickRoll="curl -s -L https://bit.ly/3zvELNz | bash"

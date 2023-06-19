@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+pushd ~/.test
+echo "TEST"
+for f in *.jpg; do
+    test=$f
+    echo $test
+    setsid sxiv $f
+done
+popd

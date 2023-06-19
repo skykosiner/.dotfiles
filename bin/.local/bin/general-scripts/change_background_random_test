@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+randomImage=$(ls "/home/sky/.test" | grep -v "README.org" | shuf -n 1)
+feh --bg-fill "/home/sky/.test/$randomImage"

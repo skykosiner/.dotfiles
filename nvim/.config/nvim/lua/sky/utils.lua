@@ -41,15 +41,19 @@ function M.toggleSpell()
   end
 end
 
--- Open my current dir in nnn (termianl file manger) with a quick hotkey
-function M.open_dir_nnn()
-  local currentDir = vim.cmd("pwd")
+-- Open my current dir in lf (termianl file manger) with a quick hotkey
+function M.open_dir_lf()
+  local currentDir = vim.loop.cwd()
   Job:new({
-    "st",
+    "alacritty",
     "-e",
-    "nnn",
+    "lf",
     currentDir
   }):start()
+end
+
+function M.convertToFunction()
+
 end
 
 return M

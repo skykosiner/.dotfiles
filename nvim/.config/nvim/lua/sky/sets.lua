@@ -1,6 +1,7 @@
 vim.g.mapleader = " "
+vim.opt.colorcolumn = "80"
 
-vim.opt.guicursor = ""
+-- vim.opt.guicursor = ""
 
 vim.opt.laststatus = 3
 
@@ -57,18 +58,18 @@ vim.opt.hlsearch = false
 
 vim.opt.showmode = false
 
-vim.opt.list = true
+-- vim.opt.list = true
 -- Not sure if I like this or not hmmm
 -- vim.opt.listchars = "tab:· ,nbsp:_,trail: ,multispace:· ,eol:↲"
 -- vim.opt.listchars = { eol = "↲", tab = ">", space = ">" }
 
---[[ vim.opt.listchars = {
-  eol = '⤶',
-  tab = '· ',
-  multispace = '· ',
-  tab = '  ',
-  multispace = '  ',
-} ]]
+-- vim.opt.listchars = {
+  -- eol = ' ',
+  -- tab = ' ',
+  -- multispace = ' ',
+  -- tab = '  ',
+  -- multispace = '  ',
+-- }
 
 -- Turn off that mouse
 vim.opt.mouse = nil
@@ -80,8 +81,3 @@ vim.g.netrw_localrmdir = 'rm -rf'
 
 vim.g.python3_host_skip_check = 1
 vim.g.python3_host_prog = '/bin/python3'
-
--- vim.opt.colorcolumn = "80"
-vim.cmd[[
-set colorcolumn=80
-]]

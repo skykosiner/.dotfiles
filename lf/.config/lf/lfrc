@@ -81,7 +81,7 @@ cmd print ${{
 }}
 
 cmd openHTML ${{
-    qutebrowser $f
+    brave "$f"
 }}
 
 cmd bulkrename $vidir

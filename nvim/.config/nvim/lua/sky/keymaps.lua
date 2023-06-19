@@ -28,7 +28,7 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "<C-c>", "<esc>")
 
 -- Sweet remaps to tab stuff
-vim.keymap.set("v", "<", "<gv")
+  vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
 -- Spelling as I suck at it
@@ -49,13 +49,12 @@ vim.keymap.set("n", "<silent>Q", "<Nop>")
 
 vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<CR><esc>kkI<esc>")
 
--- Open the current dir in nnn (a terminal based file manger)
-vim.keymap.set("n", "<leader><C-o>", ":lua require('sky.utils').open_dir_nnn()<CR>")
+-- Open the current dir in lf (a terminal based file manger)
+vim.keymap.set("n", "<leader><C-o>", ":lua require('sky.utils').open_dir_lf()<CR>")
 
 -- Make comments in react, don't realy code in react though, so don't think I need this
 -- vim.keymap.set("n", "<leader>gcc", ":norm ^i{/*<esc>A*/}<esc><CR>")
 -- vim.keymap.set("n", "<leader>guc", ":norm ^df*f*D<CR>")
-
 
 -- Set the status line as sometimes it glitechs
 vim.keymap.set("n", "<leader>ss", function()
@@ -63,7 +62,8 @@ vim.keymap.set("n", "<leader>ss", function()
 end)
 
 -- File stuff
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>pv", ":Neotree reveal<CR>")
+
 -- Have some sex on the side baby
 vim.keymap.set("n", "<leader>ft", ":Sex!<CR>")
 
