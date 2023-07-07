@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+read -p "Enter Query: " query
+npx chatgpt "$query"

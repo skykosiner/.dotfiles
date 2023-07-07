@@ -6,7 +6,8 @@ return require("packer").startup(function(use)
   use "~/personal/twitch-bot/ui/"
   use "~/personal/statusline.nvim/"
   use "~/personal/telescope.nvim/"
-  use "~/personal/wiki.nvim/"
+  -- use "~/personal/wiki.nvim/"
+  use "~/personal/chatgpt.nvim/"
 
   use "epwalsh/obsidian.nvim"
 

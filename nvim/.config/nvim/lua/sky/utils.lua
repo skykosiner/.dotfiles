@@ -52,8 +52,22 @@ function M.open_dir_lf()
   }):start()
 end
 
-function M.convertToFunction()
+local function ExtractLink(line)
+  local pattern = "(http[s]?://%S+)"
+  local link = string.match(line, pattern)
+  return link
+end
 
+function M.open_markdown_link()
+  local current_line = vim.api.nvim_get_current_line()
+  local link = ExtractLink(current_line)
+
+  if link then
+    Job:new({
+      "brave",
+      link
+    }):start()
+  end
 end
 
 return M

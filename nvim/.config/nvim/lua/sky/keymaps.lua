@@ -33,6 +33,7 @@ vim.keymap.set("v", ">", ">gv")
 
 -- Spelling as I suck at it
 vim.keymap.set("n", "<leader>sp", ":lua require('sky.utils').toggleSpell()<CR>")
+vim.keymap.set("n", "<leader>ol", ":lua require('sky.utils').open_markdown_link()<CR>")
 
 -- CHMOD ME DADDY
 vim.keymap.set("n", "<leader>ch", "<cmd>!chmod +x %<CR>")

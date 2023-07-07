@@ -31,7 +31,7 @@ lfcd () {
 bindkey -s ^f "tmux-sessionizer\n"
 bindkey -s ^o "lfcd\n"
 bindkey -s ^d "de\n"
-bindkey -s ^n "tmux-sessionizer ~/Documents/Linux-btw/\n"
+bindkey -s ^n "cd ~/Documents/Linux-btw/ && vim .\n"
 
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
@@ -50,6 +50,7 @@ zstyle ':vcs_info:*' enable git
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
 source ~/bookMarks
+source ~/.secret
 
 HISTFILE=~/.zsh_history
 HISTSIZE=100000000

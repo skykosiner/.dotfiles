@@ -99,6 +99,16 @@ _G.packer_plugins = {
     path = "/home/sky/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
   },
+  ["cellular-automaton.nvim"] = {
+    loaded = true,
+    path = "/home/sky/.local/share/nvim/site/pack/packer/start/cellular-automaton.nvim",
+    url = "https://github.com/eandrju/cellular-automaton.nvim"
+  },
+  ["chatgpt.nvim"] = {
+    loaded = true,
+    path = "/home/sky/.local/share/nvim/site/pack/packer/start/chatgpt.nvim",
+    url = "/home/sky/personal/chatgpt.nvim/"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/sky/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -154,6 +164,11 @@ _G.packer_plugins = {
     path = "/home/sky/.local/share/nvim/site/pack/packer/start/github-nvim-theme",
     url = "https://github.com/projekt0n/github-nvim-theme"
   },
+  ["gkeep.nvim"] = {
+    loaded = true,
+    path = "/home/sky/.local/share/nvim/site/pack/packer/start/gkeep.nvim",
+    url = "https://github.com/stevearc/gkeep.nvim"
+  },
   ["glow.nvim"] = {
     loaded = true,
     path = "/home/sky/.local/share/nvim/site/pack/packer/start/glow.nvim",
@@ -208,11 +223,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/sky/.local/share/nvim/site/pack/packer/start/lua-async-await",
     url = "https://github.com/ms-jpq/lua-async-await"
-  },
-  luasocket = {
-    loaded = true,
-    path = "/home/sky/.local/share/nvim/site/pack/packer/start/luasocket",
-    url = "https://github.com/brunoos/luasocket"
   },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
@@ -305,6 +315,11 @@ _G.packer_plugins = {
     path = "/home/sky/.local/share/nvim/site/pack/packer/start/nvim-window-picker",
     url = "https://github.com/s1n7ax/nvim-window-picker"
   },
+  ["obsidian.nvim"] = {
+    loaded = true,
+    path = "/home/sky/.local/share/nvim/site/pack/packer/start/obsidian.nvim",
+    url = "https://github.com/epwalsh/obsidian.nvim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/sky/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -380,6 +395,12 @@ _G.packer_plugins = {
     path = "/home/sky/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
   },
+  ["trouble.nvim"] = {
+    config = { "\27LJ\2\nC\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\nicons\1\nsetup\ftrouble\frequire\0" },
+    loaded = true,
+    path = "/home/sky/.local/share/nvim/site/pack/packer/start/trouble.nvim",
+    url = "https://github.com/folke/trouble.nvim"
+  },
   ui = {
     loaded = true,
     path = "/home/sky/.local/share/nvim/site/pack/packer/start/ui",
@@ -415,11 +436,6 @@ _G.packer_plugins = {
     path = "/home/sky/.local/share/nvim/site/pack/packer/start/vim-vscode-theme",
     url = "https://github.com/dunstontc/vim-vscode-theme"
   },
-  ["wiki.nvim"] = {
-    loaded = true,
-    path = "/home/sky/.local/share/nvim/site/pack/packer/start/wiki.nvim",
-    url = "/home/sky/personal/wiki.nvim/"
-  },
   ["zen-mode.nvim"] = {
     loaded = true,
     path = "/home/sky/.local/share/nvim/site/pack/packer/start/zen-mode.nvim",
@@ -428,6 +444,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: trouble.nvim
+time([[Config for trouble.nvim]], true)
+try_loadstring("\27LJ\2\nC\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\nicons\1\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
+time([[Config for trouble.nvim]], false)
 -- Config for: nvim-window-picker
 time([[Config for nvim-window-picker]], true)
 try_loadstring("\27LJ\2\nþ\1\0\0\6\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\t\0005\4\5\0005\5\4\0=\5\6\0045\5\a\0=\5\b\4=\4\n\3=\3\v\2B\0\2\1K\0\1\0\17filter_rules\abo\1\0\0\fbuftype\1\3\0\0\rterminal\rquickfix\rfiletype\1\0\0\1\4\0\0\rneo-tree\19neo-tree-popup\vnotify\1\0\3\20include_current\1\19autoselect_one\2\23other_win_hl_color\f#e35e4f\nsetup\18window-picker\frequire\0", "config", "nvim-window-picker")

@@ -16,7 +16,7 @@ lsp.ensure_installed({
   'gopls',
   'bashls',
   'pyright',
-  'clangd'
+  'clangd',
 })
 
 cmp.setup({
@@ -47,7 +47,6 @@ cmp.setup({
   sources = {
     { name = "nvim_lua" },
     { name = "nvim_lsp" },
-    { name = "copilot" },
     { name = "path" },
     { name = "gh_issues" },
     { name = "luasnip" },
