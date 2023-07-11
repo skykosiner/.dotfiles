@@ -3,16 +3,15 @@
 # $1 is the file to prepend
 # $2 is the info to prepend with
 prepend_file() {
-    text="* $(date +%H:%M) $2"
-    sed -i "1s/^/$text\n\n/" $1
+    sed -i "1s/^/$2\n/" "$1"
 }
 
 case "$1" in
     "quick-note")
-        dailyNoteName=$(date +%Y-%m-%d).md
-        dailyNote=$(echo $OBSIDIAN_VAULT/Daily/$dailyNoteName)
-        quickNote=$(dmenu -p "Enter Quick Note > " -h 40 -fn 'JetBrainsMono Nerd Font-15' <&- && echo)
-        prepend_file "$dailyNote" "$quickNote"
+        inbox=$(echo $OBSIDIAN_VAULT/📥 Inbox)
+        text=$(dmenu -p "Enter new note > " -h 40 -fn 'JetBrainsMono Nerd Font-15' <&- && echo)
+        cd "$inbox" && touch $(date +%Y%m%d%H%M).md
+        echo "$text" > "$inbox/$(date +%Y%m%d%H%M).md"
         ;;
     *) echo "Not a command... $1"
 esac
