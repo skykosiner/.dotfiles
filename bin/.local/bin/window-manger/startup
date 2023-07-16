@@ -60,5 +60,5 @@ dwmblocks &
 xrandr --setprovideroutputsource modesetting NVIDIA-0
 xrandr --auto
 
-# BROWSER BTW
-qutebrowser
+# Clipboard mangaer btw
+cilpmenud
