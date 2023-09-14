@@ -1,5 +1,5 @@
 (setq user-full-name "Sky Kosiner"
-      user-mail-address "yoni@kosiner.co.uk")
+      user-mail-address "sky@skykosiner.com")
 
 (setq doom-font (font-spec :family "Hack Nerd Font Mono" :size 25))
 (after! doom-themes
