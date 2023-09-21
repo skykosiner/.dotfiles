@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# ROBLOX
+alias roblox="flatpak run net.brinkervii.grapejuice app"
+
 # Keyboard stuff
 alias aoeu="setxkbmap -layout us"
 alias asdf="setxkbmap -layout real-prog-dvorak"
