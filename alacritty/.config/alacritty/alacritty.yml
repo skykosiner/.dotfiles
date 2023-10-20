@@ -105,7 +105,8 @@ schemes:
     # Default colors
     primary:
       # hard contrast: background = '0x1d2021'
-      background: '#111111'
+      background: '#000000'
+      # background: '#111111'
       # soft contrast: background = '0x32302f'
       foreground: '#ebdbb2'
 
