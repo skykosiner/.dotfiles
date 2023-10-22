@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+app=$(ls ~/Documents/Apps/ | fzf)
+name=$(echo "name to call the symlink?" && read)
+sudo ln -s "$app" "$name"

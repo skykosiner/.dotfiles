@@ -62,3 +62,5 @@ alias vpnConnect="openvpn --config ~/client.ovpn"
 alias rickRoll="curl -s -L https://bit.ly/3zvELNz | bash"
 
 alias editWebsite="ssh root@46.101.77.77"
+
+alias lf="lfub"

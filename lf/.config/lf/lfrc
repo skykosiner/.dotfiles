@@ -5,8 +5,8 @@ set ifs "\n"
 set scrolloff 10
 set icons true
 set period 1
-set previewer "~/.local/bin/lf-preview"
-set cleaner lf-ueberzug-cleaner
+set cleaner '~/.config/lf/cleaner'
+set previewer '~/.config/lf/scope'
 
 cmd open ${{
     case $(file --mime-type "$(readlink -f $f)" -b) in

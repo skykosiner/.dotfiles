@@ -5,7 +5,7 @@ return require("packer").startup(function(use)
   use "~/personal/todo-me-daddy/master/"
   use "~/personal/twitch-bot/ui/"
   use "~/personal/statusline.nvim/"
-  use "~/personal/telescope.nvim/"
+  -- use "~/personal/telescope.nvim/"
   -- use "~/personal/wiki.nvim/"
   use "~/personal/chatgpt.nvim/"
 
@@ -49,38 +49,6 @@ return require("packer").startup(function(use)
   use "simrat39/inlay-hints.nvim"
 
   use "folke/neodev.nvim"
-
-  use {
-  "nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
-    requires = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
-      {
-        -- only needed if you want to use the commands with "_with_window_picker" suffix
-        's1n7ax/nvim-window-picker',
-        tag = "v1.*",
-        config = function()
-          require'window-picker'.setup({
-            autoselect_one = true,
-            include_current = false,
-            filter_rules = {
-              -- filter using buffer options
-              bo = {
-                -- if the file type is one of following, the window will be ignored
-                filetype = { 'neo-tree', "neo-tree-popup", "notify" },
-
-                -- if the buffer type is one of following, the window will be ignored
-                buftype = { 'terminal', "quickfix" },
-              },
-            },
-            other_win_hl_color = '#e35e4f',
-          })
-        end,
-      }
-    },
-}
 
   use {
     "VonHeikemen/lsp-zero.nvim",
@@ -149,7 +117,7 @@ return require("packer").startup(function(use)
   use "w0ng/vim-hybrid"
   use "chriskempson/base16-vim"
   use "nvim-lua/popup.nvim"
-  -- use "nvim-telescope/telescope.nvim"
+  use "nvim-telescope/telescope.nvim"
   use "nvim-telescope/telescope-fzy-native.nvim"
   use "mhinz/vim-rfc"
   use "mbbill/undotree"

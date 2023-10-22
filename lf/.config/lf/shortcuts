@@ -7,10 +7,6 @@ map gD cd ~/Downloads
 map gp cd ~/personal
 map gw cd ~/work
 map gm cd ~/server
-map go cd ~/org
-map gr cd ~/org-roam
+map go cd ~/Documents/Linux-btw/
+map gv cd ~/Videos/
 map Jp cd ~/personal/skykosiner-com/
-map Jh cd ~/work/clients/health-box-plus/
-map Sw cd ~/work/school-work/
-map Sp cd ~/work/school-python/
-map Si cd ~/personal/one-year/images/

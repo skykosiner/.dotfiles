@@ -66,7 +66,7 @@ vim.keymap.set("n", "<leader>ss", function()
 end)
 
 -- File stuff
-vim.keymap.set("n", "<leader>pv", ":Neotree reveal<CR>")
+vim.keymap.set("n", "<leader>pv", ":Ex<CR>")
 
 -- Have some sex on the side baby
 vim.keymap.set("n", "<leader>ft", ":Sex!<CR>")
