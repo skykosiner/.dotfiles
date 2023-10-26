@@ -1,5 +1,4 @@
 # Give less color
-# Taken from Luke Smith
 export LESS=-R
 export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"
 export LESS_TERMCAP_md="$(printf '%b' '[1;36m')"

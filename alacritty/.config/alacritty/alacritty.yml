@@ -1,5 +1,5 @@
 window:
-  opacity: 0.60
+  opacity: 0.80
   decorations: full
 scrolling:
   history: 10000

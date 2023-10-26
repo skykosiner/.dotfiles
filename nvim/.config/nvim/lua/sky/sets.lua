@@ -18,7 +18,7 @@ vim.opt.updatetime = 50
 vim.opt.hidden = true
 
 vim.opt.splitbelow = true
-vim.opt.cursorline = true
+-- vim.opt.cursorline = true
 
 vim.opt.ignorecase = true -- Ignore case when searching...
 vim.opt.smartcase = true -- ... unless there is a capital letter in the query
