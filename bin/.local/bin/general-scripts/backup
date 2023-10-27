@@ -23,17 +23,14 @@ notify-send "Starting to backup computer to server"
 sudo rsync -aAXv --delete /home/sky/Documents /home/sky/server/backups
 sudo rsync -aAXv --delete /home/sky/work /home/sky/server/backups
 sudo rsync -aAXv --delete /home/sky/personal /home/sky/server/backups
-sudo rsync -aAXv --delete /home/sky/Pictures /home/sky/server/backups
 sudo rsync -aAXv --delete /home/sky/Camera /home/sky/server/backups
-sudo rsync -aAXv --delete /home/sky/org /home/sky/server/backups
 
 notify-send "Backup is finished"
 
-
 # Make dir of all my tiktoks I've saved lmfao
-pushd ~/server/backups/Camera/Camera/
-for f in *.mp4; do
-    file=$(echo $f | grep -v "^$(date +%Y)")
-    sudo cp /home/sky/server/backups/Camera/Camera/$file /home/sky/server/backups/tiktoks/
-done
-popd
+# pushd ~/server/backups/Camera/Camera/
+# for f in *.mp4; do
+    # file=$(echo $f | grep -v "^$(date +%Y)")
+    # sudo cp /home/sky/server/backups/Camera/Camera/$file /home/sky/server/backups/tiktoks/
+# done
+# popd

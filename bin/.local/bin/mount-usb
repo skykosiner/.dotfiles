@@ -1,15 +1,4 @@
 #!/usr/bin/env bash
 
-option=$(echo "Mount\nUnmount" | dmenu)
-
-case $option in
-    "Mount")
-        # I know there is a better way to do this, but I can't be bothered to figure it out lol
-        location=$(echo "/dev/sda/\/dev/sdb/\n/dev/sda1/" | dmenu)
-        sudo mount "$location" /media/usb/
-        ;;
-    "Umount")
-        sudo umount /media/usb/
-        ;;
-    *) echo "Not an option"
-esac
+path=$(dmenu -p "Enter path to mount > " -h 40 -fn 'JetBrainsMono Nerd Font-15' <&- && echo)
+sudo mount "$path" /home/sky/usb

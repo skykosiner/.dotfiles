@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-pandoc $1 -f markdown -t org -o book.org

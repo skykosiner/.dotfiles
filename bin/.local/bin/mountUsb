@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-path=$(dmenu -p "Enter Temp > " -h 40 -fn 'JetBrainsMono Nerd Font-15' <&- && echo)
-sudo mount "$path" /home/sky/usb
