@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+mail="$(grep "^From:" /dev/stdin | grep -o "[^<> ]\+@.\+\\.[^<>]\+")" && break
+domainOrNot=$(echo "Block the domain
+Block the user on the domain" | dmenu)
+
+if [[ "$domainOrNot" = "Block the domain" ]]; then
+    domain=$(echo "$mail" | cut -d'@' -f2)
+    choice=$(echo "y
+n" | dmenu -p "block the domain $domain")
+    if [[ "$choice" = "y" ]]; then
+        eval "ssh root@skykosiner.com './banmail $domain'"
+    fi
+else
+    choice=$(echo "y
+n" | dmenu -p "block the email $mail")
+    if [[ "$choice" = "y" ]]; then
+        eval "ssh root@skykosiner.com './banmail $mail'"
+    fi
+fi
