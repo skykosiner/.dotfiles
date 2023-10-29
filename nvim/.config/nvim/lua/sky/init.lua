@@ -35,6 +35,11 @@ vim.api.nvim_create_autocmd("BufWritePre", { callback = function()
   vim.cmd([[:%s/\s\+$//e]])
 end, group = group })
 
+-- Bookmark stuff on .bookm save of file
+vim.cmd([[
+autocmd BufWritePost ~/.dotfiles/.bookm !~/.local/bin/bookmarks --lf && ~/.local/bin/bookmarks --shell
+]])
+
 -- idk really, make vim.notify shut up lol
 require("notify").setup({
   background_colour = "#000000",

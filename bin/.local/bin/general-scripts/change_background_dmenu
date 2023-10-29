@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-item="$(echo $HOME)/.dotfiles/anime/$(ls ~/.dotfiles/anime | dmenu -p "Backgrounds" -l 15 -fn 'JetBrainsMono Nerd Font-15')"
+item="$(echo $HOME)/.dotfiles/backgrounds/$(ls ~/.dotfiles/backgrounds/ | dmenu -p "Backgrounds" -l 15 -fn 'JetBrainsMono Nerd Font-15')"
 
 # Make sure the wallpaper is not blank (basicly if you run the script then
 # decide to exit out of dmenu)
-if [[ $item != "$HOME/.dotfiles/anime/" ]]; then
+if [[ $item != "$HOME/.dotfiles/backgrounds//" ]]; then
     feh --bg-fill $item
     notify-send -i $item "Background set"
     # dconf write /org/mate/desktop/background/picture-filename "'$item'"

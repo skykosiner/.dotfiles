@@ -118,7 +118,7 @@ local function image_selector(prompt, cwd)
   end
 end
 
-M.anime_selector = image_selector("< Change background> ", "~/.dotfiles/anime")
+M.background_selector = image_selector("< Change background> ", "~/.dotfiles/backgrounds/")
 
 -- Remaps
 vim.keymap.set("n", "<leader>pf", "<cmd>lua require('telescope.builtin').find_files({ hidden = true })<cr>")
@@ -132,7 +132,7 @@ vim.keymap.set("n", "<leader>vrc", ":lua require('sky.telescope').search_dotfile
 vim.keymap.set("n", "<leader>pw",
   ":lua require('telescope.builtin').grep_string { search = vim.fn.expand('<cword>') }<CR>")
 vim.keymap.set("n", "<leader>vih", ":lua require('telescope.builtin').help_tags()<CR>")
-vim.keymap.set("n", "<leader>va", ":lua require('sky.telescope').anime_selector()<CR>")
+vim.keymap.set("n", "<leader>va", ":lua require('sky.telescope').background_selector()<CR>")
 vim.keymap.set("n", "<leader>gb", ":Telescope git_branches<CR>")
 vim.keymap.set("n", "<leader>gc", ":Telescope git_commits<CR>")
 vim.keymap.set("n", "<leader>gw",

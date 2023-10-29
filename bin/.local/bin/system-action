@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+export WM="dwm"
+wmpid(){ # This function is needed if there are multiple instances of the window manager.
+	tree="$(pstree -ps $$)"
+	tree="${tree#*$WM(}"
+	echo "${tree%%)*}"
+}
+
+case "$(printf "♻️ renew $WM" | dmenu -i -p 'Action: ')" in
+    "♻️ renew $WM") kill -HUP "$(wmpid)" ;;
+    *) exit 1 ;;
+esac

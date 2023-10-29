@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-randomImage=$(ls "$DOTFILES/anime" | grep -v "README.org" | shuf -n 1)
-feh --bg-fill "/home/sky/.dotfiles/anime/$randomImage"
+randomImage=$(ls "$DOTFILES/backgrounds/" | grep -v "README.org" | shuf -n 1)
+feh --bg-fill "/home/sky/.dotfiles/backgrounds//$randomImage"
