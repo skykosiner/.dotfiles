@@ -7,7 +7,10 @@ wmpid(){ # This function is needed if there are multiple instances of the window
 	echo "${tree%%)*}"
 }
 
-case "$(printf "♻️ renew $WM" | dmenu -i -p 'Action: ')" in
+case "$(printf "♻️ renew $WM\n❌shutdown\n🌍restart\n💤sleep" | dmenu -h 30 -i -p 'Action: ')" in
     "♻️ renew $WM") kill -HUP "$(wmpid)" ;;
+    "❌shutdown") sudo shutdown -h now ;;
+    "🌍restart") sudo shutdown -r now ;;
+    "💤sleep") systemctl suspend ;;
     *) exit 1 ;;
 esac

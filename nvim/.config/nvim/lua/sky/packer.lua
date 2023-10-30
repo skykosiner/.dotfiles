@@ -17,6 +17,8 @@ return require("packer").startup(function(use)
 
   use "eandrju/cellular-automaton.nvim"
 
+  use "romgrk/todoist.nvim"
+
   use({
     "folke/trouble.nvim",
     config = function()
