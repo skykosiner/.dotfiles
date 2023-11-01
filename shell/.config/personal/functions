@@ -51,7 +51,7 @@ commitDotFiles() {
 }
 
 cpuTemp() {
-    sensors | awk '/Core 0/ {print " " $3}' | sed "s/+//g; s/\s//g"
+    sensors | awk '/Tctl/ {print " " $2}' | sed "s/+//g; s/\s//g"
 }
 
 convertWordToPDF() {

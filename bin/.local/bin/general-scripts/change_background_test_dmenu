@@ -5,7 +5,7 @@ item="$(echo $HOME)/.test/$(ls ~/.test | dmenu -p "Backgrounds" -l 15 -fn 'JetBr
 # Make sure the wallpaper is not blank (basicly if you run the script then
 # decide to exit out of dmenu)
 if [[ $item != "$HOME/.test/" ]]; then
-    feh --bg-fill $item
+    wal -i $item
     notify-send -i $item "Background set"
     # dconf write /org/mate/desktop/background/picture-filename "'$item'"
 fi

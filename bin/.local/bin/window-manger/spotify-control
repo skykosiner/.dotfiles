@@ -42,7 +42,7 @@ case "$1" in
             fi
         ;;
     "-select-playlist")
-            id=$(cat ~/.dotfiles/playlist_list | sort | awk -F '|' '{print $1 " id: " $2}' | dmenu -l 20 -i  -fn 'JetBrainsMono Nerd Font-15' | awk -F 'id: ' '{print $2}')
+            id=$(spt list --playlists | dmenu -l 30 -fn "JetBrainsMono Nerd Font-15" | awk -F 'playlist:' '{print $2}' | sed "s/)//")
 
             if [[ ! -z $id ]]; then
                 qdbus org.mpris.MediaPlayer2.spotify \
@@ -51,5 +51,11 @@ case "$1" in
                     spotify:playlist:$id
             fi
             ;;
-    *) echo "Not a command... $1"
+
+        "-play-song")
+            songToLookFor=$(dmenu -p "Enter Song > " -h 40 -fn 'JetBrainsMono Nerd Font-15' <&- && echo)
+            song=$(spt search --tracks "$songToLookFor" | dmenu -l 30 -fn 'JetBrainsMono Nerd Font-15' | awk -F 'track:' '{print $2}' | sed "s/)//")
+            spt play --uri "spotify:track:$song"
+            ;;
+        *) echo "Not a command... $1"
 esac

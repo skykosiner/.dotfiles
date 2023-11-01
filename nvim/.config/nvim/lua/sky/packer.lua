@@ -9,6 +9,8 @@ return require("packer").startup(function(use)
   -- use "~/personal/wiki.nvim/"
   use "~/personal/chatgpt.nvim/"
 
+  use "dylanaraps/wal.vim"
+
   use "epwalsh/obsidian.nvim"
 
   use "stevearc/gkeep.nvim"

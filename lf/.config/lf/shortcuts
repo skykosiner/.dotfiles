@@ -1,6 +1,6 @@
 map gc cd ~/.dotfiles
 map gs cd ~/.dotfiles/bin/.local/bin/
-map gb cd ~/.dotfiles/anime/
+map gb cd ~/.dotfiles/backgrounds/
 map gh cd ~/
 map gd cd ~/Documents
 map gD cd ~/Downloads

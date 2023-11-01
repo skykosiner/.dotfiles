@@ -1,6 +1,6 @@
 gc ~/.dotfiles
 gs ~/.dotfiles/bin/.local/bin/
-gb ~/.dotfiles/anime/
+gb ~/.dotfiles/backgrounds/
 gh ~/
 gd ~/Documents
 gD ~/Downloads

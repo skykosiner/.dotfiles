@@ -40,7 +40,8 @@ setxkbmap -layout real-prog-dvorak
 picom &
 
 # Set last used background
-~/.fehbg
+# ~/.fehbg
+wal -R
 
 # Set them dwmblocks
 dwmblocks &

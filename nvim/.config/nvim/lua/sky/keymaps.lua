@@ -112,3 +112,6 @@ vim.keymap.set("n", "<leader>nn", ":tabnew<CR>")
 -- MOVE STUFF BABY
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+-- Compile latex
+vim.keymap.set("n", "<leader>co", ":!pdflatex '%:p'\n")

@@ -1,6 +1,6 @@
 alias bgc="cd ~/.dotfiles"
 alias bgs="cd ~/.dotfiles/bin/.local/bin/"
-alias bgb="cd ~/.dotfiles/anime/"
+alias bgb="cd ~/.dotfiles/backgrounds/"
 alias bgh="cd ~/"
 alias bgd="cd ~/Documents"
 alias bgD="cd ~/Downloads"
