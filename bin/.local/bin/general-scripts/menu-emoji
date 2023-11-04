@@ -17,7 +17,7 @@ case "$1" in
     }
     ;;
   "")
-    sh "$0" list | dmenu -p '[ Emoji ]' -l 30 -fn 'JetBrainsMono Nerd Font-15'| sh "$0" copy
+    sh "$0" list | dmenu -p 'Emoji:' -l 30 -fn 'JetBrainsMono Nerd Font-15'| sh "$0" copy
     ;;
 esac
 
