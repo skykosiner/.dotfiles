@@ -17,7 +17,7 @@ do
 			notify-send "$(readlink -f "$file") copied to clipboard" & ;;
 	"d")
 		[ "$(printf "No\\nYes" | dmenu -i -p "Really delete $file?")" = "Yes" ] && rm "$file" && notify-send "$file deleted." ;;
-	"g")	ifinstalled gimp && setsid -f gimp "$file" ;;
+	"g")	gimp && setsid -f gimp "$file" ;;
 	"i")	notify-send "File information" "$(mediainfo "$file" | sed "s/[ ]\+:/:/g;s/: /: <b>/;s/$/<\/b>/" | grep "<b>")" ;;
         esac
 done

@@ -4,9 +4,9 @@ case "$1" in
     "-togglePlay")
         ~/.local/bin/spotifycli --playpause
         if ~/.local/bin/spotifycli --status; then
-            notify-send "Now playing: $(~/.local/bin/spotifycli --status)"
+            notify-send -i "/home/sky/.local/share/spotify-launcher/install/usr/share/spotify/icons/spotify-linux-512.png" "Now playing: $(~/.local/bin/spotifycli --status)"
         else
-            notify-send "Spotify is not running"
+            notify-send -i "/home/sky/.local/share/spotify-launcher/install/usr/share/spotify/icons/spotify-linux-512.png" "Spotify is not running"
         fi
         ;;
     "-prev")
@@ -53,9 +53,37 @@ case "$1" in
             ;;
 
         "-play-song")
-            songToLookFor=$(dmenu -p "Enter Song > " -h 40 -fn 'JetBrainsMono Nerd Font-15' <&- && echo)
-            song=$(spt search --tracks "$songToLookFor" | dmenu -l 30 -fn 'JetBrainsMono Nerd Font-15' | awk -F 'track:' '{print $2}' | sed "s/)//")
-            spt play --uri "spotify:track:$song"
+            play() {
+                spt play --uri "spotify:$1"
+            }
+
+            option=$(printf "Track\nArtist\nAlbum" | dmenu -h 40 -fn 'JetBrainsMono Nerd Font-15')
+
+            case "$option" in
+                "Track")
+                    songToLookFor=$(dmenu -p "Enter Song > " -h 40 -fn 'JetBrainsMono Nerd Font-15' <&- && echo)
+                    if [[ ! -z $songToLookFor ]]; then
+                        song=$(spt search --tracks "$songToLookFor" | dmenu -l 30 -fn 'JetBrainsMono Nerd Font-15' | awk -F 'spotify:' '{print $2}' | sed "s/)//")
+                        play $song
+                    fi
+                    ;;
+                "Artist")
+                    artistToLookFor=$(dmenu -p "Enter Artist > " -h 40 -fn 'JetBrainsMono Nerd Font-15' <&- && echo)
+                    if [[ ! -z $artistToLookFor ]]; then
+                        song=$(spt search --artists "$artistToLookFor" | dmenu -l 30 -fn 'JetBrainsMono Nerd Font-15' | awk -F 'spotify:' '{print $2}' | sed "s/)//")
+                        play $song
+                    fi
+                    ;;
+                "Album")
+                    albumToLookFor=$(dmenu -p "Enter Album > " -h 40 -fn 'JetBrainsMono Nerd Font-15' <&- && echo)
+                    if [[ ! -z $albumToLookFor ]]; then
+                        song=$(spt search --albums "$albumToLookFor" | dmenu -l 30 -fn 'JetBrainsMono Nerd Font-15' | awk -F 'spotify:' '{print $2}' | sed "s/)//")
+                        play $song
+                    fi
+                    ;;
+                *) echo "Not an option $option"
+            esac
+
             ;;
         *) echo "Not a command... $1"
 esac

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-pushd ~/neovim
+pushd ~/.local/src/neovim/
 git pull
 sudo make clean
 make
