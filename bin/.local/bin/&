@@ -114,7 +114,4 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Compile latex
-vim.keymap.set("n", "<leader>co", function ()
-  vim.cmd(":w!")
-  vim.cmd("!/home/sky/.local/bin/compiler '%:p'")
-end)
+vim.keymap.set("n", "<leader>co", ":w! !compiler '%:p'\n")

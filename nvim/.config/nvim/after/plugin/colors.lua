@@ -43,7 +43,7 @@ function Colors(color)
   -- vim.api.nvim_set_hl(0, "CursorLineNR", { bg = "none" })
   vim.api.nvim_set_hl(0, "TelescopePromptPrefix", { fg = "#96f1ff" })
   vim.api.nvim_set_hl(0, "background_color", { fg = "#373b40", bg = "#7fa3c0" })
-  vim.api.nvim_set_hl(0, "LineNr", { bg = "none", fg = "#373b40" })
+  vim.api.nvim_set_hl(0, "LineNr", { bg = "none", fg = "#FFFFFF" })
   -- Set statusline to correct colors
   -- vim.api.nvim_set_hl(0, "Ignore", { bg = "#2e2e2e", fg = "#7fa3c0" })
 end

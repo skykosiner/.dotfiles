@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+file=$(readlink -f "$1")
+dir=${file%/*}
+base="${file%.*}"
+ext="${file##*.}"
+
+pushd "$dir"
+case "$ext" in
+    "tex") pdflatex "$file" ;;
+    *) sed -n '/^#!/s/^#!//p; q' "$file" | xargs -r -I % "$file" ;;
+esac
+popd

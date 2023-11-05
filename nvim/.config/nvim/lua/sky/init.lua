@@ -35,7 +35,7 @@ vim.api.nvim_create_autocmd("BufWritePre", { callback = function()
   vim.cmd([[:%s/\s\+$//e]])
 end, group = group })
 
--- Bookmark stuff on .bookm save of file
+-- Stuff on save
 vim.cmd([[
 autocmd BufWritePost ~/.dotfiles/.bookm !~/.local/bin/bookmarks --lf && ~/.local/bin/bookmarks --shell
 autocmd BufWritePost ~/personal/suckless/dwmblocks/blocks.def.h !cd ~/personal/suckless/dwmblocks/; rm blocks.h; sudo make install && { killall -q dwmblocks;setsid -f dwmblocks }
