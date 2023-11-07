@@ -9,7 +9,7 @@ return require("packer").startup(function(use)
   -- use "~/personal/wiki.nvim/"
   use "~/personal/chatgpt.nvim/"
 
-  use "dylanaraps/wal.vim"
+  use { 'AlphaTechnolog/pywal.nvim', as = 'pywal' }
 
   use "epwalsh/obsidian.nvim"
 

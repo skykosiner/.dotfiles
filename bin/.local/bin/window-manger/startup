@@ -63,3 +63,5 @@ xrandr --auto
 
 # Clipboard mangaer btw
 cilpmenud
+
+qbittorrent-nox -d

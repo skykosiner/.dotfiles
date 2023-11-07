@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
-mail="$(grep "^From:" /dev/stdin | grep -o "[^<> ]\+@.\+\\.[^<>]\+")" && break
+mail="$(grep "^From:" /dev/stdin | grep -o "[^<> ]\+@.\+\\.[^<>]\+")"
 domainOrNot=$(echo "Block the domain
 Block the user on the domain" | dmenu)
+
+# [[ ! -z "$mail" ]] && exit
 
 if [[ "$domainOrNot" = "Block the domain" ]]; then
     domain=$(echo "$mail" | cut -d'@' -f2)
