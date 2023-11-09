@@ -8,10 +8,10 @@ prepend_file() {
 
 case "$1" in
     "quick-note")
-        inbox=$(echo $OBSIDIAN_VAULT/📥 Inbox)
+        inbox=$(echo /home/sky/Documents/Linux-btw/📥 Inbox)
         text=$(dmenu -p "Enter new note > " -h 40 -fn 'JetBrainsMono Nerd Font-15' <&- && echo)
-        cd "$inbox" && touch $(date +%Y%m%d%H%M).md
-        echo "$text" > "$inbox/$(date +%Y%m%d%H%M).md"
+        cd "$inbox" && touch $(date +%Y%m%d%H%M%S).md
+        echo "$text" > "$inbox/$(date +%Y%m%d%H%M%S).md"
         ;;
     *) echo "Not a command... $1"
 esac
