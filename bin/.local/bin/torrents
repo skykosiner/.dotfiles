@@ -2,19 +2,17 @@
 
 url="https://thepiratebay.party/search"
 
-[[ $1 ]] && q="$*" || read -p "Enter Search Query: " q
+[[ $1 ]] && q=$(dmenu -p "Enter Search Query:" -fn "JetBrainsMono Nerd Font-15" <&- && echo) || read -p "Enter Search Query: " q
 
-echo "$url/$q"|sed 's/ /%20/g'
-page="$(torify wget -qO- "$url/$q"|sed 's@+@ @g;s@%@\\x@g' | xargs -0 printf "%b")"
-list="$(echo "$page"|grep magnet|grep -v '<meta'|sed 's/href="magnet/\nmagnet/g'|grep magnet|cut -d\" -f1|awk -F\& '{print $2 "|" $1}'|tr "+" " "|sed 's/dn=//g')"
-#selection="$(echo -e "$list"|cut -d\| -f1|fzf)"
-selection="$(echo -e "$list"|fzf)"
+echo "$url/$q" | sed 's/ /%20/g'
+page="$(torify wget -qO- "$url/$q" | sed 's@+@ @g;s@%@\\x@g' | xargs -0 printf "%b")"
+list="$(echo "$page" | grep magnet | grep -v '<meta' | sed 's/href="magnet/\nmagnet/g' | grep magnet | cut -d\" -f1 | awk -F\& '{print $2 "|" $1}' | tr "+" " " | sed 's/dn=//g')"
+[[ $1 ]] && selection="$(echo -e "$list" | dmenu -l 30 -fn 'JetBrainsMono Nerd Font-15' -p 'Pick Torrent: ')" || selection="$(echo -e "$list"|  fzf)"
 [[ $selection ]] || exit 1
 
 #display File Size and Seeds
 title="$(echo -e "$selection"|cut -d\| -f1)"
 echo "$title"
-#echo -n "$page"|grep "$title" -A2|tail -n2 |sed 's/&nbsp;/ /g'|cut -d\> -f2|cut -d\< -f1|tr "\n" " "
 echo -e "Size \t\t Seeds"
 echo -n "$page"|
   grep "$title" -A2|
@@ -29,4 +27,3 @@ magnet="$(echo -e "$selection"|cut -d\| -f2)"
 echo ": $(date +%s):0;aria2c --seed-time=1 '$magnet'" >> $HOME/.zsh_history
 qbt torrent add "$magnet"
 # aria2c --seed-time=1 "$magnet"
-

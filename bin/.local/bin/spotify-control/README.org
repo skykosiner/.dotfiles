@@ -1,5 +1,0 @@
-#+title Spotify control
-
-* What is the point?
-- These set of scripts are used to control my spotify using a philips hue remote
-  I have under my desk

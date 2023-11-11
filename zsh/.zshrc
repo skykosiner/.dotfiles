@@ -49,7 +49,7 @@ zstyle ':vcs_info:*' enable git
 
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%} %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
-source ~/bookMarks
+source ~/.config/personal/bookMarks
 source ~/.secret
 
 HISTFILE=~/.zsh_history

@@ -7,5 +7,4 @@ item="$(echo $HOME)/.dotfiles/backgrounds/$(ls ~/.dotfiles/backgrounds/ | dmenu 
 if [[ $item != "$HOME/.dotfiles/backgrounds/" ]]; then
     wal -i $item
     notify-send -i $item "Background set"
-    # dconf write /org/mate/desktop/background/picture-filename "'$item'"
 fi

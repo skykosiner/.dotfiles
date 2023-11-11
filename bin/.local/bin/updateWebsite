@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 # rsync ~/personal/skykosiner-com/golang/* root@skykosiner.com:/var/www/skykosiner-com
-rsync -aAXv --delete /home/sky/personal/skykosiner-com/golang/ root@skykosiner.com:/var/www/skykosiner-com
+rsync -aAXv --delete /home/sky/personal/skykosiner-com/master/ root@skykosiner.com:/var/www/skykosiner-com

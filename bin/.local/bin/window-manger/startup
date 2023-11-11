@@ -20,9 +20,6 @@ xset -q | grep "Caps Lock:\s*on" && xdotool key Caps_Lock
 # Set those notifications
 dunst &
 
-# Emacs daemon me daddy
-emacs --daemon &
-
 # Set my screen layout
 # mainScreen=$(xrandr --listmonitors | grep "eDP-1-1")
 
@@ -41,7 +38,7 @@ picom &
 
 # Set last used background
 # ~/.fehbg
-wal -R
+wal -R &
 
 # Set them dwmblocks
 dwmblocks &
@@ -58,10 +55,11 @@ dwmblocks &
 /usr/bin/wireplumber &
 
 # Nvida drivers btw
-xrandr --setprovideroutputsource modesetting NVIDIA-0
-xrandr --auto
+xrandr --setprovideroutputsource modesetting NVIDIA-0 &
+xrandr --auto &
+
+qbittorrent-nox -d &
+tor &
 
 # Clipboard mangaer btw
-cilpmenud
-
-qbittorrent-nox -d
+cilpmenud &

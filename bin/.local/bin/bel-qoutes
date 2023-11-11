@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-qoutes=$(cat ~/Documents/bel-qoutes)
+qoutes=$(cat ~/Documents/bel-qoutes.md)
 while IFS= read -r qoute ; do echo "$qoute"; done <<< "$qoutes"

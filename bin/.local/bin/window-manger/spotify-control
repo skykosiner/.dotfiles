@@ -32,7 +32,7 @@ case "$1" in
         fi
         ;;
         "-select-album")
-            id=$(cat ~/.dotfiles/album_list | sort | awk -F '|' '{print $1 " - "  $2 " id: " $3}' | dmenu -p "Album:" -l 20 -i  -fn 'JetBrainsMono Nerd Font-15' | awk -F 'id: ' '{print $2}')
+            id=$(cat ~/.dotfiles/album_list | sort | awk -F '|' '{print $1 " - "  $2 " id: " $3}' | dmenu -i -p "Album:" -l 20 -i  -fn 'JetBrainsMono Nerd Font-15' | awk -F 'id: ' '{print $2}')
 
             if [[ ! -z $id ]]; then
                 qdbus org.mpris.MediaPlayer2.spotify \
@@ -42,7 +42,7 @@ case "$1" in
             fi
         ;;
     "-select-playlist")
-            id=$(spt list --playlists | dmenu -p "Playlist:" -l 30 -fn "JetBrainsMono Nerd Font-15" | awk -F 'playlist:' '{print $2}' | sed "s/)//")
+            id=$(spt list --playlists | dmenu -i -p "Playlist:" -l 30 -fn "JetBrainsMono Nerd Font-15" | awk -F 'playlist:' '{print $2}' | sed "s/)//")
 
             if [[ ! -z $id ]]; then
                 qdbus org.mpris.MediaPlayer2.spotify \
@@ -57,27 +57,27 @@ case "$1" in
                 spt play --uri "spotify:$1"
             }
 
-            option=$(printf "🎵 Track\n🎨 Artist\n🎹 Album" | dmenu -h 40 -fn 'JetBrainsMono Nerd Font-15')
+            option=$(printf "🎵 Track\n🎨 Artist\n🎹 Album" | dmenu -i -h 40 -fn 'JetBrainsMono Nerd Font-15')
 
             case "$option" in
                 "🎵 Track")
-                    songToLookFor=$(dmenu -p "🎵 Enter Song > " -h 40 -fn 'JetBrainsMono Nerd Font-15' <&- && echo)
+                    songToLookFor=$(dmenu -i -p "🎵 Enter Song > " -h 40 -fn 'JetBrainsMono Nerd Font-15' <&- && echo)
                     if [[ ! -z $songToLookFor ]]; then
-                        song=$(spt search --tracks "$songToLookFor" | dmenu -l 30 -fn 'JetBrainsMono Nerd Font-15' | awk -F 'spotify:' '{print $2}' | sed "s/)//")
+                        song=$(spt search --tracks "$songToLookFor" | dmenu -i -l 30 -fn 'JetBrainsMono Nerd Font-15' | awk -F 'spotify:' '{print $2}' | sed "s/)//")
                         play $song
                     fi
                     ;;
                 "🎨 Artist")
-                    artistToLookFor=$(dmenu -p "🎨 Enter Artist > " -h 40 -fn 'JetBrainsMono Nerd Font-15' <&- && echo)
+                    artistToLookFor=$(dmenu -i -p "🎨 Enter Artist > " -h 40 -fn 'JetBrainsMono Nerd Font-15' <&- && echo)
                     if [[ ! -z $artistToLookFor ]]; then
-                        artist=$(spt search --artists "$artistToLookFor" | dmenu -l 30 -fn 'JetBrainsMono Nerd Font-15' | awk -F 'spotify:' '{print $2}' | sed "s/)//")
+                        artist=$(spt search --artists "$artistToLookFor" | dmenu -i -l 30 -fn 'JetBrainsMono Nerd Font-15' | awk -F 'spotify:' '{print $2}' | sed "s/)//")
                         play $artist
                     fi
                     ;;
                 "🎹 Album")
-                    albumToLookFor=$(dmenu -p "🎹 Enter Album > " -h 40 -fn 'JetBrainsMono Nerd Font-15' <&- && echo)
+                    albumToLookFor=$(dmenu -i -p "🎹 Enter Album > " -h 40 -fn 'JetBrainsMono Nerd Font-15' <&- && echo)
                     if [[ ! -z $albumToLookFor ]]; then
-                        album=$(spt search --albums "$albumToLookFor" | dmenu -l 30 -fn 'JetBrainsMono Nerd Font-15' | awk -F 'spotify:' '{print $2}' | sed "s/)//")
+                        album=$(spt search --albums "$albumToLookFor" | dmenu -i -l 30 -fn 'JetBrainsMono Nerd Font-15' | awk -F 'spotify:' '{print $2}' | sed "s/)//")
                         play $album
                     fi
                     ;;
