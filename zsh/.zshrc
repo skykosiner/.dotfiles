@@ -1,6 +1,8 @@
+autoload -U colors && colors
 cowsay "GAY" | lolcat
 setopt autocd
-autoload -U colors && colors
+stty stop undef
+setopt interactive_comments
 
 export XDG_CONFIG_HOME=$HOME/.config
 PERSONAL=$XDG_CONFIG_HOME/personal
@@ -9,14 +11,22 @@ for i in `find -L $PERSONAL`; do
     source $i
 done
 
-alias urlS="/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -dump URLSchemeBinding"
-
-alias iCloud="cd $HOME/Library/Mobile\ Documents/com~apple~CloudDocs"
-
-export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json
+# Basic auto/tab complete:
+autoload -U compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots)		# Include hidden files.
 
 bindkey -v
 export KEYTIMEOUT=1
+
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -v '^?' backward-delete-char
+
 
 lfcd () {
     tmp="$(mktemp -uq)"
@@ -33,9 +43,6 @@ bindkey -s ^o "lfcd\n"
 bindkey -s ^d "de\n"
 bindkey -s ^n "cd ~/Documents/Linux-btw/ && vim .\n"
 
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
-
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
@@ -47,17 +54,21 @@ RPROMPT=\$vcs_info_msg_0_
 zstyle ':vcs_info:git:*' formats '%F{240}(%b)%r%f'
 zstyle ':vcs_info:*' enable git
 
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%} %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
-source ~/.config/personal/bookMarks
-source ~/.secret
 
-HISTFILE=~/.zsh_history
-HISTSIZE=100000000
-SAVEHIST=100000000
+# History in cache directory:
+HISTSIZE=10000000
+SAVEHIST=10000000
+HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
 setopt appendhistory
+
+compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
 
 eval "$(zoxide init zsh)"
 
+source ~/.config/personal/bookMarks
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

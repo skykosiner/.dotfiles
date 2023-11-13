@@ -1,7 +1,4 @@
 #!/usr/bin/env zsh
-# Set the caps key to super, as it is easier to hit on my kinesis then the super key
-# setxkbmap -option caps:super
-# tmux-start-zsh
 
 TODO() {
     if [[ $# -eq 1 ]]; then
@@ -20,18 +17,6 @@ dotfilesStatus() {
     pushd $DOTFILES
     git status
     popd
-}
-
-addToPath() {
-    if [[ "$PATH" != *"$1"* ]]; then
-        export PATH=$PATH:$1
-    fi
-}
-
-addToPathFront() {
-    if [[ "$PATH" != *"$1"* ]]; then
-        export PATH=$1:$PATH
-    fi
 }
 
 commitDotFiles() {
@@ -143,25 +128,19 @@ de() {
     du -a ~/.dotfiles/ | cut -f2- -d '.'| fzf --height=40% | xargs -I {} nvim ~/.{}
 }
 
-changeToEmacs() {
-    pkill emacs
-    ~/.emacs.d/bin/doom sync
-    emacs --daemon &
-}
-
 # I always forget to commit suckless software 💀
 commitSucklessSoftware() {
-    pushd ~/personal/suckless/st/
+    pushd ~/.local/src/st/
     git add .
     git commit -am "Forget to commit this so fancy commit from me in the past"
     git push -u origin master
     popd
-    pushd ~/personal/suckless/dwm/
+    pushd ~/.local/src/dwm/
     git add .
     git commit -am "Forget to commit this so fancy commit from me in the past"
     git push -u origin master
     popd
-    pushd ~/personal/suckless/dwmblocks/
+    pushd ~/.local/src/dwmblocks/
     git add .
     git commit -am "Forget to commit this so fancy commit from me in the past"
     git push -u origin master

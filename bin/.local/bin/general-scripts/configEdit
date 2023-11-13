@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
-configToEdit=$(printf "dwm | ~/personal/suckless/dwm\ndwmblocks | ~/personal/suckless/dwmblocks/\nst | ~/personal/suckless/st\nzsh | ~/.dotfiles/zsh/\nshell | ~/.dotfiles/shell/.config/personal/\nnvim | ~/.dotfiles/nvim/.config/nvim/\nscripts | ~/.dotfiles/bin/.local/bin/" | dmenu -l 30 -fn "JetBrainsMono Nerd Font-15")
+configToEdit=$(printf "dwm - $HOME/.local/src/dwm\ndwmblocks - $HOME/.local/src/dwmblocks/\nst - $HOME/.local/src/st\nzsh - $HOME/.dotfiles/zsh/\nshell - $HOME/.dotfiles/shell/.config/personal/\nnvim - $HOME/.dotfiles/nvim/.config/nvim/\nscripts - $HOME/.dotfiles/bin/.local/bin/\nbookmarks - $HOME/.dotfiles/.bookm" | dmenu -l 30 -fn "JetBrainsMono Nerd Font-15" -p "Edit Config:")
 
 # If the varible that has the script to edit is blank then don't conitune the
 # script
 if [[ ! -z $configToEdit ]]; then
-    st -e nvim $(echo "$configToEdit" | awk -F '|' '{print $2}')
+    echo "$configToEdit" | awk -F '-' '{print $2}'
+    st -e nvim $(echo "$configToEdit" | awk -F '-' '{print $2}')
 fi

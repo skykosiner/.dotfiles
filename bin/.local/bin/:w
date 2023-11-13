@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+networkName=$(iwgetid -r)
+
+if [[ -z $networkName && ${networkName+x} ]];
+then
+    currentNetwork="No network"
+else
+    currentNetwork="$networkName"
+fi
+
+
+changeNetwork=$(dmenu "Current Network $networkName Change Network? [y/n]" <&- && echo)

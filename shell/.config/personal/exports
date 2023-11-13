@@ -29,6 +29,8 @@ export FZF_DEFAULT_COMMAND="rg --files --hidden -g'!.git'"
 export OBSIDIAN_VAULT="/home/sky/Documents/Linux-btw"
 export WINEPREFIX="/home/sky/.wine/"
 export XDG_DATA_HOME="$HOME/.local/share/"
+export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json
 
 # Clean up home dir
 export CARGO_HOME="$XDG_DATA_HOME"cargo
+export GOPATH="$HOME/.local/src/go/"
