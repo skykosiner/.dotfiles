@@ -1,4 +1,5 @@
 # Dotfiles
+![workflow image](./media/workflow-2.png)
 * I'm using stow to manage my dotfiles
 
 ## What I'm using

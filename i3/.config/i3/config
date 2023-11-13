@@ -180,7 +180,7 @@ bar {
         # i3bar_command i3bar --transparency #282828
         position top
         tray_output primary
-        # i3bar_command /home/yoni/.config/polybar/launch.sh
+        # i3bar_command /home/sky/.config/polybar/launch.sh
         colors {
             background #282828
                 separator #ebdbd2
@@ -221,25 +221,25 @@ bindsym $mod+shift+s exec flameshot gui -p ~/Pictures/Captures
 
 bindsym Mod4+a    exec --no-startup-id ~/.local/bin/window-manger/turnOn
 
-bindsym Mod4+shift+g exec /home/yoni/.local/bin/general-scripts/picomToggle
+bindsym Mod4+shift+g exec /home/sky/.local/bin/general-scripts/picomToggle
 
 # Yes I wrote an app in golang to control my aircon
-bindsym Mod4+shift+o exec /home/yoni/.local/bin/aircon-stuff/aircon toggle
-bindsym Mod4+shift+c exec /home/yoni/.local/bin/aircon-stuff/cold
-bindsym $mod+Mod4+c exec /home/yoni/.local/bin/aircon-stuff/aircon conflict
-bindsym Mod4+shift+h exec /home/yoni/.local/bin/aircon-stuff/hot
-bindsym Mod4+n exec  /home/yoni/.local/bin/aircon-stuff/airconControl -change
-bindsym Mod4+h exec /home/yoni/.local/bin/aircon-stuff/aircon hot
-bindsym Mod4+c exec /home/yoni/.local/bin/aircon-stuff/aircon cold
-bindsym Mod4+f exec /home/yoni/.local/bin/aircon-stuff/airconControl -sellect-fan
+bindsym Mod4+shift+o exec /home/sky/.local/bin/aircon-stuff/aircon toggle
+bindsym Mod4+shift+c exec /home/sky/.local/bin/aircon-stuff/cold
+bindsym $mod+Mod4+c exec /home/sky/.local/bin/aircon-stuff/aircon conflict
+bindsym Mod4+shift+h exec /home/sky/.local/bin/aircon-stuff/hot
+bindsym Mod4+n exec  /home/sky/.local/bin/aircon-stuff/airconControl -change
+bindsym Mod4+h exec /home/sky/.local/bin/aircon-stuff/aircon hot
+bindsym Mod4+c exec /home/sky/.local/bin/aircon-stuff/aircon cold
+bindsym Mod4+f exec /home/sky/.local/bin/aircon-stuff/airconControl -sellect-fan
 
 # Yes I also wrote a thing to contorl my lights
-bindsym Mod4+shift+l exec /home/yoni/.local/bin/misc/lights ceiling
-bindsym Mod4+shift+r exec /home/yoni/.local/bin/misc/lights others
-bindsym Mod4+shift+a exec /home/yoni/.local/bin/misc/lights all
-bindsym Mod4+shift+m exec /home/yoni/.local/bin/window-manger/mointers
+bindsym Mod4+shift+l exec /home/sky/.local/bin/misc/lights ceiling
+bindsym Mod4+shift+r exec /home/sky/.local/bin/misc/lights others
+bindsym Mod4+shift+a exec /home/sky/.local/bin/misc/lights all
+bindsym Mod4+shift+m exec /home/sky/.local/bin/window-manger/mointers
 
-bindsym  $mod+shift+b exec /home/yoni/.local/bin/general-scripts/change_background_dmenu
+bindsym  $mod+shift+b exec /home/sky/.local/bin/general-scripts/change_background_dmenu
 
 bindsym Mod4+s			gaps inner current plus 5
 bindsym Mod4+Shift+s		gaps inner current minus 5
@@ -250,13 +250,13 @@ bindsym Mod4+Shift+t		gaps outer current set 2; gaps inner current set 5
 
 bindsym $mod+u [instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
 
-# bindsym $mod+e exec /home/yoni/.local/bin/general-scripts/menu-emoji
+# bindsym $mod+e exec /home/sky/.local/bin/general-scripts/menu-emoji
 
-bindsym Mod4+Shift+1 exec /home/yoni/.local/bin/brightness --dec
-bindsym Mod4+Shift+minus exec /home/yoni/.local/bin/brightness --inc")
+bindsym Mod4+Shift+1 exec /home/sky/.local/bin/brightness --dec
+bindsym Mod4+Shift+minus exec /home/sky/.local/bin/brightness --inc")
 
 # Get me into my reputation era
-bindsym Mod4+$mod+r exec /home/yoni/.local/bin/general-scripts/reputationEra
+bindsym Mod4+$mod+r exec /home/sky/.local/bin/general-scripts/reputationEra
 
 bindsym Mod4+shift+e exec alacritty -e "neomutt"
 
@@ -278,4 +278,4 @@ bindsym Mod4+space exec "~/.local/bin/general-scripts/menu-emoji"
 # Make sure to connect to the daemon running otherwise it takes longer for emacs to startup
 bindsym Mod4+e exec "emacsclient -c"
 
-exec /home/yoni/.local/bin/window-manger/startup
+exec /home/sky/.local/bin/window-manger/startup
