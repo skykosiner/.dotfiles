@@ -20,9 +20,6 @@ alias shutdown="sudo shutdown -h now";
 alias restart="sudo shutdown -r now";
 alias razer="polychromatic-controller"
 alias gay="unimatrix -s 95 | lolcat"
-alias bm="$EDITOR ~/.dotfiles/.bookm"
-alias sn="$EDITOR ~/.dotfiles/snipets"
-alias psn="$EDITOR ~/.dotfiles/private_stuff/private-snips"
 alias tt="tt -showwpm -notheme"
 alias ls="ls --color=auto"
 alias grep="grep --color=auto"

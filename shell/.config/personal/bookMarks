@@ -15,3 +15,5 @@ alias bgt="cd ~/.test"
 alias bgB="cd ~/Documents/Books/"
 alias bgM="cd ~/Documents/Movies/"
 alias bJb="cd ~/work/Book/"
+
+alias bob ~/bob

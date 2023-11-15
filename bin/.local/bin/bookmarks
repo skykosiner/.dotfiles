@@ -9,6 +9,10 @@ case "$1" in
         cat ~/.dotfiles/.bookm > ~/.dotfiles/shell/.config/personal/bookMarks
         sed -i -e 's/^/alias /g; s/\~/cd \~/; s/cd/="cd/; s/ =/=/; s/$/"/; s/alias/alias b/; s/alias b /alias b/' ~/.dotfiles/shell/.config/personal/bookMarks
         ;;
+    "--shell-files")
+        cat ~/.dotfiles/.bookmfiles >> ~/.dotfiles/shell/.config/personal/bookMarkFiles
+        sed -i -e 's/^/alias /g; s/~/$EDITOR ~/; s/$EDITOR/= "$EDITOR/; s/$/"/; s/ =/=/; s/= /=/' ~/.dotfiles/shell/.config/personal/bookMarkFiles
+        ;;
     "--get")
         bookMarks=$(cat ~/.dotfiles/.bookm | awk '{print $2}' | sort)
         for bm in $bookMarks; do

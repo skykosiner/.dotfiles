@@ -68,6 +68,7 @@ compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
 eval "$(zoxide init zsh)"
 
 source ~/.config/personal/bookMarks
+source ~/.config/personal/bookMarkFiles
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
