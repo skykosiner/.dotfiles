@@ -17,13 +17,12 @@ if [[ $filesInServerFolder -le 1 ]]; then
     exit 0
 fi
 
-
 notify-send "Starting to backup computer to server"
 
 sudo rsync -aAXv --delete /home/sky/Documents /home/sky/server/backups
 sudo rsync -aAXv --delete /home/sky/work /home/sky/server/backups
 sudo rsync -aAXv --delete /home/sky/personal /home/sky/server/backups
-sudo rsync -aAXv --delete /home/sky/Camera /home/sky/server/backups
+sudo rsync -aAXv --delete /home/sky/Pictures/ /home/sky/server/backups
 
 notify-send "Backup is finished"
 

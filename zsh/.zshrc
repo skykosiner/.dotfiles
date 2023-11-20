@@ -1,5 +1,6 @@
 autoload -U colors && colors
-cowsay "GAY" | lolcat
+# cowsay "GAY" | lolcat
+pfetch
 setopt autocd
 stty stop undef
 setopt interactive_comments
@@ -41,6 +42,7 @@ lfcd () {
 bindkey -s ^f "tmux-sessionizer\n"
 bindkey -s ^o "lfcd\n"
 bindkey -s ^d "de\n"
+bindkey -s ^a "oe\n"
 bindkey -s ^n "cd ~/Documents/Linux-btw/ && vim .\n"
 
 autoload edit-command-line; zle -N edit-command-line

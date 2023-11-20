@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-configToEdit=$(printf "dwm - $HOME/.local/src/dwm\ndwmblocks - $HOME/.local/src/dwmblocks/\nst - $HOME/.local/src/st\nzsh - $HOME/.dotfiles/zsh/\nshell - $HOME/.dotfiles/shell/.config/personal/\nnvim - $HOME/.dotfiles/nvim/.config/nvim/\nscripts - $HOME/.dotfiles/bin/.local/bin/\nbookmarks - $HOME/.dotfiles/.bookm" | dmenu -l 30 -fn "JetBrainsMono Nerd Font-15" -p "Edit Config:")
+configToEdit=$(printf "dwm - $HOME/.local/src/dwm\ndwmblocks - $HOME/.local/src/dwmblocks/\nst - $HOME/.local/src/st\nzsh - $HOME/.dotfiles/zsh/\nshell - $HOME/.dotfiles/shell/.config/personal/\nnvim - $HOME/.dotfiles/nvim/.config/nvim/\nscripts - $HOME/.dotfiles/bin/.local/bin/\nbookmarks - $HOME/.dotfiles/.bookm\nbookmarked files - $HOME/.dotfiles/.bookmfiles" | dmenu -l 30 -fn "JetBrainsMono Nerd Font-15" -p "Edit Config:")
 
 # If the varible that has the script to edit is blank then don't conitune the
 # script

@@ -70,8 +70,7 @@ vim.opt.showmode = false
   -- multispace = '  ',
 -- }
 
--- Turn off that mouse
-vim.opt.mouse = nil
+vim.opt.title = true
 
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0

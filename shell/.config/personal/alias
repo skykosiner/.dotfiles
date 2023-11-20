@@ -31,6 +31,7 @@ alias p="sudo pacman"
 alias bc="bc -ql"
 alias yt="yt-dlp --embed-metadata -i"
 alias yta="yt -x -f bestaudio/best"
+alias pkt="pkill tmux"
 
 
 # For Mac

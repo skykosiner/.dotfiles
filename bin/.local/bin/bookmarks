@@ -10,7 +10,7 @@ case "$1" in
         sed -i -e 's/^/alias /g; s/\~/cd \~/; s/cd/="cd/; s/ =/=/; s/$/"/; s/alias/alias b/; s/alias b /alias b/' ~/.dotfiles/shell/.config/personal/bookMarks
         ;;
     "--shell-files")
-        cat ~/.dotfiles/.bookmfiles >> ~/.dotfiles/shell/.config/personal/bookMarkFiles
+        cat ~/.dotfiles/.bookmfiles > ~/.dotfiles/shell/.config/personal/bookMarkFiles
         sed -i -e 's/^/alias /g; s/~/$EDITOR ~/; s/$EDITOR/= "$EDITOR/; s/$/"/; s/ =/=/; s/= /=/' ~/.dotfiles/shell/.config/personal/bookMarkFiles
         ;;
     "--get")

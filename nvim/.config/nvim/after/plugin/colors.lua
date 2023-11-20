@@ -48,4 +48,5 @@ function Colors(color)
   -- vim.api.nvim_set_hl(0, "Ignore", { bg = "#2e2e2e", fg = "#7fa3c0" })
 end
 
-Colors("tokyonight")
+vim.g.codedark_transparent = 1
+Colors("doom-one")

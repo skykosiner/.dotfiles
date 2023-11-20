@@ -14,9 +14,6 @@ killall xcap 2>/dev/null ; xcape -e 'Super_L=Escape'
 # Turn off caps lock if on since there is no longer a key for it
 xset -q | grep "Caps Lock:\s*on" && xdotool key Caps_Lock
 
-# DROP ME DOWN DADDY
-# kitty --name dropdown -e node &
-
 # Set those notifications
 dunst &
 
@@ -36,18 +33,14 @@ setxkbmap -layout real-prog-dvorak
 # PICOM
 picom &
 
-# Set last used background
-# ~/.fehbg
+# Set last used background and color scheme
 wal -R &
 
 # Set them dwmblocks
 dwmblocks &
 
-# When shortcuts file in changed update the lf config
-# echo ~/.dotfiles/.bookm | entr ~/.local/bin/bookmarks --lf &
-
 # Every time a new keyboard is plugged in set the layout and remap keys
-~/.local/bin/newKeyboard
+newKeyboard &
 
 # AUDIO ON LINUX
 /usr/bin/pipewire &
@@ -60,6 +53,3 @@ xrandr --auto &
 
 qbittorrent-nox -d &
 tor &
-
-# Clipboard mangaer btw
-cilpmenud &

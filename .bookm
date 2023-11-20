@@ -10,8 +10,9 @@ gm ~/server
 go ~/Documents/Linux-btw/
 gv ~/Videos/
 ga ~/Documents/Archive/
-Jp ~/personal/skykosiner-com/
 gt ~/.test
+Jp ~/personal/skykosiner-com/
 gB ~/Documents/Books/
 gM ~/Documents/Movies/
 Jb ~/work/Book/
+Jo ~/Documents/OBS/

@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+case "$1" in
+    "--today")
+        ;;
+    "--add")
+        eventName=$(dmenu -p "Enter the calander event name >" <&- && echo)
+        time=$(dmenu -p "What time is the event until (use - for the end time)" <&- && echo)
+        calender=$()
+        ;;
+    *)
+esac
+

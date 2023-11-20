@@ -38,6 +38,7 @@ end, group = group })
 -- Stuff on save
 vim.cmd([[
 autocmd BufWritePost ~/.dotfiles/.bookm !~/.local/bin/bookmarks --lf && ~/.local/bin/bookmarks --shell
+autocmd BufWritePost ~/.dotfiles/.bookmfiles !~/.local/bin/bookmarks --shell-files
 autocmd BufWritePost ~/personal/suckless/dwmblocks/blocks.def.h !cd ~/personal/suckless/dwmblocks/; rm blocks.h; sudo make install && { killall -q dwmblocks;setsid -f dwmblocks }
 ]])
 

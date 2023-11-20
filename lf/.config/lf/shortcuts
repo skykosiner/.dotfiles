@@ -10,8 +10,9 @@ map gm cd ~/server
 map go cd ~/Documents/Linux-btw/
 map gv cd ~/Videos/
 map ga cd ~/Documents/Archive/
-map Jp cd ~/personal/skykosiner-com/
 map gt cd ~/.test
+map Jp cd ~/personal/skykosiner-com/
 map gB cd ~/Documents/Books/
 map gM cd ~/Documents/Movies/
 map Jb cd ~/work/Book/
+map Jo cd ~/Documents/OBS/

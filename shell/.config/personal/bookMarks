@@ -10,10 +10,9 @@ alias bgm="cd ~/server"
 alias bgo="cd ~/Documents/Linux-btw/"
 alias bgv="cd ~/Videos/"
 alias bga="cd ~/Documents/Archive/"
-alias bJp="cd ~/personal/skykosiner-com/"
 alias bgt="cd ~/.test"
+alias bJp="cd ~/personal/skykosiner-com/"
 alias bgB="cd ~/Documents/Books/"
 alias bgM="cd ~/Documents/Movies/"
 alias bJb="cd ~/work/Book/"
-
-alias bob ~/bob
+alias bJo="cd ~/Documents/OBS/"
