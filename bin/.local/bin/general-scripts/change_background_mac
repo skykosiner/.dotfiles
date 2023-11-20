@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-directory="/Users/sky/.dotfiles/background"
-result=$(rg --files $directory| fzf)
-osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"$result\""

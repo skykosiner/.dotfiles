@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+read newProject
+mkdir /home/sky/work/school-python/$newProject
+tmux-sessionizer /home/sky/work/school-python/$newProject

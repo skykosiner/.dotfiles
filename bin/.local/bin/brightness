@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+send_notif() {
+	brightness=$(printf "%.0f\n" $(brillo -G))
+	dunstify -a "changebrightness" -u low -r 9991 -h int:value:"$brightness" -i "brightness-$1" "Brightness: $brightness%" -t 2000
+}
+
+case $1 in
+    "--full")
+        brightnessctl set 100%
+        send_notif $1
+        ;;
+    up)
+        brightnessctl set +5%
+        send_notif $1
+        ;;
+    down)
+        brightnessctl set 5%-
+        send_notif $1
+        ;;
+    *) echo "Unavailable command... $curr"
+esac

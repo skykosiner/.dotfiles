@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+ls ~/.password-store | sed "s/.gpg//" | dmenu -p "Password" -fn 'JetBrainsMono Nerd Font-15'| xargs -r pass -c

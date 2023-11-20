@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-df -h | grep -E '^/dev/nvme0n1p3' | awk '{print $4}'

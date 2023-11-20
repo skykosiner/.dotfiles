@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-curl https://corona-stats.online/$1

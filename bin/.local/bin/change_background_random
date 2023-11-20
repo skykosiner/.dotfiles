@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+randomImage=$(ls "$DOTFILES/backgrounds/" | grep -v "README.org" | shuf -n 1)
+wal -i "/home/sky/.dotfiles/backgrounds//$randomImage"

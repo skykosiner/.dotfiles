@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+input="Logout Shutdown Restart"
+
+input=$(echo $input | tr " " "\n" | dmenu)
+
+case "$input" in
+    "Logout")
+        pkill $(wmctrl -m | grep "Name:" | awk '{print $2}')
+        ;;
+    "Shutdown")
+        sudo shutdown -h now
+        ;;
+    "Restart")
+        sudo shutdown -r now
+        ;;
+esac

@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+if pgrep -x "picom" > /dev/null
+then
+    killall picom
+else
+    picom=$(picom 2> /dev/null)
+
+    if [ $? -eq 1 ]; then
+        notify-send "There was an error starting up picom"
+    fi
+fi

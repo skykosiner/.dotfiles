@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+while [ "$#" -gt 0 ]; do
+    curr=$1
+    shift
+
+    case "$curr" in
+   "-inc-1")
+       airconNumber=$(/home/sky/.local/bin/aircon status | awk '{print $1}' | sed s/{// | awk -F "." '{print $1}')
+       airconNumber=$(( $airconNumber + 1 ))
+
+       /home/sky/.local/bin/aircon $airconNumber
+       pkill -SIGRTMIN+5 dwmblocks
+       ;;
+   "-dec-1")
+       airconNumber=$(/home/sky/.local/bin/aircon status | awk '{print $1}' | sed s/{// | awk -F "." '{print $1}')
+       airconNumber=$(( $airconNumber - 1 ))
+
+       /home/sky/.local/bin/aircon $airconNumber
+       pkill -SIGRTMIN+5 dwmblocks
+       ;;
+   "-change")
+       airconNumber=$(dmenu -p "Enter Temp > " -h 40 -fn 'JetBrainsMono Nerd Font-15' <&- && echo)
+       /home/sky/.local/bin/aircon $airconNumber
+       pkill -SIGRTMIN+5 dwmblocks
+       ;;
+   "-sellect-fan")
+       fanMode=$(echo "Night
+1
+2
+3
+4
+5" | dmenu -l 6 -fn 'JetBrainsMono Nerd Font-15')
+       /home/sky/.local/bin/aircon fan-$fanMode
+       pkill -SIGRTMIN+5 dwmblocks
+       ;;
+    *) echo "Unavailable command... $curr"
+    esac
+done

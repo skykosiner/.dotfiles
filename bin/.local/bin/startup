@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+
+# YOU WANT TO SEE SOME REAL SPEED?????????????????????
+xset r rate 300 50
+
+# Map the caps lock super
+setxkbmap -option caps:super
+
+# When capslock is pressed only once, treat it as escape
+killall xcap 2>/dev/null ; xcape -e 'Super_L=Escape'
+
+[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
+
+# Turn off caps lock if on since there is no longer a key for it
+xset -q | grep "Caps Lock:\s*on" && xdotool key Caps_Lock
+
+# Set those notifications
+dunst &
+
+# Set my screen layout
+# mainScreen=$(xrandr --listmonitors | grep "eDP-1-1")
+
+# If the main screen is not connected set the output to laptop display or set the output to main display, and HDMI-0 display
+# if [[ $mainScreen ]]; then
+    # xrandr --output DP-0 --off --output DP-1 --off --output DP-2 --off --output DP-3 --off --output HDMI-0 --off --output DP-4 --off --output eDP-1-1 --mode 1920x1080
+# else
+    # xrandr --output DP-0 --off --output DP-1 --off --output DP-2 --off --output DP-3 --off --output HDMI-0 --mode 1920x1080 --pos 64x0 --rotate normal --output DP-4 --primary --mode 2560x1440 --pos 0x1080 --rotate normal --output eDP-1-1 --off
+# fi
+
+# Set my keyboard layout
+setxkbmap -layout real-prog-dvorak
+
+# PICOM
+picom &
+
+# Set last used background and color scheme
+wal -R &
+
+# Set them dwmblocks
+dwmblocks &
+
+# Every time a new keyboard is plugged in set the layout and remap keys
+newKeyboard &
+
+# AUDIO ON LINUX
+/usr/bin/pipewire &
+/usr/bin/pipewire-pulse &
+/usr/bin/wireplumber &
+
+# Nvida drivers btw
+xrandr --setprovideroutputsource modesetting NVIDIA-0 &
+xrandr --auto &
+
+qbittorrent-nox -d &
+tor &

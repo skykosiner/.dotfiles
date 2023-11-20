@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+/home/sky/.local/bin/aircon 18
+/home/sky/.local/bin/aircon cold
+/home/sky/.local/bin/aircon fan-night
+
+pkill -SIGRTMIN+5 dwmblocks

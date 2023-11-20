@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+pushd ~/.local/src/neovim/
+git pull
+sudo make clean
+make
+sudo make install
+popd

@@ -1,0 +1,88 @@
+#!/usr/bin/env bash
+
+case "$1" in
+    "-togglePlay")
+        ~/.local/bin/spotifycli --playpause
+        if ~/.local/bin/spotifycli --status; then
+            notify-send -i "/home/sky/.local/share/spotify-launcher/install/usr/share/spotify/icons/spotify-linux-512.png" "Now playing: $(~/.local/bin/spotifycli --status)"
+        else
+            notify-send -i "/home/sky/.local/share/spotify-launcher/install/usr/share/spotify/icons/spotify-linux-512.png" "Spotify is not running"
+        fi
+        ;;
+    "-prev")
+        ~/.local/bin/spotifycli --prev
+        ;;
+    "-next")
+        ~/.local/bin/spotifycli --next
+        ;;
+    "-status")
+        if ~/.local/bin/spotifycli --status;
+        then
+            echo "$(~/.local/bin/spotifycli --status)"
+        else
+            echo ""
+        fi
+        ;;
+    "-status-wm")
+        if ~/.local/bin/spotifycli --status;
+        then
+            echo "$(~/.local/bin/spotifycli --status)"
+        else
+            echo ""
+        fi
+        ;;
+        "-select-album")
+            id=$(cat ~/.dotfiles/album_list | sort | awk -F '|' '{print $1 " - "  $2 " id: " $3}' | dmenu -i -p "Album:" -l 20 -i  -fn 'JetBrainsMono Nerd Font-15' | awk -F 'id: ' '{print $2}')
+
+            if [[ ! -z $id ]]; then
+                qdbus org.mpris.MediaPlayer2.spotify \
+                    /org/mpris/MediaPlayer2 \
+                    org.mpris.MediaPlayer2.Player.OpenUri \
+                    spotify:album:$id
+            fi
+        ;;
+    "-select-playlist")
+            id=$(spt list --playlists --limit 50 | dmenu -i -p "Playlist:" -l 30 -fn "JetBrainsMono Nerd Font-15" | awk -F 'playlist:' '{print $2}' | sed "s/)//")
+
+            if [[ ! -z $id ]]; then
+                qdbus org.mpris.MediaPlayer2.spotify \
+                    /org/mpris/MediaPlayer2 \
+                    org.mpris.MediaPlayer2.Player.OpenUri \
+                    spotify:playlist:$id
+            fi
+            ;;
+
+        "-play-song")
+            play() {
+                spt play --uri "spotify:$1"
+            }
+
+            option=$(printf "🎵 Track\n🎨 Artist\n🎹 Album" | dmenu -i -h 40 -fn 'JetBrainsMono Nerd Font-15')
+
+            case "$option" in
+                "🎵 Track")
+                    songToLookFor=$(dmenu -i -p "🎵 Enter Song > " -h 40 -fn 'JetBrainsMono Nerd Font-15' <&- && echo)
+                    if [[ ! -z $songToLookFor ]]; then
+                        song=$(spt search --tracks "$songToLookFor" | dmenu -i -l 30 -fn 'JetBrainsMono Nerd Font-15' | awk -F 'spotify:' '{print $2}' | sed "s/)//")
+                        play $song
+                    fi
+                    ;;
+                "🎨 Artist")
+                    artistToLookFor=$(dmenu -i -p "🎨 Enter Artist > " -h 40 -fn 'JetBrainsMono Nerd Font-15' <&- && echo)
+                    if [[ ! -z $artistToLookFor ]]; then
+                        artist=$(spt search --artists "$artistToLookFor" | dmenu -i -l 30 -fn 'JetBrainsMono Nerd Font-15' | awk -F 'spotify:' '{print $2}' | sed "s/)//")
+                        play $artist
+                    fi
+                    ;;
+                "🎹 Album")
+                    albumToLookFor=$(dmenu -i -p "🎹 Enter Album > " -h 40 -fn 'JetBrainsMono Nerd Font-15' <&- && echo)
+                    if [[ ! -z $albumToLookFor ]]; then
+                        album=$(spt search --albums "$albumToLookFor" | dmenu -i -l 30 -fn 'JetBrainsMono Nerd Font-15' | awk -F 'spotify:' '{print $2}' | sed "s/)//")
+                        play $album
+                    fi
+                    ;;
+                *) echo "Not an option $option"
+            esac
+            ;;
+        *) echo "Not a command... $1"
+esac

@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-chosen=$(cat ~/.dotfiles/emoji | dmenu -l 30 -fn "JetBrainsMono Nerd Font-18" | awk '{print $1}')
-
-[[ -z "$chosen" ]] && exit
-
-printf "%s" "$chosen" | xclip -selection clipboard
-notify-send "'$chosen' copied to clipboard" &
