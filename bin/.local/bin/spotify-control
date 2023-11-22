@@ -23,14 +23,6 @@ case "$1" in
             echo ""
         fi
         ;;
-    "-status-wm")
-        if ~/.local/bin/spotifycli --status;
-        then
-            echo "$(~/.local/bin/spotifycli --status)"
-        else
-            echo ""
-        fi
-        ;;
         "-select-album")
             id=$(cat ~/.dotfiles/album_list | sort | awk -F '|' '{print $1 " - "  $2 " id: " $3}' | dmenu -i -p "Album:" -l 20 -i  -fn 'JetBrainsMono Nerd Font-15' | awk -F 'id: ' '{print $2}')
 

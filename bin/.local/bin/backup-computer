@@ -9,7 +9,7 @@ then
     exit 0
 fi
 
-filesInServerFolder=$(ls ~/server | wc -l)
+filesInServerFolder=$(ls /mnt/server | wc -l)
 
 if [[ $filesInServerFolder -le 1 ]]; then
     echo "Not mounted to server"
@@ -19,10 +19,12 @@ fi
 
 notify-send "Starting to backup computer to server"
 
-sudo rsync -aAXv --delete /home/sky/Documents /home/sky/server/backups
-sudo rsync -aAXv --delete /home/sky/work /home/sky/server/backups
-sudo rsync -aAXv --delete /home/sky/personal /home/sky/server/backups
-sudo rsync -aAXv --delete /home/sky/Pictures/ /home/sky/server/backups
+backupDate=$(date +%b-%d-%y)
+backupPath="/mnt/server/backups/$backupDate"
+mkdir $backupPath
+
+sudo tar --exclude="**/node_modules/*" --exclude=".*" --exclude="sky.tar.gz" --exclude="**/target/*" --exclude="**/Movies/*" --exclude="**/__pycache__/*" -zcvf /home/sky/sky.tar.gz /home/sky/
+mv "/home/sky/sky.tar.gz" "$backupPath"
 
 notify-send "Backup is finished"
 

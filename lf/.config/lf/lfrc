@@ -73,7 +73,7 @@ cmd dragon ${{
 }}
 
 cmd setbg ${{
-    ~/.local/bin/general-scripts/change_background $f
+    ~/.local/bin/change_background $f
 }}
 
 cmd print ${{

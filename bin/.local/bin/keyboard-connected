@@ -8,3 +8,6 @@ setxkbmap -option caps:super
 
 # When capslock is pressed only once, treat it as escape
 killall xcap 2>/dev/null ; xcape -e 'Super_L=Escape'
+
+# MAKE THINGS FAST
+xset r rate 300 50

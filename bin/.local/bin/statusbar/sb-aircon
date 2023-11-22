@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+/home/sky/.local/bin/aircon status | sed "s/{//; s/}//"

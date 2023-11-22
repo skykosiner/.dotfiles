@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-montiors=$(printf "💻 Laptop\n📺 Double montiors left\n🔀 Double montiors vertical\n🖥 Single montior" | dmenu -l 30 -fn "JetBrainsMono Nerd Font-15")
+montiors=$(printf "💻 Laptop\n📺 Double montiors left\n🔀 Double montiors vertical\n⌨️ Double montior plus laptop\n🖥 Single montior" | dmenu -l 30 -fn "JetBrainsMono Nerd Font-15")
 
 case $montiors in
     "💻 Laptop")
@@ -14,6 +14,9 @@ case $montiors in
     "🔀 Double montiors vertical")
         xrandr --output eDP-1 --off --output HDMI-1 --mode 1920x1080 --pos 2560x0 --rotate left --output DP-1 --primary --mode 2560x1440 --pos 0x240 --rotate normal
         wal -R
+        ;;
+    "⌨️ Double montior plus laptop")
+        xrandr --output eDP-1 --mode 2560x1600 --pos 0x0 --rotate normal --output HDMI-1 --mode 1920x1080 --pos 5120x360 --rotate normal --output DP-1 --primary --mode 2560x1440 --pos 2560x0 --rotate normal
         ;;
     "🖥 Single montior")
         xrandr --output eDP-1 --off --output HDMI-1 --off --output DP-1 --primary --mode 2560x1440 --pos 0x0 --rotate normal
