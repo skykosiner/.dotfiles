@@ -4,9 +4,9 @@ capacity=$(cat /sys/class/power_supply/BAT0/capacity) || exit
 status=$(cat /sys/class/power_supply/BAT0/status)
 
 if [[ $status == "Full" ]]; then
-    echo "🔌"$capacity"%"
+    printf "🔌"$capacity"%%"
 elif [[ $status == "Charging" ]]; then
-    echo "🔌"$capacity"%"
+    printf "🔌"$capacity"%%"
 else
-    echo "🔋"$capacity"%"
+    printf "🔋"$capacity"%%"
 fi

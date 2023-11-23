@@ -18,4 +18,5 @@ case "$clock" in
     "12") icon="🕛" ;;
 esac
 
-echo "📆 "$(date "+%Y %b %d (%a) $icon %I:%M%p")
+final="📆 "$(date "+%Y %b %d (%a) $icon %I:%M%p")
+printf "$final"

@@ -27,11 +27,11 @@
 from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
-from libqtile.log_utils import logger
+# from libqtile.log_utils import logger
 
 import os
 import subprocess
-from libqtile import hook
+from libqtile import hook, qtile
 from Xlib import display as xdisplay
 
 def get_num_monitors():
@@ -108,10 +108,10 @@ keys = [
     Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 
-    Key([mod], "comma", lazy.to_screen(0)),
-    Key([mod], "period",lazy.to_screen(1)),
+    Key([mod], "comma", lazy.next_screen(), desc="Move to next screen"),
+    # Figure out a way to go the other way?
+    # Key([mod], "period", lazy.previous_screen(), desc="Move to previous screen"),
 
     Key([mod], "p", lazy.spawn("dmenu_run"), desc="Dmenu"),
     Key([mod4], "t", lazy.spawn("/home/sky/.local/bin/time-tracking"), desc="Start time tracking"),
@@ -232,53 +232,101 @@ widget_defaults = dict(
 
 extension_defaults = widget_defaults.copy()
 
+widget_space = 5
+
+def widget_list():
+    return [
+            widget.GroupBox(),
+            widget.WindowName(
+                max_chars = 40
+                ),
+            widget.Chord(
+                chords_colors={
+                    "launch": ("#ff0000", "#ffffff"),
+                    },
+                name_transform=lambda name: name.upper(),
+                ),
+            # widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
+            # widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
+            widget.Spacer(length = widget_space),
+
+            widget.GenPollText(
+                update_interval = 1,
+                func = lambda: subprocess.check_output("/home/sky/.local/bin/statusbar/sb-music", shell=True, text=True),
+                fmt= "🎵 {}"
+                ),
+
+            widget.Spacer(length = widget_space),
+
+            widget.Volume(
+                fmt = "🔉{}",
+                mouse_callbacks = {"Button2": lambda: qtile.cmd_spawn(terminal + " -e pulsemixer")},
+                ),
+
+            widget.Spacer(length = widget_space),
+
+            widget.GenPollText(
+                update_interval = 100,
+                func = lambda: subprocess.check_output("/home/sky/.local/bin/statusbar/sb-batteryLife", shell=True, text=True)
+                ),
+
+            widget.Spacer(length = widget_space),
+
+            widget.GenPollText(
+                update_interval = 1000,
+                func = lambda: subprocess.check_output("/home/sky/.local/bin/statusbar/sb-weather", shell=True, text=True),
+                mouse_callbacks = {"Button2": lambda: qtile.cmd_spawn(terminal + " -e less -Srf /home/sky/.cache/weatherreport")},
+                ),
+
+            widget.Spacer(length = widget_space),
+
+            widget.GenPollText(
+                update_interval = 20,
+                func = lambda: subprocess.check_output("/home/sky/.local/bin/statusbar/sb-aircon", shell=True, text=True),
+                fmt = "🌤️ {}"
+                ),
+
+            widget.Spacer(length = widget_space),
+
+            widget.GenPollText(
+                update_interval = 20,
+                func = lambda: subprocess.check_output("/home/sky/.local/bin/statusbar/sb-todoist", shell=True, text=True),
+                fmt = "✅ {}"
+                ),
+
+            widget.Spacer(length = widget_space),
+
+            widget.GenPollText(
+                update_interval = 150,
+                func = lambda: subprocess.check_output("/home/sky/.local/bin/statusbar/sb-mailbox", shell=True, text=True),
+                mouse_callbacks = {"Button2": lambda: qtile.cmd_spawn(terminal + " -e neomutt")},
+                ),
+
+            widget.Spacer(length = widget_space),
+
+            widget.GenPollText(
+                update_interval = 60,
+                func = lambda: subprocess.check_output("/home/sky/.local/bin/statusbar/sb-timeDate", shell=True, text=True)
+                ),
+            ]
+
+def init_widget():
+    return widget_list()
+
+
 screens = [
     Screen(
-        top=bar.Bar(
-            [
-                widget.GroupBox(),
-                widget.WindowName(),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
-                # widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
-                # widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-                # GenPollText(update_interval=60, func=lambda: subprocess.check_output("sh /home/sky/.local/bin/statusbar/sb-timeDate").decode("utf-8")),
-                widget.Volume(),
-                widget.Battery(),
-            ],
-            30,
-        ),
+        top=bar.Bar(init_widget(), 30),
     ),
 ]
 
 if num_monitors > 1:
     for Monitor in range(num_monitors):
         screens.append(
-            Screen(
-                top=bar.Bar(
-                    [
-                        widget.GroupBox(),
-                        widget.WindowName(),
-                        widget.Chord(
-                            chords_colors={
-                                "launch": ("#ff0000", "#ffffff"),
-                                },
-                            name_transform=lambda name: name.upper(),
-                            ),
-                        # widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
-                        # widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-                        # GenPollText(update_interval=60, func=lambda: subprocess.check_output("sh /home/sky/.local/bin/statusbar/sb-timeDate").decode("utf-8")),
-                        widget.Volume(),
-                        widget.Battery(),
-                        ],
-                    30,
-                    ),
+                Screen(
+                    top=bar.Bar(init_widget(), 30),
+                    )
                 )
-            )
 
 # Drag floating layouts.
 mouse = [
@@ -309,9 +357,31 @@ auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
 
+def window_to_previous_screen(qtile, switch_group=False, switch_screen=False):
+    i = qtile.screens.index(qtile.current_screen)
+    if i != 0:
+        group = qtile.screens[i - 1].group.name
+        qtile.current_window.togroup(group, switch_group=switch_group)
+        if switch_screen == True:
+            qtile.cmd_to_screen(i - 1)
+
+def window_to_next_screen(qtile, switch_group=False, switch_screen=False):
+    i = qtile.screens.index(qtile.current_screen)
+    if i + 1 != len(qtile.screens):
+        group = qtile.screens[i + 1].group.name
+        qtile.current_window.togroup(group, switch_group=switch_group)
+        if switch_screen == True:
+            qtile.cmd_to_screen(i + 1)
+
+# Move window to opisote screens
+keys.extend([
+    Key([mod,"shift"],  "comma",  lazy.function(window_to_next_screen)),
+    Key([mod,"shift"],  "period", lazy.function(window_to_previous_screen)),
+])
+
 @hook.subscribe.startup_once
 def autostart():
-    home = os.path.expanduser('~/.local/bin/startup')
+    home = os.path.expanduser("~/.local/bin/startup")
     subprocess.Popen([home])
 
 # If things like steam games want to auto-minimize themselves when losing
@@ -321,12 +391,12 @@ auto_minimize = True
 # When using the Wayland backend, this can be used to configure input devices.
 wl_input_rules = None
 
-# XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
+# XXX: Gasp! We"re lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
 # mailing lists, GitHub issues, and other WM documentation that suggest setting
-# this string if your java app doesn't work correctly. We may as well just lie
-# and say that we're a working one by default.
+# this string if your java app doesn"t work correctly. We may as well just lie
+# and say that we"re a working one by default.
 #
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
-# java that happens to be on java's whitelist.
+# java that happens to be on java"s whitelist.
 wmname = "qtile"

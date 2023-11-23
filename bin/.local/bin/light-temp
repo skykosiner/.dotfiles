@@ -5,7 +5,7 @@ temp=$(printf "Cool - 154\nMedium - 250\nHigh - 350\nCustom" | dmenu -p "What te
 [[ -z $temp ]] && exit
 
 if [[ "$temp" == "Custom" ]]; then
-    temp=$(dmenu -p "What temperature do you want to set the lights to?" <&- && echo)
+    temp=$(dmenu -c -p "What temperature do you want to set the lights to?" <&- && echo)
     [[ -z $temp ]] && exit
     ~/.local/bin/lights ct $temp
     exit

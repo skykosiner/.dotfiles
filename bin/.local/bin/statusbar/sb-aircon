@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-/home/sky/.local/bin/aircon status | sed "s/{//; s/}//"
+status=$(/home/sky/.local/bin/aircon status | sed "s/{//; s/}//")
+printf "$status"

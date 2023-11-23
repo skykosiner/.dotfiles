@@ -1,8 +1,4 @@
 #!/usr/bin/env bash
 
-if ~/.local/bin/spotifycli --status;
-then
-    echo "$(~/.local/bin/spotifycli --status)"
-else
-    echo ""
-fi
+status=$(~/.local/bin/spotifycli --status)
+printf "$status"
