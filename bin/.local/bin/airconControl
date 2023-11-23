@@ -20,7 +20,7 @@ while [ "$#" -gt 0 ]; do
        pkill -SIGRTMIN+5 dwmblocks
        ;;
    "-change")
-       airconNumber=$(dmenu -p "Enter Temp > " -h 40 -fn 'JetBrainsMono Nerd Font-15' <&- && echo)
+       airconNumber=$(dmenu -c -p "Enter Temp > " -h 40 -fn 'JetBrainsMono Nerd Font-15' <&- && echo)
        /home/sky/.local/bin/aircon $airconNumber
        pkill -SIGRTMIN+5 dwmblocks
        ;;

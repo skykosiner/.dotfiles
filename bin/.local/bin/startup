@@ -37,7 +37,7 @@ picom &
 wal -R &
 
 # Set them dwmblocks
-dwmblocks &
+pgrep dwm >/dev/null && dwmblocks &
 
 # Every time a new keyboard is plugged in set the layout and remap keys
 newKeyboard &

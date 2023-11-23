@@ -32,7 +32,7 @@ alias bc="bc -ql"
 alias yt="yt-dlp --embed-metadata -i"
 alias yta="yt -x -f bestaudio/best"
 alias pkt="pkill tmux"
-
+alias g="git"
 
 # For Mac
 alias urlS="/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -dump URLSchemeBinding"

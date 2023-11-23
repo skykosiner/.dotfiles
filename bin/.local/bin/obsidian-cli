@@ -9,7 +9,7 @@ prepend_file() {
 case "$1" in
     "quick-note")
         inbox=$(echo /home/sky/Documents/Linux-btw/📥 Inbox)
-        text=$(dmenu -p "Enter new note > " -h 40 -fn 'JetBrainsMono Nerd Font-15' <&- && echo)
+        text=$(dmenu -c -p "Enter new note > " -h 40 -fn 'JetBrainsMono Nerd Font-15' <&- && echo)
         cd "$inbox" && touch $(date +%Y%m%d%H%M%S).md
         echo "$text" > "$inbox/$(date +%Y%m%d%H%M%S).md"
         ;;

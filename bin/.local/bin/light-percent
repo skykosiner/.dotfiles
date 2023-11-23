@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-value=$(dmenu -p "Enter light percent:" <&- && echo)
+value=$(dmenu -c -p "Enter light percent:" <&- && echo)
 
 if [[ ! -z $value ]]; then
     percent=$(( ($value * 254) / 100 ))
