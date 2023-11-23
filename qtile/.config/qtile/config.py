@@ -57,8 +57,6 @@ def get_num_monitors():
         return num_monitors
 
 num_monitors = get_num_monitors()
-groups = [Group(i) for i in "123456789"]
-
 mod = "mod1"
 mod4 = "mod4"
 terminal = "st"
@@ -80,8 +78,8 @@ keys = [
     Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
     # Grow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
-    Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
-    Key([mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
+    Key([mod, "control"], "h", lazy.layout.grow(), desc="Grow window to the left"),
+    Key([mod, "control"], "l", lazy.layout.shrink(), desc="Grow window to the right"),
     Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
     Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
@@ -139,7 +137,6 @@ keys = [
     Key([mod, "shift"], "l", lazy.spawn("/home/sky/.local/bin/light-percent"), desc=""),
     Key([mod, "shift"], "c", lazy.spawn("/home/sky/.local/bin/light-temp"), desc=""),
 
-
     Key([mod4, "shift"], "m", lazy.spawn("/home/sky/.local/bin/screens"), desc=""),
     Key([mod4, "shift"], "g", lazy.spawn("/home/sky/.local/bin/picomToggle"), desc=""),
 
@@ -176,6 +173,20 @@ keys = [
 ]
 
 
+# groups = [Group(i) for i in "123456789"]
+groups = []
+group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+group_labels = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+group_layouts = ["monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall"]
+for i in range(len(group_names)):
+    groups.append(
+        Group(
+            name=group_names[i],
+            layout=group_layouts[i].lower(),
+            label=group_labels[i],
+        ))
+
+
 # A hacky way to get my keyboard layout and qtile to play nicely
 for i in groups:
     keyToUse = {
@@ -187,7 +198,8 @@ for i in groups:
             "6": "equal",
             "7": "parenright",
             "8": "braceright",
-            "9": "bracketright"
+            "9": "bracketright",
+            "10": "asterisk"
         }
 
     keys.extend(
@@ -248,6 +260,20 @@ def widget_list():
                 ),
             # widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
             # widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
+            widget.Memory(
+                mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' -e htop')},
+                # format = '{MemUsed: .0f}{mm}',
+                fmt = '🖥  Mem: {} used',
+                ),
+
+            widget.Spacer(length = widget_space),
+
+            widget.GenPollText(
+                update_interval = 5000,
+                func = lambda: subprocess.check_output("/home/sky/.local/bin/statusbar/sb-ip", shell=True, text=True),
+                fmt= "🌐 {}"
+                ),
+
             widget.Spacer(length = widget_space),
 
             widget.GenPollText(
