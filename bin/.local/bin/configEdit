@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
 declare -A configs
-configs[dwm]="$HOME/.local/src/dwm"
-configs[dwmblocks]="$HOME/.local/src/dwmblocks/"
+# configs[dwm]="$HOME/.local/src/dwm"
+# configs[dwmblocks]="$HOME/.local/src/dwmblocks/"
+configs[qtile]="$HOME/.dotfiles/qtile/.config/qtile/"
 configs[st]="$HOME/.local/src/st"
 configs[zsh]="$HOME/.dotfiles/zsh/"
 configs[shell]="$HOME/.dotfiles/shell/.config/personal/"

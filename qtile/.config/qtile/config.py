@@ -3,13 +3,14 @@ from libqtile.config import Click, Drag, Match
 from libqtile.lazy import lazy
 from libqtile import hook
 
-from keys import keys
+from keys import keys, mod
 from screens import screens
 from groups import groups
 
 import os
 import subprocess
 
+# Only really use the master and stack layout
 layouts = [
     layout.MonadTall(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=3, margin=20),
     # layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=3),
@@ -56,6 +57,7 @@ auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
 
+# Run my startup script
 @hook.subscribe.startup_once
 def autostart():
     home = os.path.expanduser("~/.local/bin/startup")

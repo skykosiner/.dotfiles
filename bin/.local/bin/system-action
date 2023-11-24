@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export WM="dwm"
+export WM=$(wmctrl -m | grep "Name: " | cut -d" " -f2)
 wmpid(){ # This function is needed if there are multiple instances of the window manager.
 	tree="$(pstree -ps $$)"
 	tree="${tree#*$WM(}"

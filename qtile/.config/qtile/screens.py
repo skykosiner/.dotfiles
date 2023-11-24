@@ -2,12 +2,11 @@ from Xlib import display as xdisplay
 from libqtile import bar, widget
 from libqtile.config import Screen
 from libqtile import qtile
+from keys import terminal
 import subprocess
 
-terminal="st"
-
 colors =  [
-        ["#00000058", "#00000099"], # color 0
+        ["#000000aa", "#00000077"], # color 0
         ["#A8A8A8", "#A8A8A8"], # color 1
         ["#f99db3", "#f99db3"], # color 2
         ["#B9BCDF", "#B9BCDF"], # color 3
@@ -69,8 +68,23 @@ def widget_list():
                 # this_current_screen_border=colors[6],
                 block_highlight_text_color=colors[5],
                 ),
-            widget.Spacer(length = widget_space),
-
+            widget.TextBox(
+                text = '|',
+                padding = 2,
+                fontsize = 14
+                ),
+            widget.CurrentLayoutIcon(
+                padding = 0,
+                scale = 0.7
+                ),
+            widget.CurrentLayout(
+                padding = 5
+                ),
+            widget.TextBox(
+                text = '|',
+                padding = 2,
+                fontsize = 14
+                ),
             widget.WindowName(),
 
             widget.Spacer(length = widget_space),
@@ -78,14 +92,15 @@ def widget_list():
             widget.GenPollText(
                 update_interval = 5000,
                 func = lambda: subprocess.check_output("/home/sky/.local/bin/statusbar/sb-ip", shell=True, text=True),
+                mouse_callbacks = {"Button2": lambda: qtile.cmd_spawn(terminal + " -e nmtui")},
                 fmt= "🌐 {}"
                 ),
 
             widget.Spacer(length = widget_space),
 
             widget.GenPollText(
-                update_interval = 1,
-                func = lambda: subprocess.check_output("/home/sky/.local/bin/statusbar/sb-music", shell=True, text=True),
+                    update_interval = 1,
+                    func = lambda: subprocess.check_output("/home/sky/.local/bin/statusbar/sb-music", shell=True, text=True),
                 fmt= "🎵 {}"
                 ),
 
