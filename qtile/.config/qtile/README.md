@@ -1,7 +1,10 @@
 # Keybinds
+
 * mod = alt
 * mod4 = super
+
 ## Window stuff
+
 <kbd>mod</kbd> + <kbd>j</kbd> - Move focus forward
 <kbd>mod</kbd> + <kbd>k</kbd> - Move focus backwards
 <kbd>mod</kbd> + <kbd>space</kbd> - Move focus between all windows
