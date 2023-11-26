@@ -7,6 +7,8 @@ map gD cd /home/sky/Downloads
 map gp cd /home/sky/personal
 map gw cd /home/sky/work
 map gm cd /mnt/server
+map gm cd /mnt/server
+map gS cd /mnt/ssd/
 map go cd /home/sky/Documents/Linux-btw/
 map gv cd /home/sky/Videos/
 map ga cd /home/sky/Documents/Archive/

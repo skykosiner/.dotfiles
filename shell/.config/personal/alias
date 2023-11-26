@@ -34,6 +34,9 @@ alias yta="yt -x -f bestaudio/best"
 alias pkt="pkill tmux"
 alias g="git"
 
+alias mpv="devour mpv"
+alias sxiv="devour sxiv"
+
 # For Mac
 alias urlS="/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -dump URLSchemeBinding"
 alias iCloud="cd $HOME/Library/Mobile\ Documents/com~apple~CloudDocs"

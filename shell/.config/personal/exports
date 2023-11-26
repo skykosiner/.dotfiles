@@ -8,7 +8,8 @@ export SHELL=/usr/bin/zsh
 export RUSTUP=/home/sky/.cargo/bin/rustup
 export PATH=$PATH:/bin:$RUSTUP
 export PATH=$PATH:/snap/bin
-export PATH=$PATH:/home/sky/rust-analyzer/crates/rust-analyzer
+# export PATH=$PATH:/home/sky/rust-analyzer/crates/rust-analyzer
+export PATH=$PATH:/home/sky/.config/emacs/bin/
 export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:/$HOME/go/bin
@@ -34,3 +35,4 @@ export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json
 # Clean up home dir
 export CARGO_HOME="$XDG_DATA_HOME"cargo
 export GOPATH="$HOME/.local/src/go/"
+export PATH="${PATH}:${GOPATH}/bin"

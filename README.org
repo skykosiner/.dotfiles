@@ -1,0 +1,11 @@
+#+title: Readme
+* Dotfiles
+[[file:./media/workflow-2.png]]
+- I'm using GNU stow to manage my
+
+** What I'm using
+- Qtile/dwm as my two main window managers
+- Emacs as my main text editor and neovim for quick stuff
+- St as my terminal (https://github.com/skykosiner/st)
+- Lf for my main tui file manager
+  - Thunar for a guy file manager

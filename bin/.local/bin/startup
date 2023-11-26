@@ -51,5 +51,9 @@ newKeyboard &
 xrandr --setprovideroutputsource modesetting NVIDIA-0 &
 xrandr --auto &
 
+# Trying emacs again?
+# emacsclient --client &
+emacs --daemon &
+
 qbittorrent-nox -d &
 tor &

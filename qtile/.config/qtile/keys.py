@@ -30,7 +30,7 @@ keys = [
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
 
     # Toggle between different layouts as defined below
-    # Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
+    Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
 
     Key([mod, "shift"], "q", lazy.window.kill(), desc="Kill focused window"),
     Key(
@@ -48,6 +48,11 @@ keys = [
     # TODO: Figure out a way to go the other way?
     # Key([mod], "period", lazy.previous_screen(), desc="Move to previous screen"),
 
+    # Emacs??
+    KeyChord([mod], "e", [
+        Key([], "e", lazy.spawn("emacsclient -c -a emacs"), desc=""),
+        ]),
+
     # Airco control
     KeyChord([mod], "a", [
         Key([], "o", lazy.spawn("/home/sky/.local/bin/aircon toggle"), desc=""),
@@ -55,8 +60,8 @@ keys = [
         Key([], "h", lazy.spawn("/home/sky/.local/bin/hot"), desc=""),
         # Key([mod | mod4], "c", lazy.spawn("/home/sky/.local/bin/aircon conflict"), desc=""),
         Key([], "n", lazy.spawn("/home/sky/.local/bin/airconControl -change"), desc=""),
-        Key([], "h", lazy.spawn("/home/sky/.local/bin/aircon hot"), desc=""),
-        Key([], "c", lazy.spawn("/home/sky/.local/bin/aircon cold"), desc=""),
+        Key(["shift"], "h", lazy.spawn("/home/sky/.local/bin/aircon hot"), desc=""),
+        Key(["shift"], "c", lazy.spawn("/home/sky/.local/bin/aircon cold"), desc=""),
         Key([], "f", lazy.spawn("/home/sky/.local/bin/airconControl -sellect-fan"), desc=""),
         ]),
 
@@ -74,13 +79,14 @@ keys = [
         Key([], "p", lazy.spawn("dmenu_run"), desc="using dmenu to launch programs"),
         Key([], "t", lazy.spawn("/home/sky/.local/bin/time-tracking"), desc="Start time tracking"),
         Key([], "e", lazy.spawn("/home/sky/.local/bin/configEdit"), desc="Open config in neovim"),
-        Key(["shift"], "p", lazy.spawn("/home/sky/.local/bin/passmenu"), desc=""),
+        Key(["shift"], "p", lazy.spawn("/home/sky/.local/bin/onepassword"), desc=""),
         Key([], "m", lazy.spawn("/home/sky/.local/bin/screens"), desc=""),
-        Key([], "t", lazy.spawn("/home/sky/.local/bin/torrents -dmenu"), desc=""),
+        Key(["shift"], "t", lazy.spawn("/home/sky/.local/bin/torrents -dmenu"), desc=""),
         Key(["shift"], "e", lazy.spawn("/home/sky/.local/bin/menu-emoji"), desc=""),
         Key([], "s", lazy.spawn("/home/sky/.local/bin/snipets"), desc=""),
         Key(["shift"], "s", lazy.spawn("/home/sky/.local/bin/system-action"), desc=""),
         ]),
+
 
     # Spotify control
     KeyChord([mod], "s", [
@@ -94,9 +100,21 @@ keys = [
         Key([], "l", lazy.spawn("st -e sptlrx"), desc=""),
         ]),
 
+    # App launcher stuff
+    KeyChord([mod], "m", [
+        Key([], "s", lazy.spawn("spotify-launcher"), desc="Open spotify"),
+        Key([], "b", lazy.spawn("beeper"), desc="Open beeper"),
+        Key([], "r", lazy.spawn("prime-run /opt/resolve/bin/resolve"), desc="Open resolve"),
+        Key([], "p", lazy.spawn("st -e pulsemixer"), desc="Open resolve"),
+        Key([], "o", lazy.spawn("obsidian"), desc="Open obsidian"),
+        Key(["shift"], "o", lazy.spawn("prime-run obs"), desc="Open obs"),
+        Key([], "f", lazy.spawn("thunar"), desc="Open thunar")
+        ]),
 
+
+    Key([mod4], "j", lazy.spawn("/home/sky/.local/bin/pump"), desc=""),
     Key([mod, "shift"], "w", lazy.spawn("/usr/bin/brave"), desc=""),
-    Key([mod4], "w", lazy.spawn("sxiv -t $(find /home/sky/.dotfiles/backgrounds/ | sort)"), desc=""),
+    Key([mod4], "w", lazy.spawn("sxiv -t /home/sky/.dotfiles/backgrounds/"), desc=""),
     Key([mod4], "bracketleft", lazy.spawn("/home/sky/.dotfiles/bin/.local/bin/brightness up"), desc=""),
     Key([mod4], "braceleft", lazy.spawn("/home/sky/.dotfiles/bin/.local/bin/brightness down"), desc=""),
 
@@ -115,8 +133,6 @@ keys = [
     Key([mod4, "shift"], "space", lazy.spawn("/home/sky/.local/bin/obsidian-cli quick-note"), desc=""),
     Key([mod4], "e", lazy.spawn("st -e neomutt"), desc=""),
     Key([mod], "F1", lazy.spawn("/home/sky/.local/bin/keyboard-connected"), desc=""),
-    Key([mod], "F2", lazy.spawn("st -e pulsemixer"), desc=""),
-    Key([mod], "F3", lazy.spawn("thunar"), desc=""),
 ]
 
 # A hacky way to get my keyboard layout and qtile to play nicely
