@@ -8,4 +8,7 @@
 - Emacs as my main text editor and neovim for quick stuff
 - St as my terminal (https://github.com/skykosiner/st)
 - Lf for my main tui file manager
-  - Thunar for a guy file manager
+  - Thunar for a gui file manager
+- Brave for my browser
+- Zsh as my main shell
+- Zauthura as my pdf veiwer
