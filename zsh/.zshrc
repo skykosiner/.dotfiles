@@ -5,19 +5,18 @@ setopt autocd
 stty stop undef
 setopt interactive_comments
 
+autoload -U compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots)		# Include hidden files.
+
 export XDG_CONFIG_HOME=$HOME/.config
 PERSONAL=$XDG_CONFIG_HOME/personal
 
 for i in `find -L $PERSONAL`; do
     source $i
 done
-
-# Basic auto/tab complete:
-autoload -U compinit
-zstyle ':completion:*' menu select
-zmodload zsh/complist
-compinit
-_comp_options+=(globdots)		# Include hidden files.
 
 bindkey -v
 export KEYTIMEOUT=1
@@ -27,7 +26,6 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
-
 
 lfcd () {
     tmp="$(mktemp -uq)"
@@ -58,19 +56,17 @@ zstyle ':vcs_info:*' enable git
 
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
-
-# History in cache directory:
 HISTSIZE=10000000
 SAVEHIST=10000000
 HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
 setopt appendhistory
-
 compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
 
-eval "$(zoxide init zsh)"
+eval $(zoxide init zsh)
 
-source ~/.config/personal/bookMarks
-source ~/.config/personal/bookMarkFiles
+source $HOME/.config/personal/bookMarks
+source $HOME/.config/personal/bookMarkFiles
+
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

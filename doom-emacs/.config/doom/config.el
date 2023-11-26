@@ -77,5 +77,34 @@
 (setq save-abbrevs 'silently)
 (setq-default abbrev-mode t)
 
+(obsidian-specify-path "~/Documents/Linux-btw")
+;; If you want a different directory of `obsidian-capture':
+(setq obsidian-inbox-directory "📥 Inbox")
+
+;; Define obsidian-mode bindings
+(add-hook
+ 'obsidian-mode-hook
+ (lambda ()
+   ;; Replace standard command with Obsidian.el's in obsidian vault:
+   ;; (local-set-key (kbd "C-c C-o") 'obsidian-follow-link-at-point)
+
+   ;; Use either `obsidian-insert-wikilink' or `obsidian-insert-link':
+   (local-set-key (kbd "C-c C-l") 'obsidian-insert-wikilink)
+
+   ;; Following backlinks
+   (local-set-key (kbd "C-c C-b") 'obsidian-backlink-jump)))
+
+;; Optionally you can also bind `obsidian-jump' and `obsidian-capture'
+;; replace "YOUR_BINDING" with the key of your choice:
+(global-set-key (kbd "C-c C-o") 'obsidian-jump)
+(global-set-key (kbd "C-c C-c") 'obsidian-capture)
+
+;; Activate detection of Obsidian vault
+(global-obsidian-mode t)
+
+;; Auto tangle org mode configs
+(add-hook 'org-mode-hook 'org-auto-tangle-mode)
+
+;; Transpparent emacs
 (set-frame-parameter (selected-frame) 'alpha '(90 90))
 (add-to-list 'default-frame-alist '(alpha 90 90))

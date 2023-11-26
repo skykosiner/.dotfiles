@@ -58,4 +58,6 @@
 (package! all-the-icons)
 (package! all-the-icons-dired)
 (package! base16-theme)
-(package! smudge)
+(package! obsidian)
+(package! org-auto-tangle)
+;; (package! smudge)
