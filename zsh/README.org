@@ -4,10 +4,21 @@
 #+STARTUP: showeverything
 # #+auto_tangle: t
 
-* Sky's zsh config
-- [[https://zsh.sourceforge.io/][zsh's website]]
-- [[https://zsh.sourceforge.io/Doc/zsh_us.pdf][zsh documentation]]
-** Basic stuff first
+* Table Of Contents :toc:
+- [[#basic-stuff-first][Basic stuff first]]
+- [[#load-more-configs][Load more configs]]
+- [[#vim-navigation][Vim navigation]]
+- [[#lf-function][Lf function]]
+- [[#shell-keybinds][Shell keybinds]]
+- [[#prompt][Prompt]]
+  - [[#load-git-info-next-to-the-prompt][Load git info next to the prompt]]
+  - [[#zsh-history][Zsh history]]
+- [[#zoxide][Zoxide]]
+- [[#source-stuff][Source stuff]]
+  - [[#bookmarks][Bookmarks]]
+  - [[#extras][Extras]]
+
+* Basic stuff first
 - always load colors
 - cd without typing cd
 - don't let C-s freeze terminal
@@ -29,7 +40,7 @@ compinit
 _comp_options+=(globdots)		# Include hidden files.
 #+end_src
 
-** Load more configs
+* Load more configs
 - Aliases
 - Functions
 - Paths
@@ -43,7 +54,7 @@ done
 
 #+end_src
 
-** Vim navigation
+* Vim navigation
 - Enable vim keybinds in the shell
 - Enable vim keybinds to move around auto complete
 #+begin_src sh
@@ -57,7 +68,7 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 #+end_src
 
-** Lf function
+* Lf function
 - Allow user to open lf and wherever they quit lf the user bill left in that dir
     - Basicly cd with lf a more visual way
 - Function stolen from [[https://github.com/lukesmithxyz][Luke Smith]]
@@ -73,7 +84,7 @@ lfcd () {
 }
 #+end_src
 
-** Shell keybinds
+* Shell keybinds
 - C-f Runs [[https://github.com/skykosiner/.dotfiles/blob/master/bin/.local/bin/tmux-sessionizer][tmux-sessionizer]] script
 - C-o Runs the lfcd function mentioned before
 - C-d Runs a function to search my dotfiles open them in neovim
@@ -91,8 +102,8 @@ autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 #+end_src
 
-** Prompt
-*** Load git info next to the prompt
+* Prompt
+** Load git info next to the prompt
 #+begin_src sh
 autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }
@@ -117,20 +128,20 @@ setopt appendhistory
 compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
 #+end_src
 
-** zoxide
+* Zoxide
 - Quickly cd to common direcotrys without typing out full path and just using the letter z
 #+begin_src sh
 eval $(zoxide init zsh)
 #+end_src
 
-** Source stuff
-*** Bookmarks
+* Source stuff
+** Bookmarks
 - Bookmark files are setup using my bookmark script
 #+begin_src sh
 source $HOME/.config/personal/bookMarks
 source $HOME/.config/personal/bookMarkFiles
 #+end_src
-*** Extras
+** Extras
 - Use fzf to search history and fill in file names
 - Highlightitng for commands
 - Zsh auto suggestions using your .zshhistory
