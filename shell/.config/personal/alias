@@ -18,7 +18,7 @@ alias vim="nvim"
 alias livestream_screenkey="/usr/bin/screenkey -s large --scr 0 -p bottom --geometry 800x300+1760+1180 --timeout 0.55";
 alias shutdown="sudo shutdown -h now";
 alias restart="sudo shutdown -r now";
-alias razer="polychromatic-controller"
+alias razer="devour polychromatic-controller"
 alias gay="unimatrix -s 95 | lolcat"
 alias tt="tt -showwpm -notheme"
 alias ls="ls --color=auto"

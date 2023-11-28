@@ -13,10 +13,3 @@ else
 fi
 
 printf "%s%s%%\\n" "$icon" "$vol"
-
-case $BLOCK_BUTTON in
-    1) ~/.local/bin/volumeControl -mute-vol ;;
-    2) $TERMINAL -e pulsemixer ;;
-    4) ~/.local/bin/volumeControl -up ;;
-    5) ~/.local/bin/volumeControl -down ;;
-esac

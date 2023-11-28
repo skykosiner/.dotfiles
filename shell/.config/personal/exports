@@ -34,5 +34,5 @@ export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json
 
 # Clean up home dir
 export CARGO_HOME="$XDG_DATA_HOME"cargo
-export GOPATH="$HOME/.local/src/go/"
+export GOPATH="$HOME/go"
 export PATH="${PATH}:${GOPATH}/bin"

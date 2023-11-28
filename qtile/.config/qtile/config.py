@@ -14,17 +14,6 @@ import subprocess
 layouts = [
     layout.MonadTall(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=3, margin=20),
     layout.Max(),
-    # layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=3),
-    # Try more layouts by unleashing below layouts.
-    # layout.Stack(num_stacks=2),
-    # layout.Bsp(),
-    # layout.Matrix(),
-    # layout.MonadWide(),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    # layout.TreeTab(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
 ]
 
 # Drag floating layouts.

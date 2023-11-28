@@ -105,6 +105,16 @@
 ;; Auto tangle org mode configs
 (add-hook 'org-mode-hook 'org-auto-tangle-mode)
 
+;; RSS
+;; Somewhere in your .emacs file
+(setq elfeed-feeds
+      '("http://nullprogram.com/feed/"
+        "https://planet.emacslife.com/atom.xml"))
+
+;; Start to scroll 8 lines before the end
+(setq scroll-margin 8)
+(setq smooth-scroll-margin 8)
+
 ;; Transpparent emacs
-(set-frame-parameter (selected-frame) 'alpha '(90 90))
-(add-to-list 'default-frame-alist '(alpha 90 90))
+(set-frame-parameter (selected-frame) 'alpha '(85 85))
+(add-to-list 'default-frame-alist '(alpha 85 85))

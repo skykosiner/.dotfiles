@@ -2,8 +2,8 @@ from libqtile.lazy import lazy
 from libqtile.config import Key, KeyChord
 from groups import groups
 
-mod = "mod1"
-mod4 = "mod4"
+mod = "mod4"
+alt = "mod1"
 terminal = "st"
 
 keys = [
@@ -32,7 +32,7 @@ keys = [
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
 
-    Key([mod, "shift"], "q", lazy.window.kill(), desc="Kill focused window"),
+    Key([mod, "shift"], "c", lazy.window.kill(), desc="Kill focused window"),
     Key(
         [mod, "shift"],
         "f",
@@ -58,7 +58,7 @@ keys = [
         Key([], "o", lazy.spawn("/home/sky/.local/bin/aircon toggle"), desc=""),
         Key([], "c", lazy.spawn("/home/sky/.local/bin/cold"), desc=""),
         Key([], "h", lazy.spawn("/home/sky/.local/bin/hot"), desc=""),
-        # Key([mod | mod4], "c", lazy.spawn("/home/sky/.local/bin/aircon conflict"), desc=""),
+        # Key([mod | alt], "c", lazy.spawn("/home/sky/.local/bin/aircon conflict"), desc=""),
         Key([], "n", lazy.spawn("/home/sky/.local/bin/airconControl -change"), desc=""),
         Key(["shift"], "h", lazy.spawn("/home/sky/.local/bin/aircon hot"), desc=""),
         Key(["shift"], "c", lazy.spawn("/home/sky/.local/bin/aircon cold"), desc=""),
@@ -66,7 +66,7 @@ keys = [
         ]),
 
     # Light control
-    KeyChord([mod4], "l", [
+    KeyChord([alt], "l", [
         Key([], "l", lazy.spawn("/home/sky/.local/bin/lights ceiling"), desc=""),
         Key([], "r", lazy.spawn("/home/sky/.local/bin/lights others"), desc=""),
         Key([], "a", lazy.spawn("/home/sky/.local/bin/lights all"), desc=""),
@@ -103,6 +103,7 @@ keys = [
     # App launcher stuff
     KeyChord([mod], "m", [
         Key([], "s", lazy.spawn("spotify-launcher"), desc="Open spotify"),
+        Key([], "e", lazy.spawn("st -e neomutt"), desc="Open spotify"),
         Key([], "b", lazy.spawn("beeper"), desc="Open beeper"),
         Key([], "r", lazy.spawn("prime-run /opt/resolve/bin/resolve"), desc="Open resolve"),
         Key([], "p", lazy.spawn("st -e pulsemixer"), desc="Open resolve"),
@@ -112,27 +113,25 @@ keys = [
         ]),
 
 
-    Key([mod4], "j", lazy.spawn("/home/sky/.local/bin/pump"), desc=""),
     Key([mod, "shift"], "w", lazy.spawn("/usr/bin/brave"), desc=""),
-    Key([mod4], "w", lazy.spawn("sxiv -t /home/sky/.dotfiles/backgrounds/"), desc=""),
-    Key([mod4], "bracketleft", lazy.spawn("/home/sky/.dotfiles/bin/.local/bin/brightness up"), desc=""),
-    Key([mod4], "braceleft", lazy.spawn("/home/sky/.dotfiles/bin/.local/bin/brightness down"), desc=""),
+    Key([mod], "w", lazy.spawn("sxiv -t /home/sky/.dotfiles/backgrounds/"), desc=""),
+    Key([alt], "bracketleft", lazy.spawn("/home/sky/.dotfiles/bin/.local/bin/brightness up"), desc=""),
+    Key([alt], "braceleft", lazy.spawn("/home/sky/.dotfiles/bin/.local/bin/brightness down"), desc=""),
 
-    Key([mod4, "shift"], "g", lazy.spawn("/home/sky/.local/bin/picomToggle"), desc=""),
+    Key([mod, "shift"], "g", lazy.spawn("/home/sky/.local/bin/picomToggle"), desc=""),
 
-    Key([mod4], "plus", lazy.spawn("/home/sky/.local/bin/volumeControl up"), desc=""),
-    Key([mod4], "minus", lazy.spawn("/home/sky/.local/bin/volumeControl down"), desc=""),
-    Key([mod4], "m", lazy.spawn("/home/sky/.local/bin/volumeControl mute"), desc=""),
-    Key([mod4], "o", lazy.spawn("st -e /home/sky/.local/bin/lfub"), desc=""),
-    Key([mod4, "shift"], "s", lazy.spawn("flameshot gui -p /home/sky/Pictures/Captures"), desc=""),
+    Key([alt], "plus", lazy.spawn("/home/sky/.local/bin/volumeControl up"), desc=""),
+    Key([alt], "minus", lazy.spawn("/home/sky/.local/bin/volumeControl down"), desc=""),
+    Key([alt], "m", lazy.spawn("/home/sky/.local/bin/volumeControl mute"), desc=""),
+    Key([mod], "o", lazy.spawn("st -e /home/sky/.local/bin/lfub"), desc=""),
+    Key([mod, "shift"], "s", lazy.spawn("flameshot gui -p /home/sky/Pictures/Captures"), desc=""),
     Key([mod, "shift"], "b", lazy.spawn("/home/sky/.local/bin/change_background_dmenu"), desc=""),
-    Key([mod4], "d", lazy.spawn("setxkbmap -layout real-prog-dvorak"), desc=""),
-    Key([mod4], "q", lazy.spawn("setxkbmap -layout us"), desc=""),
+    Key([alt], "d", lazy.spawn("setxkbmap -layout real-prog-dvorak"), desc=""),
+    Key([alt], "q", lazy.spawn("setxkbmap -layout us"), desc=""),
     Key([mod, "shift"], "space", lazy.spawn("/home/sky/.local/bin/todoist --today"), desc=""),
-    Key([mod4], "space", lazy.spawn("/home/sky/.local/bin/quick-add-task"), desc=""),
-    Key([mod4, "shift"], "space", lazy.spawn("/home/sky/.local/bin/obsidian-cli quick-note"), desc=""),
-    Key([mod4], "e", lazy.spawn("st -e neomutt"), desc=""),
-    Key([mod], "F1", lazy.spawn("/home/sky/.local/bin/keyboard-connected"), desc=""),
+    Key([alt], "space", lazy.spawn("/home/sky/.local/bin/quick-add-task"), desc=""),
+    Key([alt, "shift"], "space", lazy.spawn("/home/sky/.local/bin/obsidian-cli quick-note"), desc=""),
+    Key([alt], "F1", lazy.spawn("/home/sky/.local/bin/keyboard-connected"), desc=""),
 ]
 
 # A hacky way to get my keyboard layout and qtile to play nicely

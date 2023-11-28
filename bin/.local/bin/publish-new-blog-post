@@ -2,5 +2,5 @@
 
 file=$(ls ~/Documents/Linux-btw/ | fzf)
 read blogName
-cp "/home/sky/Documents/Linux-btw/$file" "/home/sky/personal/skykosiner-com/golang/blog/publish/$blogName"
+cp "/home/sky/Documents/Linux-btw/$file" "/home/sky/personal/skykosiner-com/master/blog/publish/$blogName"
 updateWebsite
