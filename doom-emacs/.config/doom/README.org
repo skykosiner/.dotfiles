@@ -1,0 +1,2 @@
+* Personal notes
+- Sometimes the lsp doesn't want to work so I need to run `eglot` or `eglot-update` if that doesn't want to work

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+getScreens=$(xrandr --query | grep " connected" | cut -d" " -f1 | xargs)
+for screen in $getScreens
+do
+done

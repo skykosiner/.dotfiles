@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-chosen=$(cat ~/.dotfiles/emoji | dmenu -l 30 -fn "JetBrainsMono Nerd Font-18" | awk '{print $1}')
+chosen=$(cat ~/.dotfiles/emoji | dmenu -c -l 30 -fn "JetBrainsMono Nerd Font-18" | awk '{print $1}')
 
 [[ -z "$chosen" ]] && exit
 

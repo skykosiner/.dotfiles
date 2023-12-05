@@ -1,7 +1,7 @@
 (setq user-full-name "Sky Kosiner"
       user-mail-address "sky@skykosiner.com")
 
-(setq doom-font (font-spec :family "Hack Nerd Font Mono":size 25))
+(setq doom-font (font-spec :family "UbuntuMono Nerd Font":size 25))
 (after! doom-themes
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t))
@@ -105,16 +105,14 @@
 ;; Auto tangle org mode configs
 (add-hook 'org-mode-hook 'org-auto-tangle-mode)
 
-;; RSS
-;; Somewhere in your .emacs file
-(setq elfeed-feeds
-      '("http://nullprogram.com/feed/"
-        "https://planet.emacslife.com/atom.xml"))
+;; (setq-default elfeed-search-filter "@2-weeks-ago +unread")
+(setq-default elfeed-search-title-max-width 100)
+(setq-default elfeed-search-title-min-width 100)
 
 ;; Start to scroll 8 lines before the end
 (setq scroll-margin 8)
 (setq smooth-scroll-margin 8)
 
 ;; Transpparent emacs
-(set-frame-parameter (selected-frame) 'alpha '(85 85))
-(add-to-list 'default-frame-alist '(alpha 85 85))
+(set-frame-parameter (selected-frame) 'alpha '(90 90))
+(add-to-list 'default-frame-alist '(alpha 90 90))

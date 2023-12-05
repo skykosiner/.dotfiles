@@ -21,6 +21,7 @@ function M.set_color()
         "gruvbuddy",
         "ayu",
         "tokyonight",
+        "doom-one",
         "rose-pine"
       }
     }),

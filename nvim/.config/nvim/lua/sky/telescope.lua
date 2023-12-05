@@ -139,7 +139,7 @@ vim.keymap.set("n", "<leader>gw",
   ":lua require('telescope').extensions.git_worktree.git_worktrees({ layout_config = { width = 0.5, height = 0.5 }})<CR>")
 vim.keymap.set("n", "<leader>gm",
   ":lua require('telescope').extensions.git_worktree.create_git_worktree({ layout_config = { width = 0.5, height = 0.5 }})<CR>")
-vim.keymap.set("n", "<leader>c", ":lua require('sky.utils').set_color()<CR>")
+vim.keymap.set("n", "<leader>ht", ":lua require('sky.utils').set_color()<CR>")
 vim.keymap.set('n', '<leader>or', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 
 return M

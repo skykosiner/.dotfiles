@@ -2,9 +2,10 @@
 #+AUTHOR: Sky Kosiner
 #+PROPERTY: header-args :tangle .zshrc
 #+STARTUP: showeverything
-# #+auto_tangle: t
+#+auto_tangle: t
 
 * Table Of Contents :toc:
+- [[#notes][Notes]]
 - [[#basic-stuff-first][Basic stuff first]]
 - [[#load-more-configs][Load more configs]]
 - [[#vim-navigation][Vim navigation]]
@@ -18,6 +19,18 @@
   - [[#bookmarks][Bookmarks]]
   - [[#extras][Extras]]
 
+* Notes
+- I have a few things loaded with the zsh feature to hash stuff
+  | Hash             | Path                                     |
+  |------------------+------------------------------------------|
+  | personal-website | /home/sky/personal/skykosiner-com/master |
+  | bin              | //home/sky/.dotfiles/bin/.local/bin        |
+  | personal         | /home/sky/personal                       |
+  | work             | /home/sky//work                          |
+  | config           | //home/sky//.config                        |
+  | df               | //home/sky//.dotfiles                      |
+
+- You can add a new hash with `hash -d nameofhash=path`
 * Basic stuff first
 - always load colors
 - cd without typing cd
@@ -70,7 +83,7 @@ bindkey -v '^?' backward-delete-char
 
 * Lf function
 - Allow user to open lf and wherever they quit lf the user bill left in that dir
-    - Basicly cd with lf a more visual way
+  - Basicly cd with lf a more visual way
 - Function stolen from [[https://github.com/lukesmithxyz][Luke Smith]]
 #+begin_src sh
 lfcd () {
@@ -130,9 +143,9 @@ compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
 
 * Zoxide
 - Quickly cd to common direcotrys without typing out full path and just using the letter z
-#+begin_src sh
-eval $(zoxide init zsh)
-#+end_src
+  #+begin_src sh
+  eval "$(zoxide init zsh)"
+  #+end_src
 
 * Source stuff
 ** Bookmarks
@@ -142,10 +155,12 @@ source $HOME/.config/personal/bookMarks
 source $HOME/.config/personal/bookMarkFiles
 #+end_src
 ** Extras
+- Source private todoist token
 - Use fzf to search history and fill in file names
 - Highlightitng for commands
 - Zsh auto suggestions using your .zshhistory
 #+begin_src sh
+source $HOME/.todoist_token
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

@@ -1,0 +1,149 @@
+#+TITLE: lf config
+#+AUTHOR: Sky Kosiner
+#+PROPERTY: header-args :tangle lfrc
+#+STARTUP: showeverything
+#+auto_tangle: t
+
+* Table Of Conents :toc:
+- [[#info-on-lf][Info on Lf]]
+- [[#basics][Basics]]
+
+* Info on Lf
+
+* Basics
+- The good old shebang just to get some syntax highlighing in the file
+#+begin_src sh
+#!/usr/bin/env bash
+
+set shellopts '-eu'
+set ifs "\n"
+set scrolloff 10
+set icons true
+set period 1
+set cleaner '~/.config/lf/cleaner'
+set previewer '~/.config/lf/scope'
+#+end_src
+
+#+begin_src sh
+cmd open ${{
+    case $(file --mime-type "$(readlink -f $f)" -b) in
+	application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) localc $fx ;;
+	image/vnd.djvu|application/pdf|application/octet-stream|application/postscript) devour zathura $fx >/dev/null 2>&1 ;;
+    text/*|application/json|inode/x-empty) nvim $fx;;
+	image/x-xcf) gimp $f >/dev/null 2>&1 ;;
+	image/svg+xml) display -- $f ;;
+	image/*) rotdir $f | grep -i "\.\(png\|jpg\|jpeg\|gif\|webp\|tif\|ico\)\(_large\)*$" |
+    devour sxiv $fx
+		;;
+	audio/*) devour mpv --audio-display=no $f ;;
+	video/*) devour mpv $f -quiet >/dev/null 2>&1 ;;
+	application/pdf|application/vnd*|application/epub*) devour zathura $fx >/dev/null 2>&1 ;;
+	application/pgp-encrypted) $EDITOR $fx ;;
+        ,*) for f in $fx; do setsid -f $OPENER $f >/dev/null 2>&1; done;;
+    esac
+}}
+
+cmd mkdir $mkdir -p "$(echo $* | tr ' ' '\ ')"
+
+cmd extract ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	printf "%s\n\t" "$fx"
+	printf "extract?[y/N]"
+	read ans
+	[ $ans = "y" ] && aunpack $fx
+}}
+
+cmd delete ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	printf "%s\n\t" "$fx"
+	printf "delete?[y/N]"
+	read ans
+	[ $ans = "y" ] && rm -rf -- $fx
+}}
+
+cmd moveto ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	clear; echo "Move to where?"
+	dest="$(~/.dotfiles/bin/.local/bin/bookmarks --get | fzf)" &&
+	for x in $f; do
+		eval mv -iv "$x" "$dest"
+	done &&
+	notify-send "🚚 File(s) moved." "File(s) moved to $dest."
+}}
+
+cmd copyto ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	clear; echo "Copy to where?"
+	dest="$(~/.dotfiles/bin/.local/bin/bookmarks --get | fzf)" &&
+	for x in $f; do
+		eval cp -ivr "$x" "$dest"
+	done &&
+	notify-send "📋 File(s) copied." "File(s) copies to $dest."
+}}
+
+cmd dragon ${{
+	dragon "$f"
+}}
+
+cmd setbg ${{
+    ~/.local/bin/change_background $f
+}}
+
+cmd print ${{
+    ~/.local/bin/printFile $f
+}}
+
+cmd openHTML ${{
+    brave "$f"
+}}
+
+cmd openInEmacs ${{
+	devour emacsclient -c -a 'emacs' "$f"
+}}
+
+cmd bulkrename $vidir
+
+map <c-p>
+map <c-f> $lf -remote "send $id select '$(fzf)'"
+map b setbg $f
+map gh
+map e openInEmacs
+map D delete
+map E extract
+map C copyto
+map M moveto
+map <c-n> push :mkdir<space>
+map <c-r> reload
+map . set hidden!
+map <enter> shell
+map x $$f
+map X !$f
+map O $mimeopen --ask $f
+
+map A rename # at the very end
+map c push A<c-u> # new rename
+map I push A<c-a> # at the very beginning
+map i push A<a-b><a-b><a-f> # before extention
+map a push A<a-b> # after extention
+map B bulkrename
+
+map <c-e> down
+map <c-y> up
+map V push :!nvim<space>
+
+map W $setsid -f $TERMINAL >/dev/null 2>&1
+
+map Y $printf "%s" "$fx" | xclip -selection clipboard
+
+map <c-p> print $f
+map o $openHTML
+
+
+map - $mv "$f" "$(echo "$f" | tr " " "-")"
+
+source "~/.config/lf/shortcuts"
+#+end_src

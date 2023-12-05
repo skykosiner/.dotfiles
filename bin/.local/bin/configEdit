@@ -19,10 +19,11 @@ configs[shell]="$HOME/.dotfiles/shell/.config/personal/"
 configs[nvim]="$HOME/.dotfiles/nvim/.config/nvim/"
 configs[emacs]="$HOME/.dotfiles/doom-emacs/.config/doom/"
 configs[scripts]="$HOME/.dotfiles/bin/.local/bin/"
+configs[lf]="$HOME/.dotfiles/lf/.config/lf/"
 configs[bookmarks]="$HOME/.dotfiles/.bookm"
 configs[bookmarked files]="$HOME/.dotfiles/.bookmfiles"
 
-configToEdit=$(printf "%s\n" "${!configs[@]}" | dmenu -p "Config Edit: ")
+configToEdit=$(printf "%s\n" "${!configs[@]}" | sort | dmenu -p "Config Edit: ")
 
 if [[ ! -z $configToEdit ]]; then
     emacsclient -c -a 'emacs' $(printf "%s\n" "${configs["${configToEdit}"]}")

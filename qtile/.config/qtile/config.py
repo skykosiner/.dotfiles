@@ -1,5 +1,5 @@
 from libqtile import layout
-from libqtile.config import Click, Drag, Match
+from libqtile.config import Click, Drag, Match, Key
 from libqtile.lazy import lazy
 from libqtile import hook
 
@@ -11,8 +11,9 @@ import os
 import subprocess
 
 # Only really use the master and stack layout
+
 layouts = [
-    layout.MonadTall(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=3, margin=20),
+    layout.MonadTall(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=3, margin=30),
     layout.Max(),
 ]
 

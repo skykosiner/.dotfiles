@@ -1,11 +1,10 @@
 from libqtile.config import Group
 
-mod = "mod4"
-
 groups = []
 group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
 group_labels = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
 group_layouts = ["monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall"]
+
 for i in range(len(group_names)):
     groups.append(
         Group(
@@ -13,5 +12,3 @@ for i in range(len(group_names)):
             layout=group_layouts[i].lower(),
             label=group_labels[i],
         ))
-
-

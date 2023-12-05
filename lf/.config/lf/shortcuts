@@ -10,6 +10,7 @@ map gm cd /mnt/server
 map gm cd /mnt/server
 map gS cd /mnt/ssd/
 map go cd /home/sky/Documents/Linux-btw/
+map gO cd /home/sky/Documents/OBS/
 map gv cd /home/sky/Videos/
 map ga cd /home/sky/Documents/Archive/
 map gt cd /home/sky/.test

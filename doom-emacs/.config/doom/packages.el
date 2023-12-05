@@ -60,4 +60,5 @@
 (package! base16-theme)
 (package! obsidian)
 (package! org-auto-tangle)
+;; (package! todoist)
 ;; (package! smudge)

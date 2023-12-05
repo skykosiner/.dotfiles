@@ -112,6 +112,11 @@ keys = [
         Key([], "f", lazy.spawn("thunar"), desc="Open thunar")
         ]),
 
+    Key([mod, "control"], "b",
+        lazy.hide_show_bar(),
+        desc="Toggle qtile bar",
+        ),
+
 
     Key([mod, "shift"], "w", lazy.spawn("/usr/bin/brave"), desc=""),
     Key([mod], "w", lazy.spawn("sxiv -t /home/sky/.dotfiles/backgrounds/"), desc=""),
