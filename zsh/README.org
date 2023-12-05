@@ -5,7 +5,6 @@
 #+auto_tangle: t
 
 * Table Of Contents :toc:
-- [[#notes][Notes]]
 - [[#basic-stuff-first][Basic stuff first]]
 - [[#load-more-configs][Load more configs]]
 - [[#vim-navigation][Vim navigation]]
@@ -19,18 +18,6 @@
   - [[#bookmarks][Bookmarks]]
   - [[#extras][Extras]]
 
-* Notes
-- I have a few things loaded with the zsh feature to hash stuff
-  | Hash             | Path                                     |
-  |------------------+------------------------------------------|
-  | personal-website | /home/sky/personal/skykosiner-com/master |
-  | bin              | //home/sky/.dotfiles/bin/.local/bin        |
-  | personal         | /home/sky/personal                       |
-  | work             | /home/sky//work                          |
-  | config           | //home/sky//.config                        |
-  | df               | //home/sky//.dotfiles                      |
-
-- You can add a new hash with `hash -d nameofhash=path`
 * Basic stuff first
 - always load colors
 - cd without typing cd

@@ -7,7 +7,9 @@ case "$1" in
     ;;
     "--shell")
         cat ~/.dotfiles/.bookm > ~/.dotfiles/shell/.config/personal/bookMarks
-        sed -i -e 's/^/alias b/g; s/ \//="cd \//; s/$/"/' ~/.dotfiles/shell/.config/personal/bookMarks
+        # sed -i -e 's/^/alias b/g; s/ \//="cd \//; s/$/"/' ~/.dotfiles/shell/.config/personal/bookMarks
+        sed -i -e 's/^/hash -d /; s/ \//=\//' ~/.dotfiles/shell/.config/personal/bookMarks
+
         ;;
     "--shell-files")
         cat ~/.dotfiles/.bookmfiles > ~/.dotfiles/shell/.config/personal/bookMarkFiles

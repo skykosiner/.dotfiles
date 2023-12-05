@@ -45,6 +45,7 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
 
     Key([mod], "comma", lazy.next_screen(), desc="Move to next screen"),
+
     # TODO: Figure out a way to go the other way?
     # Key([mod], "period", lazy.previous_screen(), desc="Move to previous screen"),
 
