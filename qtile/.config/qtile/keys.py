@@ -51,7 +51,12 @@ keys = [
 
     # Emacs??
     KeyChord([mod], "e", [
-        Key([], "e", lazy.spawn("emacsclient -c -a emacs"), desc=""),
+        Key([], "e", lazy.spawn("emacsclient -c -a emacs"), desc="Open Emacs"),
+        Key([], "b", lazy.spawn("emacsclient -c -a emacs --eval '(ibuffer)' "), desc="Open emacs ibuffer"),
+        Key([], "d", lazy.spawn("emacsclient -c -a emacs --eval '(dired nil)' "), desc="Open emacs dired"),
+        Key([], "k", lazy.spawn("killall emacs"),
+                      lazy.spawn("/usr/bin/emacs --daemon"),
+                      desc='Kill/restart the Emacs daemon')
         ]),
 
     # Airco control
@@ -107,6 +112,7 @@ keys = [
         Key([], "e", lazy.spawn("st -e neomutt"), desc="Open spotify"),
         Key([], "b", lazy.spawn("beeper"), desc="Open beeper"),
         Key([], "r", lazy.spawn("prime-run /opt/resolve/bin/resolve"), desc="Open resolve"),
+        Key(["shift"], "r", lazy.spawn("polychromatic-controller"), desc="Open resolve"),
         Key([], "p", lazy.spawn("st -e pulsemixer"), desc="Open resolve"),
         Key([], "o", lazy.spawn("obsidian"), desc="Open obsidian"),
         Key(["shift"], "o", lazy.spawn("prime-run obs"), desc="Open obs"),

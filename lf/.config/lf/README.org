@@ -7,11 +7,24 @@
 * Table Of Conents :toc:
 - [[#info-on-lf][Info on Lf]]
 - [[#basics][Basics]]
+- [[#opening-up-files][Opening up files]]
+  - [[#office-documents][Office documents]]
+  - [[#media-stuff][Media stuff]]
+  - [[#documents][Documents]]
+  - [[#random][Random]]
+- [[#functions][Functions]]
+- [[#keymaps][Keymaps]]
 
 * Info on Lf
+[[github:gokcehan/lf][Lf]] is a terminal based file manger, very much like [[github:ranger/ranger][ranger]] but coded in go, and a
+way better config file imo. I'm using [[github:seebye/ueberzug][ueberzug]] to get previews of
+images/videos/pdfs and more.
 
 * Basics
-- The good old shebang just to get some syntax highlighing in the file
+- The good old shebang just to get some syntax highlighing in the
+- Some random defaults I stole off [[github:lukesmithxyz][Luke Smith]]
+- Make sure icons are on (icons can be found in the ./icons file)
+- Set scripts to preview stuff with ueberzug
 #+begin_src sh
 #!/usr/bin/env bash
 
@@ -24,25 +37,48 @@ set cleaner '~/.config/lf/cleaner'
 set previewer '~/.config/lf/scope'
 #+end_src
 
+* Opening up files
 #+begin_src sh
 cmd open ${{
     case $(file --mime-type "$(readlink -f $f)" -b) in
-	application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) localc $fx ;;
+#+end_src
+** Office documents
+- Open pdf/postscritps/djvu/epubs in zathura
+#+begin_src sh
+	# application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) localc $fx ;;
 	image/vnd.djvu|application/pdf|application/octet-stream|application/postscript) devour zathura $fx >/dev/null 2>&1 ;;
-    text/*|application/json|inode/x-empty) nvim $fx;;
+	application/pdf|application/vnd*|application/epub*) devour zathura $fx >/dev/null 2>&1 ;;
+#+end_src
+** Media stuff
+- Open xcf files in gimp
+- Open svg with the imagemagick command display
+- Open up image files in [[github:xyb3rt/sxiv][sxiv]]
+- Open audio/video files in mpv
+#+begin_src sh
 	image/x-xcf) gimp $f >/dev/null 2>&1 ;;
-	image/svg+xml) display -- $f ;;
+	image/svg+xml) devour display -- $f ;;
 	image/*) rotdir $f | grep -i "\.\(png\|jpg\|jpeg\|gif\|webp\|tif\|ico\)\(_large\)*$" |
     devour sxiv $fx
 		;;
 	audio/*) devour mpv --audio-display=no $f ;;
 	video/*) devour mpv $f -quiet >/dev/null 2>&1 ;;
-	application/pdf|application/vnd*|application/epub*) devour zathura $fx >/dev/null 2>&1 ;;
+#+end_src
+** Documents
+- Open documents in [[github:neovim/neovim][neovim]]
+#+begin_src sh
+    text/*|application/json|inode/x-empty) nvim $fx;;
+#+end_src
+** Random
+- Some random ass stuff
+#+begin_src sh
 	application/pgp-encrypted) $EDITOR $fx ;;
         ,*) for f in $fx; do setsid -f $OPENER $f >/dev/null 2>&1; done;;
     esac
 }}
+#+end_src
 
+* Functions
+#+begin_src sh
 cmd mkdir $mkdir -p "$(echo $* | tr ' ' '\ ')"
 
 cmd extract ${{
@@ -106,7 +142,10 @@ cmd openInEmacs ${{
 }}
 
 cmd bulkrename $vidir
+#+end_src
 
+* Keymaps
+#+begin_src sh
 map <c-p>
 map <c-f> $lf -remote "send $id select '$(fzf)'"
 map b setbg $f

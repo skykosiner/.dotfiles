@@ -67,7 +67,6 @@ compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
 source $HOME/.config/personal/bookMarks
 source $HOME/.config/personal/bookMarkFiles
 
-source $HOME/.todoist_token
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

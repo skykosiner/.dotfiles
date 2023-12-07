@@ -21,7 +21,12 @@ alias restart="sudo shutdown -r now";
 alias razer="devour polychromatic-controller"
 alias gay="unimatrix -s 95 | lolcat"
 alias tt="tt -showwpm -notheme"
-alias ls="ls --color=auto"
+# alias ls="ls --color=auto"
+
+alias ls="exa"
+alias la="exa -a --group-directories-first"
+alias lla="exa -la --group-directories-first"
+
 alias grep="grep --color=auto"
 alias rickRoll="curl -s -L https://bit.ly/3zvELNz | bash"
 alias editWebsite="ssh root@46.101.77.77"
@@ -33,6 +38,8 @@ alias yt="yt-dlp --embed-metadata -i"
 alias yta="yt -x -f bestaudio/best"
 alias pkt="pkill tmux"
 alias g="git"
+
+alias rm="rm -i"
 
 alias mpv="devour mpv"
 alias sxiv="devour sxiv"

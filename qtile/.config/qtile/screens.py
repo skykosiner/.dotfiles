@@ -90,17 +90,26 @@ def widget_list():
             widget.Spacer(length = widget_space),
 
             widget.GenPollText(
+                update_interval = 60,
+                func = lambda: subprocess.check_output("/home/sky/.local/bin/statusbar/sb-time-tracking", shell=True, text=True),
+                mouse_callbacks = {"Button2": lambda: qtile.cmd_spawn("/home/sky/.local/bin/toggl www")},
+                fmt= "{}"
+                ),
+
+            widget.Spacer(length = widget_space),
+
+            widget.GenPollText(
                 update_interval = 5000,
                 func = lambda: subprocess.check_output("/home/sky/.local/bin/statusbar/sb-ip", shell=True, text=True),
-                mouse_callbacks = {"Button2": lambda: qtile.cmd_spawn(terminal + " -e nmtui")},
+                mouse_callbacks = {"Button2": lambda: qtile.cmd_spawn(terminal + " -e nmtui"), "Button1": lambda: qtile.cmd_spawn("networkmanager_dmenu")},
                 fmt= "🌐 {}"
                 ),
 
             widget.Spacer(length = widget_space),
 
             widget.GenPollText(
-                    update_interval = 1,
-                    func = lambda: subprocess.check_output("/home/sky/.local/bin/statusbar/sb-music", shell=True, text=True),
+                update_interval = 1,
+                func = lambda: subprocess.check_output("/home/sky/.local/bin/statusbar/sb-music", shell=True, text=True),
                 fmt= "🎵 {}"
                 ),
 

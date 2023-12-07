@@ -142,12 +142,10 @@ source $HOME/.config/personal/bookMarks
 source $HOME/.config/personal/bookMarkFiles
 #+end_src
 ** Extras
-- Source private todoist token
 - Use fzf to search history and fill in file names
 - Highlightitng for commands
 - Zsh auto suggestions using your .zshhistory
 #+begin_src sh
-source $HOME/.todoist_token
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

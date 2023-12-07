@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+timeTrack=$(/home/sky/.local/bin/toggl now)
+
+project=$(echo "$timeTrack" | grep "Project" | cut -d":" -f2- | sed 's/([^)]*)//g' | awk '{$1=$1};1')
+time=$(echo "$timeTrack" | grep "Duration" | cut -d":" -f2,3 | awk '{$1=$1};1')
+tags=$(echo "$timeTrack" | grep "Tags" | cut -d":" -f2- |  awk '{$1=$1};1')
+
+if [[ ! -z "$project" ]]; then
+    status="$project - $time - $tags"
+    printf "$status"
+fi
