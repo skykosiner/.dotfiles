@@ -53,6 +53,7 @@ keys = [
     KeyChord([mod], "e", [
         Key([], "e", lazy.spawn("emacsclient -c -a emacs"), desc="Open Emacs"),
         Key([], "b", lazy.spawn("emacsclient -c -a emacs --eval '(ibuffer)' "), desc="Open emacs ibuffer"),
+        Key([], "t", lazy.spawn("emacsclient -c -a emacs --eval '(org-agenda-list)' "), desc="Open emacs in org agenda"),
         Key([], "d", lazy.spawn("emacsclient -c -a emacs --eval '(dired nil)' "), desc="Open emacs dired"),
         Key([], "k", lazy.spawn("killall emacs"),
                       lazy.spawn("/usr/bin/emacs --daemon"),
@@ -83,6 +84,7 @@ keys = [
     # Dmenu stuff
     KeyChord([mod], "p", [
         Key([], "p", lazy.spawn("dmenu_run"), desc="using dmenu to launch programs"),
+        Key([], "o", lazy.spawn("/home/sky/.local/bin/search-org"), desc="Use dmenu to search my org files"),
         Key([], "t", lazy.spawn("/home/sky/.local/bin/time-tracking"), desc="Start time tracking"),
         Key([], "e", lazy.spawn("/home/sky/.local/bin/configEdit"), desc="Open config in neovim"),
         Key(["shift"], "p", lazy.spawn("/home/sky/.local/bin/onepassword"), desc=""),
@@ -125,7 +127,7 @@ keys = [
         ),
 
 
-    Key([mod, "shift"], "w", lazy.spawn("/usr/bin/brave"), desc=""),
+    Key([mod, "shift"], "w", lazy.spawn("/usr/bin/firefox"), desc=""),
     Key([mod], "w", lazy.spawn("sxiv -t /home/sky/.dotfiles/backgrounds/"), desc=""),
     Key([alt], "bracketleft", lazy.spawn("/home/sky/.dotfiles/bin/.local/bin/brightness up"), desc=""),
     Key([alt], "braceleft", lazy.spawn("/home/sky/.dotfiles/bin/.local/bin/brightness down"), desc=""),

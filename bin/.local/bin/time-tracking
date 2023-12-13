@@ -1,23 +1,23 @@
 #!/usr/bin/env bash
 
 declare -A timers
-timers[🎬 Video Projects - Writing]="173708861 - 10283749"
-timers[🎬 Video Projects - Filming]="173708861 - 10283882"
-timers[🎬 Video Projects - Editing Video]="173708861 - 10283891"
-timers[🎬 Video Projects - Research]="173708861 - 10283937"
-timers[🌐 Personal Website - Writing]="10283937 - 10283749"
+timers[🎬 Video Projects - Writing]="173708861 - Writing"
+timers[🎬 Video Projects - Filming]="173708861 - Filming"
+timers[🎬 Video Projects - Editing Video]="173708861 - Editing Video"
+timers[🎬 Video Projects - Research]="173708861 - Research"
+timers[🌐 Personal Website - Writing]="10283937 - Writing"
 timers[🌐 Personal Website]="10283937"
-timers[🏫 Tutor Code - Teaching]="170422549 - 10283907"
-timers[🏫 Tutor Code - Prepping]="170422549 - 10283903"
-timers[💼 Business - Admin]="171982787 - 10283898"
-timers[💼 Business - Email Newsletter]="171982787 - 10283749, 10964985"
-timers[📸 Instagram - Writing/Research]="164856066 - 10283749, 10283937"
-timers[📸 Instagram - Creative Stuff]="164856066 - 10283742, 10283882, 10283891, 10283744, 11183171"
+timers[🏫 Tutor Code - Teaching]="170422549 - Teaching"
+timers[🏫 Tutor Code - Prepping]="170422549 - Prepping"
+timers[💼 Business - Admin]="171982787 - Admin"
+timers[💼 Business - Email Newsletter]="171982787 - Email newsletter, Writing"
+timers[📸 Instagram - Writing/Research]="164856066 - Writing, Research"
+timers[📸 Instagram - Creative Stuff]="164856066 - Photography, Editing Photos, Videos, Editing Video"
 timers[📁 Apprenticeship]="194299162"
-timers[📔 Book - Writing]="197033841 - 10283749"
-timers[📔 Book - Research]="197033841 - 10283937"
+timers[📔 Book - Writing]="197033841 - Writing"
+timers[📔 Book - Research]="197033841 - Research"
 
-timer=$(printf "%s\n" "${!timers[@]}" | dmenu -i -p "Pick a timer to start: ")
+timer=$(printf "%s\n" "${!timers[@]}" | sort | dmenu -i -p "Pick a timer to start: ")
 
 if [[ "$timer" ]]; then
     project=$(printf "%s\n" "${timers["${timer}"]}" | cut -d"-" -f1)

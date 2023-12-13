@@ -47,5 +47,5 @@ xrandr --auto &
 # Trying emacs again?
 emacs --daemon &
 
-qbittorrent-nox -d &
+# qbittorrent-nox -d &
 sudo tor &

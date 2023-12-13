@@ -40,6 +40,8 @@ alias pkt="pkill tmux"
 alias g="git"
 
 alias rm="rm -i"
+alias cp="cp -i"
+alias mv="mv -i"
 
 alias mpv="devour mpv"
 alias sxiv="devour sxiv"

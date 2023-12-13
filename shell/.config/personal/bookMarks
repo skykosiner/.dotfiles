@@ -17,6 +17,5 @@ hash -d gt=/home/sky/.test
 hash -d Jp=/home/sky/personal/skykosiner-com/
 hash -d Jc=/home/sky/.config
 hash -d gB=/home/sky/Documents/Books/
-hash -d gM=/home/sky/Documents/Movies/
 hash -d Jb=/home/sky/work/Book/
 hash -d Jo=/home/sky/Documents/OBS/

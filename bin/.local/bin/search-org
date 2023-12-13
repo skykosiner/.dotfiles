@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+ORGFILES="$HOME/org"
+file=$(find $ORGFILES | grep -v "^$ORGFILES$" | sed "s|$ORGFILES/||" | dmenu | xargs -I {} echo "$ORGFILES/{}")
+emacsclient -c -a 'emacs' "$file"

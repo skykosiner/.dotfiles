@@ -37,3 +37,6 @@ export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json
 export CARGO_HOME="$XDG_DATA_HOME"cargo
 export GOPATH="$HOME/go"
 export PATH="${PATH}:${GOPATH}/bin"
+
+export HASS_SERVER=http://10.0.0.36:8123
+export HASS_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhMGQ4N2ZlZjhhYjA0OGRhOTdlNTE4Y2UyYzM5ZDdlOSIsImlhdCI6MTcwMjA1NDUyNywiZXhwIjoyMDE3NDE0NTI3fQ.UYxG0rx37YAfi4ARo_wapA6f2KHNKeSVp1PJ_o5tems

@@ -5,7 +5,6 @@
  ;; If there is more than one, they won't work right.
  '(elfeed-feeds '("https://macstories.net/rss"))
  '(magit-todos-insert-after '(bottom) nil nil "Changed by setter of obsolete option `magit-todos-insert-at'")
- '(org-agenda-files '("~/.dotfiles/zsh/README.org"))
  '(package-selected-packages '(eglot undo-tree lsp-mode obsidian)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

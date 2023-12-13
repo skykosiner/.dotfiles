@@ -371,4 +371,4 @@ gruvbox_material_hard_light: &gruvbox_material_hard_light
       cyan:    '0x4c7a5d'
       white:   '0xf2e5bc'
 
-colors: *DoomOne
+colors: *GruvboxDark
