@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Define the path to your Org files
+ORG_FILES="/home/sky/org"
+
+# Get list of tasks due today or overdue
+tasks_due=$(emacsclient --eval "(progn
+                                    (require 'org)
+                                    (setq org-agenda-files '(\"$ORG_FILES\"))
+                                    (org-agenda-list)
+                                    (org-agenda-get-day-entries (current-time) 'scheduled)
+                                    (org-agenda-get-day-entries (current-time) 'deadline)
+                                    (let* ((scheduled-today (org-agenda-get-day-entries (current-time) 'scheduled))
+                                           (overdue (org-agenda-get-day-entries (current-time) 'deadline))
+                                           (due-tasks (append scheduled-today overdue))
+                                           (tasks-content ""))
+                                     (dolist (task due-tasks)
+                                        (setq tasks-content (concat tasks-content (org-agenda-format-item (org-agenda-finalize-entries (list task) t)))))
+                                      tasks-content))")
+
+echo "Tasks currently due:"
+echo "$tasks_due"

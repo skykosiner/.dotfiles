@@ -37,8 +37,6 @@
 ;; (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c C-l") 'org-insert-link)
 
-(global-set-key (kbd "C-c l") 'display-line-numbers-mode)
-
 (global-set-key (kbd "C-c d") 'helm-lsp-diagnostics)
 
 (map! :i "C-y" 'company-complete-selection)

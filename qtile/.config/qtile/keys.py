@@ -111,12 +111,12 @@ keys = [
     # App launcher stuff
     KeyChord([mod], "m", [
         Key([], "s", lazy.spawn("spotify-launcher"), desc="Open spotify"),
-        Key([], "e", lazy.spawn("st -e neomutt"), desc="Open spotify"),
+        Key([], "e", lazy.spawn("st -e neomutt"), desc="Open email"),
         Key([], "b", lazy.spawn("beeper"), desc="Open beeper"),
         Key([], "r", lazy.spawn("prime-run /opt/resolve/bin/resolve"), desc="Open resolve"),
-        Key(["shift"], "r", lazy.spawn("polychromatic-controller"), desc="Open resolve"),
-        Key([], "p", lazy.spawn("st -e pulsemixer"), desc="Open resolve"),
-        Key([], "o", lazy.spawn("obsidian"), desc="Open obsidian"),
+        Key([], "p", lazy.spawn("st -e pulsemixer"), desc="Open pulsemixer"),
+        Key([], "h", lazy.spawn("st -e htop"), desc="Open htop"),
+        # Key([], "o", lazy.spawn("obsidian"), desc="Open obsidian"),
         Key(["shift"], "o", lazy.spawn("prime-run obs"), desc="Open obs"),
         Key([], "f", lazy.spawn("thunar"), desc="Open thunar")
         ]),
@@ -126,6 +126,13 @@ keys = [
         desc="Toggle qtile bar",
         ),
 
+    # Media keys
+    Key([], "XF86AudioLowerVolume", lazy.spawn("/home/sky/.local/bin/volumeControl down"), desc=""),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("/home/sky/.local/bin/volumeControl up"), desc=""),
+    Key([], "XF86AudioMute", lazy.spawn("/home/sky/.local/bin/volumeControl mute"), desc=""),
+    Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause"), desc="Play/Pause player"),
+    Key([], "XF86AudioNext", lazy.spawn("playerctl next"), desc="Skip to next"),
+    Key([], "XF86AudioPrev", lazy.spawn("playerctl previous"), desc="Skip to previous"),
 
     Key([mod, "shift"], "w", lazy.spawn("/usr/bin/firefox"), desc=""),
     Key([mod], "w", lazy.spawn("sxiv -t /home/sky/.dotfiles/backgrounds/"), desc=""),
@@ -134,9 +141,6 @@ keys = [
 
     Key([mod, "shift"], "g", lazy.spawn("/home/sky/.local/bin/picomToggle"), desc=""),
 
-    Key([alt], "plus", lazy.spawn("/home/sky/.local/bin/volumeControl up"), desc=""),
-    Key([alt], "minus", lazy.spawn("/home/sky/.local/bin/volumeControl down"), desc=""),
-    Key([alt], "m", lazy.spawn("/home/sky/.local/bin/volumeControl mute"), desc=""),
     Key([mod], "o", lazy.spawn("st -e /home/sky/.local/bin/lfub"), desc=""),
     Key([mod, "shift"], "s", lazy.spawn("flameshot gui -p /home/sky/Pictures/Captures"), desc=""),
     Key([mod, "shift"], "b", lazy.spawn("/home/sky/.local/bin/change_background_dmenu"), desc=""),

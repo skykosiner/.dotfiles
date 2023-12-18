@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-case "$1" in
-    "--get-count")
-    ;;
-    *) echo "Not an option... $1"
-esac

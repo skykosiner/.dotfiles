@@ -145,13 +145,13 @@ def widget_list():
 
             widget.Spacer(length = widget_space),
 
-            widget.GenPollText(
-                update_interval = 20,
-                func = lambda: subprocess.check_output("/home/sky/.local/bin/statusbar/sb-todoist", shell=True, text=True),
-                fmt = "✅ {}"
-                ),
+            # widget.GenPollText(
+                # update_interval = 20,
+                # func = lambda: subprocess.check_output("/home/sky/.local/bin/statusbar/sb-todoist", shell=True, text=True),
+                # fmt = "✅ {}"
+                # ),
 
-            widget.Spacer(length = widget_space),
+            # widget.Spacer(length = widget_space),
 
             widget.GenPollText(
                 update_interval = 150,
