@@ -18,7 +18,7 @@ require("sky.packer")
 require("sky.telescope")
 -- Don't use any of these two right now
 -- require("sky.statusline")
-require("sky.winbar")
+-- require("sky.winbar")
 
 -- We create a grop which will be cleared each time, this is so we don't have multiple autocommands running (or something like that)
 local group = vim.api.nvim_create_augroup("SKY", { clear = true })

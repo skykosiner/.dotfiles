@@ -46,6 +46,8 @@ alias mv="mv -i"
 alias mpv="devour mpv"
 alias sxiv="devour sxiv"
 
+alias emacs="emacsclient -c -a 'emacs'"
+
 alias updateBookmarks="/home/sky/.local/bin/bookmarks --lf && /home/sky/.local/bin/bookmarks --shell && /home/sky/.local/bin/bookmarks --shell-files"
 
 # For Mac

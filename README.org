@@ -4,6 +4,7 @@
 - I'm using GNU stow to manage my
 
 ** What I'm using
+- Kinesis advantage 2 with [[https://github.com/theprimeagen/keyboards][Real Progarmers Dvorak]], and a moonlander with my own custom [[https://configure.zsa.io/moonlander/layouts/7qnqp/latest/0][keyboard layout]] based on Real Progarmers Dvorak
 - Qtile/dwm as my two main window managers
 - Emacs as my main text editor and neovim for quick stuff
 - St as my terminal (https://github.com/skykosiner/st)

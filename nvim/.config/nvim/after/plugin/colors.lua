@@ -49,4 +49,4 @@ function Colors(color)
 end
 
 vim.g.codedark_transparent = 1
-Colors("rose-pine")
+Colors("gruvbuddy")
