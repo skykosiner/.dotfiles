@@ -34,7 +34,7 @@ case "$1" in
             fi
         ;;
     "-select-playlist")
-            id=$(spt list --playlists --limit 50 | dmenu -i -p "Playlist:" -l 30 -fn "JetBrainsMono Nerd Font-15" | awk -F 'playlist:' '{print $2}' | sed "s/)//")
+            id=$(spt list --playlists --limit 50 | sort | dmenu -i -p "Playlist:" -l 30 -fn "JetBrainsMono Nerd Font-15" | awk -F 'playlist:' '{print $2}' | sed "s/)//")
 
             if [[ ! -z $id ]]; then
                 qdbus org.mpris.MediaPlayer2.spotify \

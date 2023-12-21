@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-file=$(ls ~/Documents/Linux-btw/ | fzf)
+file=$(ls ~/org/ | fzf)
+echo "Make sure to name each blog post like: MyNewKeyboard and not my-new-keyboard"
 read blogName
-cp "/home/sky/Documents/Linux-btw/$file" "/home/sky/personal/skykosiner-com/master/blog/publish/$blogName"
+pandoc --from=org --to=gfm "/home/sky/org/$file" > "/home/sky/personal/skykosiner-com/master/blog/publish/$blogName.md"
 updateWebsite

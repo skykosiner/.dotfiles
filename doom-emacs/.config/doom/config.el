@@ -16,7 +16,7 @@
    org-directory "~/org/"
    org-hide-emphasis-markers t)
   )
-(setq doom-theme 'base16-ayu-dark)
+(setq doom-theme 'tango-dark)
 (setq display-line-numbers-type 'relative)
 
 (remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
@@ -183,3 +183,6 @@
 
 ;; turn off current line highlited
 (setq global-hl-line-modes nil)
+
+;; Automatically start eglot when entering a new project
+(add-hook 'projectile-after-switch-project-hook 'eglot-ensure)

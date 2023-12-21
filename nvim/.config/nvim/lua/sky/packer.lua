@@ -9,6 +9,8 @@ return require("packer").startup(function(use)
   -- use "~/personal/wiki.nvim/"
   use "~/personal/chatgpt.nvim/"
 
+  use {'nvim-orgmode/orgmode'}
+
   use({
     'NTBBloodbath/doom-one.nvim',
     setup = function()

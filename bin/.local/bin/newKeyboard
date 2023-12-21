@@ -7,7 +7,7 @@ while :; do
     setxkbmap -option caps:super
 
     # When capslock is pressed only once, treat it as escape
-    killall xcap 2>/dev/null ; xcape -e 'Super_L=Escape'
+    killall xcap 2>/dev/null ; xcape -e 'Super_L=Escape;Entere'
 
     # Turn off caps lock if on since there is no longer a key for it
     xset -q | grep "Caps Lock:\s*on" && xdotool key Caps_Lock
