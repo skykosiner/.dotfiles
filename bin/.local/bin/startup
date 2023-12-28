@@ -21,7 +21,7 @@ dunst &
 
 
 # Set my keyboard layout
-setxkbmap -layout real-prog-dvorak
+# setxkbmap -layout real-prog-dvorak
 
 # PICOM
 picom &

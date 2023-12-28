@@ -20,7 +20,7 @@ cmd open ${{
 	image/*) rotdir $f | grep -i "\.\(png\|jpg\|jpeg\|gif\|webp\|tif\|ico\)\(_large\)*$" |
     devour sxiv $fx
 		;;
-	audio/*) devour mpv --audio-display=no $f ;;
+	audio/*) mpv --audio-display=no $f ;;
 	video/*) devour mpv $f -quiet >/dev/null 2>&1 ;;
 
     text/*|application/json|inode/x-empty) nvim $fx;;

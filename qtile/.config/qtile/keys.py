@@ -134,7 +134,7 @@ keys = [
     Key([], "XF86AudioNext", lazy.spawn("playerctl next"), desc="Skip to next"),
     Key([], "XF86AudioPrev", lazy.spawn("playerctl previous"), desc="Skip to previous"),
 
-    Key([mod, "shift"], "w", lazy.spawn("/usr/bin/firefox"), desc=""),
+    Key([mod, "shift"], "w", lazy.spawn("/usr/bin/brave"), desc=""),
     Key([mod], "w", lazy.spawn("sxiv -t /home/sky/.dotfiles/backgrounds/"), desc=""),
     Key([alt], "bracketleft", lazy.spawn("/home/sky/.dotfiles/bin/.local/bin/brightness up"), desc=""),
     Key([alt], "braceleft", lazy.spawn("/home/sky/.dotfiles/bin/.local/bin/brightness down"), desc=""),
@@ -153,17 +153,30 @@ keys = [
 ]
 
 # A hacky way to get my keyboard layout and qtile to play nicely
+# keyToUse = {
+#         "1": "plus",
+#         "2": "bracketleft",
+#         "3": "braceleft",
+#         "4": "parenleft",
+#         "5": "ampersand",
+#         "6": "equal",
+#         "7": "parenright",
+#         "8": "braceright",
+#         "9": "bracketright",
+#         "10": "asterisk"
+#         }
+
 keyToUse = {
-        "1": "plus",
-        "2": "bracketleft",
-        "3": "braceleft",
-        "4": "parenleft",
-        "5": "ampersand",
-        "6": "equal",
-        "7": "parenright",
-        "8": "braceright",
-        "9": "bracketright",
-        "10": "asterisk"
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4",
+        "5": "5",
+        "6": "6",
+        "7": "7",
+        "8": "8",
+        "9": "9",
+        "10": "0"
         }
 
 for i in groups:

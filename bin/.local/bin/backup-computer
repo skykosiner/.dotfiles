@@ -1,13 +1,5 @@
 #!/usr/bin/env bash
 
-# networkName=$(iwgetid -r)
-#
-# if [[ -z $networkName && ${networkName+x} ]];
-# then
-#     echo "Connect to Wi-Fi to backup computer"
-#     notify-send "Connect to Wi-Fi to backup computer"
-#     exit 0
-# fi
 
 filesInServerFolder=$(ls /mnt/server | wc -l)
 
@@ -18,6 +10,7 @@ if [[ $filesInServerFolder -le 1 ]]; then
 fi
 
 notify-send "Starting to backup computer to server"
+echo "Starting to backup computer to server"
 
 backupDate=$(date +%b-%d-%y)
 backupPath="/mnt/server/backups/$backupDate"
@@ -27,11 +20,4 @@ sudo tar --exclude="**/node_modules/*" --exclude=".*" --exclude="sky.tar.gz" --e
 mv "/home/sky/sky.tar.gz" "$backupPath"
 
 notify-send "Backup is finished"
-
-# Make dir of all my tiktoks I've saved lmfao
-# pushd ~/server/backups/Camera/Camera/
-# for f in *.mp4; do
-    # file=$(echo $f | grep -v "^$(date +%Y)")
-    # sudo cp /home/sky/server/backups/Camera/Camera/$file /home/sky/server/backups/tiktoks/
-# done
-# popd
+echo "Backup is finished"

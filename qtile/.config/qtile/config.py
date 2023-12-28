@@ -13,7 +13,8 @@ import subprocess
 # Only really use the master and stack layout
 
 layouts = [
-    layout.MonadTall(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=3, margin=15),
+    layout.MonadTall(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=2, margin=8),
+    layout.MonadWide(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=2, margin=8),
     layout.Max(border_width=1),
 ]
 
