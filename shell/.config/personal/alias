@@ -55,3 +55,5 @@ alias updateBookmarks="/home/sky/.local/bin/bookmarks --lf && /home/sky/.local/b
 # For Mac
 alias urlS="/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -dump URLSchemeBinding"
 alias iCloud="cd $HOME/Library/Mobile\ Documents/com~apple~CloudDocs"
+
+alias magit='exec emacsclient -c --eval "(progn (magit-status) (delete-other-windows))"'

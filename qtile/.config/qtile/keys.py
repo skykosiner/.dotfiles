@@ -153,6 +153,7 @@ keys = [
 ]
 
 # A hacky way to get my keyboard layout and qtile to play nicely
+# Only need to use this when I'm not using my moonlander
 # keyToUse = {
 #         "1": "plus",
 #         "2": "bracketleft",

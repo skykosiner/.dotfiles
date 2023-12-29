@@ -4,10 +4,10 @@
 xset r rate 300 50
 
 # Map the caps lock super
-setxkbmap -option caps:super
+# setxkbmap -option caps:super
 
 # When capslock is pressed only once, treat it as escape
-killall xcap 2>/dev/null ; xcape -e 'Super_L=Escape'
+# killall xcap 2>/dev/null ; xcape -e 'Super_L=Escape'
 
 [[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
 
@@ -19,8 +19,9 @@ dunst &
 
 # Set my screen layout
 
-
 # Set my keyboard layout
+# Don't need this here right now as my moonlander's layout is saved on the
+# board not the computer
 # setxkbmap -layout real-prog-dvorak
 
 # PICOM
@@ -29,7 +30,7 @@ picom &
 # Set last used background and color scheme
 wal -R &
 
-# Set them dwmblocks
+# Set them dwmblocks if dwm is running
 pgrep dwm >/dev/null && dwmblocks &
 
 # Every time a new keyboard is plugged in set the layout and remap keys
@@ -47,5 +48,5 @@ xrandr --auto &
 # Trying emacs again?
 emacs --daemon &
 
-# qbittorrent-nox -d &
+qbittorrent-nox -d &
 sudo tor &

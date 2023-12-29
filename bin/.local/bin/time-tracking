@@ -16,6 +16,7 @@ timers[📸 Instagram - Creative Stuff]="164856066 - Photography, Editing Photos
 timers[📁 Apprenticeship]="194299162"
 timers[📔 Book - Writing]="197033841 - Writing"
 timers[📔 Book - Research]="197033841 - Research"
+timers[⏲️ stop]="stop"
 
 timer=$(printf "%s\n" "${!timers[@]}" | sort | dmenu -i -p "Pick a timer to start: ")
 
@@ -24,6 +25,8 @@ if [[ "$timer" ]]; then
     tags=$(printf "%s\n" "${timers["${timer}"]}" | cut -d"-" -f2- | sed "s/^ //")
 
     /home/sky/.local/bin/toggl start -o "$project" -a "$tags"
+elif [[ "$timer" == "⏲️ stop" ]]; then
+    /home/sky/.local/bin/toggl stop
 else
     echo "Nothing selcted" && exit 0
 fi
