@@ -177,9 +177,9 @@
     (x-focus-frame agenda-frame)))
 
 ;; Archive to do after marking it as done
-(add-hook 'org-after-todo-state-change-hook
-          (lambda () (when (equal "DONE" org-state)
-                       (call-interactively #'org-archive-to-archive-sibling))))
+;; (add-hook 'org-after-todo-state-change-hook
+          ;; (lambda () (when (equal "DONE" org-state)
+                       ;; (call-interactively #'org-archive-to-archive-sibling))))
 
 ;; turn off current line highlited
 (setq global-hl-line-modes nil)

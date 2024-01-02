@@ -25,7 +25,7 @@ alias tt="tt -showwpm -notheme"
 
 alias ls="exa"
 alias la="exa -a --group-directories-first"
-alias lla="exa -la --group-directories-first"
+alias ll="exa -la --group-directories-first"
 
 alias grep="grep --color=auto"
 alias rickRoll="curl -s -L https://bit.ly/3zvELNz | bash"
