@@ -57,3 +57,5 @@ alias urlS="/System/Library/Frameworks/CoreServices.framework/Versions/A/Framewo
 alias iCloud="cd $HOME/Library/Mobile\ Documents/com~apple~CloudDocs"
 
 alias magit='exec emacsclient -c --eval "(progn (magit-status) (delete-other-windows))"'
+
+alias scan_network_devices="arp-scan -I enp5s0f3u2u3u2 -l"

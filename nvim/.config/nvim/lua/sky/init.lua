@@ -1,22 +1,10 @@
--- Thinking about trying out lazy.nvim
---[[ local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath) ]]
-
 require("sky.sets")
 require("sky.keymaps")
 require("sky.packer")
 require("sky.telescope")
--- Don't use any of these two right now
+-- TODO: Finish setting up lazy instead of packer at some point
+-- require("sky.lazy")
+-- I don't use any of these two right now
 -- require("sky.statusline")
 -- require("sky.winbar")
 

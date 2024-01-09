@@ -75,6 +75,7 @@ keys = [
     # Light control
     KeyChord([alt], "l", [
         Key([], "l", lazy.spawn("/home/sky/.local/bin/lights ceiling"), desc=""),
+        Key([], "s", lazy.spawn("/home/sky/.local/bin/lights studio"), desc=""),
         Key([], "r", lazy.spawn("/home/sky/.local/bin/lights others"), desc=""),
         Key([], "a", lazy.spawn("/home/sky/.local/bin/lights all"), desc=""),
         Key([], "p", lazy.spawn("/home/sky/.local/bin/light-percent"), desc=""),
