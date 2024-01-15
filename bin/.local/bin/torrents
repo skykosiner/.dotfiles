@@ -21,7 +21,7 @@ echo -n "$page"|
   dos2unix|
   sed ':a;N;$!ba;s/\n/ \t /g'
 
-magnet="$(echo -e "$selection"|cut -d\| -f2)"
+magnet="$(echo -e "$selection" | cut -d\| -f2)"
 
 [[ $magnet ]] || exit 1
 echo ": $(date +%s):0;aria2c --seed-time=1 '$magnet'" >> $HOME/.zsh_history

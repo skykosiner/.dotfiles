@@ -156,17 +156,17 @@ keys = [
 # A hacky way to get my keyboard layout and qtile to play nicely
 # Only need to use this when I'm not using my moonlander
 # keyToUse = {
-#         "1": "plus",
-#         "2": "bracketleft",
-#         "3": "braceleft",
-#         "4": "parenleft",
-#         "5": "ampersand",
-#         "6": "equal",
-#         "7": "parenright",
-#         "8": "braceright",
-#         "9": "bracketright",
-#         "10": "asterisk"
-#         }
+        # "1": "plus",
+        # "2": "bracketleft",
+        # "3": "braceleft",
+        # "4": "parenleft",
+        # "5": "ampersand",
+        # "6": "equal",
+        # "7": "parenright",
+        # "8": "braceright",
+        # "9": "bracketright",
+        # "10": "asterisk"
+        # }
 
 keyToUse = {
         "1": "1",
