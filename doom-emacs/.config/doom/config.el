@@ -3,7 +3,7 @@
 
 (add-to-list 'custom-theme-load-path "~/.config/doom/themes/")
 
-(setq doom-font (font-spec :family "UbuntuMono Nerd Font":size 25))
+(setq doom-font (font-spec :family "Inconsolata Nerd Font Mono":size 25))
 (after! doom-themes
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t))
@@ -16,7 +16,8 @@
    org-directory "~/org/"
    org-hide-emphasis-markers t)
   )
-(setq doom-theme 'tango-dark)
+
+(setq doom-theme nil)
 (setq display-line-numbers-type 'relative)
 
 (remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
@@ -186,3 +187,6 @@
 
 ;; Automatically start eglot when entering a new project
 (add-hook 'projectile-after-switch-project-hook 'eglot-ensure)
+
+;; Format go code on save
+(add-hook 'before-save-hook 'gofmt-before-save)
