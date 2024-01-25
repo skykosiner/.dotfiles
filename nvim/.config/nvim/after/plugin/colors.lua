@@ -19,7 +19,8 @@ function Colors(color)
   })
 
   require("colorbuddy").setup()
-  require('colorbuddy').colorscheme(vim.g.sky_colorscheme)
+  vim.cmd.colorscheme(vim.g.sky_colorscheme)
+  -- require("colorbuddy").colorscheme(vim.g.sky_colorscheme)
   require("colorizer").setup()
 
   vim.g.tokyonight_transparent = true
@@ -49,4 +50,4 @@ function Colors(color)
 end
 
 vim.g.codedark_transparent = 1
-Colors("gruvbuddy")
+Colors("rose-pine")

@@ -43,7 +43,7 @@ xrandr --setprovideroutputsource modesetting NVIDIA-0 &
 xrandr --auto &
 
 # Trying emacs again?
-emacs --daemon &
+command emacs --daemon &
 
 qbittorrent-nox -d &
 sudo tor &

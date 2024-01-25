@@ -177,11 +177,4 @@ return require("packer").startup(function(use)
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate"
   }
-
-
-  -- Org
-  -- use {'nvim-orgmode/orgmode', config = function()
-    -- require('orgmode').setup{}
-  -- end
--- }
 end)

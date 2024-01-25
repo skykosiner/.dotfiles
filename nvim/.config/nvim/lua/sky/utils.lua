@@ -46,9 +46,9 @@ end
 function M.open_dir_lf()
   local currentDir = vim.loop.cwd()
   Job:new({
-    "alacritty",
+    "wezterm",
     "-e",
-    "lf",
+    "lfub",
     currentDir
   }):start()
 end

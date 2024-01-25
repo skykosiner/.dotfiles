@@ -1,6 +1,6 @@
 vim.g.mapleader = " "
 
--- vim.opt.guicursor = ""
+vim.opt.guicursor = ""
 
 vim.opt.laststatus = 3
 
@@ -80,3 +80,5 @@ vim.g.netrw_localrmdir = 'rm -rf'
 vim.g.python3_host_skip_check = 1
 vim.g.python3_host_prog = '/bin/python3'
 vim.opt.colorcolumn = "80"
+
+vim.opt_local.conceallevel = 1

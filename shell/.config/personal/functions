@@ -129,7 +129,13 @@ de() {
 }
 
 oe() {
-    find ~/Documents/Linux-btw/ | fzf --height=40% | xargs -I {} nvim {}
+    # find ~/Documents/Linux-btw/ | fzf --height=40% | xargs -I {} nvim {}
+    file=$(du -a ~/org/ | cut -f2- | fzf --height=40%)
+
+    if [[ ! -z "$file" ]]; then
+        echo "$file"
+        $EDITOR "$file"
+    fi
 }
 
 # I always forget to commit suckless software 💀

@@ -23,7 +23,7 @@ config.colors = {}
 config.colors.background = '#111111'
 
 config.font = wezterm.font 'Inconsolata Nerd Font Mono'
-config.font_size = 22.0
+config.font_size = 19.0
 
 -- default is true, has more "native" look
 config.use_fancy_tab_bar = false
@@ -37,8 +37,12 @@ config.window_padding = {
   bottom = 0,
 }
 
+config.audible_bell = "Disabled"
+
 config.tab_bar_at_bottom = true
 config.freetype_load_target = "HorizontalLcd"
+
+config.window_close_confirmation = 'NeverPrompt'
 
 -- and finally, return the configuration to wezterm
 return config
