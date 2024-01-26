@@ -1,84 +1,76 @@
-vim.g.mapleader = " "
+local opt = vim.opt
+local g = vim.g
 
-vim.opt.guicursor = ""
+g.mapleader = " "
 
-vim.opt.laststatus = 3
+-- Keep cursor a block in insert mode
+opt.guicursor = ""
 
-vim.opt.number = true
-vim.opt.relativenumber = true
+-- Don't have so many statuslines per window
+opt.laststatus = 3
 
-vim.opt.termguicolors = true
-vim.opt.undofile = true
-vim.opt.incsearch = true
-vim.opt.cmdheight = 1
+-- Line numbers as they help you jupm around code fast
+opt.number = true
+opt.relativenumber = true
 
-vim.opt.signcolumn = "yes"
-vim.opt.scrolloff = 8
-vim.opt.updatetime = 50
-vim.opt.hidden = true
+-- Make colors look nice and so on
+opt.termguicolors = true
 
-vim.opt.splitbelow = true
--- vim.opt.cursorline = true
+-- Allow plugins like undotree to work well
+opt.undofile = true
+opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+opt.swapfile = false
+opt.backup = false
 
-vim.opt.ignorecase = true -- Ignore case when searching...
-vim.opt.smartcase = true -- ... unless there is a capital letter in the query
+-- Some sane defaults
+opt.tabstop = 4
+opt.shiftwidth = 4
+opt.softtabstop = 4
+opt.expandtab = true
+opt.autoindent = true
+opt.cindent = true
+opt.wrap = false
 
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.softtabstop = 4
-vim.opt.expandtab = true
-vim.opt.autoindent = true
-vim.opt.cindent = true
-vim.opt.wrap = false
+-- Highlight the current search as seacrhing
+opt.incsearch = true
 
-vim.opt.belloff = "all" -- WHO THE FUCK HAS THIS OPTION ON???
+-- Sign coulumn on to make lsp linting better
+opt.signcolumn = "yes"
 
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
+-- Start to scroll 8 lines before the bottom/top
+opt.scrolloff = 8
 
-vim.opt.wildignore = "__pycache__"
-vim.opt.wildignore = "*.pyc"
-vim.opt.wildignore = "*_build/*"
-vim.opt.wildignore = "**/coverage/*"
-vim.opt.wildignore = "**/node_modules/*"
-vim.opt.wildignore = "**/.git/*"
-vim.opt.wildignore = "**/_dist/*"
-vim.opt.wildignore = vim.opt.wildignore + { "*.o", "*~", "*.pyc", "*pycache*" }
+-- If nothing is typed for 50ms then the swap file for the current file will be writen to the list
+opt.updatetime = 50
 
-vim.opt.wildmode = "longest,list,full"
-vim.opt.wildmenu = true
+-- Keep buffers in memory (uses a bit more ram, but coming from vs code vim is still super light weight even with this being on)
+opt.hidden = true
 
-vim.opt.breakindent = true
-vim.opt.linebreak = true
+-- Always splitt horizontal below by default
+opt.splitbelow = true
 
-vim.opt.hlsearch = false
+-- Help keep track of where cursor is
+opt.cursorline = true
 
-vim.opt.showmode = false
+opt.ignorecase = true -- Ignore case when searching...
+opt.smartcase = true -- ... unless there is a capital letter in the query
 
--- vim.opt.list = true
--- Not sure if I like this or not hmmm
--- vim.opt.listchars = "tab:· ,nbsp:_,trail: ,multispace:· ,eol:↲"
--- vim.opt.listchars = { eol = "↲", tab = ">", space = ">" }
+opt.belloff = "all" -- WHO THE FUCK HAS THIS OPTION ON???
 
--- vim.opt.listchars = {
-  -- eol = ' ',
-  -- tab = ' ',
-  -- multispace = ' ',
-  -- tab = '  ',
-  -- multispace = '  ',
--- }
+opt.breakindent = true
+opt.linebreak = true
 
-vim.opt.title = true
+-- Stop highlighting search results after you leave the search
+opt.hlsearch = false
 
-vim.g.netrw_browse_split = 0
-vim.g.netrw_banner = 0
-vim.g.netrw_winsize = 25
-vim.g.netrw_localrmdir = 'rm -rf'
+-- Update the title of the window depending on what's currently going on
+opt.title = true
 
-vim.g.python3_host_skip_check = 1
-vim.g.python3_host_prog = '/bin/python3'
-vim.opt.colorcolumn = "80"
+-- Make netrtw look nicer
+g.netrw_browse_split = 0
+g.netrw_banner = 0
+g.netrw_winsize = 25
+g.netrw_localrmdir = 'rm -rf'
 
-vim.opt_local.conceallevel = 1
+-- Help keep track of 80 charcter column limit
+opt.colorcolumn = "80"

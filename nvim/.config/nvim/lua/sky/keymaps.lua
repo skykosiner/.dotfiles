@@ -1,120 +1,69 @@
--- Stollen from the vim man him self
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww ~/.local/bin/tmux-stuff/tmux-sessionizer<CR>")
+-- Helper functions to map keys in different modes
+local function normal_mode(keymap, action)
+    vim.keymap.set("n", keymap, action)
+end
 
-vim.keymap.set("n", "j", "gj")
-vim.keymap.set("n", "k", "gk")
+local function visual_mode(keymap, action)
+    vim.keymap.set("v", keymap, action)
+end
 
--- SOURCE ME DADDY
-vim.keymap.set("n", "<leader>so", ":so %<CR>")
+-- Open file explorer
+normal_mode("<leader>pv", vim.cmd.Ex)
 
--- Sweet resizes baby
-vim.keymap.set("n", "<leader>+", "<cmd>vertical resize +5<CR>")
-vim.keymap.set("n", "<leader>-", "<cmd>vertical resize -5<CR>")
-vim.keymap.set("n", "<leader>t+", "<cmd>top resize +5<CR>")
-vim.keymap.set("n", "<leader>t-", "<cmd>top resize -5<CR>")
+-- Quick fix list navigation
+normal_mode("<C-j>", ":cnext<CR>")
+normal_mode("<C-k>", ":cprev<CR>")
+normal_mode("<leader>po", ":copen<CR>")
 
-vim.keymap.set("n", "<C-j>", ":cnext<CR>")
-vim.keymap.set("n", "<C-k>", ":cprev<CR>")
-vim.keymap.set("n", "<leader>j", ":lnext<CR>")
-vim.keymap.set("n", "<leader>k", ":lprevious<CR>")
-vim.keymap.set("n", "<leader>po", ":copen<CR>")
-vim.keymap.set("n", "<leader>lo", ":lopen<CR>")
+-- Keep stuff centred while moving around
+normal_mode("*", "*zzzv")
+normal_mode("#", "#zzzv")
+normal_mode(",", ",zzzv")
+normal_mode(";", ";zzzv")
+normal_mode("n", "nzzzv")
+normal_mode("N", "Nzzzv")
 
-vim.keymap.set("n", "*", "*zzzv")
-vim.keymap.set("n", "#", "#zzzv")
-vim.keymap.set("n", ",", ",zzzv")
-vim.keymap.set("n", ";", ";zzzv")
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
+-- Some fun register stuff
+normal_mode("<leader>y", '"+y')
+normal_mode("<leader>Y", '"+y$')
+normal_mode("<leader>d", '"_d')
+normal_mode("<leader>x", '"_x')
+normal_mode("<leader>p", '"_dP')
+normal_mode("<leader>y", '"+y')
+normal_mode("<leader>Y", '"+Y')
 
--- Use control-c instead of esc. Yes I vim in style
-vim.keymap.set("n", "<C-c>", "<esc>")
-
--- Sweet remaps to tab stuff
-  vim.keymap.set("v", "<", "<gv")
-vim.keymap.set("v", ">", ">gv")
-
--- Spelling as I suck at it
-vim.keymap.set("n", "<leader>sp", ":lua require('sky.utils').toggleSpell()<CR>")
-vim.keymap.set("n", "<leader>ol", ":lua require('sky.utils').open_markdown_link()<CR>")
-
--- CHMOD ME DADDY
-vim.keymap.set("n", "<leader>ch", "<cmd>!chmod +x %<CR>")
-
-vim.keymap.set("n", "<leader>y", '"+y')
-vim.keymap.set("n", "<leader>Y", '"+y$')
-vim.keymap.set("n", "<leader>d", '"_d')
-vim.keymap.set("n", "<leader>x", '"_x')
-vim.keymap.set("v", "<leader>p", '"_dP')
-vim.keymap.set("v", "<leader>y", '"+y')
-vim.keymap.set("v", "<leader>Y", '"+Y')
-
-vim.keymap.set("n", "<silent>Q", "<Nop>")
-
-vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<CR><esc>kkI<esc>")
-
--- Open the current dir in lf (a terminal based file manger)
-vim.keymap.set("n", "<leader><C-o>", ":lua require('sky.utils').open_dir_lf()<CR>")
-
--- Make comments in react, don't realy code in react though, so don't think I need this
--- vim.keymap.set("n", "<leader>gcc", ":norm ^i{/*<esc>A*/}<esc><CR>")
--- vim.keymap.set("n", "<leader>guc", ":norm ^df*f*D<CR>")
-
--- Set the status line as sometimes it glitechs
-vim.keymap.set("n", "<leader>ss", function()
-  vim.o.statusline = '%!v:lua.status()'
-end)
-
--- File stuff
-vim.keymap.set("n", "<leader>pv", ":Ex<CR>")
-
--- Have some sex on the side baby
-vim.keymap.set("n", "<leader>ft", ":Sex!<CR>")
-
--- TWITCH BOT
-vim.keymap.set("n", "<leader>ea", "[[ <cmd>lua require('twitch-bot').init()<CR> ]]")
-vim.keymap.set("n", "<leader>ed", "[[ <cmd>lua require('twitch-bot').disconnect()<CR> ]]")
+-- Help save time by typing if err things in golang
+normal_mode("<leader>ee", "oif err != nil {<CR>}<CR><esc>kkI<esc>")
 
 -- Terminal stuff
-vim.keymap.set("n", "<leader>ts", function()
+normal_mode("<leader>ts", function()
   vim.cmd("12split")
   vim.cmd("set winfixheight")
   vim.cmd("term")
   vim.cmd("startinsert")
 end)
 
-vim.keymap.set("n", "<leader>tu", function()
+normal_mode("<leader>tu", function()
   vim.cmd("terminal")
   vim.cmd("startinsert")
 end)
 
-vim.keymap.set("n", "<leader>tt", function()
+normal_mode("<leader>tt", function()
   vim.cmd("tabnew")
   vim.cmd("terminal")
   vim.cmd("startinsert")
 end)
 
-vim.keymap.set("n", "<leader>tv", function()
+normal_mode("<leader>tv", function()
   vim.cmd("vsplit")
   vim.cmd("terminal")
   vim.cmd("startinsert")
 end)
 
--- Grep the current highlighted selction
-vim.keymap.set("v", "<leader>ps",
-  "\"gy<cmd>lua require(\"telescope.builtin\").grep_string({ search = vim.fn.getreg(\"g\") })<cr>")
+-- Keep things highlighted after moving with < and >
+visual_mode("<", "<gv")
+visual_mode(">", ">gv")
 
--- Tab stuff
-vim.keymap.set("n", "<right>", "gt")
-vim.keymap.set("n", "<left>", "gT")
-vim.keymap.set("n", "<leader>nn", ":tabnew<CR>")
-
--- MOVE STUFF BABY
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-
--- Compile latex
-vim.keymap.set("n", "<leader>co", function ()
-  vim.cmd(":w!")
-  vim.cmd("!/home/sky/.local/bin/compiler '%:p'")
-end)
+-- Move stuff up and down in visual mode
+visual_mode("J", ":m '>+1<CR>gv=gv")
+visual_mode("K", ":m '<-2<CR>gv=gv")

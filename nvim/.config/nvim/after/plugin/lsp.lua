@@ -1,23 +1,16 @@
 local lsp = require("lsp-zero")
-local lspkind = require "lspkind"
+local lspkind = require("lspkind")
 local cmp = require('cmp')
 
--- Make sure to get autocomplete with vim apis
-require("neodev").setup()
+require("mason").setup({})
+require('mason-lspconfig').setup({
+  ensure_installed = {},
+  handlers = {
+    lsp.default_setup,
+  },
+})
 
 lsp.preset("recommended")
-require("inlay-hints").setup()
-
-lsp.ensure_installed({
-  'tsserver',
-  'eslint',
-  'lua_ls',
-  'rust_analyzer',
-  'gopls',
-  'bashls',
-  'pyright',
-  'clangd',
-})
 
 cmp.setup({
   formatting = {
@@ -34,6 +27,16 @@ cmp.setup({
       end
     })
   },
+
+  mapping = cmp.mapping.preset.insert({
+    ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
+    ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+    ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+    ["<C-Space>"] = cmp.mapping.complete({}),
+    ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+    ["<C-f>"] = cmp.mapping.scroll_docs(4),
+  }),
+
   experimental = {
     ghost_text = true,
   },
@@ -48,36 +51,11 @@ cmp.setup({
     { name = "nvim_lua" },
     { name = "nvim_lsp" },
     { name = "path" },
-    { name = "gh_issues" },
     { name = "luasnip" },
     { name = "buffer", keyword_length = 5 },
   }
 })
 
-local cmp_select = { behavior = cmp.SelectBehavior.Select }
-local cmp_mappings = lsp.defaults.cmp_mappings({
-  ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-  ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-  ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-  ["<C-Space>"] = cmp.mapping.complete({}),
-  ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-  ["<C-f>"] = cmp.mapping.scroll_docs(4),
-})
-
--- TURN OFF TABS AND ENTER
-cmp_mappings['<Tab>'] = nil
-cmp_mappings['<S-Tab>'] = nil
-cmp_mappings['<CR>'] = nil
-
-lspkind.init()
-
-lsp.set_preferences({
-  sign_icons = {}
-})
-
-lsp.setup_nvim_cmp({
-  mapping = cmp_mappings
-})
 
 lsp.on_attach(function(client, bufnr)
   local opts = { buffer = bufnr, remap = false }
@@ -91,24 +69,16 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
   vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-
-  --[[ local group = vim.api.nvim_create_augroup("LSP_FORMAT", { clear = true })
-
-  -- Format on save
-  vim.api.nvim_create_autocmd("BufWritePre", { callback = function()
-    vim.lsp.buf.format { async = true }
-  end, group = group }) ]]
 end)
 
-local opts = {
-  -- whether to highlight the currently hovered symbol
-  -- disable if your cpu usage is higher than you want it
-  -- or you just hate the highlight
-  -- default: true
-  highlight_hovered_item = true,
+lspkind.init()
 
-  -- whether to show outline guides
-  -- default: true
+lsp.set_preferences({
+  sign_icons = {}
+})
+
+local opts = {
+  highlight_hovered_item = true,
   show_guides = true,
 }
 

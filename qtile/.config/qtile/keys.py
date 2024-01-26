@@ -4,7 +4,7 @@ from groups import groups
 
 mod = "mod4"
 alt = "mod1"
-terminal = "wezterm"
+terminal = "kitty"
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -105,18 +105,18 @@ keys = [
         Key(["shift"], "p", lazy.spawn("/home/sky/.local/bin/spotify-control -play-song"), desc=""),
         Key([], "a", lazy.spawn("/home/sky/.local/bin/spotify-control -select-album"), desc=""),
         Key([], "s", lazy.spawn("/home/sky/.local/bin/spotify-control -select-playlist"), desc=""),
-        Key([], "m", lazy.spawn("wezterm -e spt"), desc=""),
-        Key([], "l", lazy.spawn("wezterm -e sptlrx"), desc=""),
+        Key([], "m", lazy.spawn("kitty -e spt"), desc=""),
+        Key([], "l", lazy.spawn("kitty -e sptlrx"), desc=""),
         ]),
 
     # App launcher stuff
     KeyChord([mod], "m", [
         Key([], "s", lazy.spawn("spotify-launcher"), desc="Open spotify"),
-        Key([], "e", lazy.spawn("wezterm -e neomutt"), desc="Open email"),
+        Key([], "e", lazy.spawn("kitty -e neomutt"), desc="Open email"),
         Key([], "b", lazy.spawn("beeper"), desc="Open beeper"),
         Key([], "r", lazy.spawn("prime-run /opt/resolve/bin/resolve"), desc="Open resolve"),
-        Key([], "p", lazy.spawn("wezterm -e pulsemixer"), desc="Open pulsemixer"),
-        Key([], "h", lazy.spawn("wezterm -e htop"), desc="Open htop"),
+        Key([], "p", lazy.spawn("kitty -e pulsemixer"), desc="Open pulsemixer"),
+        Key([], "h", lazy.spawn("kitty -e htop"), desc="Open htop"),
         # Key([], "o", lazy.spawn("obsidian"), desc="Open obsidian"),
         Key(["shift"], "o", lazy.spawn("prime-run obs"), desc="Open obs"),
         Key([], "f", lazy.spawn("thunar"), desc="Open thunar")
@@ -142,7 +142,7 @@ keys = [
 
     Key([mod, "shift"], "g", lazy.spawn("/home/sky/.local/bin/picomToggle"), desc=""),
 
-    Key([mod], "o", lazy.spawn("wezterm -e /home/sky/.local/bin/lfub"), desc=""),
+    Key([mod], "o", lazy.spawn("kitty -e /home/sky/.local/bin/lfub"), desc=""),
     Key([mod, "shift"], "s", lazy.spawn("flameshot gui -p /home/sky/Pictures/Captures"), desc=""),
     Key([mod, "shift"], "b", lazy.spawn("/home/sky/.local/bin/change_background_dmenu"), desc=""),
     Key([alt], "d", lazy.spawn("setxkbmap -layout real-prog-dvorak"), desc=""),
