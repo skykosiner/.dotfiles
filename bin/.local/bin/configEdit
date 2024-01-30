@@ -26,6 +26,6 @@ configs[bookmarked files]="$HOME/.dotfiles/.bookmfiles"
 configToEdit=$(printf "%s\n" "${!configs[@]}" | sort | dmenu -p "Config Edit: ")
 
 if [[ ! -z $configToEdit ]]; then
-    emacsclient -c -a 'emacs' $(printf "%s\n" "${configs["${configToEdit}"]}")
-    # st -e nvim $(printf "%s\n" "${configs["${configToEdit}"]}")
+    # emacsclient -c -a 'emacs' $(printf "%s\n" "${configs["${configToEdit}"]}")
+    kitty -e nvim $(printf "%s\n" "${configs["${configToEdit}"]}")
 fi

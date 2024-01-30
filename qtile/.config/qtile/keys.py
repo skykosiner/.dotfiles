@@ -53,7 +53,8 @@ keys = [
     KeyChord([mod], "e", [
         Key([], "e", lazy.spawn("emacsclient -c -a emacs"), desc="Open Emacs"),
         Key([], "b", lazy.spawn("emacsclient -c -a emacs --eval '(ibuffer)' "), desc="Open emacs ibuffer"),
-        Key([], "t", lazy.spawn("emacsclient -c -a emacs --eval '(org-agenda-list)' "), desc="Open emacs in org agenda"),
+        Key([], "T", lazy.spawn("emacsclient -c -a emacs --eval '(org-agenda-list)' "), desc="Open emacs in org agenda"),
+        Key([], "t", lazy.group['scratchpad'].dropdown_toggle("org-today"), desc="Open emacs in org agenda"),
         Key([], "d", lazy.spawn("emacsclient -c -a emacs --eval '(dired nil)' "), desc="Open emacs dired"),
         Key([], "k", lazy.spawn("killall emacs"),
                       lazy.spawn("/usr/bin/emacs --daemon"),

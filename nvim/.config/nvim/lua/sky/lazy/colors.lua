@@ -2,10 +2,11 @@ return {
   {
     "tjdevries/colorbuddy.nvim",
     dependencies = {
+      { "catppuccin/nvim",  name = "catppuccin", priority = 1000 },
+      { "rose-pine/neovim", name = "rose-pine" },
       "gruvbox-community/gruvbox",
       "ayu-theme/ayu-vim",
       "folke/tokyonight.nvim",
-      "rose-pine/neovim",
       "tjdevries/gruvbuddy.nvim",
     },
     config = function()
@@ -21,22 +22,22 @@ return {
       })
 
       -- Make sure rose-pine is 100% transparent
-      require("rose-pine").setup({
-        disable_background = true
-      })
-
       vim.g.tokyonight_transparent = true
       vim.g.tokyonight_transparent_sidebar = true
       vim.opt.background = "dark"
+
+      -- require("colorbuddy").colorscheme("gruvbuddy")
+      vim.cmd.colorscheme("tokyonight")
+
+      require("rose-pine").setup({
+        disable_background = true
+      })
 
       -- Make that gruvbox look good
       vim.g.gruvbox_contrast_dark = 'hard'
       vim.g.gruvbox_contrast_dark = 'hard'
       vim.g.gruvbox_invert_selection = '0'
       vim.g.gruvbox_italic = 1
-
-      -- require("colorbuddy").colorscheme("gruvbuddy")
-      vim.cmd.colorscheme("rose-pine")
 
       vim.cmd("highlight ColorColumn ctermbg=0 guibg=#555555")
       vim.api.nvim_set_hl(0, "WinSeparator", { bg = "none", fg = "none" })

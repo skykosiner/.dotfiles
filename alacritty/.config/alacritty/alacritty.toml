@@ -42,4 +42,4 @@ multiplier = 3
 
 [window]
 decorations = "full"
-opacity = 0.8
+# opacity = 0.8

@@ -2,6 +2,7 @@ return {
   {
     "VonHeikemen/lsp-zero.nvim",
     dependencies = {
+      "hrsh7th/cmp-path",
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
       "neovim/nvim-lspconfig",

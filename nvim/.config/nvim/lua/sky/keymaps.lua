@@ -1,14 +1,16 @@
 -- Helper functions to map keys in different modes
 local function normal_mode(keymap, action)
-    vim.keymap.set("n", keymap, action)
+  vim.keymap.set("n", keymap, action)
 end
 
 local function visual_mode(keymap, action)
-    vim.keymap.set("v", keymap, action)
+  vim.keymap.set("v", keymap, action)
 end
 
+normal_mode("<C-f>", ":silent !tmux neww ~/.local/bin/tmux-sessionizer<CR>")
+
 -- Open file explorer
-normal_mode("<leader>pv", vim.cmd.Ex)
+normal_mode("<leader>pv", vim.cmd.Oil)
 
 -- Quick fix list navigation
 normal_mode("<C-j>", ":cnext<CR>")
@@ -24,9 +26,9 @@ normal_mode("n", "nzzzv")
 normal_mode("N", "Nzzzv")
 
 -- Some fun register stuff
-normal_mode("<leader>y", '"+y')
+visual_mode("<leader>y", '"+y')
 normal_mode("<leader>Y", '"+y$')
-normal_mode("<leader>d", '"_d')
+visual_mode("<leader>d", '"_d')
 normal_mode("<leader>x", '"_x')
 normal_mode("<leader>p", '"_dP')
 normal_mode("<leader>y", '"+y')
@@ -67,3 +69,7 @@ visual_mode(">", ">gv")
 -- Move stuff up and down in visual mode
 visual_mode("J", ":m '>+1<CR>gv=gv")
 visual_mode("K", ":m '<-2<CR>gv=gv")
+
+-- Switch betwene tabs
+normal_mode("<Left>", "gT")
+normal_mode("<Right>", "gt")

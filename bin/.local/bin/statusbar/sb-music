@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-status=$(~/.local/bin/spotifycli --status)
+status=$(/home/sky/.local/bin/spotifycli --status)
 printf "$status"

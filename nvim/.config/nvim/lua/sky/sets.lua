@@ -53,9 +53,9 @@ opt.splitbelow = true
 opt.cursorline = true
 
 opt.ignorecase = true -- Ignore case when searching...
-opt.smartcase = true -- ... unless there is a capital letter in the query
+opt.smartcase = true  -- ... unless there is a capital letter in the query
 
-opt.belloff = "all" -- WHO THE FUCK HAS THIS OPTION ON???
+opt.belloff = "all"   -- WHO THE FUCK HAS THIS OPTION ON???
 
 opt.breakindent = true
 opt.linebreak = true
