@@ -74,3 +74,5 @@ g.netrw_localrmdir = 'rm -rf'
 
 -- Help keep track of 80 charcter column limit
 opt.colorcolumn = "80"
+
+opt.conceallevel = 1

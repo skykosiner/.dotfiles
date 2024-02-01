@@ -42,9 +42,6 @@ newKeyboard &
 xrandr --setprovideroutputsource modesetting NVIDIA-0 &
 xrandr --auto &
 
-# Trying emacs again?
-command emacs --daemon &
-
 qbittorrent-nox -d &
 sudo tor &
 
@@ -52,3 +49,5 @@ sudo tor &
 
 # YOU WANT TO SEE SOME REAL SPEED?????????????????????
 xset r rate 300 50
+
+autorandr --cycle

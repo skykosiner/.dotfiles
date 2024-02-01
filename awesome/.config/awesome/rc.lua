@@ -24,9 +24,11 @@ require("awful.hotkeys_popup.keys")
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
 if awesome.startup_errors then
-  naughty.notify({ preset = naughty.config.presets.critical,
+  naughty.notify({
+    preset = naughty.config.presets.critical,
     title = "Oops, there were errors during startup!",
-    text = awesome.startup_errors })
+    text = awesome.startup_errors
+  })
 end
 
 -- Handle runtime errors after startup
@@ -37,9 +39,11 @@ do
     if in_error then return end
     in_error = true
 
-    naughty.notify({ preset = naughty.config.presets.critical,
+    naughty.notify({
+      preset = naughty.config.presets.critical,
       title = "Oops, an error happened!",
-      text = tostring(err) })
+      text = tostring(err)
+    })
     in_error = false
   end)
 end
@@ -86,20 +90,23 @@ awful.layout.layouts = {
 -- {{{ Menu
 -- Create a launcher widget and a main menu
 myawesomemenu = {
-  { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
-  { "manual", terminal .. " -e man awesome" },
+  { "hotkeys",     function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
+  { "manual",      terminal .. " -e man awesome" },
   { "edit config", editor_cmd .. " " .. awesome.conffile },
-  { "restart", awesome.restart },
-  { "quit", function() awesome.quit() end },
+  { "restart",     awesome.restart },
+  { "quit",        function() awesome.quit() end },
 }
 
-mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-  { "open terminal", terminal }
-}
+mymainmenu = awful.menu({
+  items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
+    { "open terminal", terminal }
+  }
 })
 
-mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
-  menu = mymainmenu })
+mylauncher = awful.widget.launcher({
+  image = beautiful.awesome_icon,
+  menu = mymainmenu
+})
 
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
@@ -204,20 +211,22 @@ awful.screen.connect_for_each_screen(function(s)
   -- Add widgets to the wibox
   s.mywibox:setup {
     layout = wibox.layout.align.horizontal,
-    { -- Left widgets
+    {
+      -- Left widgets
       layout = wibox.layout.fixed.horizontal,
       mylauncher,
       s.mytaglist,
       s.mypromptbox,
     },
     s.mytasklist, -- Middle widget
-    { -- Right widgets
+    {
+                  -- Right widgets
       layout = wibox.layout.fixed.horizontal,
       wibox.widget.systray(),
       mytextclock,
-      awful.widget.watch('bash -c "/home/yoni/.local/bin/aircon status | sed s/{// | sed s/}//"', 1),
+      awful.widget.watch('bash -c "/home/sky/.local/bin/aircon status | sed s/{// | sed s/}//"', 1),
       awful.widget.watch('echo " "', 1),
-      -- awful.widget.watch('bash -c "/home/yoni/.local/bin/lights status"', 1),
+      -- awful.widget.watch('bash -c "/home/sky/.local/bin/lights status"', 1),
       s.mylayoutbox,
     },
   }
@@ -243,11 +252,11 @@ globalkeys = gears.table.join(
   end),
 
   awful.key({ modkey, "Shift" }, "s", function()
-    awful.util.spawn("flameshot gui -p /home/yoni/Pictures/Captures")
+    awful.util.spawn("flameshot gui -p /home/sky/Pictures/Captures")
   end),
 
   awful.key({ modkey, }, "space", function()
-    awful.util.spawn("sh /home/yoni/.local/bin/menu-emoji")
+    awful.util.spawn("sh /home/sky/.local/bin/menu-emoji")
   end),
 
   awful.key({ modkey, "Shift" }, "g", function()
@@ -263,90 +272,90 @@ globalkeys = gears.table.join(
   end),
 
   awful.key({ "Mod4", "Shift" }, "g", function()
-    awful.util.spawn("sh /home/yoni/.local/bin/picomToggle")
+    awful.util.spawn("sh /home/sky/.local/bin/picomToggle")
   end),
 
   -- Yes I wrote an app in golang to control my aircon
   awful.key({ "Mod4", "Shift" }, "o", function()
-    awful.util.spawn("/home/yoni/.local/bin/aircon toggle")
-    awful.util.spawn("sh /home/yoni/.local/bin/changeToAircon")
+    awful.util.spawn("/home/sky/.local/bin/aircon toggle")
+    awful.util.spawn("sh /home/sky/.local/bin/changeToAircon")
   end),
 
   awful.key({ modkey, "Shift" }, "c", function()
-    awful.util.spawn("/home/yoni/.local/bin/aircon conflict")
+    awful.util.spawn("/home/sky/.local/bin/aircon conflict")
   end),
 
   awful.key({ "Mod4", "Shift" }, "c", function()
-    awful.util.spawn("sh /home/yoni/.local/bin/cold")
-    awful.util.spawn("sh /home/yoni/.local/bin/changeToAircon")
+    awful.util.spawn("sh /home/sky/.local/bin/cold")
+    awful.util.spawn("sh /home/sky/.local/bin/changeToAircon")
   end),
 
   awful.key({ "Mod4", "Shift" }, "h", function()
-    awful.util.spawn("sh /home/yoni/.local/bin/hot")
-    awful.util.spawn("sh /home/yoni/.local/bin/changeToAircon")
+    awful.util.spawn("sh /home/sky/.local/bin/hot")
+    awful.util.spawn("sh /home/sky/.local/bin/changeToAircon")
   end),
 
   awful.key({ "Mod4", "Shift" }, "i", function()
-    awful.util.spawn("sh /home/yoni/.local/bin/airconControl -inc-1")
-    awful.util.spawn("sh /home/yoni/.local/bin/changeToAircon")
+    awful.util.spawn("sh /home/sky/.local/bin/airconControl -inc-1")
+    awful.util.spawn("sh /home/sky/.local/bin/changeToAircon")
   end),
 
   awful.key({ "Mod4", "Shift" }, "m", function()
-    awful.util.spawn("sh /home/yoni/.local/bin/airconControl -dec-1")
-    awful.util.spawn("sh /home/yoni/.local/bin/changeToAircon")
+    awful.util.spawn("sh /home/sky/.local/bin/airconControl -dec-1")
+    awful.util.spawn("sh /home/sky/.local/bin/changeToAircon")
   end),
 
   awful.key({ "Mod4", }, "n", function()
-    awful.util.spawn("sh /home/yoni/.local/bin/airconControl -change")
-    awful.util.spawn("sh /home/yoni/.local/bin/changeToAircon")
+    awful.util.spawn("sh /home/sky/.local/bin/airconControl -change")
+    awful.util.spawn("sh /home/sky/.local/bin/changeToAircon")
   end),
 
   awful.key({ "Mod4", }, "h", function()
-    awful.util.spawn("/home/yoni/.local/bin/aircon hot")
-    awful.util.spawn("sh /home/yoni/.local/bin/changeToAircon")
+    awful.util.spawn("/home/sky/.local/bin/aircon hot")
+    awful.util.spawn("sh /home/sky/.local/bin/changeToAircon")
   end),
 
   awful.key({ "Mod4", }, "c", function()
-    awful.util.spawn("/home/yoni/.local/bin/aircon cold")
-    awful.util.spawn("sh /home/yoni/.local/bin/changeToAircon")
+    awful.util.spawn("/home/sky/.local/bin/aircon cold")
+    awful.util.spawn("sh /home/sky/.local/bin/changeToAircon")
   end),
 
   awful.key({ "Mod4", }, "f", function()
-    awful.util.spawn("sh /home/yoni/.local/bin/airconControl -sellect-fan")
-    awful.util.spawn("sh /home/yoni/.local/bin/changeToAircon")
+    awful.util.spawn("sh /home/sky/.local/bin/airconControl -sellect-fan")
+    awful.util.spawn("sh /home/sky/.local/bin/changeToAircon")
   end),
 
   -- Yes I also wrote a thing to contorl my lights
   awful.key({ "Mod4", "Shift" }, "l", function()
-    awful.util.spawn("/home/yoni/.local/bin/lights ceiling")
+    awful.util.spawn("/home/sky/.local/bin/lights ceiling")
   end),
 
   awful.key({ "Mod4", "Shift" }, "r", function()
-    awful.util.spawn("/home/yoni/.local/bin/lights others")
+    awful.util.spawn("/home/sky/.local/bin/lights others")
   end),
 
   awful.key({ "Mod4", "Shift" }, "a", function()
-    awful.util.spawn("/home/yoni/.local/bin/lights all")
+    awful.util.spawn("/home/sky/.local/bin/lights all")
   end),
 
   awful.key({ "Mod4", "Shift" }, "a", function()
-    awful.util.spawn("/home/yoni/.local/bin/lights all")
+    awful.util.spawn("/home/sky/.local/bin/lights all")
   end),
 
   awful.key({ "Mod4", "Shift" }, "m", function()
-    awful.util.spawn("sh /home/yoni/.local/bin/montiors")
+    awful.util.spawn("sh /home/sky/.local/bin/montiors")
   end),
 
   awful.key({ modkey, "Shift" }, "b", function()
-    awful.util.spawn("sh /home/yoni/.local/bin/change_background_dmenu")
+    awful.util.spawn("sh /home/sky/.local/bin/change_background_dmenu")
   end),
 
   awful.key({ "Mod4", }, "]", function()
-    awful.util.spawn("sh /home/yoni/.local/bin/brightness --dec")
+    awful.util.spawn("sh /home/sky/.local/bin/brightness --dec")
   end),
 
   awful.key({ "Mod4", }, "[", function()
-    awful.util.spawn("sh /home/yoni/.local/bin/brightness --inc")
+    awful.util.spawn("sh /home/sky/.local/bin/brightness --inc")
   end),
 
   awful.key({ modkey, }, "s", hotkeys_popup.show_help,
@@ -463,11 +472,11 @@ clientkeys = gears.table.join(
   awful.key({ modkey, "Control" }, "Return", function(c) c:swap(awful.client.getmaster()) end,
     { description = "move to master", group = "client" }),
   awful.key({ modkey, }, "m", function(c)
-    -- Get current window tag
-    -- Then move to that tag on the second screen
-    -- For now just using the defualt that just moves to whatever workspace is open on the other screen
-    c:move_to_screen()
-  end,
+      -- Get current window tag
+      -- Then move to that tag on the second screen
+      -- For now just using the defualt that just moves to whatever workspace is open on the other screen
+      c:move_to_screen()
+    end,
     { description = "move to screen", group = "client" }),
   awful.key({ modkey, }, "n",
     function(c)
@@ -568,8 +577,10 @@ root.keys(globalkeys)
 -- Rules to apply to new clients (through the "manage" signal).
 awful.rules.rules = {
   -- All clients will match this rule.
-  { rule = {},
-    properties = { border_width = beautiful.border_width,
+  {
+    rule = {},
+    properties = {
+      border_width = beautiful.border_width,
       border_color = beautiful.border_normal,
       focus = awful.client.focus.filter,
       raise = true,
@@ -581,40 +592,44 @@ awful.rules.rules = {
   },
 
   -- Floating clients.
-  { rule_any = {
-    instance = {
-      "DTA", -- Firefox addon DownThemAll.
-      "copyq", -- Includes session name in class.
-      "pinentry",
+  {
+    rule_any = {
+      instance = {
+        "DTA", -- Firefox addon DownThemAll.
+        "copyq", -- Includes session name in class.
+        "pinentry",
+      },
+      class = {
+        "Arandr",
+        "Blueman-manager",
+        "Gpick",
+        "Kruler",
+        "MessageWin", -- kalarm.
+        "Sxiv",
+        "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
+        "Wpa_gui",
+        "veromix",
+        "xtightvncviewer"
+      },
+      -- Note that the name property shown in xprop might be set slightly after creation of the client
+      -- and the name shown there might not match defined rules here.
+      name = {
+        "Event Tester", -- xev.
+      },
+      role = {
+        "AlarmWindow", -- Thunderbird's calendar.
+        "ConfigManager", -- Thunderbird's about:config.
+        "pop-up",      -- e.g. Google Chrome's (detached) Developer Tools.
+      }
     },
-    class = {
-      "Arandr",
-      "Blueman-manager",
-      "Gpick",
-      "Kruler",
-      "MessageWin", -- kalarm.
-      "Sxiv",
-      "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
-      "Wpa_gui",
-      "veromix",
-      "xtightvncviewer"
-    },
-
-    -- Note that the name property shown in xprop might be set slightly after creation of the client
-    -- and the name shown there might not match defined rules here.
-    name = {
-      "Event Tester", -- xev.
-    },
-    role = {
-      "AlarmWindow", -- Thunderbird's calendar.
-      "ConfigManager", -- Thunderbird's about:config.
-      "pop-up", -- e.g. Google Chrome's (detached) Developer Tools.
-    }
-  }, properties = { floating = true } },
+    properties = { floating = true }
+  },
 
   -- Add titlebars to normal clients and dialogs
-  { rule_any = { type = { "normal", "dialog" }
-  }, properties = { titlebars_enabled = false }
+  {
+    rule_any = { type = { "normal", "dialog" }
+    },
+    properties = { titlebars_enabled = false }
   },
 
   -- Set Firefox to always map on the tag named "2" on screen 1.
@@ -653,20 +668,24 @@ client.connect_signal("request::titlebars", function(c)
   )
 
   awful.titlebar(c):setup {
-    { -- Left
+    {
+      -- Left
       awful.titlebar.widget.iconwidget(c),
       buttons = buttons,
       layout  = wibox.layout.fixed.horizontal
     },
-    { -- Middle
-      { -- Title
+    {
+        -- Middle
+      {
+        -- Title
         align  = "center",
         widget = awful.titlebar.widget.titlewidget(c)
       },
       buttons = buttons,
       layout  = wibox.layout.flex.horizontal
     },
-    { -- Right
+    {
+      -- Right
       awful.titlebar.widget.floatingbutton(c),
       awful.titlebar.widget.maximizedbutton(c),
       awful.titlebar.widget.stickybutton(c),
