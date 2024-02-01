@@ -27,7 +27,7 @@ return {
       vim.opt.background = "dark"
 
       -- require("colorbuddy").colorscheme("gruvbuddy")
-      vim.cmd.colorscheme("tokyonight")
+      vim.cmd.colorscheme("gruvbox")
 
       require("rose-pine").setup({
         disable_background = true
@@ -48,7 +48,7 @@ return {
       vim.api.nvim_set_hl(0, "qfFileName", { fg = "#aed75f" })
       vim.api.nvim_set_hl(0, "TelescopePromptPrefix", { fg = "#96f1ff" })
       vim.api.nvim_set_hl(0, "background_color", { fg = "#373b40", bg = "#7fa3c0" })
-      vim.api.nvim_set_hl(0, "LineNr", { bg = "none", fg = "#FFFFFF" })
+      -- vim.api.nvim_set_hl(0, "LineNr", { bg = "none", fg = "#FFFFFF" })
     end
   }
 }

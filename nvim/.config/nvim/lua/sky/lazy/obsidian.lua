@@ -48,7 +48,8 @@ return {
       vim.keymap.set("n", "<leader>on", vim.cmd.ObsidianNew)
       vim.keymap.set("n", "<leader>ob", vim.cmd.ObsidianBacklinks)
       vim.keymap.set("n", "<leader>gd", vim.cmd.ObsidianFollowLink)
-      vim.keymap.set("n", "<leader>tt", vim.cmd.ObsidianTemplate)
+      vim.keymap.set("n", "<leader>,ot", vim.cmd.ObsidianTemplate)
+
 
       vim.keymap.set("n", "<leader>ot", vim.cmd.ObsidianToday)
       vim.keymap.set("n", "<leader>ott", vim.cmd.ObsidianTomorrow)
