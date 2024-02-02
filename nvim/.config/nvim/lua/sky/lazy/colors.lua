@@ -27,7 +27,7 @@ return {
       vim.opt.background = "dark"
 
       -- require("colorbuddy").colorscheme("gruvbuddy")
-      vim.cmd.colorscheme("gruvbox")
+      vim.cmd.colorscheme("tokyonight")
 
       require("rose-pine").setup({
         disable_background = true

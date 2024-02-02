@@ -2,7 +2,12 @@ return {
   {
     "VonHeikemen/lsp-zero.nvim",
     dependencies = {
+      {
+        "tzachar/cmp-tabnine",
+        build = "./install.sh",
+      },
       "hrsh7th/cmp-path",
+      "github/copilot.vim",
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
       "neovim/nvim-lspconfig",

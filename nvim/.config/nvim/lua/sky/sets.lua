@@ -76,3 +76,8 @@ g.netrw_localrmdir = 'rm -rf'
 opt.colorcolumn = "80"
 
 opt.conceallevel = 1
+
+-- Make the complete menu in command mode better
+opt.pumblend = 17
+opt.wildmode = "longest:full"
+opt.wildoptions = "pum"

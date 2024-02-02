@@ -54,7 +54,7 @@ RPROMPT=\$vcs_info_msg_0_
 zstyle ':vcs_info:git:*' formats '%F{240}(%b)%r%f'
 zstyle ':vcs_info:*' enable git
 
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+# PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
 HISTSIZE=10000000
 SAVEHIST=10000000
@@ -62,7 +62,8 @@ HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
 setopt appendhistory
 compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
 
-  eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
 
 source $HOME/.config/personal/bookMarks
 source $HOME/.config/personal/bookMarkFiles

@@ -1,6 +1,24 @@
 local lsp = require("lsp-zero")
 local lspkind = require("lspkind")
 local cmp = require('cmp')
+local tabnine = require('cmp_tabnine.config')
+
+vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#000000" })
+
+tabnine:setup({
+  max_lines = 1000,
+  max_num_results = 20,
+  sort = true,
+  run_on_every_keystroke = true,
+  snippet_placeholder = '..',
+  ignored_file_types = {
+    -- default is not to ignore
+    -- uncomment to ignore in lua:
+    -- lua = true
+  },
+  show_prediction_strength = false,
+  min_percent = 0
+})
 
 require("mason").setup({})
 require('mason-lspconfig').setup({
@@ -13,19 +31,26 @@ require('mason-lspconfig').setup({
 lsp.preset("recommended")
 
 cmp.setup({
-  -- formatting = {
-  --   format = lspkind.cmp_format({
-  --     mode = 'symbol',       -- show only symbol annotations
-  --     maxwidth = 50,         -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-  --     ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
-  --     -- The function below will be called before any actual modifications from lspkind
-  --     -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-  --     before = function(entry, vim_item)
-  --       vim_item.kind = lspkind.presets.default[vim_item.kind]
-  --       return vim_item
-  --     end
-  --   })
-  -- },
+  window = {
+    completion = {
+      -- border = "rounded",
+      winhighlight = "Normal:CmpNormal",
+    }
+  },
+  formatting = {
+    -- Youtube: How to set up nice formatting for your sources.
+    format = lspkind.cmp_format {
+      with_text = true,
+      menu = {
+        buffer = "[buf]",
+        nvim_lsp = "[LSP]",
+        nvim_lua = "[api]",
+        path = "[path]",
+        luasnip = "[snip]",
+        tn = "[TabNine]",
+      },
+    },
+  },
   mapping = cmp.mapping.preset.insert({
     ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
     ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
@@ -45,9 +70,10 @@ cmp.setup({
   sources = {
     { name = "nvim_lua" },
     { name = "nvim_lsp" },
+    { name = "cmp_tabnine" },
     { name = "path" },
     { name = "luasnip" },
-    { name = "buffer",  keyword_length = 5 },
+    { name = "buffer",     keyword_length = 5 },
   }
 })
 
