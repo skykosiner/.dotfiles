@@ -40,7 +40,6 @@ return {
           }
         },
         formatting = {
-          -- Youtube: How to set up nice formatting for your sources.
           format = lspkind.cmp_format {
             with_text = true,
             menu = {

@@ -34,9 +34,6 @@ normal_mode("<leader>p", '"_dP')
 normal_mode("<leader>y", '"+y')
 normal_mode("<leader>Y", '"+Y')
 
--- Help save time by typing if err things in golang
-normal_mode("<leader>ee", "oif err != nil {<CR>}<CR><esc>kkI<esc>")
-
 -- Terminal stuff
 normal_mode("<leader>ts", function()
   vim.cmd("belowright 12split")
@@ -70,6 +67,6 @@ visual_mode(">", ">gv")
 visual_mode("J", ":m '>+1<CR>gv=gv")
 visual_mode("K", ":m '<-2<CR>gv=gv")
 
--- Switch betwene tabs
+-- Switch between tabs
 normal_mode("<Left>", "gT")
 normal_mode("<Right>", "gt")
