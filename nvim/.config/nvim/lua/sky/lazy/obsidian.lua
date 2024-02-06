@@ -15,6 +15,9 @@ return {
             path = "~/Documents/Linux-btw/",
           },
         },
+        ui = {
+          eanble = false,
+        },
         completion = {
           -- Set to false to disable completion.
           nvim_cmp = true,
@@ -33,7 +36,6 @@ return {
 
           return suffix
         end,
-        bullets = { char = "•", hl_group = "ObsidianBullet" },
         daily_notes = {
           -- Optional, if you keep daily notes in a separate directory.
           folder = "Daily",

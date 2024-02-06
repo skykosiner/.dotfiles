@@ -39,7 +39,7 @@ normal_mode("<leader>ee", "oif err != nil {<CR>}<CR><esc>kkI<esc>")
 
 -- Terminal stuff
 normal_mode("<leader>ts", function()
-  vim.cmd("12split")
+  vim.cmd("belowright 12split")
   vim.cmd("set winfixheight")
   vim.cmd("term")
   vim.cmd("startinsert")

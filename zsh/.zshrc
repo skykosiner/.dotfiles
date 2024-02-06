@@ -67,6 +67,7 @@ eval "$(starship init zsh)"
 
 source $HOME/.config/personal/bookMarks
 source $HOME/.config/personal/bookMarkFiles
+source $HOME/.todoist_token
 
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh

@@ -46,11 +46,8 @@ opt.updatetime = 50
 -- Keep buffers in memory (uses a bit more ram, but coming from vs code vim is still super light weight even with this being on)
 opt.hidden = true
 
--- Always splitt horizontal below by default
-opt.splitbelow = true
-
 -- Help keep track of where cursor is
-opt.cursorline = true
+-- opt.cursorline = true
 
 opt.ignorecase = true -- Ignore case when searching...
 opt.smartcase = true  -- ... unless there is a capital letter in the query
@@ -75,9 +72,12 @@ g.netrw_localrmdir = 'rm -rf'
 -- Help keep track of 80 charcter column limit
 opt.colorcolumn = "80"
 
-opt.conceallevel = 1
+opt.conceallevel = 0
 
 -- Make the complete menu in command mode better
 opt.pumblend = 17
 opt.wildmode = "longest:full"
 opt.wildoptions = "pum"
+
+opt.splitright = true  -- Prefer windows splitting to the right
+opt.splitbelow = false -- Prefer windows splitting to the bottom

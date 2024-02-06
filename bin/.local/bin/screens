@@ -5,26 +5,13 @@ montiors=$(printf "💻 Laptop\n📺 Double montiors left\n🔀 Double montiors 
 case $montiors in
     "💻 Laptop")
         xrandr --output DP-0 --off --output DP-1 --off --output DP-2 --off --output DP-3 --off --output HDMI-1 --off --output DP-4 --off --output eDP-1 --mode 2560x1600
+        setxkbmap -layout real-prog-dvorak
+        setxkbmap -option caps:super
+        killall xcap 2>/dev/null ; xcape -e 'Super_L=Escape'
         wal -R
         ;;
-    "💼 Double mointor on top plus laptop")
-        xrandr --output eDP-1 --mode 2560x1600 --pos 0x920 --rotate normal --output HDMI-1 --mode 1920x1080 --pos 2802x0 --rotate normal --output DP-1 --primary --mode 2560x1440 --pos 2560x1080 --rotate normal
-        wal -R
-        ;;
-    "📺 Double montiors left")
-        xrandr --output eDP-1 --off --output HDMI-1 --mode 1920x1080 --pos 2560x180 --rotate normal --output DP-1 --primary --mode 2560x1440 --pos 0x0 --rotate normal
-        wal -R
-        ;;
-    "🔀 Double montiors vertical")
-        xrandr --output eDP-1 --off --output HDMI-1 --mode 1920x1080 --pos 2560x0 --rotate left --output DP-1 --primary --mode 2560x1440 --pos 0x240 --rotate normal
-        wal -R
-        ;;
-    "⌨️ Double montior plus laptop")
-        xrandr --output eDP-1 --mode 2560x1600 --pos 0x0 --rotate normal --output HDMI-1 --mode 1920x1080 --pos 5120x360 --rotate normal --output DP-1 --primary --mode 2560x1440 --pos 2560x0 --rotate normal
-        wal -R
-        ;;
-    "🖥 Single montior")
-        xrandr --output eDP-1 --off --output HDMI-1 --off --output DP-1 --primary --mode 2560x1440 --pos 0x0 --rotate normal
+    "💼 Double mointor")
+        xrandr --output eDP-1 --off --output HDMI-1 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --primary --mode 2560x1440 --pos 1920x324 --rotate normal
         wal -R
         ;;
     *) echo "Unavailable command... $mointors"

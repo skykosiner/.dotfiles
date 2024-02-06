@@ -16,20 +16,30 @@ return {
       require("luasnip.loaders.from_vscode").lazy_load()
 
       ls.config.set_config {
-        -- This tells LuaSnip to remember to keep around the last snippet.
-        -- You can jump back into it even if you move outside of the selection
         history = false,
-
-        -- This one is cool cause if you have dynamic snippets, it updates as you type!
         updateevents = "TextChanged,TextChangedI",
-
-        -- Autosnippets:
         enable_autosnippets = true,
-
-        -- Crazy highlights!!
-        -- #vid3
-        -- ext_opts = nil,
       }
+
+      ls.add_snippets("lua", {
+        snippet("@pa", {
+          t("---@param "),
+          i(1, "param"),
+          t(" "),
+          i(2, "type")
+        }),
+
+        -- TODO: Use choice node to pick between local function and global function
+        snippet("f", {
+          t("function "),
+          i(1, "name"),
+          t("("),
+          i(2, "params"),
+          t(")"),
+          t({ "", "" }),
+          t("end"),
+        }),
+      })
 
       ls.add_snippets("go", {
         snippet("ee", {
@@ -52,7 +62,6 @@ return {
           t "}"
         }),
       })
-
 
       vim.keymap.set({ "i", "s" }, "<C-e>", function() ls.expand() end, { silent = true })
 

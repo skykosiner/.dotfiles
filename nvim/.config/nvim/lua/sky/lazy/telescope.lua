@@ -5,13 +5,12 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope-fzy-native.nvim"
     },
-    -- priority = 100,
     config = function()
       local actions = require('telescope.actions')
       local themes = require('telescope.themes')
 
       require('telescope').setup {
-        defaults = themes.get_ivy {
+        defaults = themes.get_dropdown {
           winbled           = 10,
           file_sorter       = require('telescope.sorters').get_fzy_sorter,
           prompt_prefix     = '> ',
@@ -47,7 +46,7 @@ return {
 
         pickers = {
           find_files = {
-            theme = "ivy",
+            theme = "dropdown",
           },
           git_branches = {
             mappings = {
@@ -77,6 +76,10 @@ return {
 
       vim.keymap.set("n", "<leader>vih", ":Telescope help_tags<CR>")
 
+      -- Grep the current highlighted selction
+      vim.keymap.set("v", "<leader>ps",
+        "\"gy<cmd>lua require(\"telescope.builtin\").grep_string({ search = vim.fn.getreg(\"g\") })<cr>")
+
       vim.keymap.set("n", "<leader>vrc", function()
         require("telescope.builtin").find_files({
           prompt_title = ".dotfiles",
@@ -88,7 +91,6 @@ return {
       vim.keymap.set("n", "<leader>gb", ":Telescope git_branches<CR>")
       vim.keymap.set("n", "<leader>gc", ":Telescope git_commits<CR>")
     end,
-    dev = true,
   },
   {
     "ThePrimeagen/git-worktree.nvim",
