@@ -25,7 +25,7 @@ num_monitors = int(os.popen("xrandr --query | grep ' connected' | wc -l").read()
 logger.warning(num_monitors)
 
 widget_defaults = dict(
-    font="JetBrainsMono Nerd Font",
+    font="BerkeleyMono Nerd Font",
     fontsize=15,
     padding=3,
 )

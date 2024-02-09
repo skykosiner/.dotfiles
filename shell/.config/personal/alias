@@ -42,6 +42,7 @@ alias g="git"
 alias gs="git status"
 alias ga="git add ."
 alias gp="git push"
+alias gl="git log"
 
 alias rm="rm -i"
 alias cp="cp -i"
