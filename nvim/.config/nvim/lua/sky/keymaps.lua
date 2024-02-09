@@ -10,7 +10,7 @@ end
 normal_mode("<C-f>", ":silent !tmux neww ~/.local/bin/tmux-sessionizer<CR>")
 
 -- Open file explorer
-normal_mode("<leader>pv", vim.cmd.Oil)
+normal_mode("<leader>pv", ":Neotree toggle<CR>")
 
 -- Quick fix list navigation
 normal_mode("<C-j>", ":cnext<CR>")
@@ -70,3 +70,5 @@ visual_mode("K", ":m '<-2<CR>gv=gv")
 -- Switch between tabs
 normal_mode("<Left>", "gT")
 normal_mode("<Right>", "gt")
+
+normal_mode("<leader>co", ":!/home/sky/.local/bin/compiler %<CR>")

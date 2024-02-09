@@ -8,7 +8,7 @@ case $montiors in
         setxkbmap -layout real-prog-dvorak
         setxkbmap -option caps:super
         killall xcap 2>/dev/null ; xcape -e 'Super_L=Escape'
-        wal -R
+        feh --bg-fill ~/.dotfiles/backgrounds/frost.jpg
         ;;
     "💼 Double mointor")
         xrandr --output eDP-1 --off --output HDMI-1 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --primary --mode 2560x1440 --pos 1920x324 --rotate normal

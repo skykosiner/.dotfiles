@@ -1,20 +1,17 @@
 #!/usr/bin/env bash
 
 export DOTFILES=$HOME/.dotfiles
-export SCHOOLWORK=$HOME/school-work
 export STOW_FOLDERS="bin,i3,nvim,tmux,zsh,shell,dunst,fonts,vim,qutebrowser,alacritty,kitty,zathula,lf,doom-emacs,picom"
 export PATH="$PATH:$(du ~/.dotfiles/bin/.local/bin | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 export SHELL=/usr/bin/zsh
-export RUSTUP=/home/sky/.cargo/bin/rustup
+export RUSTUP=$HOME/.cargo/bin/rustup
 export PATH=$PATH:/bin:$RUSTUP
-export PATH=$PATH:/home/sky/.local/share/cargo/bin/
-export PATH=$PATH:/snap/bin
-# export PATH=$PATH:/home/sky/rust-analyzer/crates/rust-analyzer
-export PATH=$PATH:/home/sky/.config/emacs/bin/
+export PATH=$PATH:$HOME/.local/share/cargo/bin/
+export PATH=$PATH:$HOME/.config/emacs/bin/
 export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:/$HOME/go/bin
-export PATH=$PATH:/home/sky/.cargo/bin
+export PATH=$PATH:$HOME/go/bin
+export PATH=$PATH:$HOME/.cargo/bin
 export BROWSER=brave
 export TERMINAL=kitty
 export TFM=lf
@@ -28,8 +25,8 @@ export TERM="xterm-256color"
 VIM="nvim"
 export EDITOR="nvim"
 export FZF_DEFAULT_COMMAND="rg --files --hidden -g'!.git'"
-export OBSIDIAN_VAULT="/home/sky/Documents/Linux-btw"
-export WINEPREFIX="/home/sky/.wine/"
+export OBSIDIAN_VAULT="$HOME/Documents/Linux-btw"
+export WINEPREFIX="$HOME/.wine/"
 export XDG_DATA_HOME="$HOME/.local/share/"
 export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json
 
@@ -38,5 +35,9 @@ export CARGO_HOME="$XDG_DATA_HOME"cargo
 export GOPATH="$HOME/go"
 export PATH="${PATH}:${GOPATH}/bin"
 
+# You can't do anything with this as it's all local home assitant. SO SUCK IT.
 export HASS_SERVER=http://10.0.0.36:8123
 export HASS_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhMGQ4N2ZlZjhhYjA0OGRhOTdlNTE4Y2UyYzM5ZDdlOSIsImlhdCI6MTcwMjA1NDUyNywiZXhwIjoyMDE3NDE0NTI3fQ.UYxG0rx37YAfi4ARo_wapA6f2KHNKeSVp1PJ_o5tems
+
+# For macos
+export PATH=$PATH:/opt/homebrew/bin

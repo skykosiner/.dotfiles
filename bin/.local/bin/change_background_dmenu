@@ -5,6 +5,6 @@ item="$(echo $HOME)/.dotfiles/backgrounds/$(ls ~/.dotfiles/backgrounds/ | dmenu 
 # Make sure the wallpaper is not blank (basicly if you run the script then
 # decide to exit out of dmenu)
 if [[ $item != "$HOME/.dotfiles/backgrounds/" ]]; then
-    wal -i $item
+    feh --bg-fill $item
     notify-send -i $item "Background set"
 fi

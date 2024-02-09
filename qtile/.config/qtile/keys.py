@@ -95,6 +95,7 @@ keys = [
         Key(["shift"], "e", lazy.spawn("/home/sky/.local/bin/menu-emoji"), desc=""),
         Key([], "s", lazy.spawn("/home/sky/.local/bin/snipets"), desc=""),
         Key(["shift"], "s", lazy.spawn("/home/sky/.local/bin/system-action"), desc=""),
+        Key([mod], "t", lazy.spawn("/home/sky/.local/bin/todoist --today"), desc=""),
         ]),
 
 

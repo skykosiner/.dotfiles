@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-
 filesInServerFolder=$(ls /mnt/server | wc -l)
 
 if [[ $filesInServerFolder -le 1 ]]; then

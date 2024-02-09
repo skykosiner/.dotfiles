@@ -2,6 +2,12 @@ return {
   {
     "VonHeikemen/lsp-zero.nvim",
     dependencies = {
+      {
+        "jsongerber/nvim-px-to-rem",
+        config = function()
+          require("nvim-px-to-rem").setup({})
+        end
+      },
       "folke/neodev.nvim",
       "hrsh7th/cmp-path",
       "williamboman/mason.nvim",
@@ -16,7 +22,7 @@ return {
     config = function()
       local lsp = require("lsp-zero")
       local lspkind = require("lspkind")
-      local cmp = require('cmp')
+      local cmp = require("cmp")
 
       vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#000000" })
       require("fidget").setup({})
@@ -49,6 +55,7 @@ return {
               nvim_lua = "[api]",
               path = "[path]",
               luasnip = "[snip]",
+              nvim_px_to_rem = "[px-rem]",
             },
           },
         },
@@ -74,7 +81,8 @@ return {
           { name = "nvim_lsp" },
           { name = "path" },
           { name = "luasnip" },
-          { name = "buffer",  keyword_length = 5 },
+          { name = "buffer",        keyword_length = 5 },
+          { name = "nvim_px_to_rem" }
         }
       })
 
