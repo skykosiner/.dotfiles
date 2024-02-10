@@ -10,7 +10,7 @@ end
 normal_mode("<C-f>", ":silent !tmux neww ~/.local/bin/tmux-sessionizer<CR>")
 
 -- Open file explorer
-normal_mode("<leader>pv", ":Neotree toggle<CR>")
+normal_mode("<leader>pv", vim.cmd.Ex)
 
 -- Quick fix list navigation
 normal_mode("<C-j>", ":cnext<CR>")

@@ -10,10 +10,10 @@ return {
       local themes = require('telescope.themes')
 
       require('telescope').setup {
-        defaults = themes.get_dropdown {
+        defaults = themes.get_ivy {
           winbled           = 10,
           file_sorter       = require('telescope.sorters').get_fzy_sorter,
-          prompt_prefix     = '> ',
+          prompt_prefix     = "> ",
           color_devicons    = true,
           respect_gitignore = true,
           sorting_strategy  = "descending",
@@ -45,9 +45,6 @@ return {
         },
 
         pickers = {
-          find_files = {
-            theme = "dropdown",
-          },
           git_branches = {
             mappings = {
               i = {

@@ -16,7 +16,9 @@ backupPath="/mnt/server/backups/$backupDate"
 mkdir $backupPath
 
 sudo tar --exclude="**/node_modules/*" --exclude=".*" --exclude="sky.tar.gz" --exclude="**/target/*" --exclude="**/Movies/*" --exclude="**/__pycache__/*" -zcvf /home/sky/sky.tar.gz /home/sky/
+tar -zcvf /home/sky/fonts.tar.gz /usr/share/fonts/
 mv "/home/sky/sky.tar.gz" "$backupPath"
+mv "/home/sky/fonts.tar.gz" "$backupPath"
 
 notify-send "Backup is finished"
 echo "Backup is finished"

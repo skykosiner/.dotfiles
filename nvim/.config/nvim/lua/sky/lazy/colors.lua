@@ -31,7 +31,78 @@ return {
       vim.g.tokyonight_transparent_sidebar = true
       vim.opt.background = "dark"
 
-      require("colorbuddy").colorscheme("gruvbuddy")
+      vim.g.sky_color_scheme = "gruvbox"
+
+      if vim.g.colors_name ~= "gruvbuddy" then
+        vim.cmd.colorscheme(vim.g.sky_color_scheme)
+      else
+        require("colorbuddy").colorscheme("gruvbuddy")
+        vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
+        vim.api.nvim_set_hl(0, "@tag.delimiter", { fg = "#bdbbbf" })
+        vim.api.nvim_set_hl(0, "@tag.attribute", { fg = "#bdbbbf" })
+
+        vim.api.nvim_set_hl(0, "@markup.heading", { fg = "#b294bb" })
+
+        -- Stolen from tjdevries
+        Group.new("@variable", c.purple:light():light(), nil)
+
+        Group.new("GoTestSuccess", c.green, nil, s.bold)
+        Group.new("GoTestFail", c.red, nil, s.bold)
+
+        Group.new("TSPunctBracket", c.orange:light():light())
+
+        Group.new("StatuslineError1", c.red:light():light(), g.Statusline)
+        Group.new("StatuslineError2", c.red:light(), g.Statusline)
+        Group.new("StatuslineError3", c.red, g.Statusline)
+        Group.new("StatuslineError3", c.red:dark(), g.Statusline)
+        Group.new("StatuslineError3", c.red:dark():dark(), g.Statusline)
+
+        Group.new("pythonTSType", c.red)
+        Group.new("goTSType", g.Type.fg:dark(), nil, g.Type)
+
+        Group.new("typescriptTSConstructor", g.pythonTSType)
+        Group.new("typescriptTSProperty", c.blue)
+
+        Group.new("WinSeparator", nil, nil)
+
+        Group.new("TSTitle", c.blue)
+
+        Group.new("InjectedLanguage", nil, g.Normal.bg:dark())
+
+        Group.new("LspParameter", nil, nil, s.italic)
+        Group.new("LspDeprecated", nil, nil, s.strikethrough)
+        Group.new("@function.bracket", g.Normal, g.Normal)
+        Group.new("@variable.builtin", c.purple:light():light(), g.Normal)
+
+        Group.new("VirtNonText", c.yellow:light():light(), nil, s.italic)
+        Group.new("VirtNonText", c.gray3:dark(), nil, s.italic)
+
+        Group.new("TreesitterContext", nil, g.Normal.bg:light())
+        Group.new("TreesitterContextLineNumber", c.blue)
+
+        Group.new("@property", c.blue)
+        Group.new("@punctuation.bracket.rapper", c.gray3, nil, s.none)
+        Group.new("@rapper_argument", c.red, nil, s.italic)
+        Group.new("@rapper_return", c.orange:light(), nil, s.italic)
+        Group.new("@constructor.ocaml", c.orange:light(), nil, s.none)
+        Group.new("constant", c.orange, nil, s.none)
+
+        Group.new("@keyword", c.violet, nil, s.none)
+        Group.new("@keyword.faded", g.nontext.fg:light(), nil, s.none)
+
+        Group.new("Function", c.yellow, nil, s.none)
+
+        vim.cmd [[
+        hi link @function.call.lua LuaFunctionCall
+        hi link @lsp.type.variable.lua variable
+        hi link @lsp.type.variable.rust variable
+        hi link @lsp.type.namespace @namespace
+        hi link @punctuation.bracket.rapper @text.literal
+        hi link @normal Normal
+        ]]
+
+        Group.new("Normal", c.superwhite, c.gray0)
+      end
 
       require("rose-pine").setup({
         disable_background = true
@@ -43,83 +114,10 @@ return {
       vim.g.gruvbox_invert_selection = '0'
       vim.g.gruvbox_italic = 1
 
-      vim.api.nvim_set_hl(0, "@tag.delimiter", { fg = "#bdbbbf" })
-      vim.api.nvim_set_hl(0, "@tag.attribute", { fg = "#bdbbbf" })
-
-      vim.api.nvim_set_hl(0, "@markup.heading", { fg = "#b294bb" })
-
-      -- Stolen from tjdevries
-      Group.new("@variable", c.purple:light():light(), nil)
-
-      Group.new("GoTestSuccess", c.green, nil, s.bold)
-      Group.new("GoTestFail", c.red, nil, s.bold)
-
-      Group.new("TSPunctBracket", c.orange:light():light())
-
-      Group.new("StatuslineError1", c.red:light():light(), g.Statusline)
-      Group.new("StatuslineError2", c.red:light(), g.Statusline)
-      Group.new("StatuslineError3", c.red, g.Statusline)
-      Group.new("StatuslineError3", c.red:dark(), g.Statusline)
-      Group.new("StatuslineError3", c.red:dark():dark(), g.Statusline)
-
-      Group.new("pythonTSType", c.red)
-      Group.new("goTSType", g.Type.fg:dark(), nil, g.Type)
-
-      Group.new("typescriptTSConstructor", g.pythonTSType)
-      Group.new("typescriptTSProperty", c.blue)
-
-      Group.new("WinSeparator", nil, nil)
-
-      Group.new("TSTitle", c.blue)
-
-      Group.new("InjectedLanguage", nil, g.Normal.bg:dark())
-
-      Group.new("LspParameter", nil, nil, s.italic)
-      Group.new("LspDeprecated", nil, nil, s.strikethrough)
-      Group.new("@function.bracket", g.Normal, g.Normal)
-      Group.new("@variable.builtin", c.purple:light():light(), g.Normal)
-
-      Group.new("VirtNonText", c.yellow:light():light(), nil, s.italic)
-      Group.new("VirtNonText", c.gray3:dark(), nil, s.italic)
-
-      Group.new("TreesitterContext", nil, g.Normal.bg:light())
-      Group.new("TreesitterContextLineNumber", c.blue)
-
-      Group.new("@property", c.blue)
-      Group.new("@punctuation.bracket.rapper", c.gray3, nil, s.none)
-      Group.new("@rapper_argument", c.red, nil, s.italic)
-      Group.new("@rapper_return", c.orange:light(), nil, s.italic)
-      Group.new("@constructor.ocaml", c.orange:light(), nil, s.none)
-      Group.new("constant", c.orange, nil, s.none)
-
-      Group.new("@keyword", c.violet, nil, s.none)
-      Group.new("@keyword.faded", g.nontext.fg:light(), nil, s.none)
-
-      Group.new("Function", c.yellow, nil, s.none)
-
-      vim.cmd [[
-        hi link @function.call.lua LuaFunctionCall
-        hi link @lsp.type.variable.lua variable
-        hi link @lsp.type.variable.rust variable
-        hi link @lsp.type.namespace @namespace
-        hi link @punctuation.bracket.rapper @text.literal
-        hi link @normal Normal
-      ]]
-
-      Group.new("Normal", c.superwhite, c.gray0)
-
-
       vim.cmd("highlight ColorColumn ctermbg=0 guibg=#555555")
       vim.api.nvim_set_hl(0, "WinSeparator", { bg = "none", fg = "none" })
       vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-      vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
       vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
-      vim.api.nvim_set_hl(0, "netrwDir", { fg = "#aaaaff" })
-      vim.api.nvim_set_hl(0, "qfFileName", { fg = "#aed75f" })
-      vim.api.nvim_set_hl(0, "TelescopePromptPrefix", { fg = "#96f1ff" })
-      vim.api.nvim_set_hl(0, "background_color", { fg = "#373b40", bg = "#7fa3c0" })
-      -- vim.api.nvim_set_hl(0, "LineNr", { bg = "none", fg = "#FFFFFF" })
-      vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
     end
   }
 }

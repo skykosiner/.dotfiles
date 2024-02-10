@@ -22,8 +22,8 @@ end
 config.colors = {}
 config.colors.background = '#111111'
 
-config.font = wezterm.font 'Inconsolata Nerd Font Mono'
-config.font_size = 19.0
+config.font = wezterm.font "BerkeleyMono Nerd Font"
+config.font_size = 16.0
 
 -- default is true, has more "native" look
 config.use_fancy_tab_bar = false

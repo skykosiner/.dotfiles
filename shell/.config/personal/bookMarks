@@ -13,7 +13,6 @@ hash -d go=/home/sky/Documents/Linux-btw/
 hash -d gO=/home/sky/Documents/OBS/
 hash -d gv=/home/sky/Videos/
 hash -d ga=/home/sky/Documents/Archive/
-hash -d gt=/home/sky/.test
 hash -d Jp=/home/sky/personal/skykosiner-com/
 hash -d Jc=/home/sky/.config
 hash -d gB=/home/sky/Documents/Books/

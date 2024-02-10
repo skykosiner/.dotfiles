@@ -4,7 +4,14 @@ local g = vim.g
 g.mapleader = " "
 
 -- Keep cursor a block in insert mode
-opt.guicursor = ""
+-- opt.guicursor = ""
+
+-- Sometimes you don't want a blcock cursor
+vim.cmd [[
+let &t_SI = "\<Esc>[6 q"
+let &t_SR = "\<Esc>[4 q"
+let &t_EI = "\<Esc>[2 q"
+]]
 
 -- Don't have so many statuslines per window
 opt.laststatus = 3
@@ -67,10 +74,21 @@ opt.title = true
 g.netrw_browse_split = 0
 g.netrw_banner = 0
 g.netrw_winsize = 25
-g.netrw_localrmdir = 'rm -rf'
+
+-- Define a function to delete directories using rm -rf
+local function delete_directory(directory)
+  vim.fn.system('rm -rf ' .. vim.fn.shellescape(directory))
+end
+
+-- Override netrw's directory delete command with the custom function
+vim.g.netrw_localrmdir = function(directory)
+  delete_directory(directory)
+  vim.cmd('redraw! | e.')
+end
 
 -- Help keep track of 80 charcter column limit
-opt.colorcolumn = "80"
+-- IDK IF I LIKE THIS 😭
+-- opt.colorcolumn = "80"
 
 opt.conceallevel = 0
 
