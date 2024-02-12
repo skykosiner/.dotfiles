@@ -6,5 +6,6 @@
 * Lf
 * Zsh
 * Kitty
+    * Berkley mono font (such a good font, would recommend to anyone)
 
 * More info on my [website](https://skykosiner.com/tools)

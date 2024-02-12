@@ -52,11 +52,11 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-beautiful.font = "Go 16"
+beautiful.font = "BerkleyMono Nerd Font 16"
 -- beautiful.useless_gap = 5
 
 -- This is used later as the default terminal and editor to run.
-terminal = "alacritty"
+terminal = "kitty"
 editor = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -65,11 +65,12 @@ editor_cmd = terminal .. " -e " .. editor
 -- If you do not like this or do not have such a key,
 -- I suggest you to remap Mod4 to another key using xmodmap or other tools.
 -- However, you can use another modifier like Mod1, but it may interact with others.
-modkey = "Mod1"
+modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
   awful.layout.suit.tile,
+  awful.layout.suit.max,
   --[[ awful.layout.suit.spiral,
     awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
@@ -77,7 +78,6 @@ awful.layout.layouts = {
     awful.layout.suit.fair,
     awful.layout.suit.fair.horizontal,
     awful.layout.suit.spiral.dwindle,
-    awful.layout.suit.max,
     awful.layout.suit.max.fullscreen,
     awful.layout.suit.magnifier,
     awful.layout.suit.corner.nw, ]]
@@ -220,12 +220,14 @@ awful.screen.connect_for_each_screen(function(s)
     },
     s.mytasklist, -- Middle widget
     {
-                  -- Right widgets
+      -- Right widgets
       layout = wibox.layout.fixed.horizontal,
       wibox.widget.systray(),
       mytextclock,
-      awful.widget.watch('bash -c "/home/sky/.local/bin/aircon status | sed s/{// | sed s/}//"', 1),
-      awful.widget.watch('echo " "', 1),
+      awful.widget.watch('bash -c "/home/sky/.local/bin/statusbar/sb-aircon"', 1),
+      awful.widget.watch('bash -c "/home/sky/.local/bin/statusbar/sb-todoist"', 1),
+      awful.widget.watch('bash -c "/home/sky/.local/bin/statusbar/sb-mailbox"', 1),
+      awful.widget.watch('echo " "', 30),
       -- awful.widget.watch('bash -c "/home/sky/.local/bin/lights status"', 1),
       s.mylayoutbox,
     },
@@ -251,111 +253,8 @@ globalkeys = gears.table.join(
     awful.util.spawn("brave")
   end),
 
-  awful.key({ modkey, "Shift" }, "s", function()
-    awful.util.spawn("flameshot gui -p /home/sky/Pictures/Captures")
-  end),
-
-  awful.key({ modkey, }, "space", function()
-    awful.util.spawn("sh /home/sky/.local/bin/menu-emoji")
-  end),
-
-  awful.key({ modkey, "Shift" }, "g", function()
-    awful.util.spawn("gimp")
-  end),
-
-  awful.key({ "Mod4", }, "d", function()
-    awful.spawn(terminal .. " -e setxkbmap -layout real-prog-dvorak")
-  end),
-
-  awful.key({ "Mod4", }, "q", function()
-    awful.spawn(terminal .. " -e setxkbmap -layout us")
-  end),
-
-  awful.key({ "Mod4", "Shift" }, "g", function()
-    awful.util.spawn("sh /home/sky/.local/bin/picomToggle")
-  end),
-
-  -- Yes I wrote an app in golang to control my aircon
-  awful.key({ "Mod4", "Shift" }, "o", function()
-    awful.util.spawn("/home/sky/.local/bin/aircon toggle")
-    awful.util.spawn("sh /home/sky/.local/bin/changeToAircon")
-  end),
-
-  awful.key({ modkey, "Shift" }, "c", function()
-    awful.util.spawn("/home/sky/.local/bin/aircon conflict")
-  end),
-
-  awful.key({ "Mod4", "Shift" }, "c", function()
-    awful.util.spawn("sh /home/sky/.local/bin/cold")
-    awful.util.spawn("sh /home/sky/.local/bin/changeToAircon")
-  end),
-
-  awful.key({ "Mod4", "Shift" }, "h", function()
-    awful.util.spawn("sh /home/sky/.local/bin/hot")
-    awful.util.spawn("sh /home/sky/.local/bin/changeToAircon")
-  end),
-
-  awful.key({ "Mod4", "Shift" }, "i", function()
-    awful.util.spawn("sh /home/sky/.local/bin/airconControl -inc-1")
-    awful.util.spawn("sh /home/sky/.local/bin/changeToAircon")
-  end),
-
-  awful.key({ "Mod4", "Shift" }, "m", function()
-    awful.util.spawn("sh /home/sky/.local/bin/airconControl -dec-1")
-    awful.util.spawn("sh /home/sky/.local/bin/changeToAircon")
-  end),
-
-  awful.key({ "Mod4", }, "n", function()
-    awful.util.spawn("sh /home/sky/.local/bin/airconControl -change")
-    awful.util.spawn("sh /home/sky/.local/bin/changeToAircon")
-  end),
-
-  awful.key({ "Mod4", }, "h", function()
-    awful.util.spawn("/home/sky/.local/bin/aircon hot")
-    awful.util.spawn("sh /home/sky/.local/bin/changeToAircon")
-  end),
-
-  awful.key({ "Mod4", }, "c", function()
-    awful.util.spawn("/home/sky/.local/bin/aircon cold")
-    awful.util.spawn("sh /home/sky/.local/bin/changeToAircon")
-  end),
-
-  awful.key({ "Mod4", }, "f", function()
-    awful.util.spawn("sh /home/sky/.local/bin/airconControl -sellect-fan")
-    awful.util.spawn("sh /home/sky/.local/bin/changeToAircon")
-  end),
-
-  -- Yes I also wrote a thing to contorl my lights
-  awful.key({ "Mod4", "Shift" }, "l", function()
-    awful.util.spawn("/home/sky/.local/bin/lights ceiling")
-  end),
-
-  awful.key({ "Mod4", "Shift" }, "r", function()
-    awful.util.spawn("/home/sky/.local/bin/lights others")
-  end),
-
-  awful.key({ "Mod4", "Shift" }, "a", function()
-    awful.util.spawn("/home/sky/.local/bin/lights all")
-  end),
-
-  awful.key({ "Mod4", "Shift" }, "a", function()
-    awful.util.spawn("/home/sky/.local/bin/lights all")
-  end),
-
-  awful.key({ "Mod4", "Shift" }, "m", function()
-    awful.util.spawn("sh /home/sky/.local/bin/montiors")
-  end),
-
-  awful.key({ modkey, "Shift" }, "b", function()
-    awful.util.spawn("sh /home/sky/.local/bin/change_background_dmenu")
-  end),
-
-  awful.key({ "Mod4", }, "]", function()
-    awful.util.spawn("sh /home/sky/.local/bin/brightness --dec")
-  end),
-
-  awful.key({ "Mod4", }, "[", function()
-    awful.util.spawn("sh /home/sky/.local/bin/brightness --inc")
+  awful.key({ modkey }, "o", function()
+    awful.util.spawn("/home/sky/.local/bin/lfub")
   end),
 
   awful.key({ modkey, }, "s", hotkeys_popup.show_help,
@@ -407,9 +306,6 @@ globalkeys = gears.table.join(
     { description = "open a terminal", group = "launcher" }),
   awful.key({ modkey, "Control" }, "r", awesome.restart,
     { description = "reload awesome", group = "awesome" }),
-  -- awful.key({ modkey, "Shift" }, "q", awesome.quit,
-  -- { description = "quit awesome", group = "awesome" }),
-
   awful.key({ modkey, }, "l", function() awful.tag.incmwfact(0.05) end,
     { description = "increase master width factor", group = "layout" }),
   awful.key({ modkey, }, "h", function() awful.tag.incmwfact(-0.05) end,
@@ -595,7 +491,7 @@ awful.rules.rules = {
   {
     rule_any = {
       instance = {
-        "DTA", -- Firefox addon DownThemAll.
+        "DTA",   -- Firefox addon DownThemAll.
         "copyq", -- Includes session name in class.
         "pinentry",
       },
@@ -604,7 +500,7 @@ awful.rules.rules = {
         "Blueman-manager",
         "Gpick",
         "Kruler",
-        "MessageWin", -- kalarm.
+        "MessageWin",  -- kalarm.
         "Sxiv",
         "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
         "Wpa_gui",
@@ -617,9 +513,9 @@ awful.rules.rules = {
         "Event Tester", -- xev.
       },
       role = {
-        "AlarmWindow", -- Thunderbird's calendar.
+        "AlarmWindow",   -- Thunderbird's calendar.
         "ConfigManager", -- Thunderbird's about:config.
-        "pop-up",      -- e.g. Google Chrome's (detached) Developer Tools.
+        "pop-up",        -- e.g. Google Chrome's (detached) Developer Tools.
       }
     },
     properties = { floating = true }
@@ -675,7 +571,7 @@ client.connect_signal("request::titlebars", function(c)
       layout  = wibox.layout.fixed.horizontal
     },
     {
-        -- Middle
+      -- Middle
       {
         -- Title
         align  = "center",

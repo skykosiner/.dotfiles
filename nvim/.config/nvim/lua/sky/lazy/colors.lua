@@ -26,12 +26,31 @@ return {
         },
       })
 
-      -- Make sure rose-pine is 100% transparent
       vim.g.tokyonight_transparent = true
       vim.g.tokyonight_transparent_sidebar = true
       vim.opt.background = "dark"
 
-      vim.g.sky_color_scheme = "gruvbox"
+      vim.g.sky_color_scheme = "rose-pine"
+
+      require("rose-pine").setup({
+        styles = {
+          bold = true,
+          italic = true,
+          transparency = true,
+        },
+      })
+
+      -- Make that gruvbox look good
+      vim.g.gruvbox_contrast_dark = 'hard'
+      vim.g.gruvbox_contrast_dark = 'hard'
+      vim.g.gruvbox_invert_selection = '0'
+      vim.g.gruvbox_italic = 1
+
+      vim.cmd("highlight ColorColumn ctermbg=0 guibg=#555555")
+      vim.api.nvim_set_hl(0, "WinSeparator", { bg = "none", fg = "none" })
+      vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
+      vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+      vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
 
       if vim.g.colors_name ~= "gruvbuddy" then
         vim.cmd.colorscheme(vim.g.sky_color_scheme)
@@ -103,21 +122,6 @@ return {
 
         Group.new("Normal", c.superwhite, c.gray0)
       end
-
-      require("rose-pine").setup({
-        disable_background = true
-      })
-
-      -- Make that gruvbox look good
-      vim.g.gruvbox_contrast_dark = 'hard'
-      vim.g.gruvbox_contrast_dark = 'hard'
-      vim.g.gruvbox_invert_selection = '0'
-      vim.g.gruvbox_italic = 1
-
-      vim.cmd("highlight ColorColumn ctermbg=0 guibg=#555555")
-      vim.api.nvim_set_hl(0, "WinSeparator", { bg = "none", fg = "none" })
-      vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-      vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
     end
   }
 }
