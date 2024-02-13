@@ -1,16 +1,7 @@
 #!/usr/bin/env bash
 
-font=$(printf "BerkleyMono Nerd Font\nComicCodeLigatures Nerd Font" | dmenu -i -p "Choose a font")
-# If it's berkley mono then coment out line 13 and uncomment line 12 and the other way around for comic code
-if [ "$font" = "BerkleyMono Nerd Font" ]; then
-    # kitty @ font berkley mono
-    sed -i 's/font_family .*/font_family BerkleyMono Nerd Font/g' ~/.config/kitty/kitty.conf
-    # sed -i 's/# font_family .*/font_family BerkleyMono Nerd Font/g' ~/.config/kitty/kitty.conf
-elif [ "$font" = "ComicCodeLigatures Nerd Font" ]; then
-    # kitty @ font comic code
-    sed -i 's/font_family .*/font_family ComicCodeLigatures Nerd Font/g' ~/.config/kitty/kitty.conf
-    # sed -i 's/# font_family .*/font_family ComicCodeLigatures Nerd Font/g' ~/.config/kitty/kitty.conf
-fi
+font=$(printf "BerkeleyMono Nerd Font\nComicCodeLigatures Nerd Font\nJetBrainsMono Nerd Font\nUbuntuMono Nerd Font" | dmenu -i -p "Choose a font")
+sed -i "s/font_family .*/font_family $font/g" ~/.config/kitty/kitty.conf
 
 # After it's done press ctrl+shift+f5 to reload the kitty config
 xdotool key ctrl+shift+F5

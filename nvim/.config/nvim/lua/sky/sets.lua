@@ -6,13 +6,6 @@ g.mapleader = " "
 -- Keep cursor a block in insert mode
 -- opt.guicursor = ""
 
--- Sometimes you don't want a blcock cursor
-vim.cmd [[
-let &t_SI = "\<Esc>[6 q"
-let &t_SR = "\<Esc>[4 q"
-let &t_EI = "\<Esc>[2 q"
-]]
-
 -- Don't have so many statuslines per window
 opt.laststatus = 3
 
