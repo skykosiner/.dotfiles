@@ -3,7 +3,7 @@
 
 (add-to-list 'custom-theme-load-path "~/.config/doom/themes/")
 
-(setq doom-font (font-spec :family "Inconsolata Nerd Font Mono":size 25))
+(setq doom-font (font-spec :family "BerkleyMono Nerd Font":size 25))
 (after! doom-themes
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t))

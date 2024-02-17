@@ -72,3 +72,12 @@ normal_mode("<Left>", "gT")
 normal_mode("<Right>", "gt")
 
 normal_mode("<leader>co", ":!/home/sky/.local/bin/compiler %<CR>")
+
+normal_mode("<leader>sp", function()
+  -- Toggle spelling on or off
+  if vim.opt.spell then
+    vim.opt.spell = false
+  else
+    vim.opt.spell = true
+  end
+end)

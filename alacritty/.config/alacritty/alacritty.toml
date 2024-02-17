@@ -19,14 +19,15 @@ white = "#a89984"
 yellow = "#d79921"
 
 [colors.primary]
-background = "#000000"
+background = "#0F1419"
 foreground = "#ebdbb2"
 
 [font]
 size = 16
 
 [font.normal]
-family = "BerkeleyMono Nerd Font"
+# family = "BerkeleyMono Nerd Font"
+family = "ComicCodeLigatures Nerd Font"
 
 [scrolling]
 history = 10000
@@ -34,4 +35,4 @@ multiplier = 3
 
 [window]
 decorations = "full"
-# opacity = 0.8
+opacity = 0.9

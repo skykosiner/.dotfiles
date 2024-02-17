@@ -26,11 +26,16 @@ return {
         },
       })
 
+      require("catppuccin").setup({
+        transparent_background = true,
+      })
+
+
       vim.g.tokyonight_transparent = true
       vim.g.tokyonight_transparent_sidebar = true
       vim.opt.background = "dark"
 
-      vim.g.sky_color_scheme = "rose-pine"
+      vim.g.sky_color_scheme = "catppuccin"
 
       require("rose-pine").setup({
         styles = {
@@ -46,15 +51,10 @@ return {
       vim.g.gruvbox_invert_selection = '0'
       vim.g.gruvbox_italic = 1
 
-      vim.cmd("highlight ColorColumn ctermbg=0 guibg=#555555")
-      vim.api.nvim_set_hl(0, "WinSeparator", { bg = "none", fg = "none" })
-      vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
-      vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-      vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
-
-      if vim.g.colors_name ~= "gruvbuddy" then
+      if vim.g.sky_color_scheme ~= "gruvbuddy" then
         vim.cmd.colorscheme(vim.g.sky_color_scheme)
       else
+        print("test???")
         require("colorbuddy").colorscheme("gruvbuddy")
         vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
         vim.api.nvim_set_hl(0, "@tag.delimiter", { fg = "#bdbbbf" })
@@ -122,6 +122,12 @@ return {
 
         Group.new("Normal", c.superwhite, c.gray0)
       end
+
+      vim.cmd("highlight ColorColumn ctermbg=0 guibg=#555555")
+      vim.api.nvim_set_hl(0, "WinSeparator", { bg = "none", fg = "none" })
+      vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
+      vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+      vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
     end
   }
 }

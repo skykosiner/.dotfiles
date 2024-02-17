@@ -70,18 +70,17 @@ g.netrw_winsize = 25
 
 -- Define a function to delete directories using rm -rf
 local function delete_directory(directory)
-  vim.fn.system('rm -rf ' .. vim.fn.shellescape(directory))
+    vim.fn.system('rm -rf ' .. vim.fn.shellescape(directory))
 end
 
 -- Override netrw's directory delete command with the custom function
 vim.g.netrw_localrmdir = function(directory)
-  delete_directory(directory)
-  vim.cmd('redraw! | e.')
+    delete_directory(directory)
+    vim.cmd('redraw! | e.')
 end
 
 -- Help keep track of 80 charcter column limit
--- IDK IF I LIKE THIS 😭
--- opt.colorcolumn = "80"
+opt.colorcolumn = "80"
 
 opt.conceallevel = 0
 
