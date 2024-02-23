@@ -20,7 +20,7 @@ end
 
 -- Set background to same color as neovim
 config.colors = {}
-config.colors.background = '#111111'
+config.colors.background = "#000000"
 
 config.font = wezterm.font "BerkeleyMono Nerd Font"
 config.font_size = 16.0

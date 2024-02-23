@@ -81,3 +81,13 @@ normal_mode("<leader>sp", function()
     vim.opt.spell = true
   end
 end)
+
+-- Open new tumx window in the current directory
+normal_mode("<leader>tnw", function()
+  local currentDir = vim.uv.cwd()
+  vim.cmd("silent !tmux neww -c " .. currentDir)
+end)
+
+-- With wrap mode this will move the cursor to the next line
+normal_mode("j", "gj")
+normal_mode("k", "gk")

@@ -21,7 +21,6 @@ alias shutdown="sudo shutdown -h now";
 alias restart="sudo shutdown -r now";
 alias razer="devour polychromatic-controller"
 alias gay="unimatrix -s 95 | lolcat"
-alias tt="tt -showwpm -notheme"
 # alias ls="ls --color=auto"
 
 alias ls="exa"
@@ -30,11 +29,12 @@ alias ll="exa -la --group-directories-first"
 
 alias grep="grep --color=auto"
 alias rickRoll="curl -s -L https://bit.ly/3zvELNz | bash"
-alias editWebsite="ssh root@46.101.77.77"
+alias editWebsite="ssh -l root 46.101.77.77"
 alias lf="lfub"
 alias webcam="droidcam-cli ios 4747"
 alias p="sudo pacman"
 alias bc="bc -ql"
+
 alias yt="yt-dlp --embed-metadata -i"
 alias yta="yt -x -f bestaudio/best"
 alias pkt="pkill tmux"
@@ -61,7 +61,5 @@ alias updateBookmarks="/home/sky/.local/bin/bookmarks --lf && /home/sky/.local/b
 # For Mac
 alias urlS="/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -dump URLSchemeBinding"
 alias iCloud="cd $HOME/Library/Mobile\ Documents/com~apple~CloudDocs"
-
-alias magit='exec emacsclient -c --eval "(progn (magit-status) (delete-other-windows))"'
 
 alias scan_network_devices="arp-scan -I enp5s0f3u2u3u2 -l"

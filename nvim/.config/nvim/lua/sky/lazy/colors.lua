@@ -4,7 +4,7 @@ return {
     dependencies = {
       { "catppuccin/nvim",  name = "catppuccin", priority = 1000 },
       { "rose-pine/neovim", name = "rose-pine" },
-      "gruvbox-community/gruvbox",
+      "sainnhe/gruvbox-material",
       "ayu-theme/ayu-vim",
       "folke/tokyonight.nvim",
       "tjdevries/gruvbuddy.nvim",
@@ -35,7 +35,7 @@ return {
       vim.g.tokyonight_transparent_sidebar = true
       vim.opt.background = "dark"
 
-      vim.g.sky_color_scheme = "catppuccin"
+      vim.g.sky_color_scheme = "rose-pine"
 
       require("rose-pine").setup({
         styles = {
@@ -45,16 +45,13 @@ return {
         },
       })
 
-      -- Make that gruvbox look good
-      vim.g.gruvbox_contrast_dark = 'hard'
-      vim.g.gruvbox_contrast_dark = 'hard'
-      vim.g.gruvbox_invert_selection = '0'
-      vim.g.gruvbox_italic = 1
+      vim.g.gruvbox_material_contrast = "hard"
+      vim.g.gruvbox_material_transparent_background = 2
+      vim.g.gruvbox_material_better_performance = 1
 
       if vim.g.sky_color_scheme ~= "gruvbuddy" then
         vim.cmd.colorscheme(vim.g.sky_color_scheme)
       else
-        print("test???")
         require("colorbuddy").colorscheme("gruvbuddy")
         vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
         vim.api.nvim_set_hl(0, "@tag.delimiter", { fg = "#bdbbbf" })
