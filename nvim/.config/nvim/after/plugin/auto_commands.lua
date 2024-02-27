@@ -32,5 +32,4 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 vim.cmd([[
 autocmd BufWritePost ~/.dotfiles/.bookm !~/.local/bin/bookmarks --lf && ~/.local/bin/bookmarks --shell
 autocmd BufWritePost ~/.dotfiles/.bookmfiles !~/.local/bin/bookmarks --shell-files
-autocmd BufWritePost ~/.local/src/dwmblocks/blocks.def.h !cd ~/.local/src/dwmblocks/; rm blocks.h; sudo make install && { killall -q dwmblocks;setsid -f dwmblocks }
 ]])

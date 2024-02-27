@@ -30,12 +30,11 @@ return {
         transparent_background = true,
       })
 
-
       vim.g.tokyonight_transparent = true
       vim.g.tokyonight_transparent_sidebar = true
       vim.opt.background = "dark"
 
-      vim.g.sky_color_scheme = "rose-pine"
+      vim.g.sky_color_scheme = "tokyonight"
 
       require("rose-pine").setup({
         styles = {

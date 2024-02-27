@@ -31,8 +31,6 @@ normal_mode("<leader>Y", '"+y$')
 visual_mode("<leader>d", '"_d')
 normal_mode("<leader>x", '"_x')
 normal_mode("<leader>p", '"_dP')
-normal_mode("<leader>y", '"+y')
-normal_mode("<leader>Y", '"+Y')
 
 -- Terminal stuff
 normal_mode("<leader>ts", function()
@@ -72,15 +70,6 @@ normal_mode("<Left>", "gT")
 normal_mode("<Right>", "gt")
 
 normal_mode("<leader>co", ":!/home/sky/.local/bin/compiler %<CR>")
-
-normal_mode("<leader>sp", function()
-  -- Toggle spelling on or off
-  if vim.opt.spell then
-    vim.opt.spell = false
-  else
-    vim.opt.spell = true
-  end
-end)
 
 -- Open new tumx window in the current directory
 normal_mode("<leader>tnw", function()

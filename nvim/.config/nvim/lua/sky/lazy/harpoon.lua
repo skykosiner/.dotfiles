@@ -1,8 +1,8 @@
 return {
   {
-    -- "ThePrimeagen/harpoon",
-    dir = "~/personal/harpoon.git/get-current-mark/",
-    -- branch = "harpoon2",
+    "ThePrimeagen/harpoon",
+    -- dir = "~/personal/harpoon.git/get-current-mark/",
+    branch = "harpoon2",
     dependencies = {
       "nvim-lua/popup.nvim"
     },

@@ -4,7 +4,7 @@ local g = vim.g
 g.mapleader = " "
 
 -- Keep cursor a block in insert mode
--- opt.guicursor = ""
+opt.guicursor = ""
 
 -- Don't have so many statuslines per window
 opt.laststatus = 3
@@ -29,6 +29,7 @@ opt.softtabstop = 4
 opt.expandtab = true
 opt.autoindent = true
 opt.cindent = true
+
 opt.wrap = true
 
 -- Highlight the current search as seacrhing
@@ -91,3 +92,10 @@ opt.wildoptions = "pum"
 
 opt.splitright = true  -- Prefer windows splitting to the right
 opt.splitbelow = false -- Prefer windows splitting to the bottom
+
+-- vim.opt.listchars = { eol = "↲" }
+vim.opt.listchars = "tab:· ,nbsp:_,trail: ,multispace:· ,eol:↲"
+-- vim.opt.listchars = { eol = "↲", tab = ">", space = ">" }
+
+-- vim.opt.listchars = { eol = '↲' }
+vim.opt.list = true
