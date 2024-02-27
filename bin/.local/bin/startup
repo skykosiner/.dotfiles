@@ -25,7 +25,7 @@ dunst &
 picom &
 
 # Set last used background and color scheme
-wal -R &
+$HOME/.fehbg
 
 # Set them dwmblocks if dwm is running
 pgrep dwm >/dev/null && dwmblocks &
@@ -49,5 +49,3 @@ sudo tor &
 
 # YOU WANT TO SEE SOME REAL SPEED?????????????????????
 xset r rate 300 50
-
-autorandr --cycle
