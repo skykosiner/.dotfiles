@@ -33,7 +33,8 @@ keys = [
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
 
     Key([mod, "shift"], "c", lazy.window.kill(), desc="Kill focused window"),
-    Key([mod],"f",lazy.window.toggle_fullscreen(), desc="Toggle fullscreen on the focused window",
+    Key([mod],"f",lazy.window.toggle_fullscreen(),
+        desc="Toggle fullscreen on the focused window",
         ),
 
     Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
@@ -67,7 +68,7 @@ keys = [
         Key(["shift"], "h", lazy.spawn("/home/sky/.local/bin/aircon hot"), desc=""),
         Key(["shift"], "c", lazy.spawn("/home/sky/.local/bin/aircon cold"), desc=""),
         Key([], "f", lazy.spawn("/home/sky/.local/bin/airconControl -sellect-fan"), desc=""),
-        ]),
+    ]),
 
     # Light control
     KeyChord([alt], "l", [
@@ -92,7 +93,7 @@ keys = [
         Key([], "s", lazy.spawn("/home/sky/.local/bin/snipets"), desc=""),
         Key(["shift"], "s", lazy.spawn("/home/sky/.local/bin/system-action"), desc=""),
         Key([mod], "t", lazy.spawn("/home/sky/.local/bin/todoist --today"), desc=""),
-        ]),
+    ]),
 
 
     # Spotify control
@@ -105,7 +106,7 @@ keys = [
         Key([], "s", lazy.spawn("/home/sky/.local/bin/spotify-control -select-playlist"), desc=""),
         Key([], "m", lazy.spawn("kitty -e spt"), desc=""),
         Key([], "l", lazy.spawn("kitty -e sptlrx"), desc=""),
-        ]),
+    ]),
 
     # App launcher stuff
     KeyChord([mod], "m", [
@@ -118,7 +119,7 @@ keys = [
         # Key([], "o", lazy.spawn("obsidian"), desc="Open obsidian"),
         Key(["shift"], "o", lazy.spawn("prime-run obs"), desc="Open obs"),
         Key([], "f", lazy.spawn("thunar"), desc="Open thunar")
-        ]),
+    ]),
 
     Key([mod, "control"], "b",
         lazy.hide_show_bar(),
@@ -166,37 +167,61 @@ keys = [
 #         "10": "asterisk"
 #         }
 
-keyToUse = {
-        "1": "1",
-        "2": "2",
-        "3": "3",
-        "4": "4",
-        "5": "5",
-        "6": "6",
-        "7": "7",
-        "8": "8",
-        "9": "9",
-        "10": "0"
-        }
+# keyToUse = {
+#         "1": "1",
+#         "2": "2",
+#         "3": "3",
+#         "4": "4",
+#         "5": "5",
+#         "6": "6",
+#         "7": "7",
+#         "8": "8",
+#         "9": "9",
+#         "10": "0"
+#         }
 
-for i in groups:
-    keys.extend(
-            [
-                Key(
-                    [mod],
-                    keyToUse[i.name],
-                    lazy.group[i.name].toscreen(),
-                    desc="Switch to group {}".format(i.name),
-                    ),
+# for i in groups:
+#     keys.extend(
+#             [
+#                 Key(
+#                     [mod],
+#                     keyToUse[i.name],
+#                     lazy.group[i.name].toscreen(),
+#                     desc="Switch to group {}".format(i.name),
+#                     ),
+#
+#                 Key(
+#                     [mod, "shift"],
+#                     keyToUse[i.name],
+#                     lazy.window.togroup(i.name, switch_group=False),
+#                     desc="Switch to & move focused window to group {}".format(i.name),
+#                     ),
+#                 ]
+#             )
 
-                Key(
-                    [mod, "shift"],
-                    keyToUse[i.name],
-                    lazy.window.togroup(i.name, switch_group=False),
-                    desc="Switch to & move focused window to group {}".format(i.name),
-                    ),
-                ]
-            )
+keys.extend([
+    Key([mod, "shift"], "equal", lazy.group["1"].toscreen()),
+    Key([mod], "bracketleft", lazy.group["2"].toscreen()),
+    Key([mod, "shift"], "bracketleft", lazy.group["3"].toscreen()),
+    Key([mod, "shift"], "9", lazy.group["4"].toscreen()),
+    Key([mod, "shift"], "7", lazy.group["5"].toscreen()),
+    Key([mod], "equal", lazy.group["6"].toscreen()),
+    Key([mod, "shift"], "0", lazy.group["7"].toscreen()),
+    Key([mod, "shift"], "bracketright", lazy.group["8"].toscreen()),
+    Key([mod], "bracketright", lazy.group["9"].toscreen()),
+    Key([mod, "shift"], "8", lazy.group["10"].toscreen()),
+
+    Key([mod], "1", lazy.window.togroup("1", switch_group=False)),
+    Key([mod], "2", lazy.window.togroup("2", switch_group=False)),
+    Key([mod], "3", lazy.window.togroup("3", switch_group=False)),
+    Key([mod], "4", lazy.window.togroup("4", switch_group=False)),
+    Key([mod], "5", lazy.window.togroup("5", switch_group=False)),
+    Key([mod], "6", lazy.window.togroup("6", switch_group=False)),
+    Key([mod], "7", lazy.window.togroup("7", switch_group=False)),
+    Key([mod], "8", lazy.window.togroup("8", switch_group=False)),
+    Key([mod], "9", lazy.window.togroup("9", switch_group=False)),
+    Key([mod], "0", lazy.window.togroup("10", switch_group=False)),
+])
 
 def window_to_previous_screen(qtile, switch_group=False, switch_screen=False):
     i = qtile.screens.index(qtile.current_screen)

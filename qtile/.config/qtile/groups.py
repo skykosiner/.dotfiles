@@ -1,4 +1,6 @@
-from libqtile.config import DropDown, Group, ScratchPad
+from libqtile.lazy import lazy
+from libqtile.config import  Group, Key
+from keys import keys, mod
 
 groups = []
 group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
@@ -22,3 +24,7 @@ for i in range(len(group_names)):
 #                      on_focus_lost_hide=True),
 #             ]),
 #         )
+
+keys.extend([
+    Key([mod, "shift"], "plus", lazy.group["1"].toscreen()),
+])
