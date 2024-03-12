@@ -1,6 +1,7 @@
 local opt = vim.opt
 local g = vim.g
 
+opt.background = "dark"
 g.mapleader = " "
 
 -- Keep cursor a block in insert mode
@@ -29,8 +30,7 @@ opt.softtabstop = 4
 opt.expandtab = true
 opt.autoindent = true
 opt.cindent = true
-
-opt.wrap = true
+opt.wrap = false
 
 -- Highlight the current search as seacrhing
 opt.incsearch = true
@@ -90,12 +90,11 @@ opt.pumblend = 17
 opt.wildmode = "longest:full"
 opt.wildoptions = "pum"
 
-opt.splitright = true  -- Prefer windows splitting to the right
-opt.splitbelow = false -- Prefer windows splitting to the bottom
+opt.splitright = false
+opt.splitbelow = false
 
 -- vim.opt.listchars = { eol = "↲" }
-vim.opt.listchars = "tab:· ,nbsp:_,trail: ,multispace:· ,eol:↲"
+-- vim.opt.listchars = "tab:· ,nbsp:_,trail: ,multispace:· ,eol:↲"
 -- vim.opt.listchars = { eol = "↲", tab = ">", space = ">" }
 
 -- vim.opt.listchars = { eol = '↲' }
-vim.opt.list = true

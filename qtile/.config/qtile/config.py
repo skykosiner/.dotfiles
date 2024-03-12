@@ -1,5 +1,5 @@
 from libqtile import layout
-from libqtile.config import Click, Drag, Match, Key
+from libqtile.config import Click, Drag, Match
 from libqtile.lazy import lazy
 from libqtile import hook
 
@@ -15,7 +15,7 @@ import subprocess
 layouts = [
     layout.MonadTall(border_focus="#285577", border_width=1, margin=0),
     layout.MonadWide(border_focus="#285577", border_width=1, margin=0),
-    layout.Max(border_width=1),
+    layout.Max(border_width=1,border_focus="#285577", margin=0),
 ]
 
 # Drag floating layouts.

@@ -69,6 +69,7 @@ return {
       vim.keymap.set("n", "<C-p>", ":lua require('telescope.builtin').git_files()<CR>")
       vim.keymap.set("n", "<leader>ps",
         ":lua require('telescope.builtin').grep_string({ search = vim.fn.input('Grep For > ')})<CR>")
+      vim.keymap.set("n", "<leader>pp", ":lua require('telescope.builtin').live_grep()<CR>")
       vim.keymap.set("n", "<leader>pb", ":lua require('telescope.builtin').buffers()<CR>")
 
       vim.keymap.set("n", "<leader>vih", ":Telescope help_tags<CR>")

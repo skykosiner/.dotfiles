@@ -1,6 +1,5 @@
 from libqtile.lazy import lazy
 from libqtile.config import Key, KeyChord
-from groups import groups
 
 mod = "mod4"
 alt = "mod1"
@@ -116,7 +115,7 @@ keys = [
         Key([], "r", lazy.spawn("prime-run /opt/resolve/bin/resolve"), desc="Open resolve"),
         Key([], "p", lazy.spawn("kitty -e pulsemixer"), desc="Open pulsemixer"),
         Key([], "h", lazy.spawn("kitty -e htop"), desc="Open htop"),
-        # Key([], "o", lazy.spawn("obsidian"), desc="Open obsidian"),
+        Key([], "o", lazy.spawn("obsidian"), desc="Open obsidian"),
         Key(["shift"], "o", lazy.spawn("prime-run obs"), desc="Open obs"),
         Key([], "f", lazy.spawn("thunar"), desc="Open thunar")
     ]),
@@ -150,55 +149,14 @@ keys = [
     Key([alt], "space", lazy.spawn("/home/sky/.local/bin/quick-add-task"), desc=""),
     Key([alt, "shift"], "space", lazy.spawn("/home/sky/.local/bin/obsidian-cli quick-note"), desc=""),
     Key([alt], "F1", lazy.spawn("/home/sky/.local/bin/keyboard-connected"), desc=""),
+
+    # SCRATCHPAD
+    Key([], "F6", lazy.group["spotify"].dropdown_toggle("spotify"), desc=""),
+    Key([], "F7", lazy.group["beeper"].dropdown_toggle("beeper"), desc=""),
 ]
 
-# A hacky way to get my keyboard layout and qtile to play nicely
-# Only need to use this when I'm not using my moonlander
-# keyToUse = {
-#         "1": "plus",
-#         "2": "bracketleft",
-#         "3": "braceleft",
-#         "4": "parenleft",
-#         "5": "ampersand",
-#         "6": "equal",
-#         "7": "parenright",
-#         "8": "braceright",
-#         "9": "bracketright",
-#         "10": "asterisk"
-#         }
-
-# keyToUse = {
-#         "1": "1",
-#         "2": "2",
-#         "3": "3",
-#         "4": "4",
-#         "5": "5",
-#         "6": "6",
-#         "7": "7",
-#         "8": "8",
-#         "9": "9",
-#         "10": "0"
-#         }
-
-# for i in groups:
-#     keys.extend(
-#             [
-#                 Key(
-#                     [mod],
-#                     keyToUse[i.name],
-#                     lazy.group[i.name].toscreen(),
-#                     desc="Switch to group {}".format(i.name),
-#                     ),
-#
-#                 Key(
-#                     [mod, "shift"],
-#                     keyToUse[i.name],
-#                     lazy.window.togroup(i.name, switch_group=False),
-#                     desc="Switch to & move focused window to group {}".format(i.name),
-#                     ),
-#                 ]
-#             )
-
+# Due to my weird keyboard layout I need to do some weird stuff to get the keys
+# to work
 keys.extend([
     Key([mod, "shift"], "equal", lazy.group["1"].toscreen()),
     Key([mod], "bracketleft", lazy.group["2"].toscreen()),

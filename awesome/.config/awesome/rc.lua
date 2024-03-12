@@ -14,7 +14,6 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
-local APW = require("apw/widget")
 
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
@@ -245,10 +244,6 @@ root.buttons(gears.table.join(
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
-  awful.key({}, "XF86AudioRaiseVolume", APW.Up),
-  awful.key({}, "XF86AudioLowerVolume", APW.Down),
-  awful.key({}, "XF86AudioMute", APW.ToggleMute),
-
   awful.key({ modkey, "Shift" }, "w", function()
     awful.util.spawn("brave")
   end),
@@ -361,7 +356,7 @@ clientkeys = gears.table.join(
       c:raise()
     end,
     { description = "toggle fullscreen", group = "client" }),
-  awful.key({ modkey, "Shift" }, "q", function(c) c:kill() end,
+  awful.key({ modkey, "Shift" }, "c", function(c) c:kill() end,
     { description = "close", group = "client" }),
   awful.key({ modkey, "Control" }, "space", awful.client.floating.toggle,
     { description = "toggle floating", group = "client" }),
@@ -603,9 +598,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- Auto start programs
-awful.util.spawn("picom")
-awful.util.spawn("pulseaudio")
-awful.util.spawn("dunst")
-awful.util.spawn("setxkbmap -layout real-prog-dvorak")
-awful.util.spawn("~/.fehbg")
-awful.util.spawn("~/.fehbg")
+awful.util.spawn("/home/sky/.dotfiles/bin/.local/bin/startup")

@@ -3,7 +3,7 @@ return {
     "tpope/vim-fugitive",
     config = function()
       vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
-      vim.keymap.set("n", "<leader>gl", vim.cmd.Gllog)
+      vim.keymap.set("n", "<leader>gl", function() vim.cmd.Git('log') end)
 
       local Sky_Fugitive = vim.api.nvim_create_augroup("Sky_Fugitive", {})
 

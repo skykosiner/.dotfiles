@@ -5,15 +5,25 @@ return {
       { "catppuccin/nvim",  name = "catppuccin", priority = 1000 },
       { "rose-pine/neovim", name = "rose-pine" },
       "sainnhe/gruvbox-material",
-      "ayu-theme/ayu-vim",
+      "Shatur/neovim-ayu",
       "folke/tokyonight.nvim",
+      "ellisonleao/gruvbox.nvim",
       "tjdevries/gruvbuddy.nvim",
+      "navarasu/onedark.nvim",
+      "EdenEast/nightfox.nvim",
     },
     config = function()
       local Group = require("colorbuddy.group").Group
       local c = require("colorbuddy.color").colors
       local g = require("colorbuddy.group").groups
       local s = require("colorbuddy.style").styles
+
+      require("onedark").load()
+
+      -- Lua
+      require('onedark').setup {
+        transparent = true,
+      }
 
       -- Make sure tokyonight is 100% transparent
       require("tokyonight").setup({
@@ -26,15 +36,30 @@ return {
         },
       })
 
+      require("ayu").setup({
+        mirage = false,
+      })
+
+      require("nightfox").setup({
+        options = {
+          transparent = true,
+        }
+      })
+
       require("catppuccin").setup({
         transparent_background = true,
+      })
+
+      require("gruvbox").setup({
+        transparent_mode = true,
+        contrast = "soft",
       })
 
       vim.g.tokyonight_transparent = true
       vim.g.tokyonight_transparent_sidebar = true
       vim.opt.background = "dark"
 
-      vim.g.sky_color_scheme = "tokyonight"
+      vim.g.sky_color_scheme = "rose-pine"
 
       require("rose-pine").setup({
         styles = {

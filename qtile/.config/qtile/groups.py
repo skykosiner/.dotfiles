@@ -1,6 +1,4 @@
-from libqtile.lazy import lazy
-from libqtile.config import  Group, Key
-from keys import keys, mod
+from libqtile.config import  Group, DropDown, Match, ScratchPad
 
 groups = []
 group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
@@ -17,14 +15,10 @@ for i in range(len(group_names)):
 
 
 
-# groups.append(
-#         ScratchPad("scratchpad", [
-#             DropDown("org-today", "emacsclient -c -a emacs --eval '(org-agenda-list)'",
-#                      x=0.05, y=0.4, width=0.9, height=0.6, opacity=0.9,
-#                      on_focus_lost_hide=True),
-#             ]),
-#         )
+scratchpads = [
+    ScratchPad("spotify", [DropDown("spotify", "/usr/bin/spotify-launcher", x=0.12, y=0.02, width=0.75, height=0.9, on_focus_lost_hide=True, opacity=1)]),
+    ScratchPad("beeper", [DropDown("beeper", "/usr/bin/beeper", x=0.12, y=0.02, width=0.75, height=0.9, on_focus_lost_hide=True, opacity=1, match=Match(wm_class='beeper'))]),
+]
 
-keys.extend([
-    Key([mod, "shift"], "plus", lazy.group["1"].toscreen()),
-])
+for i in range(len(scratchpads)):
+    groups.append(scratchpads[i])

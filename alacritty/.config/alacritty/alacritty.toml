@@ -26,8 +26,7 @@ foreground = "#ebdbb2"
 size = 16
 
 [font.normal]
-# family = "BerkeleyMono Nerd Font"
-family = "ComicCodeLigatures Nerd Font"
+family = "BerkeleyMono Nerd Font"
 
 [scrolling]
 history = 10000

@@ -80,3 +80,5 @@ end)
 -- With wrap mode this will move the cursor to the next line
 normal_mode("j", "gj")
 normal_mode("k", "gk")
+
+normal_mode("<C-c>", "<Esc>")
