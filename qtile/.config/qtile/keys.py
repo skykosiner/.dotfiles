@@ -153,6 +153,8 @@ keys = [
     # SCRATCHPAD
     Key([], "F6", lazy.group["spotify"].dropdown_toggle("spotify"), desc=""),
     Key([], "F7", lazy.group["beeper"].dropdown_toggle("beeper"), desc=""),
+    Key([], "F12", lazy.group["bc"].dropdown_toggle("bc"), desc=""),
+    Key([mod, "shift"], "t", lazy.group["todoist"].dropdown_toggle("todoist"), desc=""),
 ]
 
 # Due to my weird keyboard layout I need to do some weird stuff to get the keys
