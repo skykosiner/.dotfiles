@@ -59,8 +59,6 @@ return {
       vim.g.tokyonight_transparent_sidebar = true
       vim.opt.background = "dark"
 
-      vim.g.sky_color_scheme = "rose-pine"
-
       require("rose-pine").setup({
         styles = {
           bold = true,
@@ -68,6 +66,8 @@ return {
           transparency = true,
         },
       })
+
+      vim.g.sky_color_scheme = "tokyonight"
 
       vim.g.gruvbox_material_contrast = "hard"
       vim.g.gruvbox_material_transparent_background = 2
