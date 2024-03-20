@@ -161,6 +161,7 @@ keys = [
 # to work
 keys.extend([
     Key([mod, "shift"], "equal", lazy.group["1"].toscreen()),
+
     Key([mod], "bracketleft", lazy.group["2"].toscreen()),
     Key([mod, "shift"], "bracketleft", lazy.group["3"].toscreen()),
     Key([mod, "shift"], "9", lazy.group["4"].toscreen()),

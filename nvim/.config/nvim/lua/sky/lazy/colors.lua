@@ -20,12 +20,10 @@ return {
 
       require("onedark").load()
 
-      -- Lua
       require('onedark').setup {
         transparent = true,
       }
 
-      -- Make sure tokyonight is 100% transparent
       require("tokyonight").setup({
         transparent = true,
         styles = {
@@ -52,11 +50,9 @@ return {
 
       require("gruvbox").setup({
         transparent_mode = true,
-        contrast = "soft",
+        contrast = "hard",
       })
 
-      vim.g.tokyonight_transparent = true
-      vim.g.tokyonight_transparent_sidebar = true
       vim.opt.background = "dark"
 
       require("rose-pine").setup({
@@ -67,11 +63,11 @@ return {
         },
       })
 
-      vim.g.sky_color_scheme = "tokyonight"
-
       vim.g.gruvbox_material_contrast = "hard"
       vim.g.gruvbox_material_transparent_background = 2
       vim.g.gruvbox_material_better_performance = 1
+
+      vim.g.sky_color_scheme = "tokyonight"
 
       if vim.g.sky_color_scheme ~= "gruvbuddy" then
         vim.cmd.colorscheme(vim.g.sky_color_scheme)
@@ -147,8 +143,8 @@ return {
       vim.cmd("highlight ColorColumn ctermbg=0 guibg=#555555")
       vim.api.nvim_set_hl(0, "WinSeparator", { bg = "none", fg = "none" })
       vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
-      vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
       vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+      vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
     end
   }
 }

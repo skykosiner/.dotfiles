@@ -3,6 +3,14 @@
 capacity=$(cat /sys/class/power_supply/BAT0/capacity) || exit
 status=$(cat /sys/class/power_supply/BAT0/status)
 
+# Check if headphones is connected with bluetooth
+headphones=$(bluetoothctl info | grep "Name" | grep "WH-1000XM3" | wc -l)
+headphonesBattery=$(bluetoothctl info | grep "Battery Percentage" | cut -d' ' -f4 | sed "s/(//; s/)/%/")
+
+if [[ $headphones -eq 1 ]]; then
+    printf "🎧"$headphonesBattery"% %"
+fi
+
 if [[ $status == "Full" ]]; then
     printf "🔌"$capacity"%%"
 elif [[ $status == "Charging" ]]; then

@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-count=$(todoist-cli list --filter '(todoay | overdue)' | wc -l)
+count=$(/home/sky/personal/todoist-cli/todoistCli today | wc -l)
 printf "$count"

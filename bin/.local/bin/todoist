@@ -2,7 +2,7 @@
 
 case "$1" in
     "--today")
-        todoist-cli list --filter '(today | overdue)' | cut -d' '  -f1,5,6,7- | sed "s/#//" | dmenu -l 30 -fn 'JetBrainsMono Nerd Font-15'| cut -d' ' -f1 | xargs -I {} todoist-cli close {}
+        /home/sky/personal/todoist-cli/todoistCli today | dmenu | cut -d'|' -f2 | xargs -I {} /home/sky/personal/todoist-cli/todoistCli --close {}
         ;;
     *)
 esac
