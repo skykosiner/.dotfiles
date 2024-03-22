@@ -2,7 +2,7 @@
 
 case "$1" in
     "--today")
-        /home/sky/personal/todoist-cli/todoistCli today | dmenu | cut -d'|' -f2 | xargs -I {} /home/sky/personal/todoist-cli/todoistCli --close {}
+        /home/sky/personal/todoist-cli/todoistCli today | dmenu | cut -d'|' -f2 | xargs -I {} /home/sky/personal/todoist-cli/todoistCli close {}
         ;;
     *)
 esac
