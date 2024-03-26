@@ -44,6 +44,7 @@ alias gs="git status"
 alias ga="git add ."
 alias gp="git push"
 alias gl="git log"
+alias rtfm="vim README.md"
 
 alias rm="rm -i"
 alias cp="cp -i"
