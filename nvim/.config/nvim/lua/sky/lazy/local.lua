@@ -1,6 +1,6 @@
 return {
   {
-    dir = "/home/sky/personal/todoist.nvim/",
+    dir = os.getenv("HOME") .. "/personal/todoist.nvim/",
     config = function()
       local todoist_api_key = os.getenv("TODOIST_API_TOKEN")
       local todoist = require("todoist")
