@@ -163,64 +163,61 @@ keys = [
 # to work
 # We check the number of monitors to see if we need to change the key bindings
 # for when I'm at my desk with my custom keyboard or using my laptop keyboard
-num_monitors = int(os.popen("xrandr --query | grep ' connected' | wc -l").read().strip())
+keys.extend([
+    Key([mod, "shift"], "equal", lazy.group["1"].toscreen()),
+    Key([mod], "bracketleft", lazy.group["2"].toscreen()),
+    Key([mod, "shift"], "bracketleft", lazy.group["3"].toscreen()),
+    Key([mod, "shift"], "9", lazy.group["4"].toscreen()),
+    Key([mod, "shift"], "7", lazy.group["5"].toscreen()),
+    Key([mod], "equal", lazy.group["6"].toscreen()),
+    Key([mod, "shift"], "0", lazy.group["7"].toscreen()),
+    Key([mod, "shift"], "bracketright", lazy.group["8"].toscreen()),
+    Key([mod], "bracketright", lazy.group["9"].toscreen()),
+    Key([mod, "shift"], "8", lazy.group["10"].toscreen()),
 
-if num_monitors > 1:
-    keys.extend([
-        Key([mod, "shift"], "equal", lazy.group["1"].toscreen()),
-        Key([mod], "bracketleft", lazy.group["2"].toscreen()),
-        Key([mod, "shift"], "bracketleft", lazy.group["3"].toscreen()),
-        Key([mod, "shift"], "9", lazy.group["4"].toscreen()),
-        Key([mod, "shift"], "7", lazy.group["5"].toscreen()),
-        Key([mod], "equal", lazy.group["6"].toscreen()),
-        Key([mod, "shift"], "0", lazy.group["7"].toscreen()),
-        Key([mod, "shift"], "bracketright", lazy.group["8"].toscreen()),
-        Key([mod], "bracketright", lazy.group["9"].toscreen()),
-        Key([mod, "shift"], "8", lazy.group["10"].toscreen()),
-
-        Key([mod], "1", lazy.window.togroup("1", switch_group=False)),
-        Key([mod], "2", lazy.window.togroup("2", switch_group=False)),
-        Key([mod], "3", lazy.window.togroup("3", switch_group=False)),
-        Key([mod], "4", lazy.window.togroup("4", switch_group=False)),
-        Key([mod], "5", lazy.window.togroup("5", switch_group=False)),
-        Key([mod], "6", lazy.window.togroup("6", switch_group=False)),
-        Key([mod], "7", lazy.window.togroup("7", switch_group=False)),
-        Key([mod], "8", lazy.window.togroup("8", switch_group=False)),
-        Key([mod], "9", lazy.window.togroup("9", switch_group=False)),
-        Key([mod], "0", lazy.window.togroup("10", switch_group=False)),
-    ])
-else:
-    keyToUse = {
-        "1": "plus",
-        "2": "bracketleft",
-        "3": "braceleft",
-        "4": "parenleft",
-        "5": "ampersand",
-        "6": "equal",
-        "7": "parenright",
-        "8": "braceright",
-        "9": "bracketright",
-        "10": "asterisk",
-        }
-
-    for i in groups:
-        keys.extend(
-                [
-                    Key(
-                        [mod],
-                        keyToUse[i.name],
-                        lazy.group[i.name].toscreen(),
-                        desc="Switch to group {}".format(i.name),
-                        ),
-
-                    Key(
-                        [mod, "shift"],
-                        keyToUse[i.name],
-                        lazy.window.togroup(i.name, switch_group=False),
-                        desc="Switch to & move focused window to group {}".format(i.name),
-                        ),
-                    ]
-                )
+    Key([mod], "1", lazy.window.togroup("1", switch_group=False)),
+    Key([mod], "2", lazy.window.togroup("2", switch_group=False)),
+    Key([mod], "3", lazy.window.togroup("3", switch_group=False)),
+    Key([mod], "4", lazy.window.togroup("4", switch_group=False)),
+    Key([mod], "5", lazy.window.togroup("5", switch_group=False)),
+    Key([mod], "6", lazy.window.togroup("6", switch_group=False)),
+    Key([mod], "7", lazy.window.togroup("7", switch_group=False)),
+    Key([mod], "8", lazy.window.togroup("8", switch_group=False)),
+    Key([mod], "9", lazy.window.togroup("9", switch_group=False)),
+    Key([mod], "0", lazy.window.togroup("10", switch_group=False)),
+])
+# keyToUse = {
+#     "1": "plus",
+#     "2": "bracketleft",
+#     "3": "braceleft",
+#     "4": "parenleft",
+#     "5": "ampersand",
+#     "6": "equal",
+#     "7": "parenright",
+#     "8": "braceright",
+#     "9": "bracketright",
+#     "10": "asterisk",
+#     }
+#
+# for i in groups:
+#     if i.name in keyToUse:
+#         keys.extend(
+#                 [
+#                     Key(
+#                         [mod],
+#                         keyToUse[i.name],
+#                         lazy.group[i.name].toscreen(),
+#                         desc="Switch to group {}".format(i.name),
+#                         ),
+#
+#                     Key(
+#                         [mod, "shift"],
+#                         keyToUse[i.name],
+#                         lazy.window.togroup(i.name, switch_group=False),
+#                         desc="Switch to & move focused window to group {}".format(i.name),
+#                         ),
+#                     ]
+#                 )
 
 def window_to_previous_screen(qtile, switch_group=False, switch_screen=False):
     i = qtile.screens.index(qtile.current_screen)
