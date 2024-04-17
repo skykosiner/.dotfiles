@@ -99,8 +99,4 @@ opt.splitbelow = false
 
 -- vim.opt.listchars = { eol = '↲' }
 
--- Check if on mac
-uname = os.execute("uname -s")
-if uname == "Darwin" then
-  opt.shell = "/bin/zsh"
-end
+opt.shell = "/bin/zsh"
