@@ -72,7 +72,7 @@ return {
       if vim.g.sky_color_scheme ~= "gruvbuddy" then
         vim.cmd.colorscheme(vim.g.sky_color_scheme)
       else
-        require("colorbuddy").colorscheme("gruvbuddy")
+        vim.cmd.colorscheme(vim.g.sky_color_scheme)
         vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
         vim.api.nvim_set_hl(0, "@tag.delimiter", { fg = "#bdbbbf" })
         vim.api.nvim_set_hl(0, "@tag.attribute", { fg = "#bdbbbf" })
