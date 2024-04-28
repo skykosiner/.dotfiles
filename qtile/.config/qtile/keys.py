@@ -209,15 +209,15 @@ keys.extend([
 #                         lazy.group[i.name].toscreen(),
 #                         desc="Switch to group {}".format(i.name),
 #                         ),
-#
-#                     Key(
-#                         [mod, "shift"],
-#                         keyToUse[i.name],
-#                         lazy.window.togroup(i.name, switch_group=False),
-#                         desc="Switch to & move focused window to group {}".format(i.name),
-#                         ),
-#                     ]
-#                 )
+                #
+                #     Key(
+                #         [mod, "shift"],
+                #         keyToUse[i.name],
+                #         lazy.window.togroup(i.name, switch_group=False),
+                #         desc="Switch to & move focused window to group {}".format(i.name),
+                #         ),
+                #     ]
+                # )
 
 def window_to_previous_screen(qtile, switch_group=False, switch_screen=False):
     i = qtile.screens.index(qtile.current_screen)
