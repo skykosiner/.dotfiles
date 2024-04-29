@@ -18,6 +18,8 @@ return {
       local g = require("colorbuddy.group").groups
       local s = require("colorbuddy.style").styles
 
+      vim.g.sky_color_scheme = "rose-pine"
+
       require("onedark").load()
 
       require('onedark').setup {
@@ -66,8 +68,6 @@ return {
       vim.g.gruvbox_material_contrast = "hard"
       vim.g.gruvbox_material_transparent_background = 2
       vim.g.gruvbox_material_better_performance = 1
-
-      vim.g.sky_color_scheme = "ayu"
 
       if vim.g.sky_color_scheme ~= "gruvbuddy" then
         vim.cmd.colorscheme(vim.g.sky_color_scheme)
