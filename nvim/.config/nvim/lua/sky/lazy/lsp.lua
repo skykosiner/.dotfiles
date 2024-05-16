@@ -30,7 +30,25 @@ return {
 
       require("mason").setup({})
       require('mason-lspconfig').setup({
-        ensure_installed = {},
+        ensure_installed = {
+          "bashls",
+          "clangd",
+          "cssls",
+          "eslint",
+          "gopls",
+          "html",
+          "lemminx",
+          "ltex",
+          "lua_ls",
+          "pyright",
+          "rust_analyzer",
+          "tailwindcss",
+          "taplo",
+          "texlab",
+          "tsserver",
+          "vimls",
+          "yamlls",
+        },
         handlers = {
           lsp.default_setup,
         },

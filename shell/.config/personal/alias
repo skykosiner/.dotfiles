@@ -64,3 +64,5 @@ alias todoist-cli="$HOME/personal/todoist-cli/todoistCli"
 # For Mac
 alias urlS="/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -dump URLSchemeBinding"
 alias iCloud="cd $HOME/Library/Mobile\ Documents/com~apple~CloudDocs"
+
+alias resolveRun='prime-run LD_PRELOAD="/usr/lib/libgio-2.0.so /usr/lib/libgmodule-2.0.so" /opt/resolve/bin/resolve'

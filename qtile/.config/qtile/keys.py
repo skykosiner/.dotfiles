@@ -186,38 +186,39 @@ keys.extend([
     Key([mod], "9", lazy.window.togroup("9", switch_group=False)),
     Key([mod], "0", lazy.window.togroup("10", switch_group=False)),
 ])
-# keyToUse = {
-#     "1": "plus",
-#     "2": "bracketleft",
-#     "3": "braceleft",
-#     "4": "parenleft",
-#     "5": "ampersand",
-#     "6": "equal",
-#     "7": "parenright",
-#     "8": "braceright",
-#     "9": "bracketright",
-#     "10": "asterisk",
-#     }
-#
-# for i in groups:
-#     if i.name in keyToUse:
-#         keys.extend(
-#                 [
-#                     Key(
-#                         [mod],
-#                         keyToUse[i.name],
-#                         lazy.group[i.name].toscreen(),
-#                         desc="Switch to group {}".format(i.name),
-#                         ),
-                #
-                #     Key(
-                #         [mod, "shift"],
-                #         keyToUse[i.name],
-                #         lazy.window.togroup(i.name, switch_group=False),
-                #         desc="Switch to & move focused window to group {}".format(i.name),
-                #         ),
-                #     ]
-                # )
+
+ # keyToUse = {
+ #     "1": "plus",
+ #     "2": "bracketleft",
+ #     "3": "braceleft",
+ #     "4": "parenleft",
+ #     "5": "ampersand",
+ #     "6": "equal",
+ #     "7": "parenright",
+ #     "8": "braceright",
+ #     "9": "bracketright",
+ #     "10": "asterisk",
+ #     }
+ #
+ # for i in groups:
+ #     if i.name in keyToUse:
+ #         keys.extend(
+ #                 [
+ #                     Key(
+ #                         [mod],
+ #                         keyToUse[i.name],
+ #                         lazy.group[i.name].toscreen(),
+ #                         desc="Switch to group {}".format(i.name),
+ #                        ),
+
+                 #     Key(
+                 #         [mod, "shift"],
+                 #         keyToUse[i.name],
+                 #         lazy.window.togroup(i.name, switch_group=False),
+                 #         desc="Switch to & move focused window to group {}".format(i.name),
+                 #         ),
+                 #     ]
+                 # )
 
 def window_to_previous_screen(qtile, switch_group=False, switch_screen=False):
     i = qtile.screens.index(qtile.current_screen)

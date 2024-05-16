@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+newVideo=$(dmenu -p "New Video Title:" <&- && echo)
+newVideoFormated="🎥 $newVideo"
+
+curl -X POST https://api.todoist.com/rest/v1/projects \
+    -H "Content-Type: application/json" \
+    -H "Authorization : Bearer $TODOIST_API_TOKEN" \
+    -d "{\"name\":\"$newVideoFormated\",\"parent_id\":2312191751}"
+
+type=$(printf "A-roll\nVo" | dmenu)
+
+# if [[ $type == "a-roll" ]]; then
+# fi

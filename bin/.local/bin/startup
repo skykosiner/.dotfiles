@@ -25,3 +25,6 @@ qbittorrent-nox -d &
 sudo tor &
 
 1password --silent
+
+# Mount them drives
+udiskie &

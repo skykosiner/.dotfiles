@@ -45,7 +45,7 @@ opt.scrolloff = 8
 opt.updatetime = 50
 
 -- Keep buffers in memory (uses a bit more ram, but coming from vs code vim is still super light weight even with this being on)
-opt.hidden = true
+opt.hidden = false
 
 -- Help keep track of where cursor is
 -- opt.cursorline = true
