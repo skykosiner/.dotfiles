@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-url="https://thepiratebay.party/search"
+url="https://thepiratebay.org/search"
 
 [[ $1 ]] && q=$(dmenu -p "Enter Search Query:" -fn "JetBrainsMono Nerd Font-15" <&- && echo) || read -p "Enter Search Query: " q
 
 echo "$url/$q" | sed 's/ /%20/g'
-page="$(torify wget -qO- "$url/$q" | sed 's@+@ @g;s@%@\\x@g' | xargs -0 printf "%b")"
+page="$(wget -qO- "$url/$q" | sed 's@+@ @g;s@%@\\x@g' | xargs -0 printf "%b")"
 list="$(echo "$page" | grep magnet | grep -v '<meta' | sed 's/href="magnet/\nmagnet/g' | grep magnet | cut -d\" -f1 | awk -F\& '{print $2 "|" $1}' | tr "+" " " | sed 's/dn=//g')"
 [[ $1 ]] && selection="$(echo -e "$list" | dmenu -l 30 -fn 'JetBrainsMono Nerd Font-15' -p 'Pick Torrent: ')" || selection="$(echo -e "$list"|  fzf)"
 [[ $selection ]] || exit 1

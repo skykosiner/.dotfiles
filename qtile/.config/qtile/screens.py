@@ -6,7 +6,7 @@ from keys import terminal
 import subprocess
 
 colors =  [
-    ["#000000EE", "#000000AA"], # color 0
+    ["#000000CC", "#000000CC"], # color 0
     ["#A8A8A8", "#A8A8A8"], # color 1
     ["#f99db3", "#f99db3"], # color 2
     ["#B9BCDF", "#B9BCDF"], # color 3
