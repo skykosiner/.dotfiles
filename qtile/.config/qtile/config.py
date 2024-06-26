@@ -13,8 +13,8 @@ import subprocess
 # Only really use the master and stack layout
 
 layouts = [
-    layout.MonadTall(border_focus="#285577", border_width=1, margin=0),
-    layout.MonadWide(border_focus="#285577", border_width=1, margin=0),
+    layout.MonadTall(border_focus="#285577", border_width=2, margin=10),
+    layout.MonadWide(border_focus="#285577", border_width=2, margin=10),
     layout.Max(border_width=1,border_focus="#285577", margin=0),
 ]
 

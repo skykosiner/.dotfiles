@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 TODO() {
     if [[ $# -eq 1 ]]; then
@@ -149,4 +149,14 @@ commitSucklessSoftware() {
     git commit -am "Forget to commit this so fancy commit from me in the past"
     git push -u origin master
     popd
+}
+
+vpnToggle() {
+    vpnStatus=$(nmcli connection show --active | grep wireguard)
+
+    if [[ -z $vpnStatus ]]; then
+        sudo wg-quick up sky-arch
+    else
+        sudo wg-quick down sky-arch
+    fi
 }
