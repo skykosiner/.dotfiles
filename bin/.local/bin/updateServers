@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+INVENTORY_PATH="/home/sky/personal/ansible-server-updates/inventory.ini"
+PLAYBOOK_PATH="/home/sky/personal/ansible-server-updates/playbook.yml"
+LOG_PATH="/home/sky/personal/ansible-server-updates/ansible_playbook.log"
+EMAIL="sky@skykosiner.com"
+
+# Run the Ansible playbook and capture the output
+ansible-playbook -i $INVENTORY_PATH $PLAYBOOK_PATH > $LOG_PATH 2>&1
+
+# Check the exit status of the playbook run
+if [ $? -eq 0 ]; then
+    SUBJECT="Ansible Playbook Run Successful"
+    BODY="The Ansible playbook has been successfully executed. Please find the details in the attached log."
+else
+    SUBJECT="Ansible Playbook Run Failed"
+    BODY="The Ansible playbook execution failed. Please check the attached log for details."
+fi
+
+# Send an email with the log file attached
+echo "$BODY" | neomutt -s "$SUBJECT" -a $LOG_PATH -- $EMAIL

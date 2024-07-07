@@ -22,13 +22,13 @@ num_monitors = int(os.popen("xrandr --query | grep ' connected' | wc -l").read()
 
 widget_defaults = dict(
     font="BerkeleyMono Nerd Font",
-    fontsize=15,
+    fontsize=11,
     padding=3,
 )
 
 extension_defaults = widget_defaults.copy()
 
-widget_space = 5
+widget_space = 2
 
 def widget_list():
     return [
@@ -37,7 +37,7 @@ def widget_list():
             margin_x=4,
             padding_y=5,
             padding_x=3,
-            borderwidth=7,
+            borderwidth=5,
             inactive=colors[6],
             # active=colors[4],
             rounded=True,
@@ -45,50 +45,29 @@ def widget_list():
             highlight_method="block",
             # this_current_screen_border=colors[6],
             block_highlight_text_color=colors[5],
+            fontsize=8
         ),
         widget.TextBox(
             text = '|',
             padding = 2,
-            fontsize = 14
+            fontsize=8
         ),
         widget.CurrentLayoutIcon(
             padding = 0,
-            scale = 0.7
+            scale = 0.7,
+            fontsize=8
         ),
         widget.CurrentLayout(
-            padding = 5
+            padding = 5,
+            fontsize=8
         ),
         widget.TextBox(
             text = '|',
             padding = 2,
-            fontsize = 14
+            fontsize=8
         ),
-        widget.WindowName(),
-
-        widget.Spacer(length = widget_space),
-
-        widget.GenPollText(
-            update_interval = 60,
-            func = lambda: subprocess.check_output("/home/sky/.local/bin/statusbar/sb-time-tracking", shell=True, text=True),
-            mouse_callbacks = {"Button2": lambda: qtile.cmd_spawn("/home/sky/.local/bin/toggl www")},
-            fmt= "{}"
-        ),
-
-        widget.Spacer(length = widget_space),
-
-        widget.GenPollText(
-            update_interval = 5000,
-            func = lambda: subprocess.check_output("/home/sky/.local/bin/statusbar/sb-ip", shell=True, text=True),
-            mouse_callbacks = {"Button2": lambda: qtile.cmd_spawn(terminal + " -e nmtui"), "Button1": lambda: qtile.cmd_spawn("networkmanager_dmenu")},
-            fmt= "🌐 {}"
-        ),
-
-        widget.Spacer(length = widget_space),
-
-        widget.GenPollText(
-            update_interval = 20,
-            func = lambda: subprocess.check_output("/home/sky/.local/bin/statusbar/sb-todoist", shell=True, text=True),
-            fmt = "✅ {}"
+        widget.WindowName(
+            fontsize=8
         ),
 
         widget.Spacer(length = widget_space),
@@ -97,6 +76,14 @@ def widget_list():
             update_interval = 150,
             func = lambda: subprocess.check_output("/home/sky/.local/bin/statusbar/sb-mailbox", shell=True, text=True),
             mouse_callbacks = {"Button2": lambda: qtile.cmd_spawn(terminal + " -e neomutt")},
+            fontsize=8
+        ),
+
+        widget.GenPollText(
+            update_interval = 20,
+            func = lambda: subprocess.check_output("/home/sky/.local/bin/statusbar/sb-todoist", shell=True, text=True),
+            fmt = "✅ {}",
+            fontsize=8
         ),
 
         widget.Spacer(length = widget_space),
@@ -104,19 +91,38 @@ def widget_list():
         widget.Volume(
             fmt = "🔉{}",
             mouse_callbacks = {"Button2": lambda: qtile.cmd_spawn(terminal + " -e pulsemixer")},
+            fontsize=8
+        ),
+
+        widget.GenPollText(
+            update_interval = 60,
+            func = lambda: subprocess.check_output("/home/sky/.local/bin/statusbar/sb-time-tracking", shell=True, text=True),
+            mouse_callbacks = {"Button2": lambda: qtile.cmd_spawn("/home/sky/.local/bin/toggl www")},
+            fmt= "{}",
+            fontsize=8
+        ),
+
+        widget.GenPollText(
+            update_interval = 100,
+            func = lambda: subprocess.check_output("/home/sky/.local/bin/statusbar/sb-batteryLife", shell=True, text=True),
+            fontsize=8
         ),
 
         widget.Spacer(length = widget_space),
 
         widget.GenPollText(
-            update_interval = 100,
-            func = lambda: subprocess.check_output("/home/sky/.local/bin/statusbar/sb-batteryLife", shell=True, text=True)
+            update_interval = 120,
+            func = lambda: subprocess.check_output("/home/sky/.local/bin/statusbar/sb-ip", shell=True, text=True),
+            mouse_callbacks = {"Button2": lambda: qtile.cmd_spawn(terminal + " -e nmtui"), "Button1": lambda: qtile.cmd_spawn("networkmanager_dmenu")},
+            fmt = "🌐 {}",
+            fontsize=8
         ),
 
         widget.GenPollText(
             update_interval = 1000,
             func = lambda: subprocess.check_output("/home/sky/.local/bin/statusbar/sb-weather", shell=True, text=True),
             mouse_callbacks = {"Button2": lambda: qtile.cmd_spawn(terminal + " -e less -Srf /home/sky/.cache/weatherreport")},
+            fontsize=8
         ),
 
         widget.Spacer(length = widget_space),
@@ -124,14 +130,16 @@ def widget_list():
         widget.GenPollText(
             update_interval = 20,
             func = lambda: subprocess.check_output("/home/sky/.local/bin/statusbar/sb-aircon", shell=True, text=True),
-            fmt = "🌤️ {}"
+            fmt = "🌤️ {}",
+            fontsize=8
         ),
 
         widget.Spacer(length = widget_space),
 
         widget.GenPollText(
             update_interval = 60,
-            func = lambda: subprocess.check_output("/home/sky/.local/bin/statusbar/sb-timeDate", shell=True, text=True)
+            func = lambda: subprocess.check_output("/home/sky/.local/bin/statusbar/sb-timeDate", shell=True, text=True),
+            fontsize=8
         ),
 
     ]
@@ -142,7 +150,7 @@ def init_widget():
 
 screens = [
     Screen(
-        bottom=bar.Bar(init_widget(), 30, background=colors[0], foreground=colors[1]),
+        bottom=bar.Bar(init_widget(), 15, background=colors[0], foreground=colors[1]),
     ),
 ]
 
@@ -150,6 +158,6 @@ if num_monitors > 1:
     for Monitor in range(num_monitors):
         screens.append(
             Screen(
-                bottom=bar.Bar(init_widget(), 30, background=colors[0], foreground=colors[1]),
+                bottom=bar.Bar(init_widget(), 15, background=colors[0], foreground=colors[1]),
             )
         )
