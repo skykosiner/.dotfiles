@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+notify-send "Running Ansible Playbook to Update Servers."
+
 INVENTORY_PATH="/home/sky/personal/ansible-server-updates/inventory.ini"
 PLAYBOOK_PATH="/home/sky/personal/ansible-server-updates/playbook.yml"
 LOG_PATH="/home/sky/personal/ansible-server-updates/ansible_playbook.log"
@@ -19,3 +21,5 @@ fi
 
 # Send an email with the log file attached
 echo "$BODY" | neomutt -s "$SUBJECT" -a $LOG_PATH -- $EMAIL
+
+notify-send "Ansible Playbook Execution Completed. Check email for details."
