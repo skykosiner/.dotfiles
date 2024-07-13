@@ -67,7 +67,6 @@ return {
           format = lspkind.cmp_format {
             with_text = true,
             menu = {
-              copilot = "[Copilot]",
               buffer = "[buf]",
               nvim_lsp = "[LSP]",
               nvim_lua = "[api]",
@@ -95,7 +94,6 @@ return {
         },
         sources = {
           { name = "nvim_lua" },
-          { name = "copilot" },
           { name = "nvim_lsp" },
           { name = "path" },
           { name = "luasnip" },
@@ -133,14 +131,6 @@ return {
       require("symbols-outline").setup(opts)
 
       vim.g.lsp_zero_ui_float_border = "none"
-
-      lspkind.init({
-        symbol_map = {
-          Copilot = "",
-        },
-      })
-
-      vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
 
       lsp.setup()
 

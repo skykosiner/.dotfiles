@@ -18,7 +18,7 @@ return {
       local g = require("colorbuddy.group").groups
       local s = require("colorbuddy.style").styles
 
-      vim.g.sky_color_scheme = "retrobox"
+      vim.g.sky_color_scheme = "tokyonight"
 
       require("onedark").load()
 

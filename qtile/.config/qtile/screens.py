@@ -150,7 +150,7 @@ def init_widget():
 
 screens = [
     Screen(
-        bottom=bar.Bar(init_widget(), 15, background=colors[0], foreground=colors[1]),
+        top=bar.Bar(init_widget(), 15, background=colors[0], foreground=colors[1]),
     ),
 ]
 
@@ -158,6 +158,6 @@ if num_monitors > 1:
     for Monitor in range(num_monitors):
         screens.append(
             Screen(
-                bottom=bar.Bar(init_widget(), 15, background=colors[0], foreground=colors[1]),
+                top=bar.Bar(init_widget(), 15, background=colors[0], foreground=colors[1]),
             )
         )

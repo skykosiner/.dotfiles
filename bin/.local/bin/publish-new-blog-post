@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-file=$(ls ~/Documents/Linux-btw/ | fzf)
+file=$(ls "~/Documents/Linux-btw/✍️ Blog/" | fzf)
 echo "Make sure to name each blog post like: MyNewKeyboard and not my-new-keyboard"
 read blogName
-cp "/home/sky/Documents/Linux-btw/$file" > "/home/sky/personal/skykosiner-com/master/blog/publish/$blogName.md"
+cp "/home/sky/Documents/Linux-btw/✍️ Blog/$file" > "/home/sky/personal/skykosiner-com/master/blog/publish/$blogName.md"
 updateWebsite
