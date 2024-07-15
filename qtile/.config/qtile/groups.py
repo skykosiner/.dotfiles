@@ -18,7 +18,6 @@ for i in range(len(group_names)):
 scratchpads = [
     ScratchPad("spotify", [DropDown("spotify", "/usr/bin/spotify-launcher", x=0.12, y=0.02, width=0.75, height=0.9, on_focus_lost_hide=True, opacity=1)]),
     ScratchPad("beeper", [DropDown("beeper", "/usr/bin/beeper", x=0.12, y=0.02, width=0.75, height=0.9, on_focus_lost_hide=True, opacity=1, match=Match(wm_class='beeper'))]),
-    ScratchPad("todoist", [DropDown("todoist", "/usr/local/bin/todoist", x=0.12, y=0.02, width=0.75, height=0.9, on_focus_lost_hide=False, opacity=1, match=Match(wm_class='todoist'))]),
     ScratchPad("bc", [DropDown("bc", "kitty -e bc -ql", x=0.12, y=0.02, width=0.75, height=0.9, on_focus_lost_hide=True, opacity=1)]),
 ]
 

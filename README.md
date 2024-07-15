@@ -1,5 +1,5 @@
 # README
-![Coding and stuff](./media/workflow-2.png)
+![Coding and stuff](./media/workflow-3.png)
 ## What I use
 * Qtile
 * Noevim

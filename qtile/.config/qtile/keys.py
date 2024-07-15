@@ -147,7 +147,6 @@ keys = [
     Key([mod, "shift"], "b", lazy.spawn("/home/sky/.local/bin/change_background_dmenu"), desc=""),
     Key([alt], "d", lazy.spawn("setxkbmap -layout real-prog-dvorak"), desc=""),
     Key([alt], "q", lazy.spawn("setxkbmap -layout us"), desc=""),
-    Key([mod, "shift"], "space", lazy.spawn("/home/sky/.local/bin/todoist --today"), desc=""),
     Key([alt], "space", lazy.spawn("/home/sky/.local/bin/quick-add-task"), desc=""),
     Key([alt, "shift"], "space", lazy.spawn("/home/sky/.local/bin/obsidian-cli quick-note"), desc=""),
     Key([alt], "F1", lazy.spawn("/home/sky/.local/bin/keyboard-connected"), desc=""),
@@ -156,7 +155,6 @@ keys = [
     Key([], "F6", lazy.group["spotify"].dropdown_toggle("spotify"), desc=""),
     Key([], "F7", lazy.group["beeper"].dropdown_toggle("beeper"), desc=""),
     Key(["shift"], "F12", lazy.group["bc"].dropdown_toggle("bc"), desc=""),
-    Key([mod, "shift"], "t", lazy.group["todoist"].dropdown_toggle("todoist"), desc=""),
 ]
 
 # Due to my weird keyboard layout I need to do some weird stuff to get the keys

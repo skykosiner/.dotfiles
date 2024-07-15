@@ -7,14 +7,14 @@ import subprocess
 
 colors =  [
     ["#000000CC", "#000000CC"], # color 0
-    ["#A8A8A8", "#A8A8A8"], # color 1
+    ["#A10A10A10", "#A10A10A10"], # color 1
     ["#f99db3", "#f99db3"], # color 2
     ["#B9BCDF", "#B9BCDF"], # color 3
     ["#000000", "#000000"], # color 4
     ["#ffffff", "#ffffff"], # color 5
     ["#C7CAEF", "#C7CAEF"], # color 6
     ["#F9A9BC", "#F9A9BC"], # color 7
-    ["#b79feb", "#b79feb"], # color 8
+    ["#b79feb", "#b79feb"], # color 10
     ["#bbebca", "#bbebca"], # color 9
     ["#DCDEFC"]] # color 10
 
@@ -22,8 +22,8 @@ num_monitors = int(os.popen("xrandr --query | grep ' connected' | wc -l").read()
 
 widget_defaults = dict(
     font="BerkeleyMono Nerd Font",
-    fontsize=11,
-    padding=3,
+    fontsize=16,
+    padding=5,
 )
 
 extension_defaults = widget_defaults.copy()
@@ -45,29 +45,29 @@ def widget_list():
             highlight_method="block",
             # this_current_screen_border=colors[6],
             block_highlight_text_color=colors[5],
-            fontsize=8
+            fontsize=10
         ),
         widget.TextBox(
             text = '|',
             padding = 2,
-            fontsize=8
+            fontsize=10
         ),
         widget.CurrentLayoutIcon(
             padding = 0,
             scale = 0.7,
-            fontsize=8
+            fontsize=10
         ),
         widget.CurrentLayout(
             padding = 5,
-            fontsize=8
+            fontsize=10
         ),
         widget.TextBox(
             text = '|',
             padding = 2,
-            fontsize=8
+            fontsize=10
         ),
         widget.WindowName(
-            fontsize=8
+            fontsize=10
         ),
 
         widget.Spacer(length = widget_space),
@@ -76,14 +76,14 @@ def widget_list():
             update_interval = 150,
             func = lambda: subprocess.check_output("/home/sky/.local/bin/statusbar/sb-mailbox", shell=True, text=True),
             mouse_callbacks = {"Button2": lambda: qtile.cmd_spawn(terminal + " -e neomutt")},
-            fontsize=8
+            fontsize=10
         ),
 
         widget.GenPollText(
             update_interval = 20,
             func = lambda: subprocess.check_output("/home/sky/.local/bin/statusbar/sb-todoist", shell=True, text=True),
             fmt = "✅ {}",
-            fontsize=8
+            fontsize=10
         ),
 
         widget.Spacer(length = widget_space),
@@ -91,7 +91,7 @@ def widget_list():
         widget.Volume(
             fmt = "🔉{}",
             mouse_callbacks = {"Button2": lambda: qtile.cmd_spawn(terminal + " -e pulsemixer")},
-            fontsize=8
+            fontsize=10
         ),
 
         widget.GenPollText(
@@ -99,13 +99,13 @@ def widget_list():
             func = lambda: subprocess.check_output("/home/sky/.local/bin/statusbar/sb-time-tracking", shell=True, text=True),
             mouse_callbacks = {"Button2": lambda: qtile.cmd_spawn("/home/sky/.local/bin/toggl www")},
             fmt= "{}",
-            fontsize=8
+            fontsize=10
         ),
 
         widget.GenPollText(
             update_interval = 100,
             func = lambda: subprocess.check_output("/home/sky/.local/bin/statusbar/sb-batteryLife", shell=True, text=True),
-            fontsize=8
+            fontsize=10
         ),
 
         widget.Spacer(length = widget_space),
@@ -115,14 +115,14 @@ def widget_list():
             func = lambda: subprocess.check_output("/home/sky/.local/bin/statusbar/sb-ip", shell=True, text=True),
             mouse_callbacks = {"Button2": lambda: qtile.cmd_spawn(terminal + " -e nmtui"), "Button1": lambda: qtile.cmd_spawn("networkmanager_dmenu")},
             fmt = "🌐 {}",
-            fontsize=8
+            fontsize=10
         ),
 
         widget.GenPollText(
             update_interval = 1000,
             func = lambda: subprocess.check_output("/home/sky/.local/bin/statusbar/sb-weather", shell=True, text=True),
             mouse_callbacks = {"Button2": lambda: qtile.cmd_spawn(terminal + " -e less -Srf /home/sky/.cache/weatherreport")},
-            fontsize=8
+            fontsize=10
         ),
 
         widget.Spacer(length = widget_space),
@@ -131,7 +131,7 @@ def widget_list():
             update_interval = 20,
             func = lambda: subprocess.check_output("/home/sky/.local/bin/statusbar/sb-aircon", shell=True, text=True),
             fmt = "🌤️ {}",
-            fontsize=8
+            fontsize=10
         ),
 
         widget.Spacer(length = widget_space),
@@ -139,7 +139,7 @@ def widget_list():
         widget.GenPollText(
             update_interval = 60,
             func = lambda: subprocess.check_output("/home/sky/.local/bin/statusbar/sb-timeDate", shell=True, text=True),
-            fontsize=8
+            fontsize=10
         ),
 
     ]
