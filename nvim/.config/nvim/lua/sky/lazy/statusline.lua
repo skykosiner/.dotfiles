@@ -7,7 +7,16 @@ return {
       "nvim-lua/plenary.nvim"
     },
     config = function()
-      require("statusLine").setStatus()
+      local statusline = require("statusline")
+      statusline:setup({
+        background_color = "#2e2e2e",
+        foreground_color = "#7fa3c0",
+        lsp_info = true,
+        harpoon_info = true,
+        git_info = true,
+        show_icons = true,
+      })
+      statusline:set_status()
     end
   }
 }

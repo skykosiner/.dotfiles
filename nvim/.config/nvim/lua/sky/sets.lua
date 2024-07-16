@@ -81,7 +81,7 @@ vim.g.netrw_localrmdir = function(directory)
 end
 
 -- Help keep track of 80 charcter column limit
-opt.colorcolumn = "80"
+--opt.colorcolumn = "80"
 
 opt.conceallevel = 0
 
@@ -93,10 +93,10 @@ opt.wildoptions = "pum"
 opt.splitright = false
 opt.splitbelow = false
 
--- vim.opt.listchars = { eol = "↲" }
+ --vim.opt.listchars = { eol = "↲" }
 -- vim.opt.listchars = "tab:· ,nbsp:_,trail: ,multispace:· ,eol:↲"
--- vim.opt.listchars = { eol = "↲", tab = ">", space = ">" }
+--vim.opt.listchars = { eol = "↲", tab = ">", space = ">" }
 
--- vim.opt.listchars = { eol = '↲' }
+ --vim.opt.listchars = { eol = '↲' }
 
 opt.shell = "/bin/zsh"

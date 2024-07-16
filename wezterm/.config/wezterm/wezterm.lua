@@ -23,7 +23,7 @@ config.colors = {}
 config.colors.background = "#000000"
 
 config.font = wezterm.font "BerkeleyMono Nerd Font"
-config.font_size = 16.0
+config.font_size = 13.0
 
 -- default is true, has more "native" look
 config.use_fancy_tab_bar = false
