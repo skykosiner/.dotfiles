@@ -17,7 +17,7 @@ super + shift +w
     firefox
 
 super + w
-    sxit -t /home/sky/.dotfiles/backgrounds
+    sxiv -t /home/sky/.dotfiles/backgrounds
 
 super + o
     kitty -e lfub

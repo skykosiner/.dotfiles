@@ -13,16 +13,16 @@ case $1 in
     "up")
         pactl set-sink-volume @DEFAULT_SINK@ +5%
         send_notif $1
-        pkill -SIGRTMIN+10 dwmblocks
+        pkill -SIGRTMIN+10 i3blocks
         ;;
     "down")
         pactl set-sink-volume @DEFAULT_SINK@ -5%
         send_notif $1
-        pkill -SIGRTMIN+10 dwmblocks
+        pkill -SIGRTMIN+10 i3blocks
         ;;
     "mute")
         pactl set-sink-mute @DEFAULT_SINK@ toggle
-        pkill -SIGRTMIN+10 dwmblocks
+        pkill -SIGRTMIN+10 i3blocks
         ;;
     "-mute-mic")
         MICMUTE=$(pactl list sources | grep "Mute" | sed 's/Mute://g' | xargs | awk '{print $1}')
