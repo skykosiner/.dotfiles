@@ -23,8 +23,8 @@ return {
       local lsp = require("lsp-zero")
       local lspkind = require("lspkind")
       local cmp = require("cmp")
+      local lspconfig = require("lspconfig")
 
-      vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#000000" })
       require("fidget").setup({})
       require("neodev").setup({})
 
@@ -51,6 +51,49 @@ return {
         },
         handlers = {
           lsp.default_setup,
+          ["gopls"] = function()
+            lspconfig.gopls.setup {
+              settings = {
+                gopls = {
+                  ["ui.inlayhint.hints"] = {
+                    compositeLiteralFields = true,
+                    constantValues = true,
+                    parameterNames = true
+                  },
+                },
+              },
+            }
+          end,
+          ["tsserver"] = function()
+            lspconfig.tsserver.setup {
+              settings = {
+                typescript = {
+                  inlayHints = {
+                    includeInlayParameterNameHints = 'all',
+                    includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                    includeInlayFunctionParameterTypeHints = true,
+                    includeInlayVariableTypeHints = true,
+                    includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+                    includeInlayPropertyDeclarationTypeHints = true,
+                    includeInlayFunctionLikeReturnTypeHints = true,
+                    includeInlayEnumMemberValueHints = true,
+                  }
+                },
+                javascript = {
+                  inlayHints = {
+                    includeInlayParameterNameHints = 'all',
+                    includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                    includeInlayFunctionParameterTypeHints = true,
+                    includeInlayVariableTypeHints = true,
+                    includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+                    includeInlayPropertyDeclarationTypeHints = true,
+                    includeInlayFunctionLikeReturnTypeHints = true,
+                    includeInlayEnumMemberValueHints = true,
+                  }
+                }
+              }
+            }
+          end
         },
       })
 
@@ -103,6 +146,10 @@ return {
       })
 
       lsp.on_attach(function(client, bufnr)
+        -- TURN ON THEM HINTS BBG
+        vim.lsp.inlay_hint.enable(true)
+
+        -- GIVE ME MY KEYBINDS
         local opts = { buffer = bufnr, remap = false }
         vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
         vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)

@@ -6,7 +6,23 @@ return {
     "nvim-treesitter/nvim-treesitter",
   },
   config = function()
-    require("go").setup()
+    require("go").setup({
+      lsp_inlay_hints = {
+        enable = true,
+        style = 'inlay',
+        only_current_line = false,
+        only_current_line_autocmd = "CursorHold",
+        show_variable_name = true,
+        parameter_hints_prefix = "󰊕 ",
+        show_parameter_hints = true,
+        other_hints_prefix = "=> ",
+        max_len_align = false,
+        max_len_align_padding = 1,
+        right_align = false,
+        right_align_padding = 6,
+        highlight = "Comment",
+      },
+    })
 
     local function tag(prompt_bufnr)
       local content = require("telescope.actions.state").get_selected_entry(
