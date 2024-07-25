@@ -82,3 +82,6 @@ normal_mode("j", "gj")
 normal_mode("k", "gk")
 
 normal_mode("<C-c>", "<Esc>")
+
+-- RUN THINGS WITH DOCKER WITH A SCRIPT BTW
+normal_mode("<leader>r", ":silent !/home/sky/.local/bin/run<CR>")

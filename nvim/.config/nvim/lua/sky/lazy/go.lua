@@ -36,12 +36,11 @@ return {
 
     vim.keymap.set("n", "<leader>ta", function()
       require("telescope.pickers").new({}, {
-        prompt_title = "Colors",
+        prompt_title = "Tags",
         finder = require("telescope.finders").new_table({
           results = {
             "json",
             "sql",
-            "json,sql",
           }
         }),
         sorter = require("telescope.config").values.generic_sorter({}),

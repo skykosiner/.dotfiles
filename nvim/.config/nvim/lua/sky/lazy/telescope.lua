@@ -10,7 +10,7 @@ return {
       local themes = require('telescope.themes')
 
       require('telescope').setup {
-        defaults = themes.get_ivy {
+        defaults = themes.get_dropdown {
           winbled           = 10,
           file_sorter       = require('telescope.sorters').get_fzy_sorter,
           prompt_prefix     = "> ",
