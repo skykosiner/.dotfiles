@@ -4,13 +4,8 @@ local g = vim.g
 opt.background = "dark"
 g.mapleader = " "
 
--- Keep cursor a block in insert mode
-opt.guicursor = ""
-
--- Don't have so many statuslines per window
 opt.laststatus = 3
 
--- Line numbers as they help you jupm around code fast
 opt.number = true
 opt.relativenumber = true
 
@@ -80,23 +75,7 @@ vim.g.netrw_localrmdir = function(directory)
   vim.cmd('redraw! | e.')
 end
 
--- Help keep track of 80 charcter column limit
---opt.colorcolumn = "80"
-
-opt.conceallevel = 0
-
--- Make the complete menu in command mode better
-opt.pumblend = 17
-opt.wildmode = "longest:full"
-opt.wildoptions = "pum"
-
 opt.splitright = false
 opt.splitbelow = false
-
- --vim.opt.listchars = { eol = "↲" }
--- vim.opt.listchars = "tab:· ,nbsp:_,trail: ,multispace:· ,eol:↲"
---vim.opt.listchars = { eol = "↲", tab = ">", space = ">" }
-
- --vim.opt.listchars = { eol = '↲' }
 
 opt.shell = "/bin/zsh"

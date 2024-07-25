@@ -19,4 +19,4 @@ case "$clock" in
 esac
 
 final="📆 "$(date "+%Y %b %d (%a) $icon %I:%M%p")
-printf "$final"
+echo $final

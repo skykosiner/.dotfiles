@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 count=$(/home/sky/personal/todoist-cli/todoistCli today | wc -l)
-printf "$count"
+echo "✅ $count"

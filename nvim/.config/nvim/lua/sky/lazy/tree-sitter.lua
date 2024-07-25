@@ -7,6 +7,8 @@ return {
         "vimdoc", "javascript", "typescript", "c", "lua", "rust",
         "jsdoc", "bash", "json", "yaml", "css", "html", "scss",
       },
+      modules = {},
+      ignore_install = {},
       sync_install = false,
       auto_install = true,
       indent = {
@@ -14,7 +16,7 @@ return {
       },
       highlight = {
         enable = true,
-        additional_vim_regex_highlighting = { "markdown" },
+        additional_vim_regex_highlighting = false,
       },
     })
   end

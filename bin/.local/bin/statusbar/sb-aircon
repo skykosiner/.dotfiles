@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 status=$(/home/sky/.local/bin/aircon status | sed "s/{//; s/}//")
-printf "$status"
+echo "⛅ $status"

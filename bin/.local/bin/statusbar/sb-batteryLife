@@ -8,13 +8,13 @@ headphones=$(bluetoothctl info | grep "Name" | grep "WH-1000XM3" | wc -l)
 headphonesBattery=$(bluetoothctl info | grep "Battery Percentage" | cut -d' ' -f4 | sed "s/(//; s/)/%/")
 
 if [[ $headphones -eq 1 ]]; then
-    printf "🎧"$headphonesBattery"% %"
+    echo "🎧"$headphonesBattery"% %"
 fi
 
 if [[ $status == "Full" ]]; then
-    printf "🔌"$capacity"%%"
+    echo "🔌"$capacity"%%"
 elif [[ $status == "Charging" ]]; then
-    printf "🔌"$capacity"%%"
+    echo "🔌"$capacity"%%"
 else
-    printf "🔋"$capacity"%%"
+    echo "🔋"$capacity"%%"
 fi
