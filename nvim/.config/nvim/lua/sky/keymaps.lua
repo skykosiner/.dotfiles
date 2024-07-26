@@ -1,10 +1,10 @@
 -- Helper functions to map keys in different modes
 local function normal_mode(keymap, action)
-  vim.keymap.set("n", keymap, action)
+    vim.keymap.set("n", keymap, action)
 end
 
 local function visual_mode(keymap, action)
-  vim.keymap.set("v", keymap, action)
+    vim.keymap.set("v", keymap, action)
 end
 
 normal_mode("<C-f>", ":silent !tmux neww ~/.local/bin/tmux-sessionizer<CR>")
@@ -29,32 +29,25 @@ normal_mode("N", "Nzzzv")
 visual_mode("<leader>y", '"+y')
 normal_mode("<leader>Y", '"+y$')
 visual_mode("<leader>d", '"_d')
-normal_mode("<leader>x", '"_x')
-normal_mode("<leader>p", '"_dP')
 
 -- Terminal stuff
 normal_mode("<leader>ts", function()
-  vim.cmd("belowright 12split")
-  vim.cmd("set winfixheight")
-  vim.cmd("term")
-  vim.cmd("startinsert")
-end)
-
-normal_mode("<leader>tu", function()
-  vim.cmd("terminal")
-  vim.cmd("startinsert")
+    vim.cmd("belowright 12split")
+    vim.cmd("set winfixheight")
+    vim.cmd("term")
+    vim.cmd("startinsert")
 end)
 
 normal_mode("<leader>tt", function()
-  vim.cmd("tabnew")
-  vim.cmd("terminal")
-  vim.cmd("startinsert")
+    vim.cmd("tabnew")
+    vim.cmd("terminal")
+    vim.cmd("startinsert")
 end)
 
 normal_mode("<leader>tv", function()
-  vim.cmd("vsplit")
-  vim.cmd("terminal")
-  vim.cmd("startinsert")
+    vim.cmd("vsplit")
+    vim.cmd("terminal")
+    vim.cmd("startinsert")
 end)
 
 -- Keep things highlighted after moving with < and >
@@ -73,15 +66,20 @@ normal_mode("<leader>co", ":!/home/sky/.local/bin/compiler %<CR>")
 
 -- Open new tumx window in the current directory
 normal_mode("<leader>tnw", function()
-  local currentDir = vim.uv.cwd()
-  vim.cmd("silent !tmux neww -c " .. currentDir)
+    local currentDir = vim.uv.cwd()
+    vim.cmd("silent !tmux neww -c " .. currentDir)
 end)
-
--- With wrap mode this will move the cursor to the next line
-normal_mode("j", "gj")
-normal_mode("k", "gk")
-
-normal_mode("<C-c>", "<Esc>")
 
 -- RUN THINGS WITH DOCKER WITH A SCRIPT BTW
 normal_mode("<leader>r", ":silent !/home/sky/.local/bin/run<CR>")
+
+-- Toggle hlsearch if it's on, otherwise just do "enter"
+normal_mode("<CR>", function()
+    ---@diagnostic disable-next-line: undefined-field
+    if vim.v.hlsearch == 1 then
+        vim.cmd.nohl()
+        return ""
+    else
+        return vim.keycode "<CR>"
+    end
+end)

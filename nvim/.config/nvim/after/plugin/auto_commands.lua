@@ -1,7 +1,9 @@
 -- Make sure the file type is set to term on terminal open
 vim.api.nvim_create_autocmd("TermOpen", {
   callback = function()
-    vim.cmd.set "filetype=term"
+    vim.opt_local.relativenumber = false
+    vim.opt_local.number = false
+    vim.opt_local.scrolloff = 0
   end,
 })
 

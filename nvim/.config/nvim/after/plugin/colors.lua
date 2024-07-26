@@ -1,4 +1,4 @@
-vim.g.sky_color_scheme = "gruvbox-material"
+vim.g.sky_color_scheme = "tokyonight"
 
 vim.opt.background = "dark"
 

@@ -7,6 +7,7 @@ return {
       "nvim-lua/plenary.nvim"
     },
     config = function()
+      vim.opt.laststatus = 3
       local statusline = require("statusline")
       statusline:setup({
         background_color = "#2e2e2e",

@@ -3,9 +3,6 @@ return {
   config = function()
     local todoist_api_key = os.getenv("TODOIST_API_TOKEN")
     local todoist = require("todoist")
-    if not todoist_api_key then
-    end
-
     todoist:setup({
       api_key = todoist_api_key,
       update_time = 5000,
