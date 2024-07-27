@@ -39,15 +39,9 @@ normal_mode("<leader>ts", function()
 end)
 
 normal_mode("<leader>tt", function()
-    vim.cmd("tabnew")
-    vim.cmd("terminal")
-    vim.cmd("startinsert")
-end)
-
-normal_mode("<leader>tv", function()
-    vim.cmd("vsplit")
-    vim.cmd("terminal")
-    vim.cmd("startinsert")
+    vim.cmd.terminal()
+    vim.cmd.startinsert()
+    require("harpoon"):list("term"):add()
 end)
 
 -- Keep things highlighted after moving with < and >

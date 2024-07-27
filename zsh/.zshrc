@@ -67,7 +67,7 @@ eval "$(starship init zsh)"
 
 source $HOME/.config/personal/bookMarks
 source $HOME/.config/personal/bookMarkFiles
-source $HOME/.todoist_token
+source $HOME/.tokens
 
 
 uname=$(uname -s)

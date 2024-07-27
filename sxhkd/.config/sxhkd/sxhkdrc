@@ -10,11 +10,11 @@ super + a ; {o, c, h, n, f}
 super + s ; {p, period, comma, shift + p, a, s, m, l}
     {/home/sky/.local/bin/spotify-control -togglePlay, /home/sky/.local/bin/spotify-control -next, /home/sky/.local/bin/spotify-control -prev, /home/sky/.local/bin/spotify-control -play-song, /home/sky/.local/bin/spotify-control -select-album, /home/sky/.local/bin/spotify-control -select-playlist, kitty -e spt, kitty -e sptlrx}
 
-super + p ; {p, shift + e}
-    {dmenu_run, /home/sky/.local/bin/menu-emoji}
+super + p ; {p, shift + e, shift + p}
+    {dmenu_run, /home/sky/.local/bin/menu-emoji, /home/sky/.local/bin/bwm}
 
-super + shift +w
-    firefox
+super + shift + w
+    brave
 
 super + w
     sxiv -t /home/sky/.dotfiles/backgrounds

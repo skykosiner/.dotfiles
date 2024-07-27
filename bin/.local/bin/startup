@@ -30,4 +30,4 @@ udiskie &
 # KEYS
 sxhkd &
 
-mpv --no-video /home/sky/Documents/ussr.mp3 &
+# mpv --no-video /home/sky/Documents/ussr.mp3 &
