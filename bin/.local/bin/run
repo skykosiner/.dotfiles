@@ -2,5 +2,5 @@
 
 if test -f ./docker-compose.yml; then
     # TODO: Remove the sudo once I next log in and out lol
-    tmux new-window -n run -d "sudo docker-compose up"
+    tmux new-window -n run -d "docker-compose up"
 fi

@@ -44,6 +44,13 @@ normal_mode("<leader>tt", function()
     require("harpoon"):list("term"):add()
 end)
 
+-- TODO: Finish setting up the floating terminal
+--[[ normal_mode("<leader>tf", function()
+    require("plenary.window.float").percentage_range_window(0.7, 0.7)
+    vim.cmd.terminal()
+    vim.cmd.startinsert()
+end) ]] --
+
 -- Keep things highlighted after moving with < and >
 visual_mode("<", "<gv")
 visual_mode(">", ">gv")

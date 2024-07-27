@@ -64,8 +64,6 @@ return {
     {
         "navarasu/onedark.nvim",
         config = function()
-            require("onedark").load()
-
             require('onedark').setup {
                 transparent = true,
             }

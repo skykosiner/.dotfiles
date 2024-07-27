@@ -1,5 +1,5 @@
-set $inner_gaps 6
-set $outer_gaps 5
+set $inner_gaps 0
+set $outer_gaps 0
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -27,7 +27,7 @@ smart_gaps on
 floating_modifier $mod
 
 # start a terminal
-set $term --no-startup-id kitty
+set $term --no-startup-id wezterm
 bindsym $mod+Return exec $term
 
 bindsym $mod+Shift+c kill
@@ -147,13 +147,13 @@ bar {
         position bottom
         tray_output primary
 
-        colors {
-            background #282828
-            separator #ebdbd2
-            focused_workspace #83a598 #458588 #ebdbd2
-            inactive_workspace #504945 #282828 #928374
-            urgent_workspace #cc241D #900000 #fb4934
-        }
+        # colors {
+        #     background #282828
+        #     separator #ebdbd2
+        #     focused_workspace #83a598 #458588 #ebdbd2
+        #     inactive_workspace #504945 #282828 #928374
+        #     urgent_workspace #cc241D #900000 #fb4934
+        # }
 }
 
 # Move stuff arround
