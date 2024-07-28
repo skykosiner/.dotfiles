@@ -7,14 +7,15 @@ if wezterm.config_builder then
     config = wezterm.config_builder()
 end
 
-config.keys = {
-    { key = "J", mods = "SHIFT", action = act.ScrollByLine(1), },
-    { key = "k", mods = "SHIFT", action = act.ScrollByLine(-1), },
-}
+-- config.keys = {
+--     { key = "J", mods = "SHIFT", action = act.ScrollByLine(1), },
+--     { key = "k", mods = "SHIFT", action = act.ScrollByLine(-1), },
+-- }
 
 config.colors = {}
 config.color_scheme = 'Gruvbox dark, medium (base16)'
-config.colors.background = "#000000"
+-- config.colors.background = "#000000"
+config.colors.background = "#111111"
 
 config.font = wezterm.font "BerkeleyMono Nerd Font"
 
