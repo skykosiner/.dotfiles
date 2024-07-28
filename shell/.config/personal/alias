@@ -53,13 +53,13 @@ alias mv="mv -i"
 alias mpv="devour mpv"
 alias sxiv="devour sxiv"
 
-alias emacs="emacsclient -c -a 'emacs'"
-
 alias updateBookmarks="/home/sky/.local/bin/bookmarks --lf && /home/sky/.local/bin/bookmarks --shell && /home/sky/.local/bin/bookmarks --shell-files"
 
 alias scan_network_devices="arp-scan -I enp5s0f3u2u3u2 -l"
 
 alias todoist-cli="$HOME/personal/todoist-cli/todoistCli"
+
+alias audio-deez-nuts="systemctl --user restart wireplumber pipewire pipewire-pulse"
 
 # For Mac
 alias urlS="/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -dump URLSchemeBinding"

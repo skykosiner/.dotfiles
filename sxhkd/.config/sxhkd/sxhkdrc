@@ -20,13 +20,16 @@ super + w
     sxiv -t /home/sky/.dotfiles/backgrounds
 
 super + o
-    wezterm -e lfub
+    wezterm -e /home/sky/.dotfiles/bin/.local/bin/lfub
 
 super + shift + s
     flameshot gui -p /home/sky/Pictures/Captures
 
 alt + space
     /home/sky/.local/bin/quick-add-task
+
+super + b
+    boomer
 
 XF86AudioLowerVolume
     /home/sky/.local/bin/volumeControl down
@@ -45,3 +48,4 @@ XF86AudioNext
 
 XF86AudioPrev
     playerctl previous
+
