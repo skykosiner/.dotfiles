@@ -88,8 +88,8 @@ cmd openHTML ${{
     brave "$f"
 }}
 
-cmd openInEmacs ${{
-	devour emacsclient -c -a 'emacs' "$f"
+cmd openSQL ${{
+    devour sqlitebrowser "$f"
 }}
 
 cmd bulkrename $vidir
@@ -98,7 +98,7 @@ map <c-p>
 map <c-f> $lf -remote "send $id select '$(fzf)'"
 map b setbg $f
 map gh
-map e openInEmacs
+map e openSQL
 map D delete
 map E extract
 map C copyto
