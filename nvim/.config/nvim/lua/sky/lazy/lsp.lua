@@ -1,20 +1,26 @@
 return {
     {
+        "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+        config = function()
+            require("lsp_lines").setup {}
+        end
+    },
+    {
         "jsongerber/nvim-px-to-rem",
         config = function()
-            require("nvim-px-to-rem").setup({})
+            require("nvim-px-to-rem").setup {}
         end
     },
     {
         "folke/neodev.nvim",
         config = function()
-            require("neodev").setup({})
+            require("neodev").setup {}
         end
     },
     {
         "williamboman/mason.nvim",
         config = function()
-            require("mason").setup({})
+            require("mason").setup {}
         end
     },
     "neovim/nvim-lspconfig",
@@ -23,7 +29,7 @@ return {
         config = function()
             local lsp = require "lsp-zero"
             local lspconfig = require "lspconfig"
-            require('mason-lspconfig').setup({
+            require('mason-lspconfig').setup {
                 ensure_installed = {
                     "bashls",
                     "clangd",
@@ -84,7 +90,7 @@ return {
                         }
                     end
                 },
-            })
+            }
         end
     },
     {

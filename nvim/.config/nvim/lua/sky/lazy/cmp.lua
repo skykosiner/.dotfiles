@@ -12,12 +12,25 @@ return {
 
         local lspkind = require("lspkind")
         local cmp = require("cmp")
+
         lspkind.init {}
 
         cmp.setup({
+            formatting = {
+                format = lspkind.cmp_format({
+                    mode = 'symbol',
+                    maxwidth = 50,
+                    ellipsis_char = '...',
+                    show_labelDetails = true,
+
+                    before = function(_, vim_item)
+                        return vim_item
+                    end
+                })
+            },
             window = {
                 completion = {
-                    border = "rounded",
+                    -- border = "rounded",
                     winhighlight = "Normal:CmpNormal",
                 }
             },

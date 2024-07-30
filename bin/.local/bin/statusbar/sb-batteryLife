@@ -7,14 +7,18 @@ status=$(cat /sys/class/power_supply/BAT0/status)
 headphones=$(bluetoothctl info | grep "Name" | grep "WH-1000XM3" | wc -l)
 headphonesBattery=$(bluetoothctl info | grep "Battery Percentage" | cut -d' ' -f4 | sed "s/(//; s/)/%/")
 
-if [[ $headphones -eq 1 ]]; then
-    echo "🎧"$headphonesBattery"% %"
-fi
+output=""
 
 if [[ $status == "Full" ]]; then
-    echo "🔌"$capacity"%%"
+    ouptut+="🔌"$capacity"%"
 elif [[ $status == "Charging" ]]; then
-    echo "🔌"$capacity"%%"
+    output+="🔌"$capacity"%"
 else
-    echo "🔋"$capacity"%%"
+    output+="🔋"$capacity"%"
 fi
+
+if [[ $headphones -eq 1 ]]; then
+    output+="🎧"$headphonesBattery%""
+fi
+
+echo "$output"
