@@ -157,6 +157,7 @@ bar {
 }
 
 # Move stuff arround
-bindsym $mod+comma move workspace to output left
+bindsym $mod+comma exec /home/sky/.dotfiles/i3/.config/i3/i3-display-swap.sh
+bindsym $mod+period move workspace to output down
 
 exec /home/sky/.local/bin/startup

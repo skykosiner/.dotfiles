@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+KeyboardOrLaptop=$(printf "Keyboard\nLaptop" | dmenu)
+
+echo $KeyboardOrLaptop
+
+if [[ $KeyboardOrLaptop ==  "Laptop" ]]; then
+    echo "test"
+    sed -e '64,84s/^/#/' -e '86,106s/^#//' $HOME/.config/i3/config > $HOME/.config/i3/config
+    i3-msg restart
+elif [[ $KeyboardOrLaptop == "Keyboard" ]]; then
+    sed -e '86,106s/^/#/' -e '64,84s/^#//' $HOME/.config/i3/config > $HOME/.config/i3/config
+    i3-msg restart
+fi

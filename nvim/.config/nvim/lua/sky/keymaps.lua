@@ -9,6 +9,8 @@ end
 
 normal_mode("<C-f>", ":silent !tmux neww ~/.local/bin/tmux-sessionizer<CR>")
 
+normal_mode("<leader><leader>x", ":so %<CR>")
+
 -- Open file explorer
 --normal_mode("<leader>pv", vim.cmd.Ex)
 
@@ -50,6 +52,11 @@ end)
     vim.cmd.terminal()
     vim.cmd.startinsert()
 end) ]] --
+
+normal_mode("<M-,>", "<c-w>5<")
+normal_mode("<M-.>", "<c-w>5>")
+normal_mode("<M-t>", "<C-W>+")
+normal_mode("<M-s>", "<C-W>-")
 
 -- Keep things highlighted after moving with < and >
 visual_mode("<", "<gv")

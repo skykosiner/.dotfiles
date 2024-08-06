@@ -1,0 +1,192 @@
+#!/usr/bin/env python3
+
+import os
+from dataclasses import dataclass
+
+@dataclass
+class Repos:
+    name: str
+    repo: str
+    bare_checkout: bool
+    personal: bool
+
+@dataclass
+class SoftwareRepo:
+    name: str
+    repo: str
+
+@dataclass
+class Package:
+    package: str
+    aur: bool
+
+def git_command(repo: str, bare_checkout: bool, name: str, personal_or_work: str) -> str:
+    if bare_checkout:
+        return f"git clone --bare {repo} /home/sky/{personal_or_work}/{name}"
+    return f"git clone {repo}"
+
+def install_repo(repo: str, personal: bool, bare_checkout: bool, name: str):
+    if personal:
+        os.system(git_command(repo, bare_checkout, name, "personal"))
+    else:
+        os.system(git_command(repo, bare_checkout, name, "work"))
+
+def install_software_repo(repo: str, name: str):
+    os.system(f"git clone {repo} /home/sky/.local/src/{name}")
+
+def setup_folders():
+    os.makedirs("/home/sky/.local/src/")
+    os.makedirs("/home/sky/personal/")
+    os.makedirs("/home/sky/work/")
+    os.makedirs("/home/sky/Pictures/")
+    os.makedirs("/home/sky/Pictures/Captures/")
+    os.makedirs("/home/sky/Videos/")
+    os.makedirs("/home/sky/Downloads/")
+    os.makedirs("/home/sky/Documents/")
+
+def install_package(package: str, aur: bool):
+    if aur:
+        os.system(f"sudo yay --noconfirm --needed -S {package}")
+    else:
+        os.system(f"sudo pacman --noconfirm --needed -S {package}")
+
+def compile_program(path: str):
+    os.system(f"cd {path} && sudo make && sudo make install")
+
+def main():
+    setup_folders()
+
+    # Make pacman colorful, concurrent downloads and Pacman eye-candy.
+    os.system("sudo grep -q 'ILoveCandy' /etc/pacman.conf || sed -i '/#VerbosePkgLists/a ILoveCandy' /etc/pacman.conf")
+    os.system("sudo sed -Ei 's/^#(ParallelDownloads).*/\1 = 5/;/^#Color$/s/#//' /etc/pacman.conf")
+
+    # Use all cores when compling things with make
+    os.system("sudo sed -i 's/-j2/-j$(nproc)/;/^#MAKEFLAGS/s/^#//' /etc/makepkg.conf")
+
+    repos: list[Repos] = [
+        # Personal
+        Repos("control-aircon", "git@gihub.com:skykosiner/dakin-aircon-golang", False, True),
+        Repos("control-lights", "git@github.com:skykosiner/control-hue-light-golang", False, True),
+        Repos("control-website", "git@github.com:skykosiner/control-website", True, True),
+        Repos("file-browser", "git@github.cm:skykosiner/file-browser",False, True),
+        Repos("skykosiner-com", "git@github.cm:skykosiner/skykosiner-com", True, True),
+        Repos("statusline.nvim", "git@github.cm:skykosiner/statusline.nvim", False, True),
+        Repos("todoist.nvim", "git@github.cm:skykosiner/todoist.nvim", False, True),
+        Repos("todoist-cli", "git@github.cm:skykosiner/todoist-cli", False, True),
+
+        # Work
+        Repos("dish-diaries", "git@github.cm:skykosiner/dish-diaries", True, False),
+    ]
+
+    for repo in repos:
+        install_repo(repo.repo, repo.personal, repo.bare_checkout, repo.name)
+
+    software_repo: list[SoftwareRepo] = [
+        SoftwareRepo("dwm", "git@github.com:skykosiner/dwm"),
+        SoftwareRepo("dwmblocks", "git@github.com:skykosiner/dwmblocks"),
+        SoftwareRepo("dmenu", "git@github.com:skykosiner/dmenu"),
+        SoftwareRepo("st", "git@github.com:skykosiner/st"),
+        SoftwareRepo("neovim", "git@github.com:neovim/neovim"),
+        SoftwareRepo("yay", "git@github.com:jguer/yay"),
+    ]
+
+    for repo in software_repo:
+        install_software_repo(repo.repo, repo.name)
+
+    # Compile programs
+    compile_program("/home/sky/.local/src/neovim")
+    compile_program("/home/sky/.local/src/dmenu")
+    compile_program("/home/sky/.local/src/dmenu")
+    os.system("cd /home/sky/.local/src/yay && makepkg --noconfirm -si")
+
+    packages: list[Package] = [
+        # Packaman packages
+        Package("arandr", False),
+        Package("bat", False),
+        Package("bc", False),
+        Package("btop", False),
+        Package("cmake", False),
+        Package("cmatrix", False),
+        Package("cowsay", False),
+        Package("crontab", False),
+        Package("droidcam", False),
+        Package("ffmpeg", False),
+        Package("dunst", False),
+        Package("vim", False),
+        Package("ffmpegthumbnailer", False),
+        Package("flameshot", False),
+        Package("fzf", False),
+        Package("gimp", False),
+        Package("git", False),
+        Package("github-cli", False),
+        Package("go", False),
+        Package("htop", False),
+        Package("kitty", False),
+        Package("lf", False),
+        Package("lolcat", False),
+        Package("lynx", False),
+        Package("man", False),
+        Package("mpv", False),
+        Package("npm", False),
+        Package("obs-studio", False),
+        Package("rust", False),
+        Package("python-pip", False),
+        Package("picom", False),
+        Package("pulsemixer", False),
+        Package("python-dbus", False),
+        Package("qbittorent", False),
+        Package("ripgrep", False),
+        Package("rsync", False),
+        Package("spotify-launcher", False),
+        Package("stow", False),
+        Package("sxiv", False),
+        Package("tldr", False),
+        Package("tmux", False),
+        Package("tor", False),
+        Package("wezterm", False),
+        Package("xclip", False),
+        Package("zathura", False),
+        Package("zathura-pdf-mupdf", False),
+        Package("ueberzug", False),
+        Package("zoxide", False),
+
+        # aur packages
+        Package("authy", True),
+        Package("brave-bin", True),
+        Package("netlify", True),
+        Package("obsidian", True),
+        Package("unimatrix", True),
+    ]
+
+    for package in packages:
+        install_package(package.package, package.aur)
+
+    # Install a few other bits
+    os.system("cargo install starship")
+
+    dotfiles_to_stow = [
+        "i3",
+        "lf",
+        "bin",
+        "mpv",
+        "vim",
+        "zsh",
+        "nvim",
+        "starship",
+        "shell",
+        "fonts",
+        "dunst",
+        "tmux",
+        "sxiv",
+        "sxhkd",
+        "aircon",
+        "tree-sitter",
+        "kitty",
+        "alacritty",
+    ]
+
+    for dotfile in dotfiles_to_stow:
+        os.system(f"cd /home/sky/.dotfiles/ && stow {dotfile}")
+
+if __name__ == "__main__":
+    main()

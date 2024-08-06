@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+catogery="$1"
+path="$2"
+
+filesInServerFolder=$(ls /mnt/server | wc -l)
+
+if [[ $filesInServerFolder -le 1 ]]; then
+    echo "Not mounted to server"
+    notify-send "Not mounted to server"
+    exit 0
+fi
+
+if [[ $catogery == "tv show" ]]; then
+    notify-send "Moving to Tv Shows"
+    mv "$path" "/mnt/server/Plex/Movies/"
+    notify-send "Moved to Tv Shows"
+elif [[ $catogery == "movie" ]]; then
+    notify-send "Moving to Movies"
+    mv "$path" "/mnt/server/Plex/Tv Shows/"
+    notify-send "Moved to Movies"
+elif [[ $catogery == "lucinda" ]]; then
+    notify-send "Sending Lucinda her horny shit."
+    mv "$path" "/mnt/ssd/Lucinda"
+    eval "ssh skykosiner@10.0.0.36" "/Users/skykosiner/scripts/lucinda-scirpt"
+    notify-send "Done sending Lucinda her horny shit."
+else
+    echo "Invalid catogery"
+fi

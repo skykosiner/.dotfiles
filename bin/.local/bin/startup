@@ -13,8 +13,8 @@ $HOME/.fehbg
 pgrep dwm >/dev/null && dwmblocks &
 
 # Nvida drivers btw
-xrandr --setprovideroutputsource modesetting NVIDIA-0 &
-xrandr --auto &
+# xrandr --setprovideroutputsource modesetting NVIDIA-0 &
+# xrandr --auto &
 
 qbittorrent-nox -d &
 sudo tor &

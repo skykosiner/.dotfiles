@@ -1,11 +1,5 @@
 return {
     {
-        "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-        config = function()
-            require("lsp_lines").setup {}
-        end
-    },
-    {
         "jsongerber/nvim-px-to-rem",
         config = function()
             require("nvim-px-to-rem").setup {}

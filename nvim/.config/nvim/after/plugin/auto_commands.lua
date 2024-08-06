@@ -36,7 +36,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
         -- This is scuffed, but lua won't let me use \ to escapee a Character, and
         -- vim does not like it when you use |
         vim.cmd([[:%s/\s\+$//e]])
-        vim.lsp.buf.format()
+        -- vim.lsp.buf.format()
     end,
     group = group
 })

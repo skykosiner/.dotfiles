@@ -1,6 +1,7 @@
 vim.g.mapleader = " "
 require("sky.sets")
 require("sky.keymaps")
+-- require("sky.winbar")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
