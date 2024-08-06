@@ -35,14 +35,19 @@ def install_software_repo(repo: str, name: str):
     os.system(f"git clone {repo} /home/sky/.local/src/{name}")
 
 def setup_folders():
-    os.makedirs("/home/sky/.local/src/")
-    os.makedirs("/home/sky/personal/")
-    os.makedirs("/home/sky/work/")
-    os.makedirs("/home/sky/Pictures/")
-    os.makedirs("/home/sky/Pictures/Captures/")
-    os.makedirs("/home/sky/Videos/")
-    os.makedirs("/home/sky/Downloads/")
-    os.makedirs("/home/sky/Documents/")
+    dirs = [
+        "/home/sky/.local/src/",
+        "/home/sky/personal/",
+        "/home/sky/work/",
+        "/home/sky/Pictures/",
+        "/home/sky/Pictures/Captures/",
+        "/home/sky/Videos/",
+        "/home/sky/Downloads/",
+        "/home/sky/Documents/",
+    ]
+
+    for dir in dirs:
+        os.makedirs(dir)
 
 def install_package(package: str, aur: bool):
     if aur:
@@ -71,8 +76,8 @@ def main():
         Repos("file-browser", "git@github.cm:skykosiner/file-browser",False, True),
         Repos("skykosiner-com", "git@github.cm:skykosiner/skykosiner-com", True, True),
         Repos("statusline.nvim", "git@github.cm:skykosiner/statusline.nvim", False, True),
-        Repos("todoist.nvim", "git@github.cm:skykosiner/todoist.nvim", False, True),
         Repos("todoist-cli", "git@github.cm:skykosiner/todoist-cli", False, True),
+        Repos("todoist.nvim", "git@github.cm:skykosiner/todoist.nvim", False, True),
 
         # Work
         Repos("dish-diaries", "git@github.cm:skykosiner/dish-diaries", True, False),
@@ -82,11 +87,11 @@ def main():
         install_repo(repo.repo, repo.personal, repo.bare_checkout, repo.name)
 
     software_repo: list[SoftwareRepo] = [
-        SoftwareRepo("dwm", "git@github.com:skykosiner/dwm"),
-        SoftwareRepo("dwmblocks", "git@github.com:skykosiner/dwmblocks"),
         SoftwareRepo("dmenu", "git@github.com:skykosiner/dmenu"),
-        SoftwareRepo("st", "git@github.com:skykosiner/st"),
+        SoftwareRepo("dwmblocks", "git@github.com:skykosiner/dwmblocks"),
+        SoftwareRepo("dwm", "git@github.com:skykosiner/dwm"),
         SoftwareRepo("neovim", "git@github.com:neovim/neovim"),
+        SoftwareRepo("st", "git@github.com:skykosiner/st"),
         SoftwareRepo("yay", "git@github.com:jguer/yay"),
     ]
 
@@ -110,9 +115,8 @@ def main():
         Package("cowsay", False),
         Package("crontab", False),
         Package("droidcam", False),
-        Package("ffmpeg", False),
         Package("dunst", False),
-        Package("vim", False),
+        Package("ffmpeg", False),
         Package("ffmpegthumbnailer", False),
         Package("flameshot", False),
         Package("fzf", False),
@@ -129,25 +133,26 @@ def main():
         Package("mpv", False),
         Package("npm", False),
         Package("obs-studio", False),
-        Package("rust", False),
-        Package("python-pip", False),
         Package("picom", False),
         Package("pulsemixer", False),
         Package("python-dbus", False),
+        Package("python-pip", False),
         Package("qbittorent", False),
         Package("ripgrep", False),
         Package("rsync", False),
+        Package("rust", False),
         Package("spotify-launcher", False),
         Package("stow", False),
         Package("sxiv", False),
         Package("tldr", False),
         Package("tmux", False),
         Package("tor", False),
+        Package("ueberzug", False),
+        Package("vim", False),
         Package("wezterm", False),
         Package("xclip", False),
         Package("zathura", False),
         Package("zathura-pdf-mupdf", False),
-        Package("ueberzug", False),
         Package("zoxide", False),
 
         # aur packages
@@ -156,6 +161,8 @@ def main():
         Package("netlify", True),
         Package("obsidian", True),
         Package("unimatrix", True),
+        Package("zsh-autosuggestions-git", True),
+        Package("zsh-syntax-highlighting-git", True),
     ]
 
     for package in packages:
@@ -165,24 +172,24 @@ def main():
     os.system("cargo install starship")
 
     dotfiles_to_stow = [
-        "i3",
-        "lf",
+        "aircon",
+        "alacritty",
         "bin",
+        "dunst",
+        "fonts",
+        "i3",
+        "kitty",
+        "lf",
         "mpv",
+        "nvim",
+        "shell",
+        "starship",
+        "sxhkd",
+        "sxiv",
+        "tmux",
+        "tree-sitter",
         "vim",
         "zsh",
-        "nvim",
-        "starship",
-        "shell",
-        "fonts",
-        "dunst",
-        "tmux",
-        "sxiv",
-        "sxhkd",
-        "aircon",
-        "tree-sitter",
-        "kitty",
-        "alacritty",
     ]
 
     for dotfile in dotfiles_to_stow:
