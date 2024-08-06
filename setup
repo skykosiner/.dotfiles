@@ -23,7 +23,7 @@ class Package:
 def git_command(repo: str, bare_checkout: bool, name: str, personal_or_work: str) -> str:
     if bare_checkout:
         return f"git clone --bare {repo} /home/sky/{personal_or_work}/{name}"
-    return f"git clone {repo}"
+    return f"git clone {repo} /home/sky/{personal_or_work}/{name}"
 
 def install_repo(repo: str, personal: bool, bare_checkout: bool, name: str):
     if personal:
