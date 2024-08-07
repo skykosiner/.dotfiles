@@ -59,7 +59,15 @@ def compile_program(path: str):
     os.system(f"cd {path} && sudo make && sudo make install")
 
 def main():
+    print("This will make changes to your system.")
+    print("The script asumes your home dir is under the user sky.\nIf it's not make sure to change the username in the script.")
+    should_continue = input("Continue the install? (y/n) ")
+    if should_continue == "n":
+        exit()
+
     setup_folders()
+
+    os.system("sudo pacman --noconfirm -Syyu")
 
     # Make pacman colorful, concurrent downloads and Pacman eye-candy.
     os.system("sudo grep -q 'ILoveCandy' /etc/pacman.conf || sed -i '/#VerbosePkgLists/a ILoveCandy' /etc/pacman.conf")
@@ -158,6 +166,7 @@ def main():
         # aur packages
         Package("authy", True),
         Package("brave-bin", True),
+        Package("droidcam", True),
         Package("netlify", True),
         Package("obsidian", True),
         Package("unimatrix", True),

@@ -9,10 +9,10 @@ return {
         },
         config = function()
             local actions = require('telescope.actions')
-            local themes = require('telescope.themes')
+            -- local themes = require('telescope.themes')
 
             require('telescope').setup {
-                defaults = themes.get_dropdown {
+                defaults = {
                     winbled           = 10,
                     file_sorter       = require('telescope.sorters').get_fzy_sorter,
                     prompt_prefix     = "> ",
