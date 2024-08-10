@@ -159,6 +159,7 @@ def main():
         Package("vim", False),
         Package("wezterm", False),
         Package("xclip", False),
+        Package("xorg-xkill", False),
         Package("zathura", False),
         Package("zathura-pdf-mupdf", False),
         Package("zoxide", False),

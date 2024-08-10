@@ -137,6 +137,11 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
+bindsym Mod1+shift+h resize shrink width 10 px or 10 ppt
+bindsym Mod1+shift+j resize grow height 10 px or 10 ppt
+bindsym Mod1+shift+k resize shrink height 10 px or 10 ppt
+bindsym Mod1+shift+l resize grow width 10 px or 10 ppt
+
 bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
