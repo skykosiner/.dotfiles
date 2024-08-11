@@ -1,23 +1,26 @@
 return {
   {
-    -- "skykosiner/statusline.nvim",
     dir = os.getenv("HOME") .. "/personal/statusline.nvim/",
     dependencies = {
       "kyazdani42/nvim-web-devicons",
       "nvim-lua/plenary.nvim"
     },
     config = function()
-      vim.opt.laststatus = 3
-      local statusline = require("statusline")
-      statusline:setup({
-        background_color = "#2e2e2e",
-        foreground_color = "#7fa3c0",
-        lsp_info = true,
-        harpoon_info = true,
-        git_info = true,
-        show_icons = true,
-      })
-      statusline:set_status()
+        vim.opt.laststatus = 3
+        local statusline = require("statusline")
+
+        local opts = {
+            background_color = "#2e2e2e",
+            foreground_color = "#7fa3c0",
+            lsp_info = true,
+            harpoon_info = true,
+            git_info = true,
+            show_icons = true,
+        }
+        -- if vim.opt.background._value == "dark"then
+        -- end
+        statusline:setup(opts)
+        statusline:set_status()
     end
   }
 }

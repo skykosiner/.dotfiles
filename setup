@@ -153,6 +153,8 @@ def main():
         Package("stow", False),
         Package("sxiv", False),
         Package("tldr", False),
+        Package("tree-sitter", False),
+        Package("tree-sitter-cli", False),
         Package("tmux", False),
         Package("tor", False),
         Package("ueberzug", False),

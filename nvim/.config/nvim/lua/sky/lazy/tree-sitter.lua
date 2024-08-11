@@ -2,14 +2,12 @@ return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     branch = "main",
+    lazy = false,
     config = function()
-        require("nvim-treesitter.configs").setup({
+        require"nvim-treesitter".setup {
             ensure_installed = {
-                "vimdoc", "javascript", "typescript", "c", "lua", "rust",
-                "jsdoc", "bash", "json", "yaml", "css", "html", "scss",
+                "vimdoc", "javascript", "typescript", "c", "lua", "rust", "jsdoc", "bash", "json", "yaml", "css", "html", "scss", "tsx",
             },
-            modules = {},
-            ignore_install = {},
             sync_install = false,
             auto_install = true,
             indent = {
@@ -19,6 +17,6 @@ return {
                 enable = true,
                 additional_vim_regex_highlighting = false,
             },
-        })
+        }
     end
 }

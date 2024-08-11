@@ -32,11 +32,17 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- Clear whitespace on save and format code
 vim.api.nvim_create_autocmd("BufWritePre", {
-    callback = function()
+    callback = function(args)
         -- This is scuffed, but lua won't let me use \ to escapee a Character, and
         -- vim does not like it when you use |
         vim.cmd([[:%s/\s\+$//e]])
-        -- vim.lsp.buf.format()
+
+        -- FORMAT
+        require("conform").format {
+            bufnr = args.buf,
+            lsp_fallback = true,
+            quiet = true,
+        }
     end,
     group = group
 })

@@ -4,3 +4,4 @@ sn ~/.dotfiles/snipets
 bb ~/work/Book/book-draft-one.tex
 zh ~/.zshrc
 psn ~/.dotfiles/private_stuff/private-snips
+vc ~/.dotfiles/nvim/.config/nvim/

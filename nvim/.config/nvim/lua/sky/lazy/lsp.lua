@@ -6,6 +6,16 @@ return {
         end
     },
     {
+        "stevearc/conform.nvim",
+        config = function()
+            require("conform").setup {
+                formatters_by_ft = {
+                    lua = { "stylua" },
+                },
+            }
+        end
+    },
+    {
         "folke/neodev.nvim",
         config = function()
             require("neodev").setup {}
@@ -90,6 +100,7 @@ return {
     {
         "VonHeikemen/lsp-zero.nvim",
         config = function()
+            vim.diagnostic.config { jump = { float = true } }
             local lsp = require("lsp-zero")
             lsp.extend_lspconfig()
             lsp.on_attach(function(_, bufnr)
