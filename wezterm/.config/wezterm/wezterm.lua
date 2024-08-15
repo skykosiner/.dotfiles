@@ -14,6 +14,7 @@ end
 
 config.colors = {}
 config.color_scheme = 'Gruvbox dark, medium (base16)'
+-- config.color_scheme = 'Gruvbox light, hard (base16)'
 -- config.colors.background = "#000000"
 config.colors.background = "#111111"
 

@@ -91,3 +91,11 @@ normal_mode("<CR>", function()
         return vim.keycode "<CR>"
     end
 end)
+
+normal_mode("<leader>sp", function()
+    if vim.opt.spell._value then
+        vim.opt.spell = false
+    else
+        vim.opt.spell = true
+    end
+end)

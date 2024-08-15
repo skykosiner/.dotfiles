@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+# TODO: Setup real programmers dvorak to be installed too
+
 import os
 from dataclasses import dataclass
 

@@ -27,5 +27,5 @@ configToEdit=$(printf "%s\n" "${!configs[@]}" | sort | dmenu -p "Config Edit: ")
 
 if [[ ! -z $configToEdit ]]; then
     # emacsclient -c -a 'emacs' $(printf "%s\n" "${configs["${configToEdit}"]}")
-    kitty -e nvim $(printf "%s\n" "${configs["${configToEdit}"]}")
+    wezterm -e nvim $(printf "%s\n" "${configs["${configToEdit}"]}")
 fi
