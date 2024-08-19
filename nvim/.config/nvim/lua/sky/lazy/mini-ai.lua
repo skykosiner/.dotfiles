@@ -1,6 +1,6 @@
 return {
     "echasnovski/mini.ai",
-    config = function()
+    config = function(test)
         require("mini.ai").setup {}
     end
 }

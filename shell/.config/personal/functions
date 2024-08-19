@@ -2,9 +2,9 @@
 
 TODO() {
     if [[ $# -eq 1 ]]; then
-        grep "TODO" **/*.$1 --exclude-dir="node_modules/"
+        rg "TODO" **/*.$1
     elif [[ $# -eq 2 ]]; then
-        grep "TODO" $2/**/*.$1 --exclude-dir="node_modules/"
+        rg "TODO" $2/**/*.$1
     fi
 }
 
