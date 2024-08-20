@@ -17,8 +17,8 @@ config.color_scheme = 'Gruvbox dark, medium (base16)'
 -- config.colors.background = "#000000"
 config.colors.background = "#111111"
 
-config.font = wezterm.font "BerkeleyMono Nerd Font"
--- config.font = wezterm.font "Iosevka Nerd Font"
+-- config.font = wezterm.font "BerkeleyMono Nerd Font"
+config.font = wezterm.font "Iosevka Nerd Font"
 config.font_size = 16
 
 config.use_fancy_tab_bar = false
