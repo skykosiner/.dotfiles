@@ -80,17 +80,17 @@ def main():
 
     repos: list[Repos] = [
         # Personal
-        Repos("control-aircon", "git@gihub.com:skykosiner/dakin-aircon-golang", False, True),
+        Repos("control-aircon", "git@github.com:skykosiner/dakin-aircon-golang", False, True),
         Repos("control-lights", "git@github.com:skykosiner/control-hue-light-golang", False, True),
         Repos("control-website", "git@github.com:skykosiner/control-website", True, True),
-        Repos("file-browser", "git@github.cm:skykosiner/file-browser",False, True),
-        Repos("skykosiner-com", "git@github.cm:skykosiner/skykosiner-com", True, True),
-        Repos("statusline.nvim", "git@github.cm:skykosiner/statusline.nvim", False, True),
-        Repos("todoist-cli", "git@github.cm:skykosiner/todoist-cli", False, True),
-        Repos("todoist.nvim", "git@github.cm:skykosiner/todoist.nvim", False, True),
+        Repos("file-browser", "git@github.com:skykosiner/file-browser",False, True),
+        Repos("skykosiner-com", "git@github.com:skykosiner/skykosiner-com", True, True),
+        Repos("statusline.nvim", "git@github.com:skykosiner/statusline.nvim", False, True),
+        Repos("todoist-cli", "git@github.com:skykosiner/todoist-cli", False, True),
+        Repos("todoist.nvim", "git@github.com:skykosiner/todoist.nvim", False, True),
 
         # Work
-        Repos("dish-diaries", "git@github.cm:skykosiner/dish-diaries", True, False),
+        Repos("dish-diaries", "git@github.com:skykosiner/dish-diaries", True, False),
     ]
 
     for repo in repos:
