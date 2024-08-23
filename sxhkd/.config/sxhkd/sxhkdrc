@@ -34,6 +34,9 @@ alt + space
 super + b
     boomer
 
+super + shift + p
+    /home/sky/.local/bin/picomToggle
+
 XF86AudioLowerVolume
     /home/sky/.local/bin/volumeControl down
 

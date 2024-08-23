@@ -165,13 +165,13 @@ bar {
         position bottom
         tray_output primary
 
-        # colors {
-        #     background #282828
-        #     separator #ebdbd2
-        #     focused_workspace #83a598 #458588 #ebdbd2
-        #     inactive_workspace #504945 #282828 #928374
-        #     urgent_workspace #cc241D #900000 #fb4934
-        # }
+        colors {
+            background #282828
+            separator #ebdbd2
+            focused_workspace #83a598 #458588 #ebdbd2
+            inactive_workspace #504945 #282828 #928374
+            urgent_workspace #cc241D #900000 #fb4934
+        }
 }
 
 # Move stuff arround
@@ -179,5 +179,5 @@ bar {
 bindsym $mod+comma move workspace to output left
 bindsym $mod+period move workspace to output down
 
-exec /home/sky/.local/bin/startup
+exec_always /home/sky/.local/bin/startup
 exec --no-startup-id nm-applet
