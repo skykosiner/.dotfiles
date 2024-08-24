@@ -1,5 +1,7 @@
 # Reference: https://github.com/i3/i3/blob/next/etc/config
 
+# after-startup-command = ['exec-and-forget borders width=5.0']
+
 enable-normalization-flatten-containers = false
 enable-normalization-opposite-orientation-for-nested-containers = false
 key-mapping.preset = 'dvorak'
@@ -37,8 +39,8 @@ alt-shift-j = 'move down'
 alt-shift-k = 'move up'
 alt-shift-l = 'move right'
 
-#alt-h = 'split horizontal'
-#alt-v = 'split vertical'
+alt-z = 'split horizontal'
+alt-v = 'split vertical'
 
 alt-f = 'fullscreen'
 
@@ -47,6 +49,8 @@ alt-w = 'layout h_accordion'               # 'layout tabbed' in i3
 alt-e = 'layout tiles horizontal vertical' # 'layout toggle split' in i3
 
 alt-shift-space = 'layout floating tiling' # 'floating toggle' in i3
+
+alt-shift-c = 'close'
 
 # Not supported, because this command is redundant in AeroSpace mental model.
 # See: https://nikitabobko.github.io/AeroSpace/guide#floating-windows
@@ -78,7 +82,7 @@ alt-shift-8 = 'move-node-to-workspace 8'
 alt-shift-9 = 'move-node-to-workspace 9'
 alt-shift-0 = 'move-node-to-workspace 10'
 
-alt-shift-c = 'reload-config'
+alt-shift-r = 'reload-config'
 
 alt-r = 'mode resize'
 
