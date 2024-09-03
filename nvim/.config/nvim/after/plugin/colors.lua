@@ -1,4 +1,4 @@
-vim.cmd.colorscheme("rose-pine-moon")
+vim.cmd.colorscheme("tokyonight")
 
 vim.cmd("highlight ColorColumn ctermbg=0 guibg=#555555")
 vim.api.nvim_set_hl(0, "WinSeparator", { bg = "none", fg = "none" })
