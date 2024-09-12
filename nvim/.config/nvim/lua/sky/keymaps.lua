@@ -41,6 +41,7 @@ normal_mode("<leader>ts", function()
 end)
 
 normal_mode("<leader>tt", function()
+    vim.cmd.tabnew()
     vim.cmd.terminal()
     vim.cmd.startinsert()
     require("harpoon"):list("term"):add()
