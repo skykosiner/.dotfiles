@@ -128,28 +128,23 @@ de() {
     du -a ~/.dotfiles/ | cut -f2- -d '.'| fzf --height=40% | xargs -I {} nvim ~/.{}
 }
 
+# Search obsidian
 oe() {
     find ~/Documents/Linux-btw/ | fzf --height=40% | xargs -I {} nvim {}
 }
 
-# I always forget to commit suckless software 💀
-commitSucklessSoftware() {
-    pushd ~/.local/src/st/
-    git add .
-    git commit -am "Forget to commit this so fancy commit from me in the past"
-    git push -u origin master
-    popd
-    pushd ~/.local/src/dwm/
-    git add .
-    git commit -am "Forget to commit this so fancy commit from me in the past"
-    git push -u origin master
-    popd
-    pushd ~/.local/src/dwmblocks/
-    git add .
-    git commit -am "Forget to commit this so fancy commit from me in the past"
-    git push -u origin master
-    popd
+# Collage stuff
+cw() {
+    date=$(date +%d-%m-%Y)
+    unit=$(find ~/Documents/Linux-btw/Collage/ -maxdepth 1 | fzf --height=40%)
+
+    nvim $unit/$date.md
 }
+
+scw() {
+    find ~/Documents/Linux-btw/Collage/ | fzf --height=40% | xargs -I {} nvim {}
+}
+
 
 vpnToggle() {
     vpnStatus=$(nmcli connection show --active | grep wireguard)

@@ -4,7 +4,7 @@ return {
     branch = "main",
     lazy = false,
     config = function()
-        require"nvim-treesitter".setup {
+        require "nvim-treesitter".setup {
             ensure_installed = {
                 "vimdoc", "javascript", "typescript", "c", "lua", "rust", "jsdoc", "bash", "json", "yaml", "css", "html", "scss", "tsx",
             },

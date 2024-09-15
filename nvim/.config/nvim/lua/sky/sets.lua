@@ -5,7 +5,7 @@ opt.inccommand = "split"
 opt.number = true
 opt.relativenumber = true
 
-opt.conceallevel = 1
+-- opt.conceallevel = 1
 
 -- Some sane defaults
 opt.tabstop = 4
