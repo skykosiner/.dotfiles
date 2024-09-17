@@ -48,11 +48,11 @@ normal_mode("<leader>tt", function()
 end)
 
 -- TODO: Finish setting up the floating terminal
---[[ normal_mode("<leader>tf", function()
+--[[normal_mode("<leader>tf", function()
     require("plenary.window.float").percentage_range_window(0.7, 0.7)
     vim.cmd.terminal()
     vim.cmd.startinsert()
-end) ]] --
+end)]] --
 
 normal_mode("<M-,>", "<c-w>5<")
 normal_mode("<M-.>", "<c-w>5>")
@@ -78,9 +78,6 @@ normal_mode("<leader>tnw", function()
     local currentDir = vim.uv.cwd()
     vim.cmd("silent !tmux neww -c " .. currentDir)
 end)
-
--- RUN THINGS WITH DOCKER WITH A SCRIPT BTW
-normal_mode("<leader>r", ":silent !/home/sky/.local/bin/run<CR>")
 
 -- Toggle hlsearch if it's on, otherwise just do "enter"
 normal_mode("<CR>", function()

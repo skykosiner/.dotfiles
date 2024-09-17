@@ -133,12 +133,18 @@ oe() {
     find ~/Documents/Linux-btw/ | fzf --height=40% | xargs -I {} nvim {}
 }
 
+# New obisdian note
+no() {
+    read name
+    path="$HOME/Documents/Linux-btw/_Inbox/$name.md"
+    /usr/bin/touch $path
+    /usr/local/bin/nvim $path
+}
+
 # Collage stuff
 cw() {
     date=$(date +%d-%m-%Y)
-    unit=$(find ~/Documents/Linux-btw/Collage/ -maxdepth 1 | fzf --height=40%)
-
-    nvim $unit/$date.md
+    find ~/Documents/Linux-btw/Collage/ -maxdepth 1 | fzf --height=40% | xargs -I {} nvim {}/$date.md
 }
 
 scw() {

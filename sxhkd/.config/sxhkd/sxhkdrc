@@ -2,7 +2,7 @@ super + Escape
 	pkill -USR1 -x sxhkd
 
 super + m ; {e, f, h, p, shift + p}
-    {wezterm -e neomutt, thunar, wezterm -e htop, wezterm -e pulsemixer, bitwarden-desktop}
+    {kitty -e neomutt, thunar, kitty -e htop, kitty -e pulsemixer, bitwarden-desktop}
 
 alt + l ; {l, s, r, a, p, t}
     {/home/sky/.local/bin/lights ceiling, /home/sky/.local/bin/lights studio, /home/sky/.local/bin/lights others, /home/sky/.local/bin/lights al, /home/sky/.local/bin/light-percent, /home/sky/.local/bin/light-temp}
@@ -11,7 +11,7 @@ super + a ; {o, c, h, n, f}
     {/home/sky/.local/bin/aircon toggle, /home/sky/.local/bin/cold, /home/sky/.local/bin/hot, /home/sky/.local/bin/airconControl -change, /home/sky/.local/bin/airconControl -sellect-fan}
 
 super + s ; {p, period, comma, shift + p, a, s, m, l}
-    {/home/sky/.local/bin/spotify-control -togglePlay, /home/sky/.local/bin/spotify-control -next, /home/sky/.local/bin/spotify-control -prev, /home/sky/.local/bin/spotify-control -play-song, /home/sky/.local/bin/spotify-control -select-album, /home/sky/.local/bin/spotify-control -select-playlist, wezterm -e spt, wezterm -e sptlrx}
+    {/home/sky/.local/bin/spotify-control -togglePlay, /home/sky/.local/bin/spotify-control -next, /home/sky/.local/bin/spotify-control -prev, /home/sky/.local/bin/spotify-control -play-song, /home/sky/.local/bin/spotify-control -select-album, /home/sky/.local/bin/spotify-control -select-playlist, kitty -e spt, kitty -e sptlrx}
 
 super + p ; {p, shift + e, shift + p, s}
     {dmenu_run, /home/sky/.local/bin/menu-emoji, /home/sky/.local/bin/bwm, /home/sky/.local/bin/snipets}
@@ -23,7 +23,7 @@ super + w
     sxiv -t /home/sky/.dotfiles/backgrounds
 
 super + o
-    wezterm -e /home/sky/.dotfiles/bin/.local/bin/lfub
+    kitty -e /home/sky/.dotfiles/bin/.local/bin/lfub
 
 super + shift + s
     flameshot gui -p /home/sky/Pictures/Captures
