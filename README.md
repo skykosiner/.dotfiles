@@ -1,6 +1,7 @@
 # README
 ![Coding and stuff](./media/workflow-3.png)
 ## What I use
+* Dvorak btw
 * i3
 * Noevim
 * Lf
