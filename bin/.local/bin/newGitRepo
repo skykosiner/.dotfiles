@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+echo "Enter the name of the repo for home server"
+read -r name
+ssh git@$GIT_SERVER "cd /srv/git && mkdir $name.git && cd $name.git && git init --bare"
+
+echo "Setting up github end now"
+gh repo create
