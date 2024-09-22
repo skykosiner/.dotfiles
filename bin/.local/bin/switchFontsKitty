@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-font=$(printf "BerkeleyMono Nerd Font\nComicCodeLigatures Nerd Font\nJetBrainsMono Nerd Font\nUbuntuMono Nerd Font" | dmenu -i -p "Choose a font")
+font=$(printf "BerkeleyMono Nerd Font\nComicCodeLigatures Nerd Font\nJetBrainsMono Nerd Font\nUbuntuMono Nerd Font\nFira Code Nerd Font Mono\nGoMono Nerd Font Mono\nHack Nerd Font\nVictor Mono Nerd Font Mono" | dmenu -i -p "Choose a font")
 sed -i "s/font_family .*/font_family $font/g" ~/.config/kitty/kitty.conf
 
 # After it's done press ctrl+shift+f5 to reload the kitty config

@@ -1,9 +1,7 @@
 (setq user-full-name "Sky Kosiner"
       user-mail-address "sky@skykosiner.com")
 
-(add-to-list 'custom-theme-load-path "~/.config/doom/themes/")
-
-(setq doom-font (font-spec :family "BerkleyMono Nerd Font":size 16))
+(setq doom-font (font-spec :family "BerkeleyMono Nerd Font":size 16))
 (after! doom-themes
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t))
@@ -11,13 +9,7 @@
   '(font-lock-comment-face :slant italic)
   '(font-lock-keyword-face :slant italic))
 
-(after! org
-  (setq
-   org-directory "~/org/"
-   org-hide-emphasis-markers t)
-  )
-
-(setq doom-theme nil)
+(setq doom-theme 'doom)
 (setq display-line-numbers-type 'relative)
 
 (remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
@@ -35,9 +27,6 @@
 (use-package all-the-icons-dired)
 (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 
-;; (global-set-key (kbd "C-c l") 'org-store-link)
-(global-set-key (kbd "C-c C-l") 'org-insert-link)
-
 (global-set-key (kbd "C-c l") 'display-line-numbers-mode)
 
 (global-set-key (kbd "C-c d") 'helm-lsp-diagnostics)
@@ -46,12 +35,6 @@
 (global-set-key (kbd "C-c g") 'magit)
 
 (global-set-key (kbd "C-c i") 'lsp-ui-imenu)
-;; (global-set-key (kbd "C-c i") (lambda () (interactive) (find-file "~/org/index.org")))
-;; (global-set-key (kbd "C-c r") (lambda () (interactive) (find-file "~/org/school/revison.org")))
-;;
-;; (setq org-agenda-files (directory-files-recursively "~/org/" "\\.org$"))
-;; (setq org-agenda-files '("~/org"))
-(setq org-agenda-files (list "~/org"))
 
 (define-key ctl-x-map "\C-i"
   #'endless/ispell-word-then-abbrev)
@@ -113,9 +96,6 @@
 ;; Activate detection of Obsidian vault
 (global-obsidian-mode t)
 
-;; Auto tangle org mode configs
-(add-hook 'org-mode-hook 'org-auto-tangle-mode)
-
 ;; (setq-default elfeed-search-filter "@2-weeks-ago +unread")
 (setq-default elfeed-search-title-max-width 100)
 (setq-default elfeed-search-title-min-width 100)
@@ -127,63 +107,6 @@
 ;; Transpparent emacs
 ;; (set-frame-parameter (selected-frame) 'alpha '(95 95))
 ;; (add-to-list 'default-frame-alist '(alpha 95 95))
-
-(use-package org-roam
-  :ensure t
-  :custom
-  (org-roam-directory (file-truename "~/org"))
-  :bind (("C-c n l" . org-roam-buffer-toggle)
-         ("C-c n f" . org-roam-node-find)
-         ("C-c n g" . org-roam-graph)
-         ("C-c n i" . org-roam-node-insert)
-         ("C-c n c" . org-roam-capture)
-         ;; Dailies
-         ("C-c n j" . org-roam-dailies-capture-today))
-  :config
-  ;; If you're using a vertical completion framework, you might want a more informative completion interface
-  (setq org-roam-node-display-template (concat "${title:*} " (propertize
-  "${tags:10}" 'face 'org-tag)))
-  (org-roam-db-autosync-mode)
-  ;; If using org-roam-protocol
-  (require 'org-roam-protocol))
-
-(defun org-roam-node-insert-immediate (arg &rest args)
-  (interactive "P")
-  (let ((args (cons arg args))
-        (org-roam-capture-templates (list (append (car org-roam-capture-templates)
-                                                  '(:immediate-finish t)))))
-    (apply #'org-roam-node-insert args)))
-
-(global-set-key (kbd "C-c n I") 'org-roam-node-insert-immediate)
-
-(use-package! websocket
-    :after org-roam)
-
-(use-package! org-roam-ui
-    :after org-roam ;; or :after org
-;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
-;;         a hookable mode anymore, you're advised to pick something yourself
-;;         if you don't care about startup time, use
-;;  :hook (after-init . org-roam-ui-mode)
-    :config
-    (setq org-roam-ui-sync-theme t
-          org-roam-ui-follow t
-          org-roam-ui-update-on-save t
-          org-roam-ui-open-on-start t))
-
-(defun my/show-agenda ()
-  (let ((agenda-frame (make-frame-command)))
-    (select-frame agenda-frame)
-    (org-agenda-list)
-    (x-focus-frame agenda-frame)))
-
-;; Archive to do after marking it as done
-;; (add-hook 'org-after-todo-state-change-hook
-          ;; (lambda () (when (equal "DONE" org-state)
-                       ;; (call-interactively #'org-archive-to-archive-sibling))))
-
-;; turn off current line highlited
-(setq global-hl-line-modes nil)
 
 ;; Automatically start eglot when entering a new project
 (add-hook 'projectile-after-switch-project-hook 'eglot-ensure)
