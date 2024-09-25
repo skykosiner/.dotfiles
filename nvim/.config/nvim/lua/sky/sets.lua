@@ -15,6 +15,7 @@ opt.expandtab = true
 opt.autoindent = true
 opt.cindent = true
 opt.wrap = false
+opt.linebreak = true
 
 -- Highlight the current search as seacrhing
 opt.incsearch = true
