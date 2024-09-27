@@ -35,6 +35,8 @@ return {
                 }
             },
             mapping = cmp.mapping.preset.insert({
+                ["<C-u>"] = cmp.mapping.scroll_docs(-4),
+                ["<C-d>"] = cmp.mapping.scroll_docs(4),
                 ["<C-p>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
                 ["<C-n>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
                 ["<C-Space>"] = cmp.mapping.complete({}),
