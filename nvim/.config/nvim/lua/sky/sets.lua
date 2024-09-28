@@ -27,4 +27,6 @@ opt.signcolumn = "no"
 -- Start to scroll 8 lines before the bottom/top
 opt.scrolloff = 8
 
+vim.opt.colorcolumn = "80"
+
 opt.shell = "/bin/zsh"
