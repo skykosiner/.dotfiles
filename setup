@@ -131,6 +131,8 @@ def main():
         Package("flameshot", False),
         Package("fzf", False),
         Package("gimp", False),
+        Package("pcmanfm", False),
+        Package("thunar", False),
         Package("git", False),
         Package("github-cli", False),
         Package("go", False),

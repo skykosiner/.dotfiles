@@ -59,7 +59,9 @@ end
 local function search_word_thesaurus()
     local word = vim.fn.expand("<cword>")
     local res = curl.get(make_request_url(word), {
-        headers = { X_Api_Key = api_key }
+        headers = { X_Api_Key = api_key },
+        timeout = 1000,
+        limit_rate = 1000,
     })
 
     local decoded_res = vim.fn.json_decode(res.body)
