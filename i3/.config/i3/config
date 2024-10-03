@@ -27,7 +27,7 @@ smart_gaps on
 floating_modifier $mod
 
 # start a terminal
-set $term --no-startup-id kitty
+set $term --no-startup-id alacritty
 bindsym $mod+Return exec $term
 
 bindsym $mod+Shift+c kill

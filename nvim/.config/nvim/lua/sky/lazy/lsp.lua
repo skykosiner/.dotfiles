@@ -50,7 +50,7 @@ return {
                     "pyright",
                     "rust_analyzer",
                     "tailwindcss",
-                    "tsserver",
+                    "ts_ls",
                     "vimls",
                     "yamlls",
                 },
@@ -69,8 +69,8 @@ return {
                             },
                         }
                     end,
-                    ["tsserver"] = function()
-                        lspconfig.tsserver.setup {
+                    ["ts_ls"] = function()
+                        lspconfig.ts_ls.setup {
                             settings = {
                                 typescript = {
                                     inlayHints = {
@@ -111,7 +111,7 @@ return {
             lsp.extend_lspconfig()
             lsp.on_attach(function(_, bufnr)
                 -- TURN ON THEM HINTS BBG
-                vim.lsp.inlay_hint.enable(true)
+                -- vim.lsp.inlay_hint.enable(true)
 
                 -- GIVE ME MY KEYBINDS
                 local opts = { buffer = bufnr, remap = false }
