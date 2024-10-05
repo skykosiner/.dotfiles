@@ -5,5 +5,5 @@ background = "#000000"
 size = 16
 
 [font.normal]
-# family = "BerkeleyMono Nerd Font"
-family = "JetBrainsMono Nerd Font"
+family = "BerkeleyMono Nerd Font"
+# family = "JetBrainsMono Nerd Font"
