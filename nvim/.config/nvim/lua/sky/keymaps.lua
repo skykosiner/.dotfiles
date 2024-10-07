@@ -27,10 +27,10 @@ normal_mode(";", ";zzzv")
 normal_mode("n", "nzzzv")
 normal_mode("N", "Nzzzv")
 
--- Some fun register stuff
-visual_mode("<leader>y", '"+y')
-normal_mode("<leader>Y", '"+y$')
-visual_mode("<leader>d", '"_d')
+vim.keymap.set("x", "<leader>p", [["_dP]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+vim.keymap.set("n", "<leader>Y", [["+Y]])
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- Terminal stuff
 normal_mode("<leader>ts", function()
