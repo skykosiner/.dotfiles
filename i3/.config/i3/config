@@ -1,5 +1,5 @@
-set $inner_gaps 0
-set $outer_gaps 0
+set $inner_gaps 3
+set $outer_gaps 3
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -21,7 +21,7 @@ bindsym F7 [instance="beeper"] scratchpad show
 
 gaps inner $inner_gaps
 gaps outer $outer_gaps
-smart_gaps on
+smart_gaps off
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
