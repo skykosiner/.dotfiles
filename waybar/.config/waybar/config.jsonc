@@ -2,9 +2,11 @@
 {
     // "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 15, // Waybar height (to be removed for auto height)
+    "height": 30, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
-    "spacing": 4, // Gaps between modules (4px)
+    // TODO: May need to change this depndeing on the laptop mhmm
+    "output": "eDP-1",
+    "spacing": 15, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
         "hyprland/workspaces",
@@ -16,7 +18,6 @@
         "idle_inhibitor",
         "pulseaudio",
         "battery",
-        "battery#bat2",
         "clock",
         "tray",
         "custom/power"
@@ -24,8 +25,8 @@
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
-            "activated": "",
-            "deactivated": ""
+            "activated": " ",
+            "deactivated": " "
         }
     },
     "tray": {
@@ -45,15 +46,12 @@
         },
         "format": "{capacity}% {icon}",
         "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
+        "format-charging": "{capacity}%  ",
+        "format-plugged": "{capacity}%  ",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
-    },
-    "battery#bat2": {
-        "bat": "BAT2"
+        "format-icons": [" ", " ", " ", " ", " "]
     },
     "power-profiles-daemon": {
       "format": "{icon}",
@@ -62,8 +60,8 @@
       "format-icons": {
         "default": "",
         "performance": "",
-        "balanced": "",
-        "power-saver": ""
+        "balanced": " ",
+        "power-saver": " "
       }
     },
     "pulseaudio": {
@@ -75,25 +73,14 @@
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
-            "headphone": "",
+            "headphone": " ",
             "hands-free": "",
             "headset": "",
             "phone": "",
             "portable": "",
-            "car": "",
+            "car": " ",
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
-    },
-    "custom/power": {
-        "format" : "⏻ ",
-		"tooltip": false,
-		"menu": "on-click",
-		"menu-actions": {
-			"shutdown": "shutdown",
-			"reboot": "reboot",
-			"suspend": "systemctl suspend",
-			"hibernate": "systemctl hibernate"
-		}
     }
 }
