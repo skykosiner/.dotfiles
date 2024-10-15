@@ -18,8 +18,14 @@ export TFM=lf
 export XDG_CONFIG_HOME=$HOME/.config
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
-export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
-export XDG_RUNTIME_DIR=/run/user/1000
+hostname=$(hostnamectl | grep -i "static hostname" | awk '{print $3}')
+if [[ $hostname == "cock" ]]; then
+    export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+    export XDG_RUNTIME_DIR=/run/user/1000
+else
+    export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1001/bus
+    export XDG_RUNTIME_DIR=/run/user/1001
+fi
 export MANPAGER='nvim +Man!'
 export TERM="tmux-256color"
 VIM="nvim"
