@@ -2,7 +2,7 @@
 background = "#000000"
 
 [font]
-size = 13
+size = 16
 
 [font.normal]
 # family = "Iosevka Nerd Font"
