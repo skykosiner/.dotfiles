@@ -8,10 +8,10 @@ picom &
 
 hostname=$(hostnamectl | grep -i "static hostname" | awk '{print $3}')
 
-if [[ $hostname == "cock" ]]; then
-    setxkbmap -layout real-prog-dvorak
-    setxkbmap -option caps:super
-fi
+# if [[ $hostname == "cock" ]]; then
+    # setxkbmap -layout real-prog-dvorak
+    # setxkbmap -option caps:super
+# fi
 
 xset r rate 300 50
 xset s off -dpms

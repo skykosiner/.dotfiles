@@ -142,7 +142,6 @@ mode "gaps" {
     bindsym minus  gaps inner current minus 5; gaps outer current minus 5
 
     bindsym r gaps inner current set 8; gaps outer current set 8
-
     bindsym z gaps inner current set 0; gaps outer current set 0
 
     bindsym Return mode "default"
