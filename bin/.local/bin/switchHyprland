@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+option=$(printf "Keyboard\nLaptop" | dmenu -i -p "> ")
+
+if [[ $option == "Keyboard" ]]; then
+    cat $HOME/.config/hyprland_firmware.conf > $HOME/.config/hypr/hyprland.conf
+elif [[ $option == "Laptop" ]]; then
+    cat $HOME/.config/hyprland_laptop.conf > $HOME/.config/hypr/hyprland.conf
+fi
