@@ -177,6 +177,7 @@ def main():
         Package("netlify", True),
         Package("obsidian", True),
         Package("unimatrix", True),
+        Package("zaread-git", True),
         Package("zsh-autosuggestions-git", True),
         Package("zsh-syntax-highlighting-git", True),
     ]
