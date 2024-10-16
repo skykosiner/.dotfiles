@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-option=$(printf "Keyboard\nLaptop" | dmenu -i -p "> ")
+option=$(printf "Keyboard\nLaptop" | rofi -i -p "> " -dmenu)
 
 if [[ $option == "Keyboard" ]]; then
     cat $HOME/.config/hyprland_firmware.conf > $HOME/.config/hypr/hyprland.conf

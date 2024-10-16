@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+# Get the current window group and last window ID
+group=$(hyprctl activewindow | grep "grouped" | awk '{print $2}')
+lastWindowID=$(hyprctl activeworkspace | grep "lastwindow:" | awk '{print $2}' | sed 's/^0x//')
+lastGroup=$(echo "$group" | rev | cut -d"," -f 1 | rev | sed 's/^0x//')
+
+# Check if the current window is in a group
+if [ "$group" == "0" ]; then
+    # If not in a group, move focus normally
+    case "$1" in
+        left)  hyprctl dispatch movefocus l ;;
+        right) hyprctl dispatch movefocus r ;;
+        up)    hyprctl dispatch movefocus u ;;
+        down)  hyprctl dispatch movefocus d ;;
+    esac
+else
+    case "$1" in
+        right)
+            # Move focus left if at the last window in the group, otherwise change group
+            if [[ "$lastGroup" == "$lastWindowID" ]]; then
+                hyprctl dispatch movefocus r
+            else
+                hyprctl dispatch changegroupactive f
+            fi
+            ;;
+        left)
+            hyprctl dispatch changegroupactive b
+            ;;
+    esac
+fi
