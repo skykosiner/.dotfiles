@@ -41,9 +41,7 @@ export CARGO_HOME="$XDG_DATA_HOME"cargo
 export GOPATH="$HOME/go"
 export PATH="${PATH}:${GOPATH}/bin"
 
-# You can't do anything with this as it's all local home assitant. SO SUCK IT.
-export HASS_SERVER=http://10.0.0.36:8123
-export HASS_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhMGQ4N2ZlZjhhYjA0OGRhOTdlNTE4Y2UyYzM5ZDdlOSIsImlhdCI6MTcwMjA1NDUyNywiZXhwIjoyMDE3NDE0NTI3fQ.UYxG0rx37YAfi4ARo_wapA6f2KHNKeSVp1PJ_o5tems
+export DMENU="rofi -dmenu"
 
 # For macos
 export PATH=$PATH:/opt/homebrew/bin

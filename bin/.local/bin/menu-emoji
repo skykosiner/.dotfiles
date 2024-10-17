@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-chosen=$(cat ~/.dotfiles/emoji | dmenu -c -l 30 -fn "JetBrainsMono Nerd Font-18" | awk '{print $1}')
+chosen=$(cat ~/.dotfiles/emoji | rofi -dmenu | awk '{print $1}')
 
 [[ -z "$chosen" ]] && exit
 
-printf "%s" "$chosen" | xclip -selection clipboard
+printf "%s" "$chosen" | wl-copy
 notify-send "'$chosen' copied to clipboard" &

@@ -5,7 +5,7 @@ super + m ; {e, f, h, p, shift + p}
     {alacritty -e neomutt, thunar, alacritty -e htop, alacritty -e pulsemixer, bitwarden-desktop}
 
 alt + l ; {l, s, r, a, p, t}
-    {/home/sky/.local/bin/lights ceiling, /home/sky/.local/bin/lights studio, /home/sky/.local/bin/lights others, /home/sky/.local/bin/lights al, /home/sky/.local/bin/light-percent, /home/sky/.local/bin/light-temp}
+    {/home/sky/.local/bin/lights ceiling, /home/sky/.local/bin/lights studio, /home/sky/.local/bin/lights others, /home/sky/.local/bin/lights all, /home/sky/.local/bin/light-percent, /home/sky/.local/bin/light-temp}
 
 super + a ; {o, c, h, n, f}
     {/home/sky/.local/bin/aircon toggle, /home/sky/.local/bin/cold, /home/sky/.local/bin/hot, /home/sky/.local/bin/airconControl -change, /home/sky/.local/bin/airconControl -sellect-fan}

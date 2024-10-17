@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-temp=$(printf "Cool - 154\nMedium - 250\nHigh - 350\nCustom" | dmenu -p "What temperature do you want to set the lights to?")
+temp=$(printf "Cool - 154\nMedium - 250\nHigh - 350\nCustom" | rofi -dmenu -p "What temperature do you want to set the lights to?")
 
 [[ -z $temp ]] && exit
 

@@ -20,7 +20,7 @@ while [ "$#" -gt 0 ]; do
        pkill -SIGRTMIN+5 dwmblocks
        ;;
    "-change")
-       airconNumber=$(dmenu -c -p "Enter Temp > " -h 40 -fn 'JetBrainsMono Nerd Font-15' <&- && echo)
+       airconNumber=$(rofi -dmenu -p "Enter Temp")
        /home/sky/.local/bin/aircon $airconNumber
        pkill -SIGRTMIN+5 dwmblocks
        ;;
@@ -30,7 +30,7 @@ while [ "$#" -gt 0 ]; do
 2
 3
 4
-5" | dmenu -l 6 -fn 'JetBrainsMono Nerd Font-15')
+5" | rofi -dmenu)
        /home/sky/.local/bin/aircon fan-$fanMode
        pkill -SIGRTMIN+5 dwmblocks
        ;;
