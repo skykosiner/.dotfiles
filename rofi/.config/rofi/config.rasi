@@ -1,0 +1,6 @@
+@theme "/usr/share/rofi/themes/DarkBlue.rasi"
+configuration {
+    modi: "window,drun,ssh,combi";
+    font: "JetBrainsMono Nerd Font 16";
+    combi-modi: "window,drun,ssh";
+}
