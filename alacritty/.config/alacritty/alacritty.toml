@@ -1,3 +1,6 @@
+[window]
+opacity = 0.9
+
 [colors.primary]
 background = "#000000"
 
