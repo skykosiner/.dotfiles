@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+sed -i '2s|.*|exec = swww img '"$1"'|' ~/.config/hypr/wallpaper.conf
