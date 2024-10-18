@@ -1,12 +1,12 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: "JetBrains Mono Nerd Font", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-weight: 200;
-    font-size: 13px;
+    font-family: FontAwesome, "BerkleyMono Nerd Font";
+    /*font-weight: 500;*/
+    font-size: 12px;
 }
 
 .modules-right {
-    margin-right: 0.3rem;
+    margin-right: 0.5rem;
 }
 
 #workspaces button.active {

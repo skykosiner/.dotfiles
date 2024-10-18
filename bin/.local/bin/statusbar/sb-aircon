@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 status=$(/home/sky/.local/bin/aircon status)
-echo "⛅ $status"
+echo -e "\u2601 $status"
