@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 swayidle \
   timeout 300 'hyprctl dispatch exec hyprlock' \

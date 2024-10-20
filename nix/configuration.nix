@@ -82,44 +82,16 @@
 
     environment.systemPackages = with pkgs; [
         wget
-        lua
-        luajit
-        vim
-        brave
-        fzf
-        neofetch
-        neovim
-        ripgrep
-        cmake
         home-manager
-        ninja
         pass
-        wl-clipboard
-        spotify
         file
         gnupg
-        obsidian
-        eza
         htop
-        tmux
         acpi
-        gh
         neomutt
         mutt-wizard
-        tree-sitter
-        sxiv
-        bitwarden-desktop
         btop
-        alacritty
-        kitty
-        zsh
         stow
-        gimp
-        cargo
-        starship
-        zoxide
-        go
-        lf
     ];
 
     fonts.packages = with pkgs; [

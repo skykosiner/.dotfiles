@@ -3,11 +3,14 @@
 {
     home.packages = with pkgs; [
         alacritty
+        kitty
+        starship
 
         # Language stuff
         python3
         nodejs
         go
+        cargo
 
         # Make stuff
         cmake
@@ -16,10 +19,18 @@
         gnumake
 
         # Tools
+        ripgrep
+        vim
+        neovim
+        tree-sitter
+        eza
+        gh
         git
         zsh
         tmux
         fzf
+        bat
+        zoxide
     ];
 
     programs.git = {

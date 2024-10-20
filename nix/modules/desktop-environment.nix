@@ -10,6 +10,18 @@
       rofi
       grim
       slurp
+      libnotify
+      xfce.thunar
+      lf
+      hyprlock
+      swayidle
+      spotify
+      obsidian
+      brave
+      wl-clipboard
+      sxiv
+      bitwarden-desktop
+      gimp
   ];
 
   programs.rofi = {

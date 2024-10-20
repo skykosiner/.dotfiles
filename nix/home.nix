@@ -20,6 +20,7 @@ in {
     home.packages = with pkgs; [
         teams-for-linux
         pfetch
+        killall
         (pkgs.nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
     ];
 
@@ -30,12 +31,6 @@ in {
 
     home.sessionVariables = {
         EDITOR = "nvim";
-    };
-
-    programs.git = {
-        enable = true;
-        userName = "Sky Kosiner";
-        userEmail = "sky@skykosiner.com";
     };
 
     xdg = {
@@ -52,6 +47,12 @@ in {
             };
             "tmux" = {
                 source = ../tmux/.config/tmux;
+            };
+            "personal" = {
+                source = ../shell/.config/personal;
+            };
+            "lf" = {
+                source = ../lf/.config/lf;
             };
         };
     };
