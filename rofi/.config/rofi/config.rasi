@@ -1,4 +1,4 @@
-@theme "/usr/share/rofi/themes/DarkBlue.rasi"
+@theme "/usr/share/rofi/themes/solarized.rasi"
 configuration {
     modi: "window,drun,ssh,combi";
     font: "JetBrainsMono Nerd Font 16";
