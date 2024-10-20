@@ -19,8 +19,9 @@
 }
 
 window#waybar {
-    background-color: rgba(48, 45, 65, 1);
-    border-bottom: 3px solid rgba(110, 108, 126, 1);
+    /*border-radius: 10rem;*/
+    background-color: rgba(14, 1, 0, 0.7);
+    /*border-bottom: 3px solid rgba(110, 108, 126, 1);*/
     color: #d9e0ee;
 }
 
