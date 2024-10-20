@@ -41,7 +41,7 @@
         xkb.extraLayouts.real-prog-dvorak = {
             description = "real-prog-dvoark";
             languages = [ "eng" ];
-            symbolsFile = /etc/nixos/symbols/real-prog-dvorak;
+            symbolsFile = ./symbols/real-prog-dvorak;
         };
     };
 
