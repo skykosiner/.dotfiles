@@ -7,7 +7,7 @@ return {
         "onsails/lspkind-nvim",
     },
     config = function()
-        vim.opt.completeopt = { "menu", "menuone", "noselect", "fuzzy" }
+        -- vim.opt.completeopt = { "menu", "menuone", "noselect", "fuzzy" }
         vim.opt.shortmess:append "c"
 
         local lspkind = require("lspkind")

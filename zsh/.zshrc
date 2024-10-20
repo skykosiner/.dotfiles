@@ -70,12 +70,18 @@ source $HOME/.tokens
 
 
 uname=$(uname -s)
+hostname=$(hostnamectl | grep -i "static hostname" | awk '{print $3}')
 
 # Check if it's a mac
-if [[ $uname != "Darwin" ]];
-then
-    source /usr/share/fzf/key-bindings.zsh
-    source /usr/share/fzf/completion.zsh
-    source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [[ $uname != "Darwin" ]]; then
+    if [[ $hostname == "nixos-btw" ]]; then
+        # source /run/current-system/sw/share/fzf/key-bindings.zsh
+        source $HOME/.nix-profile/share/fzf/key-bindings.zsh
+        source $HOME/.nix-profile/share/fzf/completion.zsh
+    else
+        source /usr/share/fzf/key-bindings.zsh
+        source /usr/share/fzf/completion.zsh
+        source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+        source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    fi
 fi;

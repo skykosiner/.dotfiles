@@ -3,9 +3,9 @@
 option=$(printf "Keyboard\nLaptop\nDesktop" | rofi -dmenu)
 
 if [[ $option == "Keyboard" ]]; then
-    cat $HOME/.dotfiles/hypr/.config/hyprland_firmware.conf > $HOME/.config/hypr/hyprland.conf
+    cat $HOME/.config/hypr/hyprland_firmware.conf > $HOME/.config/hypr/hyprland.conf
 elif [[ $option == "Laptop" ]]; then
-    cat $HOME/.dotfiles/hypr/.config/hyprland_laptop.conf > $HOME/.config/hypr/hyprland.conf
+    cat $HOME/.config/hypr/hyprland_laptop.conf > $HOME/.config/hypr/hyprland.conf
 elif [[ $option == "Desktop" ]]; then
-    cat $HOME/.dotfiles/hypr/.config/hyprland_desktop.conf > $HOME/.config/hypr/hyprland.conf
+    cat $HOME/.config/hypr/hyprland_desktop.conf > $HOME/.config/hypr/hyprland.conf
 fi
