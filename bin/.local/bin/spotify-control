@@ -2,23 +2,23 @@
 
 case "$1" in
     "-togglePlay")
-        ~/.local/bin/spotifycli --playpause
-        if ~/.local/bin/spotifycli --status; then
-            notify-send -i "/home/sky/.local/share/spotify-launcher/install/usr/share/spotify/icons/spotify-linux-512.png" "Now playing: $(~/.local/bin/spotifycli --status)"
+        spotifycli --playpause
+        if spotifycli --status; then
+            notify-send -i "/home/sky/.local/share/spotify-launcher/install/usr/share/spotify/icons/spotify-linux-512.png" "Now playing: $(spotifycli --status)"
         else
             notify-send -i "/home/sky/.local/share/spotify-launcher/install/usr/share/spotify/icons/spotify-linux-512.png" "Spotify is not running"
         fi
         ;;
     "-prev")
-        ~/.local/bin/spotifycli --prev
+        spotifycli --prev
         ;;
     "-next")
-        ~/.local/bin/spotifycli --next
+        spotifycli --next
         ;;
     "-status")
-        if ~/.local/bin/spotifycli --status;
+        if spotifycli --status;
         then
-            echo "$(~/.local/bin/spotifycli --status)"
+            echo "$(spotifycli --status)"
         else
             echo ""
         fi

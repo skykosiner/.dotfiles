@@ -8,6 +8,7 @@
 
         # Language stuff
         python3
+        python312Packages.pip
         nodejs
         go
         cargo

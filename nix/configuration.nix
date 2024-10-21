@@ -101,9 +101,9 @@ in {
         neomutt
         mutt-wizard
         btop
-        timeshift
         firefox
         cifs-utils
+        dunst
         stow
     ];
 

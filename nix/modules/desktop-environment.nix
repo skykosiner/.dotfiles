@@ -18,6 +18,7 @@
       hyprlock
       swayidle
       spotify
+      spotify-cli-linux
       obsidian
       brave
       wl-clipboard
