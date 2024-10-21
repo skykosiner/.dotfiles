@@ -29,4 +29,4 @@ opt.scrolloff = 8
 
 vim.opt.colorcolumn = "80"
 
-opt.shell = "/bin/zsh"
+opt.shell = "/run/current-system/sw/bin/zsh"
