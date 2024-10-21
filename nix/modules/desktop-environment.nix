@@ -13,6 +13,7 @@
       libnotify
       xfce.thunar
       lf
+      ueberzugpp
       hyprlock
       swayidle
       spotify

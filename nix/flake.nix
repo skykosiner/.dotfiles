@@ -18,7 +18,12 @@
         nixosConfigurations = {
             nixos-btw = lib.nixosSystem {
                 inherit system;
-                modules = [./configuration.nix];
+                modules = [./hosts/nixos-btw/configuration.nix];
+            };
+
+            nix-btw = lib.nixosSystem {
+                inherit system;
+                modules = [./hosts/nix-btw/configuration.nix];
             };
         };
 

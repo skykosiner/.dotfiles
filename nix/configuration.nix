@@ -8,14 +8,10 @@
             '';
     };
 
-    imports =
-        [ ./hardware-configuration.nix ];
-
     # Bootloader
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
 
-    networking.hostName = "nixos-btw";
     networking.networkmanager.enable = true;
 
     time.timeZone = "Europe/London";
@@ -67,6 +63,7 @@
         description = "sky";
         extraGroups = [ "networkmanager" "wheel" ];
         shell = pkgs.zsh;
+        hashedPassword = "$6$p011SB1zy3NpqFjq$rdHjOi.GD.w/IUss5H9wmYJGckOQsAEVerQH6NKH6g9n8eG3XQJ1iIkKU4KE/pSwaIH69Gsg7Pa07j.8ErxUA0";
     };
 
     security.sudo.extraRules = [
@@ -86,13 +83,20 @@
         pass
         file
         gnupg
+        isync
         htop
+        pinentry-gtk2
         acpi
+        blueman
         neomutt
         mutt-wizard
         btop
+        timeshift
+        firefox
         stow
     ];
+
+    programs.gnupg.agent.enable = true;
 
     fonts.packages = with pkgs; [
         noto-fonts
@@ -101,7 +105,9 @@
         font-awesome
     ];
 
-    services.openssh.enable = true;
+    hardware.bluetooth.enable = true;
+    hardware.bluetooth.powerOnBoot = true;
 
+    services.openssh.enable = true;
     system.stateVersion = "24.05";  # Keep this as your first install version
 }

@@ -11,6 +11,7 @@
         nodejs
         go
         cargo
+        clang-tools
 
         # Make stuff
         cmake
@@ -19,12 +20,15 @@
         gnumake
 
         # Tools
+        unzip
         ripgrep
         vim
         neovim
         tree-sitter
         eza
         gh
+        tokei
+        tldr
         git
         zsh
         tmux
