@@ -7,6 +7,7 @@
       waybar
       hyprland
       zathura
+      pulsemixer
       rofi
       grim
       slurp
