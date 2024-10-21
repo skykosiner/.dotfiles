@@ -1,6 +1,16 @@
 { config, pkgs, ... }:
 
-{
+let
+    cifsOptions = [
+        "credentials=/etc/smbcredentials"
+        "iocharset=utf8"
+        "vers=3.0"
+        "file_mode=0777"
+        "dir_mode=0777"
+        "nofail"
+    ];
+
+in {
     nix = {
         package = pkgs.nixFlakes;
         extraOptions = ''
@@ -93,6 +103,7 @@
         btop
         timeshift
         firefox
+        cifs-utils
         stow
     ];
 
@@ -110,4 +121,16 @@
 
     services.openssh.enable = true;
     system.stateVersion = "24.05";  # Keep this as your first install version
+
+    fileSystems."/mnt/server" = {
+        device = "//10.0.0.36/Files";
+        fsType = "cifs";
+        options = cifsOptions;
+    };
+
+    fileSystems."/mnt/ssd" = {
+        device = "//10.0.0.36/T7";
+        fsType = "cifs";
+        options =  cifsOptions;
+    };
 }
