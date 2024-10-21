@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+randomImage=$(ls "$DOTFILES/backgrounds/" | grep -v "README.org" | shuf -n 1)
+sed -i '2s|.*|exec = swww img '"$randomImage"'|' ~/.config/hypr/wallpaper.conf
+hyprctl reload

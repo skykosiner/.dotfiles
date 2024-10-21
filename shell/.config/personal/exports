@@ -3,7 +3,7 @@
 export DOTFILES=$HOME/.dotfiles
 export STOW_FOLDERS="bin,i3,nvim,tmux,zsh,shell,dunst,fonts,vim,qutebrowser,alacritty,kitty,zathula,lf,doom-emacs,picom"
 export PATH="$PATH:$(du ~/.dotfiles/bin/.local/bin | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
-export SHELL=/run/current-system/sw/bin/zsh
+#export SHELL=/run/current-system/sw/bin/zsh
 export RUSTUP=$HOME/.cargo/bin/rustup
 export PATH=$PATH:/bin:$RUSTUP
 export PATH=$PATH:$HOME/.local/share/cargo/bin/
@@ -18,14 +18,8 @@ export TFM=lf
 export XDG_CONFIG_HOME=$HOME/.config
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
-hostname=$(hostnamectl | grep -i "static hostname" | awk '{print $3}')
-if [[ $hostname == "nixos-btw" ]]; then
-    export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
-    export XDG_RUNTIME_DIR=/run/user/1000
-else
-    export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1001/bus
-    export XDG_RUNTIME_DIR=/run/user/1001
-fi
+export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+export XDG_RUNTIME_DIR=/run/user/1000
 export MANPAGER='nvim +Man!'
 export TERM="tmux-256color"
 VIM="nvim"
