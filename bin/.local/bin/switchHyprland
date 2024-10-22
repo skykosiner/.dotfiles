@@ -9,3 +9,6 @@ elif [[ $option == "Laptop" ]]; then
 elif [[ $option == "Desktop" ]]; then
     cat $HOME/.dotfiles/hypr/.config/hypr/hyprland_desktop.conf > $HOME/.dotfiles/hypr/.config/hypr/hyprland.conf
 fi
+
+home-manager switch --flake $HOME/.dotfiles/nix
+hyprctl reload

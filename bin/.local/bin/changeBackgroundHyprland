@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
-sed -i '2s|.*|exec = swww img '"$1"'|' ~/.dotfiles/hypr/.config/hypr/wallpaper.conf
+# sed -i '2s|.*|exec = swww img '"$1"'|' ~/.dotfiles/hypr/.config/hypr/wallpaper.conf
+swww img "$1"
