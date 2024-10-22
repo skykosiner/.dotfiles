@@ -4,11 +4,13 @@ let
   # Import your development module
   development = import ./modules/development.nix { inherit pkgs; };
   desktop = import ./modules/desktop-environment.nix { inherit pkgs; };
+  video = import ./modules/video-setup.nix { inherit pkgs; };
 
 in {
     imports = [
         development
         desktop
+        video
     ];
 
     home.username = "sky";

@@ -8,6 +8,7 @@
       hyprland
       zathura
       pulsemixer
+      obs-studio
       rofi
       grim
       slurp
@@ -20,6 +21,7 @@
       spotify
       spotify-cli-linux
       obsidian
+      droidcam
       brave
       wl-clipboard
       sxiv

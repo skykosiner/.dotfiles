@@ -156,8 +156,8 @@ vpnToggle() {
     vpnStatus=$(nmcli connection show --active | grep wireguard)
 
     if [[ -z $vpnStatus ]]; then
-        sudo wg-quick up sky-arch
+        sudo systemctl start wg-quick-wg0.service
     else
-        sudo wg-quick down sky-arch
+        sudo systemctl stop wg-quick-wg0.service
     fi
 }

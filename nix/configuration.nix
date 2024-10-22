@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 let
     cifsOptions = [
@@ -9,14 +9,35 @@ let
         "dir_mode=0777"
         "nofail"
     ];
+    wg_ip = builtins.readFile config.sops.secrets.wg_ip.path;
 
 in {
+    imports = [
+        inputs.sops-nix.nixosModules.sops
+    ];
+
+    sops.defaultSopsFile = ./secrets/secrets.yaml;
+    sops.defaultSopsFormat = "yaml";
+    sops.age.keyFile = "/home/sky/.config/sops/age/keys.txt";
+    sops.secrets.wg_ip = {
+        owner = "sky";
+    };
+
     nix = {
         package = pkgs.nixFlakes;
         extraOptions = ''
             experimental-features = nix-command flakes
             '';
+        gc = {
+            automatic = true;
+            dates = "weekly";
+            options = "-d";
+        };
+
     };
+
+    boot.kernelModules = [ "v4l2loopback" ];
+    boot.extraModulePackages = [ pkgs.linuxPackages.v4l2loopback ];
 
     # Bootloader
     boot.loader.systemd-boot.enable = true;
@@ -44,15 +65,14 @@ in {
     # services.displayManager.sddm.enable = true;
 
     services.xserver = {
-        xkb.extraLayouts.real-prog-dvorak = {
-            description = "real-prog-dvoark";
-            languages = [ "eng" ];
-            symbolsFile = ./symbols/real-prog-dvorak;
+        xkb = {
+            layout = "us";
+            extraLayouts.real-prog-dvorak = {
+                description = "real-prog-dvoark";
+                languages = [ "eng" ];
+                symbolsFile = ./symbols/real-prog-dvorak;
+            };
         };
-    };
-
-    services.xserver.xkb = {
-        layout = "us";
     };
 
     console.keyMap = "uk";
@@ -71,7 +91,7 @@ in {
     users.users.sky = {
         isNormalUser = true;
         description = "sky";
-        extraGroups = [ "networkmanager" "wheel" ];
+        extraGroups = [ "networkmanager" "wheel" "docker" ];
         shell = pkgs.zsh;
         hashedPassword = "$6$p011SB1zy3NpqFjq$rdHjOi.GD.w/IUss5H9wmYJGckOQsAEVerQH6NKH6g9n8eG3XQJ1iIkKU4KE/pSwaIH69Gsg7Pa07j.8ErxUA0";
     };
@@ -102,8 +122,10 @@ in {
         mutt-wizard
         btop
         firefox
+        wireguard-tools
         cifs-utils
         dunst
+        sops
         stow
     ];
 
@@ -115,6 +137,24 @@ in {
         noto-fonts-emoji
         font-awesome
     ];
+
+    networking.wireguard.enable = true;
+    networking.wg-quick.interfaces = {
+        wg0 = {
+            address = [ "10.132.18.7/24"];
+            dns = [ "10.132.18.1"];
+            privateKeyFile = "/home/sky/.dotfiles/private_stuff/privateKey";
+
+            peers = [
+                {
+                    publicKey = "9MAJnKepYwy2WSis4BHbIANfPoam7+1V30R40GxGVW0=";
+                    presharedKeyFile = "/home/sky/.dotfiles/private_stuff/presharedKey";
+                    endpoint = wg_ip;
+                    allowedIPs = [ "0.0.0.0/0" "::/0" ];
+                }
+            ];
+        };
+    };
 
     hardware.bluetooth.enable = true;
     hardware.bluetooth.powerOnBoot = true;

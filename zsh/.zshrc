@@ -76,4 +76,6 @@ hostname=$(hostnamectl | grep -i "static hostname" | awk '{print $3}')
 if [[ $uname != "Darwin" ]]; then
     source $HOME/.nix-profile/share/fzf/key-bindings.zsh
     source $HOME/.nix-profile/share/fzf/completion.zsh
+    source $HOME/.nix-profile/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    source $HOME/.nix-profile/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi;

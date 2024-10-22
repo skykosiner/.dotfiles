@@ -32,7 +32,10 @@
         tldr
         git
         zsh
+        zsh-syntax-highlighting
+        zsh-autosuggestions
         tmux
+        docker
         fzf
         bat
         zoxide
@@ -48,8 +51,8 @@
     programs.alacritty = {
         enable = true;
         settings = {
-            window.opacity = 0.8;
-            colors.primary.background = "#000000";
+            window.opacity = 0.9;
+            # colors.primary.background = "#000000";
             font.size = 16;
             font.normal.family = "JetBrainsMono Nerd Font";
         };
