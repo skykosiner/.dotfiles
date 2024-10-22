@@ -58,6 +58,10 @@
         };
     };
 
+    programs.neovim.plugins = [
+        pkgs.vimPlugins.nvim-treesitter.withAllGrammars
+    ];
+
     # You can also set up other configurations specific to development
     # For example, environment variables or tools
     home.sessionVariables = {

@@ -6,7 +6,7 @@ set scrolloff 10
 set icons true
 set period 1
 set cleaner '~/.config/lf/cleaner'
-set previewer '~/.config/lf/scope'
+set previewer '~/.config/lf/preview'
 
 cmd open ${{
     case $(file --mime-type "$(readlink -f $f)" -b) in

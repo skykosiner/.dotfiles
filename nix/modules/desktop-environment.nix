@@ -5,6 +5,14 @@
       swww
       libreoffice
       waybar
+      ffmpegthumbnailer
+      poppler_utils
+      python312Packages.docx2txt
+      exiftool
+      catdoc
+      mediainfo
+      lynx
+      atool
       hyprland
       zathura
       pulsemixer
