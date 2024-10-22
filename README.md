@@ -16,3 +16,5 @@
     * `sudo pacman -S python`
 `sudo echo "%wheel ALL=(ALL:ALL) NOPASSWD: ALL" > /etc/sudoers`
 * ssh into mac mini and copy over the correct ssh keys onto the new computer
+## TODO
+- [ ] Better way to setup secrets in nix with sops (it kind of sucks rn lol)
