@@ -3,13 +3,11 @@
 {
   home.packages = with pkgs; [
       swww
-      libreoffice
       wtype
       waybar
       ffmpegthumbnailer
       poppler_utils
       python312Packages.docx2txt
-      mpv
       exiftool
       catdoc
       msmtp
@@ -17,28 +15,21 @@
       lynx
       atool
       hyprland
-      zathura
       pulsemixer
-      obs-studio
       rofi
       grim
       slurp
       libnotify
-      xfce.thunar
       lf
       ueberzugpp
       hyprlock
       swayidle
-      spotify
-      spotify-cli-linux
-      obsidian
-      droidcam
-      brave
       wl-clipboard
-      sxiv
-      bitwarden-desktop
-      gimp
   ];
+
+  wayland.windowManager.hyprland = {
+      enable = true;
+  };
 
   programs.rofi = {
     enable = true;
@@ -46,24 +37,44 @@
     theme = "/home/sky/.nix-profile/share/rofi/themes/solarized.rasi";
   };
 
-  programs.zathura = {
+
+  gtk = {
       enable = true;
-      extraConfig = ''
-        set sandbox none
-        set statusbar-h-padding 0
-        set statusbar-v-padding 0
-        set page-padding 1
-        set selection-clipboard clipboard
-        map u scroll half-up
-        map d scroll half-down
-        map D toggle_page_mode
-        map r reload
-        map R rotate
-        map K zoom in
-        map J zoom out
-        map i recolor
-        map p print
-        map g goto top
-      '';
+      theme = {
+          package = pkgs.orchis-theme;
+          name = "Orchis-Grey-Dark";
+      };
+      iconTheme = {
+          package = pkgs.tela-icon-theme;
+          name = "Tela-blue-dark";
+
+      };
+      gtk3 = {
+          bookmarks = [
+              "file:///home/sky/Pictures/Captures/"
+              "file:///home/sky/Documents/Linux-btw"
+              "file:///home/sky/Documents/Linux-btw/Collage"
+              "file:///home/sky/Documents/Memes"
+              "file:///home/sky/Downloads"
+              "file:///home/sky/personal"
+              "file:///home/sky/work"
+              "file:///home/sky/Pictures/"
+          ];
+          extraConfig = {
+            gtk-key-theme-name = "Emacs";
+          };
+      };
   };
+
+
+   dconf.settings = {
+       "org/gtk/settings/file-chooser" = {
+           sort-directories-first = true;
+       };
+   };
+
+   # home.file.".config/gtk-3.0/settings.ini".text = ''
+   #     [Settings]
+   #     gtk-key-theme-name = Emacs
+   # '';
 }
