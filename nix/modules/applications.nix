@@ -18,10 +18,6 @@
       gimp
   ];
 
-  programs.mpv = {
-      enable = true;
-  }
-
   programs.zathura = {
       enable = true;
       extraConfig = ''

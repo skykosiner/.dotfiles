@@ -120,6 +120,7 @@ in {
         blueman
         neomutt
         mutt-wizard
+        udiskie
         btop
         firefox
         wireguard-tools
@@ -158,6 +159,8 @@ in {
 
     hardware.bluetooth.enable = true;
     hardware.bluetooth.powerOnBoot = true;
+
+    services.udisks2.enable = true;
 
     services.openssh.enable = true;
     system.stateVersion = "24.05";  # Keep this as your first install version
