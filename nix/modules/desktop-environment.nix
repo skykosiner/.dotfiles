@@ -40,6 +40,10 @@
 
   gtk = {
       enable = true;
+      font = {
+        name = "Roboto";
+        size = 10;
+      };
       theme = {
           package = pkgs.orchis-theme;
           name = "Orchis-Grey-Dark";

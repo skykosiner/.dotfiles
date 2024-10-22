@@ -27,6 +27,7 @@
         unzip
         ripgrep
         ffmpeg
+        jq
         vim
         imagemagick
         neovim
@@ -52,6 +53,12 @@
         userEmail = "sky@skykosiner.com";
     };
 
+    programs.starship = {
+        enable = true;
+        settings = {
+            add_newline = false;
+        };
+    };
 
     programs.alacritty = {
         enable = true;
