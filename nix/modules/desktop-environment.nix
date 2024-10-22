@@ -4,12 +4,15 @@
   home.packages = with pkgs; [
       swww
       libreoffice
+      wtype
       waybar
       ffmpegthumbnailer
       poppler_utils
       python312Packages.docx2txt
+      mpv
       exiftool
       catdoc
+      msmtp
       mediainfo
       lynx
       atool

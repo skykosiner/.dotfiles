@@ -6,6 +6,9 @@
         kitty
         starship
 
+        luajitPackages.luarocks
+        luajit
+
         # Language stuff
         python3
         python312Packages.pip
@@ -23,7 +26,9 @@
         # Tools
         unzip
         ripgrep
+        ffmpeg
         vim
+        imagemagick
         neovim
         tree-sitter
         eza
