@@ -9,22 +9,12 @@ let
         "dir_mode=0777"
         "nofail"
     ];
-    wg_ip = builtins.readFile config.sops.secrets.wg_ip.path;
+
+    wg_ip = builtins.readFile "../private_stuff/endpoint_ip.txt";
 
 in {
-    imports = [
-        inputs.sops-nix.nixosModules.sops
-    ];
-
-    sops.defaultSopsFile = ./secrets/secrets.yaml;
-    sops.defaultSopsFormat = "yaml";
-    sops.age.keyFile = "/home/sky/.config/sops/age/keys.txt";
-    sops.secrets.wg_ip = {
-        owner = "sky";
-    };
-
     nix = {
-        package = pkgs.nixFlakes;
+        package = pkgs.nixVersions.stable;
         extraOptions = ''
             experimental-features = nix-command flakes
             '';
@@ -124,9 +114,9 @@ in {
         btop
         firefox
         wireguard-tools
+        docker
         cifs-utils
         dunst
-        sops
         stow
     ];
 
@@ -134,7 +124,8 @@ in {
 
     fonts.packages = with pkgs; [
         noto-fonts
-        noto-fonts-cjk
+        noto-fonts-cjk-sans
+        ubuntu_font_family
         noto-fonts-emoji
         font-awesome
     ];
@@ -150,7 +141,7 @@ in {
                 {
                     publicKey = "9MAJnKepYwy2WSis4BHbIANfPoam7+1V30R40GxGVW0=";
                     presharedKeyFile = "/home/sky/.dotfiles/private_stuff/presharedKey";
-                    endpoint = wg_ip;
+                    endpoint = builtins.readFile "/home/sky/.dotfiles/private_stuff/endpoint_ip.txt";
                     allowedIPs = [ "0.0.0.0/0" "::/0" ];
                 }
             ];
