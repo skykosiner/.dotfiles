@@ -66,7 +66,8 @@
             window.opacity = 0.9;
             # colors.primary.background = "#000000";
             font.size = 16;
-            font.normal.family = "JetBrainsMono Nerd Font";
+            # font.normal.family = "JetBrainsMono Nerd Font";
+            font.normal.family = "UbuntuMono";
         };
     };
 

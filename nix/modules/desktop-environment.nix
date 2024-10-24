@@ -18,6 +18,7 @@
       pulsemixer
       rofi
       grim
+      hyprcursor
       slurp
       libnotify
       lf
@@ -29,6 +30,14 @@
 
   wayland.windowManager.hyprland = {
       enable = true;
+  };
+
+  home.pointerCursor = {
+      gtk.enable = true;
+# x11.enable = true;
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Classic";
+      size = 16;
   };
 
   programs.rofi = {
@@ -45,8 +54,10 @@
         size = 10;
       };
       theme = {
-          package = pkgs.orchis-theme;
-          name = "Orchis-Grey-Dark";
+          # package = pkgs.orchis-theme;
+          # name = "Orchis-Grey-Dark";
+          package = pkgs.nordic;
+          name = "Nordic";
       };
       iconTheme = {
           package = pkgs.tela-icon-theme;
