@@ -9,6 +9,7 @@
       poppler_utils
       python312Packages.docx2txt
       exiftool
+      networkmanagerapplet
       catdoc
       msmtp
       mediainfo
