@@ -30,12 +30,9 @@ export WINEPREFIX="$HOME/.wine/"
 export XDG_DATA_HOME="$HOME/.local/share/"
 export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json
 
+export BEMOJI_PICKER_CMD="fuzzel --dmenu --width 48"
+
 # Clean up home dir
 export CARGO_HOME="$XDG_DATA_HOME"cargo
 export GOPATH="$HOME/go"
 export PATH="${PATH}:${GOPATH}/bin"
-
-export DMENU="rofi -dmenu"
-
-# For macos
-export PATH=$PATH:/opt/homebrew/bin

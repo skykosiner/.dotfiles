@@ -2,20 +2,7 @@
 
 {
   home.packages = with pkgs; [
-      # Thunar needs this in order to save configs
-      xfce.xfconf
-
-      libreoffice
-      mpv
       zathura
-      xfce.thunar
-      spotify
-      spotify-cli-linux
-      obsidian
-      brave
-      sxiv
-      bitwarden-desktop
-      gimp
   ];
 
   programs.zathura = {

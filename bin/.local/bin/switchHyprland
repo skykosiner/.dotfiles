@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-option=$(printf "Keyboard\nLaptop\nDesktop" | rofi -dmenu)
+option=$(printf "Keyboard\nLaptop\nDesktop" | fuzzel --dmenu)
 
 if [[ $option == "Keyboard" ]]; then
     cat $HOME/.dotfiles/hypr/.config/hypr/hyprland_firmware.conf > $HOME/.dotfiles/hypr/.config/hypr/hyprland.conf
