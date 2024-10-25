@@ -63,7 +63,7 @@
                 modules-center = [
                     "hyprland/window"
                 ];
-                module-right = [
+                modules-right = [
                     "custom/aircon"
                     "pulseaudio"
                     "battery"
