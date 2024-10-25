@@ -9,11 +9,14 @@
         };
     };
 
-    outputs = { nixpkgs, home-manager, ... }:
+    outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
+        inherit (self) outputs;
         lib = nixpkgs.lib;
         system = "x86_64-linux";
         pkgs = nixpkgs.legacyPackages.${system};
+        stateVersion = "24.05";
+        helper = import ./lib { inherit inputs outputs stateVersion; };
     in {
         nixosConfigurations = {
             nixos-btw = lib.nixosSystem {
@@ -27,9 +30,15 @@
             };
         };
 
-        homeConfigurations."sky" = home-manager.lib.homeManagerConfiguration {
-            inherit pkgs;
-            modules = [ ./home-manager ];
+        homeConfigurations = {
+            "sky@nixos-btw" = helper.mkHome {
+                hostname = "nixos-btw";
+                username = "sky";
+            };
+            "sky@nix-btw" = helper.mkHome {
+                hostname = "nix-btw";
+                username = "sky";
+            };
         };
     };
 }
