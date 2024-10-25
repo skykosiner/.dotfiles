@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-newTask=$(rofi -dmenu -p "Enter in new task")
+newTask=$(fuzzel --dmenu -p "Enter in new task")
 todoist-cli quick "$newTask"

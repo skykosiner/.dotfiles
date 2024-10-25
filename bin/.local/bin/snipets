@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-wtype "$(cat ~/.dotfiles/snipets ~/.dotfiles/private_stuff/private-snips | grep -v "^#" | grep -v "^$" | rofi -dmenu | cut -d "-" -f 2- | xargs)"
+wtype "$(cat ~/.dotfiles/snipets ~/.dotfiles/private_stuff/private-snips | grep -v "^#" | grep -v "^$" | fuzzel --dmenu | cut -d "-" -f 2- | xargs)"

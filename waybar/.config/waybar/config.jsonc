@@ -33,11 +33,11 @@
         "format-alt": "{:%Y-%m-%d}"
     },
     "battery": {
-        "states": {
-            "good": 95,
-            "warning": 30,
-            "critical": 15
-        },
+        states = {
+            good = 85;
+            warning = 30;
+            critical = 15;
+        };
         "format": "{capacity}% {icon}",
         "format-full": "{capacity}% {icon}",
         "format-charging": "{capacity}% ",
