@@ -119,7 +119,11 @@ in {
         dunst
         stow
         cloudflared
+        # virtualbox
     ];
+
+    # virtualisation.virtualbox.host.enable = true;
+    # users.extraGroups.vboxusers.members = [ "sky" ];
 
     programs.gnupg.agent.enable = true;
 
