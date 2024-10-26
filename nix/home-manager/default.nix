@@ -61,5 +61,9 @@ in {
         enable = true;
     };
 
+    home.file = {
+        ".cloudflared/cert.pem".source = ../../private_stuff/cert.pem;
+    };
+
     programs.home-manager.enable = true;
 }

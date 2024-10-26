@@ -19,6 +19,7 @@
         swayidle
         wl-clipboard
         networkmanagerapplet
+        hyprpicker
     ];
 
     wayland.windowManager.hyprland = {

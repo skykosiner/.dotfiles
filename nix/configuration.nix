@@ -118,6 +118,7 @@ in {
         cifs-utils
         dunst
         stow
+        cloudflared
     ];
 
     programs.gnupg.agent.enable = true;
@@ -149,6 +150,10 @@ in {
                 }
             ];
         };
+    };
+
+    services.cloudflared = {
+        enable = true;
     };
 
     hardware.bluetooth.enable = true;

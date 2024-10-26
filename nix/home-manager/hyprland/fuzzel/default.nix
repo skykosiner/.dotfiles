@@ -12,16 +12,21 @@ in {
             colors.background = "3D4455DD";
             main = {
                 font = "Berkeley Mono:size=${fontSize}";
+
+        # homeConfigurations."sky" = home-manager.lib.homeManagerConfiguration {
+        #     inherit pkgs;
+        #     modules = [ ./home-manager ];
+        # };
                 lines = 16;
                 terminal = "alacritty";
                 tabs = 2;
-                width = 32;
+                width = 69;
                 horizontal-pad = 32;
                 vertical-pad = 32;
                 inner-pad = 32;
             };
             border = {
-                width = 2;
+                width = 5;
                 radius = 8;
             };
         };
