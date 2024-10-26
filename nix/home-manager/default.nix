@@ -62,7 +62,7 @@ in {
     };
 
     home.file = {
-        ".cloudflared/cert.pem".source = ../../private_stuff/cert.pem;
+        ".cloudflared/cert.pem".source = ../cert.pem;
     };
 
     programs.home-manager.enable = true;
