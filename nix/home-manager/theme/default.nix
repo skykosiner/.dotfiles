@@ -40,10 +40,18 @@
         };
     };
 
-
     dconf.settings = {
         "org/gtk/settings/file-chooser" = {
             sort-directories-first = true;
         };
     };
+
+    home.packages = with pkgs; [
+        libsForQt5.qt5ct
+    ];
+
+     home.sessionVariables = {
+         QT_QPA_PLATFORMTHEME = "qt5ct";
+         QT_STYLE_OVERRIDE = "Fusion";
+     };
 }

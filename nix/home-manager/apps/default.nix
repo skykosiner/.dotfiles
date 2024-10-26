@@ -21,6 +21,7 @@
         obsidian
         brave
         sxiv
+        qbittorrent
         bitwarden-desktop
         gimp
     ];

@@ -31,6 +31,9 @@ export XDG_DATA_HOME="$HOME/.local/share/"
 export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json
 
 export BEMOJI_PICKER_CMD="fuzzel --dmenu --width 48"
+export QT_QPA_PLATFORMTHEME="qt5ct"
+export QT_STYLE_OVERRIDE="Fusion"
+
 
 # Clean up home dir
 export CARGO_HOME="$XDG_DATA_HOME"cargo
