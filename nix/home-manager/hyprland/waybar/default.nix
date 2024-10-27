@@ -56,7 +56,7 @@
             {
                 layer = "bottom";
                 position = "top";
-                spacing = 7;
+                spacing = 10;
                 modules-left = [
                     "hyprland/workspaces"
                 ];
@@ -77,7 +77,7 @@
                 "custom/clock" = {
                     format = "{}";
                     interval = 60;
-                    exec = "/home/sky/.local/bin/statusbar/sb-todoist";
+                    exec = "/home/sky/.local/bin/statusbar/sb-timeDateClean";
                 };
                 battery = {
                     states = {
@@ -85,29 +85,26 @@
                         warning = 30;
                         critical = 15;
                     };
-                    format = "{capacity}% {icon}";
-                    format-full = "{capacity}% {icon}";
-                    format-charging = "{capacity}% ";
-                    format-plugged = "{capacity}% ";
+                    format = "{icon} {capacity}%";
+                    format-full = "{icon} {capacity}%";
+                    format-charging = "  {capacity}%";
+                    format-plugged = " {capacity}%";
                     format-alt = "{time} {icon}";
                     format-icons = [
-                        " "
-                        " "
-                        " "
-                        " "
-                        " "
+                        "  "
+                        "  "
+                        "  "
+                        "  "
+                        "  "
                     ];
                 };
                 pulseaudio = {
                     scroll-step = 5;
-                    format = "{icon} {volume}% {format_source}";
-                    format-muted = " {format_source}";
-                    format-source = " {volume}%";
-                    format-source-muted = "";
+                    format = "{icon} {volume}%";
                     format-icons = [
-                        ""
-                        ""
-                        ""
+                        " "
+                        " "
+                        " "
                     ];
                     on-click = "alacritty -e pulsemixer";
                 };

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
 count=$(/home/sky/personal/todoist-cli/todoistCli today | wc -l)
-echo -e "\uf00c $count"
+echo -e "\uf00c  $count"
+# echo "$count"

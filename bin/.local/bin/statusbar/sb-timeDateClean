@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# echo -e "🕐$(date "+%H:%M")"
+echo "$(date "+%H:%M")"
