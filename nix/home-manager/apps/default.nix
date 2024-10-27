@@ -7,6 +7,7 @@
         ./zathura
         ./lf
         ./obs
+        ./fastfetch
     ];
 
     home.packages = with pkgs; [

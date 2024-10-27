@@ -1,6 +1,7 @@
 autoload -U colors && colors
 # cowsay "GAY" | lolcat
-pfetch
+# pfetch
+fastfetch
 setopt autocd
 stty stop undef
 setopt interactive_comments
