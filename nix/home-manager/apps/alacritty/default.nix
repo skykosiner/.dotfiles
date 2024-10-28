@@ -1,6 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, hostname, ... }:
 
-{
+let
+    fontsize = if (hostname == "nix-btw") then 14 else 12;
+in {
     home.packages = with pkgs; [
         alacritty
     ];
@@ -10,7 +12,7 @@
         settings = {
             window.opacity = 0.9;
             colors.primary.background = "#2A2F3A";
-            font.size = 16;
+            font.size = fontsize;
             font.normal.family = "Berkeley Mono";
         };
     };

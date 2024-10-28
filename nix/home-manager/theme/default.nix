@@ -1,6 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, hostname, lib, ... }:
 
-{
+let
+    desktop = (hostname == "nix-btw");
+in {
     home.pointerCursor = {
         gtk.enable = true;
         package = pkgs.bibata-cursors;
@@ -24,15 +26,16 @@
 
         };
         gtk3 = {
-            bookmarks = [
-                "file:///home/sky/Pictures/Captures/"
+            bookmarks = lib.optionals desktop [
+                    "file:///home/sky/Documents/Memes"
+            ] ++ [
+                    "file:///home/sky/Pictures/Captures"
                     "file:///home/sky/Documents/Linux-btw"
                     "file:///home/sky/Documents/Linux-btw/Collage"
-                    "file:///home/sky/Documents/Memes"
                     "file:///home/sky/Downloads"
                     "file:///home/sky/personal"
                     "file:///home/sky/work"
-                    "file:///home/sky/Pictures/"
+                    "file:///home/sky/Pictures"
             ];
             extraConfig = {
                 gtk-key-theme-name = "Emacs";

@@ -1,6 +1,6 @@
 { pkgs, hostname, ... }:
 let
-  fontSize = if (hostname == "nix-btw") then "16" else "10";
+  fontsize = if (hostname == "nix-btw") then "16" else "10";
 in {
     home.packages = with pkgs; [
         fuzzel
@@ -11,7 +11,7 @@ in {
         settings = {
             colors.background = "3D4455DD";
             main = {
-                font = "Berkeley Mono:size=${fontSize}";
+                font = "Berkeley Mono:size=${fontsize}";
 
         # homeConfigurations."sky" = home-manager.lib.homeManagerConfiguration {
         #     inherit pkgs;

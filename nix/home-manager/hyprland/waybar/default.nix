@@ -1,6 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, hostname, lib, ... }:
 
-{
+let
+    laptop = (hostname == "nixos-btw");
+in {
     home.packages = with pkgs; [
         waybar
     ];
@@ -63,15 +65,16 @@
                 modules-center = [
                     "hyprland/window"
                 ];
-                modules-right = [
+                modules-right = lib.optionals laptop [
+                    "battery"
+                ] ++ [
                     "custom/aircon"
                     "pulseaudio"
-                    "battery"
                     "custom/todoist"
                     "custom/clock"
                     "tray"
                 ];
-                tray = {
+                 tray = {
                     spacing = 10;
                 };
                 "custom/clock" = {

@@ -1,8 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, hostname, ... }:
 
 let
   apps = import ./apps { inherit pkgs; };
-  theme = import ./theme { inherit pkgs; };
+  theme = import ./theme { inherit pkgs lib hostname; };
   hyprland = import ./hyprland { inherit pkgs; };
   development = import ./development { inherit pkgs; };
 
