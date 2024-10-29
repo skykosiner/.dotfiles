@@ -1,16 +1,20 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
     home.packages = with pkgs; [
         luajitPackages.luarocks
         luajit
-        neovim
+        fd
         tree-sitter
     ];
 
-    programs.neovim.plugins = [
-        pkgs.vimPlugins.nvim-treesitter.withAllGrammars
-    ];
+    programs.neovim = {
+        enable = true;
+        package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
+        plugins = [
+          pkgs.vimPlugins.nvim-treesitter
+        ];
+    };
 
     xdg.configFile = {
         "nvim" = {

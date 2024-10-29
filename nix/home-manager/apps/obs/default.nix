@@ -5,6 +5,7 @@
   home.packages = with pkgs; [
       obs-studio
       usbmuxd
+      ffmpeg
       droidcam
   ];
 }

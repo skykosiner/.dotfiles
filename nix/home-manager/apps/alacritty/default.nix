@@ -13,8 +13,8 @@ in {
             window = {
                 opacity = 0.9;
                 padding = {
-                    x = 20;
-                    y = 20;
+                    x = 10;
+                    y = 10;
                 };
             };
             colors.primary.background = "#2A2F3A";
