@@ -11,6 +11,7 @@
     ];
 
     home.packages = with pkgs; [
+        davinci-resolve
         teams-for-linux
         kitty
         spotify
