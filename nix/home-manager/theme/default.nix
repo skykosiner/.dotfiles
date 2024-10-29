@@ -36,6 +36,7 @@ in {
                     "file:///home/sky/personal"
                     "file:///home/sky/work"
                     "file:///home/sky/Pictures"
+                    "file:///home/sky/.dotfiles/backgrounds"
             ];
             extraConfig = {
                 gtk-key-theme-name = "Emacs";

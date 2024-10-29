@@ -31,7 +31,7 @@ in {
         }
 
         window#waybar {
-            /*border-radius: 10rem;*/
+            border-radius: 0rem;
             background-color: rgba(14, 1, 0, 0.7);
             /*border-bottom: 3px solid rgba(110, 108, 126, 1);*/
             color: #d9e0ee;

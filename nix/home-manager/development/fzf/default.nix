@@ -8,7 +8,8 @@
     programs.fzf = {
         enable = true;
         defaultOptions = [
-            "--border"
+            "--height 40%"
+            "--border=rounded"
         ];
     };
 }
