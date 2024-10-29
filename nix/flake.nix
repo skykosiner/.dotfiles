@@ -3,13 +3,17 @@
 
     inputs = {
         nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+        asus-wmi-screenpad={
+            url = "github:MatthewCash/asus-wmi-screenpad-module";
+            inputs.nixpkgs.follows="nixpkgs";
+        };
         home-manager = {
             url = "github:nix-community/home-manager";
             inputs.nixpkgs.follows = "nixpkgs";
         };
     };
 
-    outputs = { self, nixpkgs, home-manager, ... }@inputs:
+    outputs = { self, nixpkgs, home-manager, asus-wmi-screenpad, ... }@inputs:
     let
         inherit (self) outputs;
         lib = nixpkgs.lib;
@@ -21,8 +25,17 @@
         nixosConfigurations = {
             nixos-btw = lib.nixosSystem {
                 inherit system;
-                modules = [./hosts/nixos-btw/configuration.nix];
+                modules = [
+                    ./hosts/nixos-btw/configuration.nix
+                    {
+                        _module.args = {
+                            inputs = { inherit asus-wmi-screenpad; };
+                            system = system;
+                        };
+                    }
+                ];
             };
+
 
             nix-btw = lib.nixosSystem {
                 inherit system;
