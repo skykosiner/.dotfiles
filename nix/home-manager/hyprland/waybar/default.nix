@@ -2,6 +2,7 @@
 
 let
     laptop = (hostname == "nixos-btw");
+    airconIcon = if (laptop) then "   " else " ";
 in {
     home.packages = with pkgs; [
         waybar
@@ -15,14 +16,6 @@ in {
             font-family: FontAwesome, "Berkely Mono";
             font-weight: bold;
             font-size: 12px;
-        }
-
-        .modules-right {
-            margin-right: 0.5rem;
-        }
-
-        .modules-left {
-            margin-left: 0.5rem;
         }
 
         window#waybar {
@@ -83,33 +76,45 @@ in {
 
         #custom-dot {
             color: #6e738d;
-            padding-left: 10px;
-            padding-right: 10px;
+            padding-left: 5px;
+            padding-right: 5px;
         }
 
         #pulseaudio {
             color: #91d7e3;
             border-radius: 0px 5px 5px 0px;
+            padding-left: 5px;
         }
 
         #network {
-          color: #c6a0f6;
+            color: #c6a0f6;
+            padding-left: 5px;
         }
 
         #clock {
             color: #cad3f5;
+            padding-left: 5px;
+        }
+
+        #battery {
+            padding-left: 5px;
         }
 
         #custom-linux {
+            font-size: 15px;
             color: #F3BE75;
+            background-color: rgba(14, 1, 0, 0.7);
+            padding-right: 5px;
         }
 
         #custom-todoist {
             color: #DCA3A2;
+            padding-right: 5px;
         }
 
         #custom-aircon {
             color: #B5DEDB;
+            padding-right: 5px;
         }
         '';
         settings = [
@@ -201,12 +206,12 @@ in {
                     on-click = "alacritty -e pulsemixer";
                 };
                 "custom/todoist" = {
-                    format = "{}";
+                    format = " {}";
                     interval =  60;
                     exec = "/home/sky/.local/bin/statusbar/sb-todoist";
                 };
                 "custom/aircon" = {
-                    format = " {}";
+                    format = " ${airconIcon} {}";
                     interval = 90;
                     exec = "/home/sky/.local/bin/statusbar/sb-aircon";
                     signal = 9;
