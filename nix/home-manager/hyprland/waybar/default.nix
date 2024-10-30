@@ -12,8 +12,8 @@ in {
         style = ''
         * {
             /* `otf-font-awesome` is required to be installed for icons */
-            font-family: FontAwesome, "BerkleyMono Nerd Font";
-            /*font-weight: 500;*/
+            font-family: FontAwesome, "Berkely Mono";
+            font-weight: bold;
             font-size: 12px;
         }
 
@@ -21,66 +21,155 @@ in {
             margin-right: 0.5rem;
         }
 
-        #workspaces button.active {
-            background: #64727D;
-            border-bottom: 3px solid white;
-        }
-
-        #workspaces button.urgent {
-            background-color: #eb4d4b;
+        .modules-left {
+            margin-left: 0.5rem;
         }
 
         window#waybar {
-            border-radius: 0rem;
+            border-radius: 5px;
             background-color: rgba(14, 1, 0, 0.7);
-            /*border-bottom: 3px solid rgba(110, 108, 126, 1);*/
             color: #d9e0ee;
         }
 
-        #workspaces button {
-            padding: 0 9px;
-            background-color: transparent;
-            color: #d9e0ee;
-            /* Use box-shadow instead of border so the text isn't offset */
-            box-shadow: inset 0 -3px transparent;
-            /* Avoid rounded borders under each workspace name */
-            border: none;
-            border-radius: 0;
-        }
-
-        /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-        #workspaces button:hover {
+        /*#workspaces button:hover {
             background: rgba(0, 0, 0, 0.2);
             box-shadow: inset 0 -3px #d9e0ee;
+        }*/
+
+        #workspaces button:nth-child(1) label {
+            color: #8aadf4;
+            margin: 0px 8px;
+        }
+
+        #workspaces button:nth-child(2) label {
+            color: #ed8796;
+            margin: 0px 8px;
+        }
+
+        #workspaces button:nth-child(3) label {
+            color: #a6da95;
+            margin: 0px 8px;
+        }
+
+        #workspaces button:nth-child(4) label {
+            color: #c6a0f6;
+            margin: 0px 8px;
+        }
+
+        #workspaces button:nth-child(5) label {
+            color: #f4dbd6;
+            margin: 0px 8px;
+        }
+
+        #workspaces button:nth-child(6) label {
+            color: #f5a97f;
+            margin: 0px 8px;
+        }
+
+        #workspaces button:nth-child(7) label {
+            color: #8bd5ca;
+            margin: 0px 8px;
+        }
+
+        #workspaces button:nth-child(8) label {
+            color: #68b0d6;
+            margin: 0px 8px;
+        }
+
+        #workspaces button:nth-child(9) label {
+            color: #aab1d3;
+            margin: 0px 8px;
+        }
+
+        #custom-dot {
+            color: #6e738d;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        #pulseaudio {
+            color: #91d7e3;
+            border-radius: 0px 5px 5px 0px;
+        }
+
+        #network {
+          color: #c6a0f6;
+        }
+
+        #clock {
+            color: #cad3f5;
+        }
+
+        #custom-linux {
+            color: #F3BE75;
+        }
+
+        #custom-todoist {
+            color: #DCA3A2;
+        }
+
+        #custom-aircon {
+            color: #B5DEDB;
         }
         '';
         settings = [
             {
-                layer = "bottom";
+                layer = "top";
                 position = "top";
-                spacing = 10;
+                height = 35;
+                margin-top = 10;
+                margin-left = 10;
+                margin-bottom = 0;
+                margin-right = 10;
+                spacing = 0;
                 modules-left = [
-                    "hyprland/workspaces"
+                    "custom/linux"
+                    "custom/dot"
+                    "custom/aircon"
+                    "custom/dot"
+                    "custom/todoist"
                 ];
                 modules-center = [
-                    "hyprland/window"
+                    "hyprland/workspaces"
                 ];
                 modules-right = lib.optionals laptop [
                     "battery"
+                    "custom/dot"
                 ] ++ [
-                    "custom/aircon"
                     "pulseaudio"
-                    "custom/todoist"
-                    "custom/clock"
-                    "tray"
+                    "custom/dot"
+                    "network"
+                    "custom/dot"
+                    "clock"
                 ];
-                 tray = {
-                    spacing = 10;
+                "custom/linux" = {
+                    format = "";
                 };
-                "custom/clock" = {
-                    format = "{}";
-                    interval = 60;
-                    exec = "/home/sky/.local/bin/statusbar/sb-timeDateClean";
+                "custom/dot" = {
+                    format = "";
+                };
+                network = {
+                    format-wifi = "󰒢 {essid}";
+                    on-click = "alacritty -e nmtui";
+                    on-click-right = "nm-connection-editor";
+                    format-ethernet = " wired";
+                    tooltip-format = "{essid} {signalStrength}%";
+                    format-disconnected = "";
+                };
+                "hyprland/workspaces" = {
+                    on-click = "activate";
+                    format = "{icon}";
+                    on-scroll-up = "hyprctl dispatch workspace e+1";
+                    on-scroll-down = "hyprctl dispatch workspace e-1";
+                    format-icons = {
+                        urgent = "";
+                        active = "";
+                        default = "";
+                    };
+                };
+                clock = {
+                    format = "<b>{:%I:%M %p }</b>";
+                    tooltip-format = "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>";
                 };
                 battery = {
                     states = {
@@ -117,7 +206,7 @@ in {
                     exec = "/home/sky/.local/bin/statusbar/sb-todoist";
                 };
                 "custom/aircon" = {
-                    format = "{}";
+                    format = " {}";
                     interval = 90;
                     exec = "/home/sky/.local/bin/statusbar/sb-aircon";
                     signal = 9;
