@@ -19,8 +19,8 @@ in {
         }
 
         window#waybar {
-            border-radius: 5px;
-            background-color: rgba(14, 1, 0, 0.7);
+            border-radius: 10px;
+            background-color: rgba(42, 47, 58, 0.7);
             color: #d9e0ee;
         }
 
@@ -94,6 +94,7 @@ in {
         #clock {
             color: #cad3f5;
             padding-left: 5px;
+            padding-right: 5px;
         }
 
         #battery {
@@ -103,8 +104,10 @@ in {
         #custom-linux {
             font-size: 15px;
             color: #F3BE75;
-            background-color: rgba(14, 1, 0, 0.7);
-            padding-right: 5px;
+            /*background-color: #F3BE75;*/
+            border-radius: 10px;
+            /*padding-right: 5px;*/
+            padding-left: 5px;
         }
 
         #custom-todoist {
@@ -152,6 +155,7 @@ in {
                 };
                 "custom/dot" = {
                     format = "";
+                    tooltip = false;
                 };
                 network = {
                     format-wifi = "󰒢 {essid}";
