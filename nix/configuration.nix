@@ -7,6 +7,7 @@ let
         "vers=3.0"
         "file_mode=0777"
         "dir_mode=0777"
+        "nounix"
         "nofail"
     ];
 

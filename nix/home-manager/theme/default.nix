@@ -29,6 +29,8 @@ in {
             bookmarks = lib.optionals desktop [
                     "file:///home/sky/Documents/Memes"
             ] ++ [
+                    "file:///mnt/server"
+                    "file:///mnt/ssd"
                     "file:///home/sky/Pictures/Captures"
                     "file:///home/sky/Documents/Linux-btw"
                     "file:///home/sky/Documents/Linux-btw/Collage"
