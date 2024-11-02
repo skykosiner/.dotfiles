@@ -11,6 +11,7 @@
     ];
 
     home.packages = with pkgs; [
+        beeper
         davinci-resolve
         teams-for-linux
         kitty

@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-/home/sky/.local/bin/aircon toggle
-
-pkill -SIGRTMIN+5 dwmblocks

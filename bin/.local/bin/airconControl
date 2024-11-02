@@ -1,39 +1,37 @@
 #!/usr/bin/env bash
 
-while [ "$#" -gt 0 ]; do
-    curr=$1
-    shift
+aircon="/home/sky/.local/bin/aircon"
 
-    case "$curr" in
-   "-inc-1")
-       airconNumber=$(/home/sky/.local/bin/aircon status | awk '{print $1}' | sed s/{// | awk -F "." '{print $1}')
-       airconNumber=$(( $airconNumber + 1 ))
+case "$1" in
+    "-cold")
+        $aircon -power=true -mode=Cold -temp=18 -fan=Night
+        pkill -SIGRTMIN+9 waybar
+        ;;
+    "-heat")
+        $aircon -power=true -mode=Heat -temp=25 -fan=2
+        pkill -SIGRTMIN+9 waybar
+        ;;
+    "-toggle")
+        currentState=$($aircon | cut -d' ' -f4)
 
-       /home/sky/.local/bin/aircon $airconNumber
-       pkill -SIGRTMIN+5 dwmblocks
-       ;;
-   "-dec-1")
-       airconNumber=$(/home/sky/.local/bin/aircon status | awk '{print $1}' | sed s/{// | awk -F "." '{print $1}')
-       airconNumber=$(( $airconNumber - 1 ))
+        if [[ $currentState == "On" ]]; then
+            $aircon -power=false
+        else
+            $aircon -power=true
+        fi
 
-       /home/sky/.local/bin/aircon $airconNumber
-       pkill -SIGRTMIN+5 dwmblocks
-       ;;
-   "-change")
-       airconNumber=$(fuzzel --dmenu -p "Enter Temp: ")
-       /home/sky/.local/bin/aircon $airconNumber
-       pkill -SIGRTMIN+5 dwmblocks
-       ;;
-   "-sellect-fan")
-       fanMode=$(echo "Night
-1
-2
-3
-4
-5" | fuzzel --dmenu)
-       /home/sky/.local/bin/aircon fan-$fanMode
-       pkill -SIGRTMIN+5 dwmblocks
-       ;;
-    *) echo "Unavailable command... $curr"
-    esac
-done
+        pkill -SIGRTMIN+9 waybar
+
+    ;;
+    "-set-temp")
+        tempNum=$(fuzzel --dmenu -p "Enter Temp > ")
+        $aircon -temp=$tempNum
+        pkill -SIGRTMIN+9 waybar
+    ;;
+
+    "-set-fan")
+        fanMode=$(printf "Night\n1\n2\n3\n4\n5" | fuzzel --dmenu -p "Select Fan Mode")
+        $aircon -fan=$fanMode
+        pkill -SIGRTMIN+9 waybar
+    ;;
+esac
