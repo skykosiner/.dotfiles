@@ -27,5 +27,6 @@
         qbittorrent
         bitwarden-desktop
         gimp
+        pavucontrol
     ];
 }

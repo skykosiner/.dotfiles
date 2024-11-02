@@ -2,7 +2,7 @@
 
 let
     laptop = (hostname == "nixos-btw");
-    airconIcon = if (laptop) then "   " else " ";
+    airconIcon = if (laptop) then "  " else " ";
 in {
     home.packages = with pkgs; [
         waybar
@@ -163,7 +163,7 @@ in {
                     on-click-right = "nm-connection-editor";
                     format-ethernet = " wired";
                     tooltip-format = "{essid} {signalStrength}%";
-                    format-disconnected = "";
+                    format-disconnected = "Network: Not Connected";
                 };
                 "hyprland/workspaces" = {
                     on-click = "activate";
