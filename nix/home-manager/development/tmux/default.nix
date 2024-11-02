@@ -14,10 +14,13 @@
         mouse = true;
         extraConfig = ''
         set -g default-terminal "tmux-256color"
-        set -g status-right "%H:%M %d-%b-%y"
+        set -g status-right ""
 
-        set -g status-bg "#333333"
-        set -g status-fg "#5eacd3"
+        set -g status-position top
+        set -g status-style "fg=#665c54"
+
+        # set -g status-bg "#333333"
+        # set -g status-fg "#5eacd3"
 
         bind r source-file ~/.config/tmux/tmux.conf
         set -g base-index 1
