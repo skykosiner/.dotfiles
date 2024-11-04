@@ -14,7 +14,6 @@ cmd open ${{
 	# application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) localc $fx ;;
 	image/vnd.djvu|application/pdf|application/octet-stream|application/postscript) /home/sky/.local/bin/zaread "$fx" >/dev/null 2>&1 ;;
 	application/pdf|application/vnd*|application/epub*) /home/sky/.local/bin/zaread "$fx" >/dev/null 2>&1 ;;
-
 	image/x-xcf) gimp $f >/dev/null 2>&1 ;;
 	image/svg+xml) display -- $f ;;
 	image/*) rotdir $f | grep -i "\.\(png\|jpg\|jpeg\|gif\|webp\|tif\|ico\)\(_large\)*$" |

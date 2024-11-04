@@ -23,6 +23,7 @@ in {
     home.packages = with pkgs; [
         groff
         pfetch
+        texliveFull
         killall
         udiskie
         ffmpegthumbnailer
