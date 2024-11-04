@@ -8,6 +8,7 @@
         ./lf
         ./obs
         ./fastfetch
+        ./pass
     ];
 
     home.packages = with pkgs; [

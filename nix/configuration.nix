@@ -100,7 +100,6 @@ in {
     environment.systemPackages = with pkgs; [
         wget
         home-manager
-        pass
         file
         gnupg
         isync
@@ -160,6 +159,8 @@ in {
 
     hardware.bluetooth.enable = true;
     hardware.bluetooth.powerOnBoot = true;
+
+    hardware.keyboard.zsa.enable = true;
 
     services.udisks2.enable = true;
 
