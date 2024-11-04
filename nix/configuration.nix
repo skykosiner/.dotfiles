@@ -24,7 +24,6 @@ in {
             dates = "weekly";
             options = "-d";
         };
-
     };
 
     boot.kernelModules = [ "v4l2loopback" ];

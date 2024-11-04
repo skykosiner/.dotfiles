@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-pdfName=$(echo "$1" | sed "s/md/pdf/")
-pandoc "$1" -t ms -o "$pdfName"

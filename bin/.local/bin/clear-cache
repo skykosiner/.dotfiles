@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-# I always forget the pacman command to clean cache so this script is handy
-# sudo pacman -Sc
-yay -Sc

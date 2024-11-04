@@ -21,10 +21,12 @@ in {
 
     nixpkgs.config.allowUnfree = true;
     home.packages = with pkgs; [
+        groff
         pfetch
         killall
         udiskie
         ffmpegthumbnailer
+        pandoc
         poppler_utils
         python312Packages.docx2txt
         exiftool
@@ -49,8 +51,8 @@ in {
         mimeApps = {
             enable = true;
             defaultApplications = {
-                "image/jpeg" = [ "sxiv.desktop" ];
-                "image/png" = [ "sxiv.desktop" ];
+                "image/jpeg" = [ "nsxiv.desktop" ];
+                "image/png" = [ "nsxiv.desktop" ];
                 "text/plain" = [ "nvim.desktop" ];
                 "inode/directory" = [ "thunar.desktop" ];
                 "x-scheme-handler/http" = [ "brave-browser.desktop" ];

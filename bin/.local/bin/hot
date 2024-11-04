@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-/home/sky/.local/bin/aircon 25
-/home/sky/.local/bin/aircon hot
-/home/sky/.local/bin/aircon fan-2
-
-pkill -SIGRTMIN+9 waybar

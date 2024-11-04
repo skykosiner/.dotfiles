@@ -23,7 +23,7 @@
         mpv
         obsidian
         brave
-        sxiv
+        nsxiv
         qbittorrent
         bitwarden-desktop
         gimp

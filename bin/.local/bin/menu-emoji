@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-chosen=$(cat ~/.dotfiles/emoji | rofi -dmenu | awk '{print $1}')
-
-[[ -z "$chosen" ]] && exit
-
-printf "%s" "$chosen" | wl-copy
-notify-send "'$chosen' copied to clipboard" &

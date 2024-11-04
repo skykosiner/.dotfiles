@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-# For some reason I have to set the timezone to Europe/London whenever the
-# clock change idk lol
-timedatectl set-timezone Europe/London

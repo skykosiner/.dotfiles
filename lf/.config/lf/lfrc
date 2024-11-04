@@ -12,13 +12,13 @@ cmd open ${{
     case $(file --mime-type "$(readlink -f $f)" -b) in
 
 	# application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) localc $fx ;;
-	image/vnd.djvu|application/pdf|application/octet-stream|application/postscript) zaread $fx >/dev/null 2>&1 ;;
-	application/pdf|application/vnd*|application/epub*) zaread $fx >/dev/null 2>&1 ;;
+	image/vnd.djvu|application/pdf|application/octet-stream|application/postscript) /home/sky/.local/bin/zaread "$fx" >/dev/null 2>&1 ;;
+	application/pdf|application/vnd*|application/epub*) /home/sky/.local/bin/zaread "$fx" >/dev/null 2>&1 ;;
 
 	image/x-xcf) gimp $f >/dev/null 2>&1 ;;
 	image/svg+xml) display -- $f ;;
 	image/*) rotdir $f | grep -i "\.\(png\|jpg\|jpeg\|gif\|webp\|tif\|ico\)\(_large\)*$" |
-    sxiv $fx
+    nsxiv $fx
 		;;
 	audio/*) mpv --audio-display=no $f ;;
 	video/*) mpv $f -quiet >/dev/null 2>&1 ;;
@@ -55,9 +55,7 @@ cmd moveto ${{
 	set -f
 	clear; echo "Move to where?"
 	dest="$(~/.dotfiles/bin/.local/bin/bookmarks --get | fzf)" &&
-	for x in $f; do
-		eval mv -iv "$x" "$dest"
-	done &&
+    mv -iv "$f" "$dest"
 	notify-send "🚚 File(s) moved." "File(s) moved to $dest."
 }}
 
@@ -66,9 +64,7 @@ cmd copyto ${{
 	set -f
 	clear; echo "Copy to where?"
 	dest="$(~/.dotfiles/bin/.local/bin/bookmarks --get | fzf)" &&
-	for x in $f; do
-		eval cp -ivr "$x" "$dest"
-	done &&
+    eval cp -ivr "$f" "$dest"
 	notify-send "📋 File(s) copied." "File(s) copies to $dest."
 }}
 
@@ -77,7 +73,7 @@ cmd dragon ${{
 }}
 
 cmd setbg ${{
-    ~/.local/bin/change_background $f
+    ~/.local/bin/changeBackgroundHyprland $f
 }}
 
 cmd print ${{
@@ -95,6 +91,8 @@ cmd openSQL ${{
 cmd bulkrename $vidir
 
 map <c-p>
+map d
+map d dragon
 map <c-f> $lf -remote "send $id select '$(fzf)'"
 map b setbg $f
 map gh

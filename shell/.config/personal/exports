@@ -8,9 +8,6 @@ export RUSTUP=$HOME/.cargo/bin/rustup
 export PATH=$PATH:/bin:$RUSTUP
 export PATH=$PATH:$HOME/.local/share/cargo/bin/
 export PATH=$PATH:$HOME/.config/emacs/bin/
-export GOPATH=$HOME/go
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:$HOME/go/bin
 export PATH=$PATH:$HOME/.cargo/bin
 export BROWSER=brave
 export TERMINAL=alacritty
@@ -36,6 +33,6 @@ export QT_STYLE_OVERRIDE="Fusion"
 
 
 # Clean up home dir
+export GOPATH=$HOME/.local/go/
 export CARGO_HOME="$XDG_DATA_HOME"cargo
-export GOPATH="$HOME/go"
 export PATH="${PATH}:${GOPATH}/bin"

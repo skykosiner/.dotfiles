@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-randomImage=$(ls "/home/sky/.test" | shuf -n 1)
-wal -i "/home/sky/.test/$randomImage"

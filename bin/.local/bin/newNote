@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-read -p "Note title: " title
-touch "/home/sky/Documents/Linux-btw/$title.md"
-nvim "/home/sky/Documents/Linux-btw/$title.md"
