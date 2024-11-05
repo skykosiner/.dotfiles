@@ -11,7 +11,6 @@ let
         "nofail"
     ];
 
-    wg_ip = builtins.readFile "../private_stuff/endpoint_ip.txt";
     berkeley-mono = pkgs.callPackage ./packages/berkeley-mono.nix { inherit pkgs; };
 in {
     nix = {
