@@ -98,6 +98,8 @@ in {
     nixpkgs.config.allowUnfree = true;
 
     environment.systemPackages = with pkgs; [
+        cron
+        cronie
         wget
         home-manager
         file
@@ -120,7 +122,17 @@ in {
         cloudflared
         acpilight
         brightnessctl
+        davmail
     ];
+
+    services.davmail = {
+        enable = true;
+        config = {
+            davmail.url = "https://outlook.office365.com/EWS/Exchange.asmx";
+            davmail.mode = "O365Modern";
+        };
+    };
+
 
     programs.gnupg.agent.enable = true;
 

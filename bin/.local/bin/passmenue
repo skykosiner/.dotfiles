@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+passwords=$(find .password-store | grep -v ".git" | sed "s/.password-store\///" | sed "s/.password-store//" | sed "/^$/d" | sed "s/.gpg//")
+password=$(echo "$passwords" | fuzzel --dmenu)
+pass -c "$password"

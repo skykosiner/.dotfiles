@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 TODO() {
     if [[ $# -eq 1 ]]; then
@@ -125,30 +125,37 @@ bitches() {
 
 # Edit my dotfiles
 de() {
-    du -a ~/.dotfiles/ | cut -f2- -d '.'| fzf --height=40% | xargs -I {} nvim ~/.{}
+    du -a ~/.dotfiles/ | cut -f2- -d '.'| fzf --preview "bat --color=always --style=numbers --line-range=:500 ~/.{}" --border | xargs -I {} nvim ~/.{}
 }
 
 # Search obsidian
 oe() {
-    find ~/Documents/Linux-btw/ | fzf --height=40% | xargs -I {} nvim {}
+    find ~/Documents/Linux-btw/ | fzf --preview "bat --color=always --style=numbers --line-range=:500 {}" --border | xargs -I {} nvim {}
 }
 
 # New obisdian note
 no() {
     read name
-    path="$HOME/Documents/Linux-btw/_Inbox/$name.md"
-    /usr/bin/touch $path
-    /usr/local/bin/nvim $path
+    newFile="$HOME/Documents/Linux-btw/_Inbox/$name.md"
+    /run/current-system/sw/bin/touch "$newFile"
+    /home/sky/.nix-profile/bin/nvim "$newFile"
+}
+
+ni() {
+    read post
+    newFile="$HOME/Documents/Linux-btw/Instagram/instagram-$post.md"
+    /run/current-system/sw/bin/touch "$newFile"
+    /home/sky/.nix-profile/bin/nvim "$newFile"
 }
 
 # Collage stuff
 cw() {
     date=$(date +%d-%m-%Y)
-    find ~/Documents/Linux-btw/Collage/ -maxdepth 1 | fzf --height=40% | xargs -I {} nvim {}/$date.md
+    find ~/Documents/Linux-btw/College/ -maxdepth 1 -type d | fzf --height=40% | xargs -I {} nvim {}/$date.md
 }
 
 scw() {
-    find ~/Documents/Linux-btw/Collage/ | fzf --height=40% | xargs -I {} nvim {}
+    find ~/Documents/Linux-btw/College/ | fzf --preview "bat --color=always --style=numbers --line-range=:500 {}" --border | xargs -I {} nvim {}
 }
 
 
