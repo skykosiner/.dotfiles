@@ -21,9 +21,11 @@ in {
 
     nixpkgs.config.allowUnfree = true;
     home.packages = with pkgs; [
+        highlight
+        lolcat
+        cowsay
         groff
         pfetch
-        texliveFull
         killall
         udiskie
         ffmpegthumbnailer

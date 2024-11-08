@@ -1,7 +1,4 @@
 autoload -U colors && colors
-# cowsay "GAY" | lolcat
-# pfetch
-fastfetch
 setopt autocd
 stty stop undef
 setopt interactive_comments
@@ -49,10 +46,13 @@ bindkey '^e' edit-command-line
 autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
-setopt prompt_subst
-RPROMPT=\$vcs_info_msg_0_
-zstyle ':vcs_info:git:*' formats '%F{240}(%b)%r%f'
 zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:git:*' formats '%b '
+# RPROMPT=\$vcs_info_msg_0_
+setopt PROMPT_SUBST
+PROMPT='%F{green}%*%f %F{blue}%~%f %F{magenta}${vcs_info_msg_0_}%f$ '
+
+# zstyle ':vcs_info:git:*' formats '%F{240}(%b)%r%f'
 
 # PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
@@ -63,20 +63,15 @@ setopt appendhistory
 compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
 
 eval "$(zoxide init zsh)"
-eval "$(starship init zsh)"
+eval "$(fzf --zsh)"
+# eval "$(starship init zsh)"
 
-source $HOME/.config/personal/bookMarks
-source $HOME/.config/personal/bookMarkFiles
-source $HOME/.tokens
-
-
-uname=$(uname -s)
 hostname=$(hostnamectl | grep -i "static hostname" | awk '{print $3}')
 
 # Check if it's a mac
 if [[ $uname != "Darwin" ]]; then
-    source $HOME/.nix-profile/share/fzf/key-bindings.zsh
-    source $HOME/.nix-profile/share/fzf/completion.zsh
     source $HOME/.nix-profile/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     source $HOME/.nix-profile/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi;
+
+source $HOME/.tokens

@@ -10,6 +10,7 @@ hash -d gm=/mnt/server
 hash -d gm=/mnt/server
 hash -d gS=/mnt/ssd/
 hash -d go=/home/sky/Documents/Linux-btw/
+hash -d gC=/home/sky/Documents/Linux-btw/College/
 hash -d gO=/home/sky/Documents/OBS/
 hash -d gv=/home/sky/Videos/
 hash -d ga=/home/sky/Documents/Archive/
