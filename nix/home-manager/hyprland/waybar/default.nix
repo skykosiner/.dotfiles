@@ -220,6 +220,12 @@ in {
                     exec = "/home/sky/.local/bin/statusbar/sb-aircon";
                     signal = 9;
                 };
+                "custom/spotify" = {
+                    format = " ${airconIcon} {}";
+                    interval = 60;
+                    exec = "/home/sky/.local/bin/statusbar/sb-music";
+                    signal = 10;
+                };
             }
         ];
     };
