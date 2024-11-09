@@ -24,6 +24,7 @@ in {
         highlight
         lolcat
         cowsay
+        gh-markdown-preview
         groff
         pfetch
         killall
