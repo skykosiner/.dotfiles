@@ -11,17 +11,14 @@ alias V="sudoedit"
 alias tl="tmux ls"
 alias ta="tmux a"
 alias pdf="unoconv"
-alias clip="xclip -in -selection clipboard"
 alias c="clear"
 alias ..="cd .."
 alias :q="exit"
 alias vim="nvim"
-alias livestream_screenkey="/usr/bin/screenkey -s large --scr 0 -p bottom --geometry 800x300+1760+1180 --timeout 0.55";
-alias shutdown="sudo shutdown -h now";
-alias restart="sudo shutdown -r now";
-alias razer="polychromatic-controller"
-alias gay="unimatrix -s 95 | lolcat"
-# alias ls="ls --color=auto"
+alias livestream_screenkey="/usr/bin/screenkey -s large --scr 0 -p bottom --geometry 800x300+1760+1180 --timeout 0.55"
+alias shutdown="sudo shutdown -h now"
+alias restart="sudo shutdown -r now"
+alias td="vim -c ':ObsidianToday'"
 
 alias ls="exa"
 alias la="exa -a --group-directories-first"

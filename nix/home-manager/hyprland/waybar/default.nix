@@ -4,6 +4,7 @@ let
     laptop = (hostname == "nixos-btw");
     airconIcon = if (laptop) then "  " else " ";
 in {
+    # 
     home.packages = with pkgs; [
         waybar
     ];
