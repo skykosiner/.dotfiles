@@ -48,13 +48,8 @@ precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:git:*' formats '%b '
-# RPROMPT=\$vcs_info_msg_0_
 setopt PROMPT_SUBST
-PROMPT='%F{green}%*%f %F{blue}%~%f %F{magenta}${vcs_info_msg_0_}%f$ '
-
-# zstyle ':vcs_info:git:*' formats '%F{240}(%b)%r%f'
-
-# PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+PROMPT='%F{blue}%~%f %F{magenta}${vcs_info_msg_0_}%f$ '
 
 HISTSIZE=10000000
 SAVEHIST=10000000
