@@ -1,5 +1,24 @@
 #!/usr/bin/env bash
 
-passwords=$(find .password-store | grep -v ".git" | sed "s/.password-store\///" | sed "s/.password-store//" | sed "/^$/d" | sed "s/.gpg//")
-password=$(echo "$passwords" | fuzzel --dmenu)
-pass -c "$password"
+shopt -s nullglob globstar
+
+typeit=0
+if [[ $1 == "--type" ]]; then
+	typeit=1
+	shift
+fi
+
+prefix=${PASSWORD_STORE_DIR-~/.password-store}
+password_files=( "$prefix"/**/*.gpg )
+password_files=( "${password_files[@]#"$prefix"/}" )
+password_files=( "${password_files[@]%.gpg}" )
+
+password=$(printf '%s\n' "${password_files[@]}" | fuzzel --dmenu "$@")
+
+[[ -n $password ]] || exit
+
+if [[ $typeit -eq 0 ]]; then
+	pass show -c "$password" 2>/dev/null
+else
+    wtype $(pass show "$password" | { IFS= read -r pass; printf %s "$pass"; })
+fi

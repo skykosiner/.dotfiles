@@ -7,9 +7,15 @@ return {
                     width = 90,
                     options = {
                         showcmd = false,
+                        laststatus = 0,
+                        showcmd = false,
                     }
                 },
+                on_close = function()
+                    vim.opt.laststatus = 3
+                end,
             }
+
 
             vim.keymap.set("n", "<leader>zz", function()
                 require("zen-mode").toggle()

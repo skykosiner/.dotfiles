@@ -29,6 +29,12 @@
         bind -T copy-mode-vi v send-keys -X begin-selection
         bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'wl-copy'
 
+        # vi keys to resize
+        bind -r C-k resize-pane -U 1
+        bind -r C-j resize-pane -D 1
+        bind -r C-h resize-pane -L 1
+        bind -r C-l resize-pane -R 1
+
         # vim-like pane switching
         bind -r ^ last-window
         bind -r k select-pane -U
