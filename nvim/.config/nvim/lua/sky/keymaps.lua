@@ -40,6 +40,12 @@ normal_mode("<leader>ts", function()
     vim.cmd("startinsert")
 end)
 
+normal_mode("<leader>tv", function()
+    vim.cmd("vsplit")
+    vim.cmd("term")
+    vim.cmd("startinsert")
+end)
+
 normal_mode("<leader>tt", function()
     vim.cmd.tabnew()
     vim.cmd.terminal()

@@ -2,8 +2,8 @@ local opt = vim.opt
 
 opt.inccommand = "split"
 
-opt.number = true
-opt.relativenumber = true
+opt.number = false
+opt.relativenumber = false
 
 -- opt.conceallevel = 1
 

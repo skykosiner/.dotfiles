@@ -53,4 +53,6 @@ autocmd BufWritePost ~/.dotfiles/.bookm !~/.local/bin/bookmarks --lf && ~/.local
 autocmd BufWritePost ~/.dotfiles/.bookmfiles !~/.local/bin/bookmarks --shell-files
 "IDK WHAT'S GOING ON WITH HTML TEMPLATES BUT IT THINKS IT'S ANGULAR FILES WITHOUT THIS LMAO
 autocmd BufNewFile,BufRead *.html set filetype=html
+autocmd BufNewFile,BufRead *.md,*.txt setlocal spell
+autocmd BufLeave *.md,*.txt setlocal nospell
 ]])
