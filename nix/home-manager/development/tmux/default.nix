@@ -48,6 +48,12 @@
         bind -r Left resize-pane -L 5
         bind -r Right resize-pane -R 5
 
+        unbind -
+        bind - split-window -h
+        unbind _
+        bind _ split-window -v
+
+
         bind-key -r i run-shell "tmux neww ~/.local/bin/tmux-cht"
 
         bind-key -r H run-shell "~/.local/bin/tmux-sessionizer ~/Documents/Linux-btw/"
