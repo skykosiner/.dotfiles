@@ -124,6 +124,7 @@ in {
         dunst
         stow
         cloudflared
+        font-manager
         acpilight
         brightnessctl
         davmail
@@ -177,6 +178,7 @@ in {
     hardware.bluetooth.powerOnBoot = true;
 
     hardware.keyboard.zsa.enable = true;
+    hardware.keyboard.qmk.enable = true;
 
     services.udisks2.enable = true;
 
