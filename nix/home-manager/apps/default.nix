@@ -12,6 +12,7 @@
     ];
 
     home.packages = with pkgs; [
+        newsboat
         beeper
         davinci-resolve
         teams-for-linux
