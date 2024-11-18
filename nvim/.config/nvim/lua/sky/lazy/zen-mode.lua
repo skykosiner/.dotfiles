@@ -13,6 +13,7 @@ return {
                 },
                 on_close = function()
                     vim.opt.laststatus = 3
+                    vim.wo.colorcolumn = "80"
                 end,
             }
 

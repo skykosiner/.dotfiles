@@ -1,6 +1,8 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, config, ... }:
 
-{
+let inherit (config.lib.file) mkOutOfStoreSymlink;
+
+in {
     home.packages = with pkgs; [
         luajitPackages.luarocks
         luajit
@@ -16,9 +18,6 @@
         ];
     };
 
-    xdg.configFile = {
-        "nvim" = {
-            source = ../../../../nvim/.config/nvim;
-        };
-    };
+
+    xdg.configFile.nvim.source = mkOutOfStoreSymlink "/home/sky/.dotfiles/nvim/.config/nvim/";
 }

@@ -58,7 +58,7 @@ alias audio-deez-nuts="systemctl --user restart wireplumber pipewire pipewire-pu
 
 alias resolveRun='prime-run LD_PRELOAD="/usr/lib/libgio-2.0.so /usr/lib/libgmodule-2.0.so" /opt/resolve/bin/resolve'
 
-alias switch="home-manager -f ~/my-configs/home.nix switch"
+alias switch="home-manager switch --flake ~/.dotfiles/nix"
 
 # For Mac
 alias urlS="/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -dump URLSchemeBinding"
