@@ -11,7 +11,7 @@ in {
         enable = true;
         settings = {
             window = {
-                opacity = 0.8;
+                opacity = 0.95;
                 padding = {
                     x = 10;
                     y = 10;

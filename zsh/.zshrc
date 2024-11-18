@@ -38,7 +38,9 @@ lfcd () {
 bindkey -s ^f "tmux-sessionizer\n"
 bindkey -s ^o "lfcd\n"
 bindkey -s ^d "de\n"
-bindkey -s ^a "oe\n"
+bindkey -s ^a "zet search --fzf-options \"--preview='bat --color=always --style=numbers {}' --preview-window=bottom:80%\"\n"
+bindkey -s ^s "zet search --folder College --fzf-options \"--preview='bat --color=always --style=numbers {}' --preview-window=bottom:80%\"\n"
+bindkey -s ^n "zet new\n"
 
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line

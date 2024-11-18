@@ -129,33 +129,14 @@ de() {
 }
 
 # Search obsidian
-oe() {
-    find ~/Documents/Linux-btw/ | fzf --preview "bat --color=always --style=numbers --line-range=:500 {}" --border | xargs -I {} nvim {}
-}
-
-# New obisdian note
-no() {
-    read name
-    newFile="$HOME/Documents/Linux-btw/_Inbox/$name.md"
-    /run/current-system/sw/bin/touch "$newFile"
-    /home/sky/.nix-profile/bin/nvim "$newFile"
+new() {
+    read newItem
+    zet new "$newItem"
 }
 
 ni() {
     read post
-    newFile="$HOME/Documents/Linux-btw/Instagram/instagram-$post.md"
-    /run/current-system/sw/bin/touch "$newFile"
-    /home/sky/.nix-profile/bin/nvim "$newFile"
-}
-
-# Collage stuff
-cw() {
-    date=$(date +%d-%m-%Y)
-    find ~/Documents/Linux-btw/College/ -maxdepth 1 -type d | fzf --height=40% | xargs -I {} nvim {}/$date.md
-}
-
-scw() {
-    find ~/Documents/Linux-btw/College/ | fzf --preview "bat --color=always --style=numbers --line-range=:500 {}" --border | xargs -I {} nvim {}
+    zet new "$post" --path Instagram
 }
 
 
