@@ -7,7 +7,6 @@ urls-source "feedbin"
 feedbin-login "sky@skykosiner.com"
 feedbin-passwordeval "pass show feedbin | sed 1q"
 
-show-read-feeds no
 text-width 100
 
 bind-key j down

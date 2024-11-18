@@ -23,6 +23,7 @@ in {
     home.packages = with pkgs; [
         highlight
         lolcat
+        figlet
         cowsay
         gh-markdown-preview
         groff

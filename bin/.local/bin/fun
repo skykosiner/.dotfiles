@@ -1,0 +1,5 @@
+#!/bin/sh
+
+while true; do
+    figlet "FUN" | lolcat -a -s 60 -d 15
+done
