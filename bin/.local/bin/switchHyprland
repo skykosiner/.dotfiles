@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
-option=$(printf "Keyboard\nLaptop\nDesktop" | fuzzel --dmenu)
+option=$(printf "Keyboard\nLaptop\nDesktop\nExternal Keyboard Desktop" | fuzzel --dmenu)
 
 if [[ $option == "Keyboard" ]]; then
     cat $HOME/.dotfiles/hypr/.config/hypr/hyprland_firmware.conf > $HOME/.dotfiles/hypr/.config/hypr/hyprland.conf
+elif [[ $option == "External Keyboard Desktop" ]]; then
+    cat $HOME/.dotfiles/hypr/.config/hypr/hyprland_external_desktop.conf > $HOME/.dotfiles/hypr/.config/hypr/hyprland.conf
 elif [[ $option == "Laptop" ]]; then
     cat $HOME/.dotfiles/hypr/.config/hypr/hyprland_laptop.conf > $HOME/.dotfiles/hypr/.config/hypr/hyprland.conf
 elif [[ $option == "Desktop" ]]; then
