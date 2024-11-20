@@ -12,6 +12,7 @@
     ];
 
     home.packages = with pkgs; [
+        lazygit
         newsboat
         beeper
         davinci-resolve
