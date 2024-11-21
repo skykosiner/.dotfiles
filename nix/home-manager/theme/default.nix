@@ -14,7 +14,7 @@ in {
         enable = true;
         font = {
             name = "Roboto";
-            size = 10;
+            size = 16;
         };
         theme = {
             package = pkgs.nordic;

@@ -28,6 +28,13 @@
         ninja
         gcc
         gnumake
+
+        glib
+        gdk-pixbuf
+        libsoup_3
+        pango
+        gtk3
+        webkitgtk_4_1
     ];
 
     programs.git = {

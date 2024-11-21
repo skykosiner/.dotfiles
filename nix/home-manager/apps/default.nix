@@ -12,6 +12,7 @@
     ];
 
     home.packages = with pkgs; [
+        cmatrix
         lazygit
         newsboat
         beeper

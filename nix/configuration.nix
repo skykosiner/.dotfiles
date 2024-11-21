@@ -69,6 +69,8 @@ in {
         };
     };
 
+    virtualisation.docker.enable = true;
+
     console.keyMap = "uk";
 
     services.printing.enable = true;
@@ -234,8 +236,9 @@ in {
       internalKeyboard = {
         devices = [
           "/dev/input/by-path/platform-i8042-serio-0-event-kbd"
-          "/dev/input/by-id/usb-Kinesis_Corporation_Form_1993711AE02B5B95-event-kbd"
-          "/dev/input/event22"
+          # "/dev/input/by-id/usb-Kinesis_Corporation_Form_1993711AE02B5B95-event-kbd"
+          # "/dev/input/event22"
+          # "/dev/input/event25"
         ];
         extraDefCfg = "process-unmapped-keys yes";
         config = ''
