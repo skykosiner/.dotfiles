@@ -18,6 +18,5 @@ in {
         ];
     };
 
-
     xdg.configFile.nvim.source = mkOutOfStoreSymlink "/home/sky/.dotfiles/nvim/.config/nvim/";
 }

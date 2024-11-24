@@ -10,15 +10,12 @@ pkgs.stdenv.mkDerivation {
   unpackPhase = ''
     runHook preUnpack
     ${pkgs.unzip}/bin/unzip $src
-
     runHook postUnpack
   '';
 
   installPhase = ''
     runHook preInstall
-
     install -Dm644 ./berkeley-mono-regular.ttf -t $out/share/fonts/
-
     runHook postInstall
   '';
 }

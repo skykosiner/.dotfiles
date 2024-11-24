@@ -2,8 +2,8 @@ local opt = vim.opt
 
 opt.inccommand = "split"
 
-opt.number = false
-opt.relativenumber = false
+opt.number = true
+opt.relativenumber = true
 
 -- opt.conceallevel = 1
 
@@ -27,6 +27,6 @@ opt.signcolumn = "no"
 -- Start to scroll 8 lines before the bottom/top
 opt.scrolloff = 8
 
-vim.opt.colorcolumn = "80"
+-- vim.opt.colorcolumn = "80"
 
 opt.shell = "/run/current-system/sw/bin/zsh"

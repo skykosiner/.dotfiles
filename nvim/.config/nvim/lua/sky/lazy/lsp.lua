@@ -134,29 +134,7 @@ return {
     {
         "VidocqH/lsp-lens.nvim",
         config = function()
-            require("lsp-lens").setup({
-                on_attach = function(client, bufnr)
-                    vim.keymap.set("n", "gl", function()
-                        require("lsp-lens").lens_info(bufnr)
-                    end, { buffer = bufnr, silent = true })
-                end,
-            })
+            require("lsp-lens").setup {}
         end
-    },
-    {
-        "codota/tabnine-nvim",
-        build = "./dl_binaries.sh",
-        config = function()
-            require('tabnine').setup({
-                disable_auto_comment=true,
-                accept_keymap="<Tab>",
-                dismiss_keymap = "<C-]>",
-                debounce_ms = 800,
-                suggestion_color = {gui = "#808080", cterm = 244},
-                exclude_filetypes = {"TelescopePrompt", "NvimTree"},
-                log_file_path = "/home/sky/.cache/tabnine-nvim.log",
-                ignore_certificate_errors = false,
-            })
-        end,
     },
 }

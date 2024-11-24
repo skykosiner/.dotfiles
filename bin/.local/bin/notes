@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+$TERMINAL -T zet -e zet search --fzf-options "--preview='bat --color=always --style=numbers {}' --preview-window=bottom:80%"
+# alacritty -e "htop"

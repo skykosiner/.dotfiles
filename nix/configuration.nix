@@ -185,7 +185,11 @@ in {
 
     services.udisks2.enable = true;
 
-    services.openssh.enable = true;
+    services.openssh= {
+        enable = true;
+        forwardX11 = true;
+    };
+
     system.stateVersion = "24.05";  # Keep this as your first install version
 
     fileSystems."/mnt/server" = {
@@ -236,9 +240,7 @@ in {
       internalKeyboard = {
         devices = [
           "/dev/input/by-path/platform-i8042-serio-0-event-kbd"
-          # "/dev/input/by-id/usb-Kinesis_Corporation_Form_1993711AE02B5B95-event-kbd"
-          # "/dev/input/event22"
-          # "/dev/input/event25"
+          "/dev/input/event21"
         ];
         extraDefCfg = "process-unmapped-keys yes";
         config = ''

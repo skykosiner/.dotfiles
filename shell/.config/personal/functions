@@ -125,7 +125,7 @@ bitches() {
 
 # Edit my dotfiles
 de() {
-    du -a ~/.dotfiles/ | cut -f2- -d '.'| fzf --preview "bat --color=always --style=numbers --line-range=:500 ~/.{}" --border | xargs -I {} nvim ~/.{}
+    du -a ~/.dotfiles/ | cut -f2- -d '.'| fzf --preview "bat --color=always --style=numbers --line-range=:500 ~/.{}" --preview-window=bottom:80% --border | xargs -I {} nvim ~/.{}
 }
 
 # Search obsidian
