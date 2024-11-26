@@ -40,11 +40,11 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
 bindkey -s ^f "tmux-sessionizer\n"
-bindkey -s ^o "lfcd\n"
-bindkey -s ^d "de\n"
+bindkey -s ^o "_lfcd\n"
+bindkey -s ^d "_dotfile_search\n"
 bindkey -s ^a "zet search --fzf-options \"--preview='bat --color=always --style=numbers {}' --preview-window=bottom:80%\"\n"
 bindkey -s ^s "zet search --folder College --fzf-options \"--preview='bat --color=always --style=numbers {}' --preview-window=bottom:80%\"\n"
-bindkey -s ^n "new\n"
+bindkey -s ^n "_new\n"
 
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
@@ -61,13 +61,14 @@ HISTSIZE=10000000
 SAVEHIST=10000000
 HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
 setopt appendhistory
+compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
 
 _does_exist zoxide && eval "$(zoxide init zsh)"
 _does_exist fzf && eval "$(fzf --zsh)"
 _does_exist zet && eval "$(zet completion zsh)"
 _does_exist pomo && eval "$(pomo completion zsh)"
+_does_exist aircon && eval "$(aircon completion zsh)"
 
 _source_if_exists $HOME/.nix-profile/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 _source_if_exists $HOME/.nix-profile/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 _source_if_exists $HOME/.tokens
-compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION

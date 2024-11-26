@@ -240,7 +240,7 @@ in {
       internalKeyboard = {
         devices = [
           "/dev/input/by-path/platform-i8042-serio-0-event-kbd"
-          "/dev/input/event21"
+          "/dev/input/event5"
         ];
         extraDefCfg = "process-unmapped-keys yes";
         config = ''

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-status=$(/home/sky/.local/bin/aircon)
+status=$(/home/sky/.local/go/bin/aircon status)
 # echo -e "\u2601 $status"
 echo "$status"

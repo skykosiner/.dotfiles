@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Idea stolen from rxwrob
+nvim $(which $1)

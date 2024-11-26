@@ -1,37 +1,42 @@
 #!/usr/bin/env bash
 
-aircon="/home/sky/.local/bin/aircon"
+aircon="/home/sky/.local/go/bin/aircon"
 
 case "$1" in
     "-cold")
-        $aircon -power=true -mode=Cold -temp=18 -fan=Night
+        currentState=$($aircon status | cut -d' ' -f4)
+
+        if [[ $currentState == "Off" ]]; then
+            $aircon toggle
+        fi
+
+        $aircon mode Cold
+        $aircon temp 18
+        $aircon fan Night
+
         pkill -SIGRTMIN+9 waybar
         ;;
     "-heat")
-        $aircon -power=true -mode=Heat -temp=25 -fan=2
-        pkill -SIGRTMIN+9 waybar
-        ;;
-    "-toggle")
-        currentState=$($aircon | cut -d' ' -f4)
+        currentState=$($aircon status | cut -d' ' -f4)
 
-        if [[ $currentState == "On" ]]; then
-            $aircon -power=false
-        else
-            $aircon -power=true
+        if [[ $currentState == "Off" ]]; then
+            $aircon toggle
         fi
 
+        $aircon mode Heat
+        $aircon temp 25
+        $aircon fan 2
         pkill -SIGRTMIN+9 waybar
-
-    ;;
+        ;;
     "-set-temp")
         tempNum=$(fuzzel --dmenu -p "Enter Temp > ")
-        $aircon -temp=$tempNum
+        $aircon temp $tempNum
         pkill -SIGRTMIN+9 waybar
     ;;
 
     "-set-fan")
         fanMode=$(printf "Night\n1\n2\n3\n4\n5" | fuzzel --dmenu -p "Select Fan Mode")
-        $aircon -fan=$fanMode
+        $aircon fan $fanMode
         pkill -SIGRTMIN+9 waybar
     ;;
 esac
