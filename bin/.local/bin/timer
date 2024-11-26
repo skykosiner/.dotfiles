@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+clear=$'\033[2J'
+curoff=$'\033[?25h'
+curon=$'\033[?25h'
+top=$'\033[H'
+
+trap 'echo "${curon}"; echo "${clear}"; exit; trap -- - SIGINT SIGTERM' SIGTERM SIGINT
+
+echo "${clear}"
+while true; do
+    echo "${top}"
+    pomo | cut -d" " -f2 | figlet -f "/home/sky/Downloads/future.tlf" -c | head -6 | lolcat
+    echo "${curoff}"
+    sleep 0.1
+done

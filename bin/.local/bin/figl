@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+# Set the figlet default font, font directory, and centering as well as
+# defaults to passing it to lolcat for coloring.
+
+figl() {
+    # font=$(fc-list | grep "ubuntu/Ubuntu-RI" | cut -d":" -f1)
+    declare -a buf
+    while IFS= read -r line; do
+        buf+=("$line")
+    done
+    #clear
+    for line in "${buf[@]}"; do
+        figlet -f "/home/sky/Downloads/future.tlf" "${line}" -c | head -6
+    done
+}
+
+figl "$*"
