@@ -1,7 +1,7 @@
 bm ~/.dotfiles/.bookm
 bf ~/.dotfiles/.bookmfiles
 sn ~/.dotfiles/snipets
-bb ~/work/Book/book-draft-one.tex
 zh ~/.zshrc
 psn ~/.dotfiles/private_stuff/private-snips
 vc ~/.dotfiles/nvim/.config/nvim/
+co ~/Documents/Linux-btw/College/

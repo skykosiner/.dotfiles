@@ -13,7 +13,7 @@ case "$1" in
         ;;
     "--shell-files")
         cat ~/.dotfiles/.bookmfiles > ~/.dotfiles/shell/.config/personal/bookMarkFiles
-        sed -i -e 's/^/alias /g; s/~/$EDITOR ~/; s/$EDITOR/= "$EDITOR/; s/$/"/; s/ =/=/; s/= /=/' ~/.dotfiles/shell/.config/personal/bookMarkFiles
+        sed -i -e 's/^/alias /g; s/~/nvim ~/; s/nvim/= "nvim/; s/$/"/; s/ =/=/; s/= /=/' ~/.dotfiles/shell/.config/personal/bookMarkFiles
         ;;
     "--get")
         bookMarks=$(cat ~/.dotfiles/.bookm | awk '{print $2}' | sort)

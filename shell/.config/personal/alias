@@ -18,11 +18,9 @@ alias livestream_screenkey="/usr/bin/screenkey -s large --scr 0 -p bottom --geom
 alias shutdown="sudo shutdown -h now"
 alias restart="sudo shutdown -r now"
 alias td="vim -c ':ObsidianToday'"
-
 alias ls="exa"
 alias la="exa -a --group-directories-first"
 alias ll="exa -la --group-directories-first"
-
 alias grep="grep --color=auto"
 alias rickRoll="curl -s -L https://bit.ly/3zvELNz | bash"
 alias editWebsite="ssh -l root 46.101.77.77"
@@ -30,34 +28,24 @@ alias lf="lfub"
 alias webcam="droidcam-cli ios 4747"
 alias p="sudo pacman"
 alias bc="bc -ql"
-
 alias yt="yt-dlp --embed-metadata -i"
 alias yta="yt -x -f bestaudio/best"
 alias pkt="pkill tmux"
-
 alias g="git"
 alias gs="git status"
 alias ga="git add ."
 alias gp="git push"
 alias gl="git log"
 alias ig="vim -c 'G'"
-
 alias rtfm="vim README.md"
-
 alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
-
 alias updateBookmarks="/home/sky/.local/bin/bookmarks --lf && /home/sky/.local/bin/bookmarks --shell && /home/sky/.local/bin/bookmarks --shell-files"
-
 alias scan_network_devices="arp-scan -I enp5s0f3u2u3u2 -l"
-
 alias todoist-cli="$HOME/personal/todoist-cli/todoistCli"
-
 alias audio-deez-nuts="systemctl --user restart wireplumber pipewire pipewire-pulse"
-
 alias resolveRun='prime-run LD_PRELOAD="/usr/lib/libgio-2.0.so /usr/lib/libgmodule-2.0.so" /opt/resolve/bin/resolve'
-
 alias switch="home-manager switch --flake ~/.dotfiles/nix"
 
 # For Mac
