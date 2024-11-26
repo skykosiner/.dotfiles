@@ -8,7 +8,7 @@
     programs.tmux = {
         enable = true;
         # terminal = "xterm-256color";
-        prefix = "C-a";
+        prefix = "C-a"j
         shortcut = "a";
         keyMode = "vi";
         mouse = true;
@@ -25,6 +25,8 @@
 
         set -g status-position top
         set -g status-style "fg=#665c54"
+
+        bind C-f display-popup -E "tmux-sessionizer"
 
         bind r source-file ~/.config/tmux/tmux.conf
         set -g base-index 1
@@ -46,16 +48,8 @@
         bind -r h select-pane -L
         bind -r l select-pane -R
 
-        # Resize the panes with prefix+arrow keys
-        bind -r Up resize-pane -U 5
-        bind -r Down resize-pane -D 5
-        bind -r Left resize-pane -L 5
-        bind -r Right resize-pane -R 5
-
-        unbind -
-        bind - split-window -h
-        unbind _
-        bind _ split-window -v
+        bind -r - split-window -h
+        bind -r _ split-window -v
 
         bind-key -r i run-shell "tmux neww ~/.local/bin/tmux-cht"
 
