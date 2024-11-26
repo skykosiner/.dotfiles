@@ -7,20 +7,24 @@
 
     programs.tmux = {
         enable = true;
-        terminal = "tmux-256color";
+        # terminal = "xterm-256color";
         prefix = "C-a";
         shortcut = "a";
         keyMode = "vi";
         mouse = true;
         extraConfig = ''
-        set -g default-terminal "tmux-256color"
-        set -g status-right ""
+        # set -g default-terminal "tmux-256color"
+        set -g default-terminal "xterm-256color"
+        # set -ga terminal-overrides ",xterm-256color:Tc"
+
+        set -g pane-border-style "fg=#171717"
+        set -g pane-active-border-style "fg=#171717"
+
+        set-option -g status-interval 1
+        set -g status-right "#(pomo)"
 
         set -g status-position top
         set -g status-style "fg=#665c54"
-
-        # set -g status-bg "#333333"
-        # set -g status-fg "#5eacd3"
 
         bind r source-file ~/.config/tmux/tmux.conf
         set -g base-index 1
@@ -52,7 +56,6 @@
         bind - split-window -h
         unbind _
         bind _ split-window -v
-
 
         bind-key -r i run-shell "tmux neww ~/.local/bin/tmux-cht"
 

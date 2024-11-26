@@ -62,6 +62,7 @@ compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
 eval "$(zoxide init zsh)"
 eval "$(fzf --zsh)"
 eval "$(zet completion zsh)"
+eval "$(pomo completion zsh)"
 # eval "$(starship init zsh)"
 
 hostname=$(hostnamectl | grep -i "static hostname" | awk '{print $3}')
