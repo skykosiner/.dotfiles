@@ -11,6 +11,7 @@
     ];
 
     home.packages = with pkgs; [
+        wirelesstools
         unzip
         ripgrep
         jq

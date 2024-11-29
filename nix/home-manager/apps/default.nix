@@ -12,6 +12,7 @@
     ];
 
     home.packages = with pkgs; [
+        yt-dlp
         cmatrix
         lazygit
         newsboat

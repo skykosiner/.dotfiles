@@ -8,7 +8,7 @@
     programs.tmux = {
         enable = true;
         # terminal = "xterm-256color";
-        prefix = "C-a"j
+        prefix = "C-a";
         shortcut = "a";
         keyMode = "vi";
         mouse = true;

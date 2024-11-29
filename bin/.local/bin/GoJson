@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+while IFS= read -r line; do
+    [[ "$line" == *"\`json:\""* ]] && echo "$line" && continue
+    item=$(echo "$line" | cut -d" " -f1 | sed "s/\s//" |  sed -r 's/([a-z0-9])([A-Z])/\1_\L\2/g' | tr '[:upper:]' '[:lower:]')
+    line+=" \`json:\"${item}\"\`"
+    echo "$line"
+done

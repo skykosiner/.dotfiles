@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+case "$1" in
+    "toggle")
+        dunstctl set-paused toggle
+        ;;
+    *)
+    ;;
+esac
