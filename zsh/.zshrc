@@ -67,7 +67,7 @@ _does_exist zoxide && eval "$(zoxide init zsh)"
 _does_exist fzf && eval "$(fzf --zsh)"
 _does_exist zet && eval "$(zet completion zsh)"
 _does_exist pomo && eval "$(pomo completion zsh)"
-[[ $(iwgetid -r) = "The Kosiner's wifi" ]] && _does_exist aircon && eval "$(aircon completion zsh)"
+_does_exist aircon && eval "$(aircon completion zsh)"
 
 _source_if_exists $HOME/.nix-profile/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 _source_if_exists $HOME/.nix-profile/share/zsh-autosuggestions/zsh-autosuggestions.zsh

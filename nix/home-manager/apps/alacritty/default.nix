@@ -11,13 +11,14 @@ in {
         enable = true;
         settings = {
             window = {
-                opacity = 0.95;
+                opacity = 0.70;
                 padding = {
                     x = 10;
                     y = 10;
                 };
             };
-            colors.primary.background = "#2A2F3A";
+            # colors.primary.background = "#2A2F3A";
+            colors.primary.background = "#000000";
             font.size = fontsize;
             font.normal.family = "Berkeley Mono";
         };
