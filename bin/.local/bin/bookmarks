@@ -1,10 +1,28 @@
 #!/usr/bin/env bash
 
+_update_bookmarks() {
+    cat ~/.dotfiles/.bookm > ~/.dotfiles/lf/.config/lf/shortcuts
+    sed -i -e "s/^/map /g; s/\//cd \//" ~/.dotfiles/lf/.config/lf/shortcuts
+
+    cat ~/.dotfiles/.bookm > ~/.dotfiles/shell/.config/personal/bookMarks
+    # sed -i -e 's/^/alias b/g; s/ \//="cd \//; s/$/"/' ~/.dotfiles/shell/.config/personal/bookMarks
+    sed -i -e 's/^/hash -d /; s/ \//=\//' ~/.dotfiles/shell/.config/personal/bookMarks
+
+    cat ~/.dotfiles/.bookmfiles > ~/.dotfiles/shell/.config/personal/bookMarkFiles
+    sed -i -e 's/^/alias /g; s/~/nvim ~/; s/nvim/= "nvim/; s/$/"/; s/ =/=/; s/= /=/' ~/.dotfiles/shell/.config/personal/bookMarkFiles
+}
+
+_get_bookmarks() {
+    for bm in $(cat ~/.dotfiles/.bookm | cut -d" " -f2 | sort); do
+        echo "$bm"
+    done
+}
+
 case "$1" in
     "--lf")
         cat ~/.dotfiles/.bookm > ~/.dotfiles/lf/.config/lf/shortcuts
         sed -i -e "s/^/map /g; s/\//cd \//" ~/.dotfiles/lf/.config/lf/shortcuts
-    ;;
+        ;;
     "--shell")
         cat ~/.dotfiles/.bookm > ~/.dotfiles/shell/.config/personal/bookMarks
         # sed -i -e 's/^/alias b/g; s/ \//="cd \//; s/$/"/' ~/.dotfiles/shell/.config/personal/bookMarks

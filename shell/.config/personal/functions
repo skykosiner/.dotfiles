@@ -1,5 +1,9 @@
 #!/usr/bin/env zsh
 
+path() {
+    echo ${PATH//:/\\n}
+}
+
 dotfilesStatus() {
     pushd $DOTFILES
     git status

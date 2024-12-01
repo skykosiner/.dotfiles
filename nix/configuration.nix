@@ -151,7 +151,11 @@ in {
         ubuntu_font_family
         noto-fonts-emoji
         font-awesome
-        (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "JetBrainsMono" ]; })
+        nerd-fonts.jetbrains-mono
+        nerd-fonts.victor-mono
+        nerd-fonts.ubuntu-mono
+        nerd-fonts.hack
+        nerd-fonts.fira-code
         berkeley-mono
     ];
 
@@ -187,7 +191,9 @@ in {
 
     services.openssh= {
         enable = true;
-        forwardX11 = true;
+        settings = {
+            X11Forwarding = true;
+        };
     };
 
     system.stateVersion = "24.05";  # Keep this as your first install version
