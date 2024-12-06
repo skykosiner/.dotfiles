@@ -1,3 +1,3 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 curl -s 'wttr.in/London?format="%S%20%s\n"' | sed 's/"//g' | awk '{print "Sunrise:" " " $1 " " "Sunset:" " " $2}'

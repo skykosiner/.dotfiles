@@ -1,15 +1,8 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-if [[ $# -eq 1 ]]; then
-    git add .
-    git commit -m "commit the dir baby"
-    git push -u origin $1
-elif [[ $# -eq 2 ]]; then
-    git add .
-    git commit -m "$1"
-    git push -u origin $2
-else
-    git add .
-    git commit -m "Commit that dir baby"
-    git push -u origin master
-fi
+[ -n "$2" ] && branch="$2"
+branch=$(git branch --show-current)
+
+git add .
+git commit -m "$1"
+git push -u origin "$branch"

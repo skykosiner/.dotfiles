@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-xclip -selection clipboard -t image/png -i ~/Documents/Memes/$(ls ~/Documents/Memes | dmenu)

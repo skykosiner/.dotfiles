@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-rsync -aAXv --delete /home/sky/personal/skykosiner-com/master/ root@skykosiner.com:/var/www/skykosiner-com

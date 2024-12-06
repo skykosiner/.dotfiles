@@ -1,31 +1,18 @@
-#!/usr/bin/env bash
-
-export WM=$(wmctrl -m | grep "Name: " | cut -d" " -f2)
+#!/bin/sh
 
 declare -A configs
 
-# Edit different config depending on what window manger I'm in
-if [[ $WM == "dwm" ]];
-then
-    configs[dwm]="$HOME/.local/src/dwm"
-    configs[dwmblocks]="$HOME/.local/src/dwmblocks/"
-else
-    configs[qtile]="$HOME/.dotfiles/qtile/.config/qtile/"
-fi
-
-configs[st]="$HOME/.local/src/st"
+configs[$TERMINAL]="$HOME/.dotfiles/$TERMINAL/"
+configs[hyprland]="$HOME/.dotfiles/hypr/"
+configs[nix]="$HOME/.dotfiles/nix/"
 configs[zsh]="$HOME/.dotfiles/zsh/"
 configs[shell]="$HOME/.dotfiles/shell/.config/personal/"
 configs[nvim]="$HOME/.dotfiles/nvim/.config/nvim/"
-configs[emacs]="$HOME/.dotfiles/doom-emacs/.config/doom/"
 configs[scripts]="$HOME/.dotfiles/bin/.local/bin/"
 configs[lf]="$HOME/.dotfiles/lf/.config/lf/"
 configs[bookmarks]="$HOME/.dotfiles/.bookm"
 configs[bookmarked files]="$HOME/.dotfiles/.bookmfiles"
 
-configToEdit=$(printf "%s\n" "${!configs[@]}" | sort | dmenu -p "Config Edit: ")
+configToEdit=$(printf "%s\n" "${!configs[@]}" | sort | fuzzel --dmenu -p "Config Edit: ")
 
-if [[ ! -z $configToEdit ]]; then
-    # emacsclient -c -a 'emacs' $(printf "%s\n" "${configs["${configToEdit}"]}")
-    wezterm -e nvim $(printf "%s\n" "${configs["${configToEdit}"]}")
-fi
+[ ! -z "$configToEdit" ] && $TERMINAL -e nvim $(printf "%s\n" "${configs["${configToEdit}"]}")

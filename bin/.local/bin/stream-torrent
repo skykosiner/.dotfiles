@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-magnet=$(echo "$1" | grep -Po "magnet:\?xt=urn:btih:[a-zA-Z0-9]*" | head -n 1)
-echo $magnet
-peerflix -l -k $magnet

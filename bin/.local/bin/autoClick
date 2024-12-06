@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-COUNTER=0
-while [ $COUNTER -lt 1000000000 ]; do
-    xdotool click 1
-    # sleep 0.000000000000001s
-    echo The counter is $COUNTER
-    let COUNTER=COUNTER+1
-done

@@ -1,8 +1,13 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-echo "Enter the name of the repo for home server"
-read -r name
-ssh git@$GIT_SERVER "cd /srv/git && mkdir $name.git && cd $name.git && git init --bare"
+if [ -z "$1" ]; then
+    echo "Enter the name of the repo for home server"
+    read -r name
+else
+    name="$1"
+fi
+
+ssh ssh.kosiner.codes "cd /srv/git && mkdir $name.git && cd $name.git && git init --bare"
 
 echo "Setting up github end now"
 gh repo create
