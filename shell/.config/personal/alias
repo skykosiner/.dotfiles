@@ -44,6 +44,9 @@ alias scan_network_devices="arp-scan -I enp5s0f3u2u3u2 -l"
 alias todoist-cli="$HOME/personal/todoist-cli/todoistCli"
 alias switch="home-manager switch --flake ~/.dotfiles/nix"
 
+alias fixAudio="systemctl --user restart wireplumber pipewire pipewire-pulse"
+
 # For Mac
 alias urlS="/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -dump URLSchemeBinding"
 alias iCloud="cd $HOME/Library/Mobile\ Documents/com~apple~CloudDocs"
+

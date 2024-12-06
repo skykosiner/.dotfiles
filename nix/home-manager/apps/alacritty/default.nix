@@ -20,8 +20,8 @@ in {
             # colors.primary.background = "#2A2F3A";
             colors.primary.background = "#000000";
             font.size = fontsize;
-            # font.normal.family = "Berkeley Mono";
-            font.normal.family = "JetbrainsMono Nerd Font";
+            font.normal.family = "Berkeley Mono";
+            # font.normal.family = "JetbrainsMono Nerd Font";
         };
     };
 }
