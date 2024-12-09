@@ -9,6 +9,7 @@
         ./obs
         ./fastfetch
         ./pass
+        ./wezterm
     ];
 
     home.packages = with pkgs; [

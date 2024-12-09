@@ -1,0 +1,5 @@
+#!/bin/sh
+
+[ -z "$1" ] && echo "Please provide a category" && exit 1
+video=$(ls ~/Videos/Backgrounds/$1/ | shuf -n 1)
+mpvpaper '*' ~/Videos/Backgrounds/$1/$video

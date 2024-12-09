@@ -9,6 +9,7 @@
 
     home.packages = with pkgs; [
         swww
+        mpvpaper
         wtype
         hyprland
         grim
