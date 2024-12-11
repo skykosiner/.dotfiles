@@ -1,4 +1,4 @@
-vim.cmd.colorscheme("gruvbox-material")
+vim.cmd.colorscheme("tokyonight-moon")
 
 vim.cmd("highlight ColorColumn ctermbg=0 guibg=#555555")
 vim.api.nvim_set_hl(0, "WinSeparator", { bg = "none", fg = "none" })

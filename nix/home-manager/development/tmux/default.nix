@@ -27,6 +27,7 @@
         set -g status-style "fg=#665c54"
 
         bind C-f display-popup -E "tmux-sessionizer"
+        bind g display-popup -w 100 -h 30 -E "lazygit"
 
         bind r source-file ~/.config/tmux/tmux.conf
         set -g base-index 1
