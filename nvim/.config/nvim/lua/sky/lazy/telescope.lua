@@ -13,17 +13,7 @@ return {
 
             require("telescope").setup {
                 defaults = {
-                    winbled           = 10,
-                    file_sorter       = require("telescope.sorters").get_fzy_sorter,
-                    prompt_prefix     = "> ",
-                    color_devicons    = true,
                     respect_gitignore = true,
-                    sorting_strategy  = "descending",
-                    prompt_position   = "top",
-                    scroll_strategy   = "cycle",
-                    file_previewer    = require("telescope.previewers").vim_buffer_cat.new,
-                    grep_previewer    = require("telescope.previewers").vim_buffer_vimgrep.new,
-                    qflist_previewer  = require("telescope.previewers").vim_buffer_qflist.new,
                     mappings          = {
                         i = {
                             ["<C-x>"] = false,
@@ -35,21 +25,8 @@ return {
                 extensions = {
                     fzf = {},
                 },
-
-                pickers = {
-                    git_branches = {
-                        mappings = {
-                            i = {
-                                ["<C-a>"] = false
-                            }
-                        }
-                    },
-                    buffers = {
-                        sort_mru = true,
-                        mappings = {
-                            i = { ["<c-d>"] = actions.delete_buffer },
-                        },
-                    },
+                ["ui-select"] = {
+                    require("telescope.themes").get_dropdown {},
                 },
             }
 
@@ -68,6 +45,11 @@ return {
             vim.keymap.set("n", "<leader>pp", builtin.live_grep)
             vim.keymap.set("n", "<leader>vih", builtin.help_tags)
             vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find)
+
+            vim.keymap.set("n", "<space>fa", function()
+                ---@diagnostic disable-next-line: param-type-mismatch
+                builtin.find_files { cwd = vim.fs.joinpath(vim.fn.stdpath "data", "lazy") }
+            end)
 
             -- Grep the current highlighted selction
             vim.keymap.set("v", "<leader>ps",
