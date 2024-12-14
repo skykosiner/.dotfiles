@@ -1,4 +1,5 @@
 return {
+    "neovim/nvim-lspconfig",
     {
         "jsongerber/nvim-px-to-rem",
         config = function()
@@ -28,87 +29,108 @@ return {
     },
     { "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings
     {
-        "williamboman/mason.nvim",
-        config = function()
-            require("mason").setup {}
-        end
-    },
-    "neovim/nvim-lspconfig",
-    {
-        "williamboman/mason-lspconfig.nvim",
-        config = function()
-            local lsp = require "lsp-zero"
-            local lspconfig = require "lspconfig"
-            require('mason-lspconfig').setup {
-                ensure_installed = {
-                    "bashls",
-                    "clangd",
-                    "cssls",
-                    "gopls",
-                    "html",
-                    "lua_ls",
-                    "pyright",
-                    "rust_analyzer",
-                    "tailwindcss",
-                    "ts_ls",
-                    "vimls",
-                    "yamlls",
-                },
-                handlers = {
-                    lsp.default_setup,
-                    ["gopls"] = function()
-                        lspconfig.gopls.setup {
-                            settings = {
-                                gopls = {
-                                    ["ui.inlayhint.hints"] = {
-                                        compositeLiteralFields = true,
-                                        constantValues = true,
-                                        parameterNames = true
-                                    },
-                                },
-                            },
-                        }
-                    end,
-                    ["ts_ls"] = function()
-                        lspconfig.ts_ls.setup {
-                            settings = {
-                                typescript = {
-                                    inlayHints = {
-                                        includeInlayParameterNameHints = 'all',
-                                        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                                        includeInlayFunctionParameterTypeHints = true,
-                                        includeInlayVariableTypeHints = true,
-                                        includeInlayVariableTypeHintsWhenTypeMatchesName = false,
-                                        includeInlayPropertyDeclarationTypeHints = true,
-                                        includeInlayFunctionLikeReturnTypeHints = true,
-                                        includeInlayEnumMemberValueHints = true,
-                                    }
-                                },
-                                javascript = {
-                                    inlayHints = {
-                                        includeInlayParameterNameHints = 'all',
-                                        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                                        includeInlayFunctionParameterTypeHints = true,
-                                        includeInlayVariableTypeHints = true,
-                                        includeInlayVariableTypeHintsWhenTypeMatchesName = false,
-                                        includeInlayPropertyDeclarationTypeHints = true,
-                                        includeInlayFunctionLikeReturnTypeHints = true,
-                                        includeInlayEnumMemberValueHints = true,
-                                    }
-                                }
-                            }
-                        }
-                    end
-                },
-            }
-        end
-    },
-    {
         "VonHeikemen/lsp-zero.nvim",
         config = function()
             vim.diagnostic.config { jump = { float = true } }
             local lsp = require("lsp-zero")
             lsp.extend_lspconfig()
+            lsp.setup_servers({
+                "basedpyright",
+                "lua_ls",
+                "gopls",
+                "rust_analyzer",
+                "lua_ls",
+                "vtsls",
+            })
+
+            require("lspconfig").gopls.setup {
+                settings = {
+                    gopls = {
+                        ["ui.inlayhint.hints"] = {
+                            compositeLiteralFields = true,
+                            constantValues = true,
+                            parameterNames = true
+                        },
+                    },
+                },
+            }
+
+            require("lspconfig").basedpyright.setup {
+                settings = {
+                    basedpyright = {
+                        analysis = {
+                            autoSearchPaths = true,
+                            diagnosticMode = "openFilesOnly",
+                            useLibraryCodeForTypes = true
+                        }
+                    }
+                }
+            }
+
+            require("lspconfig").rust_analyzer.setup {
+                settings = {
+                    ["rust-analyzer"] = {
+                        inlayHints = {
+                            bindingModeHints = {
+                                enable = true,
+                            },
+                            chainingHints = {
+                                enable = true,
+                            },
+                            closingBraceHints = {
+                                enable = true,
+                                minLines = 25,
+                            },
+                            closureReturnTypeHints = {
+                                enable = "never",
+                            },
+                            lifetimeElisionHints = {
+                                enable = "never",
+                                useParameterNames = false,
+                            },
+                            maxLength = 25,
+                            parameterHints = {
+                                enable = true,
+                            },
+                            reborrowHints = {
+                                enable = "never",
+                            },
+                            renderColons = true,
+                            typeHints = {
+                                enable = true,
+                                hideClosureInitialization = false,
+                                hideNamedConstructor = false,
+                            },
+                        },
+                    }
+                }
+            }
+
+            require("lspconfig").lua_ls.setup {
+                settings = {
+                    Lua = {
+                        hint = {
+                            enable = true,
+                        }
+                    }
+                }
+            }
+
+            require("lspconfig").vtsls.setup {
+                settings = {
+                    typescript = {
+                        inlayHints = {
+                            parameterNames = { enabled = "all" },
+                            parameterTypes = { enabled = true },
+                            variableTypes = { enabled = true },
+                            propertyDeclarationTypes = { enabled = true },
+                            functionLikeReturnTypes = { enabled = true },
+                            enumMemberValues = { enabled = true },
+                        },
+                    },
+                },
+            }
+
             lsp.on_attach(function(_, bufnr)
                 -- TURN ON THEM HINTS BBG
                 -- vim.lsp.inlay_hint.enable(true)

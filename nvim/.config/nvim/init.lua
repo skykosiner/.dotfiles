@@ -18,7 +18,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({ import = "sky/lazy" }, {
-  lockfile = os.getenv("HOME") .. "/.dotfiles/nvim/.config/nvim/lazy-lock.json", -- lockfile generated after running update.
+    lockfile = os.getenv("HOME") .. "/.dotfiles/nvim/.config/nvim/lazy-lock.json", -- lockfile generated after running update.
     change_detection = {
         notify = false,
     },

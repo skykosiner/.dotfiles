@@ -1,6 +1,7 @@
 local opt = vim.opt
 
 opt.inccommand = "split"
+opt.guicursor = ""
 
 opt.number = true
 opt.relativenumber = true

@@ -9,10 +9,10 @@ return {
         },
         config = function()
             local actions = require("telescope.actions")
-            -- local themes = require("telescope.themes")
+            local themes = require("telescope.themes")
 
             require("telescope").setup {
-                defaults = {
+                defaults = themes.get_ivy {
                     respect_gitignore = true,
                     mappings          = {
                         i = {
@@ -24,9 +24,6 @@ return {
                 },
                 extensions = {
                     fzf = {},
-                },
-                ["ui-select"] = {
-                    require("telescope.themes").get_dropdown {},
                 },
             }
 

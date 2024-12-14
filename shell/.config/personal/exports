@@ -26,6 +26,7 @@ export QT_STYLE_OVERRIDE="Fusion"
 
 # Clean up home dir
 export GOPATH=$HOME/.local/go/
+export GOBIN=$HOME/.local/go/bin/
 export CARGO_HOME="$XDG_DATA_HOME"cargo
 export PATH="${PATH}:${GOPATH}/bin"
 export LYNX_CFG="$HOME/.config/lynx/lynx.cfg"

@@ -25,10 +25,20 @@
         docker
         zoxide
 
+        bc
+        arp-scan
+
         cmake
         ninja
         gcc
         gnumake
+
+        basedpyright
+        lua-language-server
+        vtsls
+        rust-analyzer
+        gopls
+        shellcheck
 
         glib
         gdk-pixbuf
