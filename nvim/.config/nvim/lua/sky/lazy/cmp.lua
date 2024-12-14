@@ -7,7 +7,7 @@ return {
         "onsails/lspkind-nvim",
     },
     config = function()
-        -- vim.opt.completeopt = { "menu", "menuone", "noselect", "fuzzy" }
+        vim.opt.completeopt = { "menu", "menuone", "noselect", "fuzzy" }
         vim.opt.shortmess:append "c"
 
         local lspkind = require("lspkind")
@@ -34,9 +34,6 @@ return {
                     winhighlight = "Normal:CmpNormal",
                 }
             },
-            -- completion = {
-            --     autocomplete = false
-            -- },
             mapping = cmp.mapping.preset.insert({
                 ["<C-u>"] = cmp.mapping.scroll_docs(-4),
                 ["<C-d>"] = cmp.mapping.scroll_docs(4),

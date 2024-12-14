@@ -6,9 +6,7 @@ return {
                 window = {
                     width = 90,
                     options = {
-                        showcmd = false,
                         laststatus = 0,
-                        showcmd = false,
                     }
                 },
                 on_close = function()

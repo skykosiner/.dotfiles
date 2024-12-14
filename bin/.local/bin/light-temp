@@ -7,8 +7,8 @@ temp=$(printf "Cool - 154\nMedium - 250\nHigh - 350\nCustom" | fuzzel --dmenu -p
 if [[ "$temp" == "Custom" ]]; then
     temp=$(dmenu -c -p "What temperature do you want to set the lights to?" <&- && echo)
     [[ -z $temp ]] && exit
-    ~/.local/bin/lights ct $temp
+    $GOBIN/lights ct $temp
     exit
 fi
 
-~/.local/bin/lights ct $(echo "$temp" | cut -d"-" -f2 | sed "s/ //")
+$GOBIN/lights ct $(echo "$temp" | cut -d"-" -f2 | sed "s/ //")
