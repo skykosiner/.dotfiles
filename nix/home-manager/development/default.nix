@@ -24,6 +24,8 @@
         git
         docker
         zoxide
+        openssl
+        pkg-config
 
         bc
         arp-scan
@@ -36,6 +38,7 @@
         basedpyright
         lua-language-server
         vtsls
+        # rustup
         rust-analyzer
         gopls
         shellcheck

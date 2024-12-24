@@ -5,8 +5,9 @@
         python3
         python312Packages.pip
         nodejs
-        go
         cargo
+        rustc
+        go
         clang-tools
     ];
 }

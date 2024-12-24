@@ -12,9 +12,16 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
         neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+        nix-doom-emacs-unstraightened.url = "github:marienz/nix-doom-emacs-unstraightened";
     };
 
-    outputs = { self, nixpkgs, home-manager, asus-wmi-screenpad, ... }@inputs:
+    outputs = {
+        self,
+        nixpkgs,
+        home-manager,
+        asus-wmi-screenpad,
+        ...
+    }@inputs:
     let
         inherit (self) outputs;
         lib = nixpkgs.lib;

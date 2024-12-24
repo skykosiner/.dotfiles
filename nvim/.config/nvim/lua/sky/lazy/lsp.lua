@@ -67,44 +67,7 @@ return {
                 }
             }
 
-            require("lspconfig").rust_analyzer.setup {
-                settings = {
-                    ["rust-analyzer"] = {
-                        inlayHints = {
-                            bindingModeHints = {
-                                enable = true,
-                            },
-                            chainingHints = {
-                                enable = true,
-                            },
-                            closingBraceHints = {
-                                enable = true,
-                                minLines = 25,
-                            },
-                            closureReturnTypeHints = {
-                                enable = "never",
-                            },
-                            lifetimeElisionHints = {
-                                enable = "never",
-                                useParameterNames = false,
-                            },
-                            maxLength = 25,
-                            parameterHints = {
-                                enable = true,
-                            },
-                            reborrowHints = {
-                                enable = "never",
-                            },
-                            renderColons = true,
-                            typeHints = {
-                                enable = true,
-                                hideClosureInitialization = false,
-                                hideNamedConstructor = false,
-                            },
-                        },
-                    }
-                }
-            }
+            require("lspconfig").rust_analyzer.setup {}
 
             require("lspconfig").lua_ls.setup {
                 settings = {
@@ -140,6 +103,7 @@ return {
                 local builtin = require "telescope.builtin"
 
                 vim.keymap.set("n", "gd", builtin.lsp_definitions, opts)
+                vim.keymap.set("n", "gD", vim.lsp.buf.type_definition, opts)
                 vim.keymap.set("n", "<leader>vrr", builtin.lsp_references, opts)
 
                 vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)

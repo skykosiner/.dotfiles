@@ -1,7 +1,7 @@
 (setq user-full-name "Sky Kosiner"
       user-mail-address "sky@skykosiner.com")
 
-(setq doom-font (font-spec :family "BerkeleyMono Nerd Font":size 16))
+; (setq doom-font (font-spec :family "BerkeleyMono Nerd Font":size 16))
 (after! doom-themes
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t))
@@ -9,7 +9,7 @@
   '(font-lock-comment-face :slant italic)
   '(font-lock-keyword-face :slant italic))
 
-(setq doom-theme 'doom)
+(setq doom-theme 'doom-one)
 (setq display-line-numbers-type 'relative)
 
 (remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
@@ -70,35 +70,6 @@
 
 (setq save-abbrevs 'silently)
 (setq-default abbrev-mode t)
-
-(obsidian-specify-path "~/Documents/Linux-btw")
-;; If you want a different directory of `obsidian-capture':
-(setq obsidian-inbox-directory "📥 Inbox")
-
-;; Define obsidian-mode bindings
-(add-hook
- 'obsidian-mode-hook
- (lambda ()
-   ;; Replace standard command with Obsidian.el's in obsidian vault:
-   ;; (local-set-key (kbd "C-c C-o") 'obsidian-follow-link-at-point)
-
-   ;; Use either `obsidian-insert-wikilink' or `obsidian-insert-link':
-   (local-set-key (kbd "C-c C-l") 'obsidian-insert-wikilink)
-
-   ;; Following backlinks
-   (local-set-key (kbd "C-c C-b") 'obsidian-backlink-jump)))
-
-;; Optionally you can also bind `obsidian-jump' and `obsidian-capture'
-;; replace "YOUR_BINDING" with the key of your choice:
-(global-set-key (kbd "C-c C-o") 'obsidian-jump)
-(global-set-key (kbd "C-c C-c") 'obsidian-capture)
-
-;; Activate detection of Obsidian vault
-(global-obsidian-mode t)
-
-;; (setq-default elfeed-search-filter "@2-weeks-ago +unread")
-(setq-default elfeed-search-title-max-width 100)
-(setq-default elfeed-search-title-min-width 100)
 
 ;; Start to scroll 8 lines before the end
 (setq scroll-margin 8)

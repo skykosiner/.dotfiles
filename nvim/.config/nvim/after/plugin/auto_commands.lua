@@ -12,16 +12,6 @@ vim.api.nvim_create_autocmd("TermOpen", {
     group = group
 })
 
--- Clear the terminal harpoon list when quiting vim
-vim.api.nvim_create_autocmd("VimLeave", {
-    callback = function()
-        for _, idx in ipairs { 1, 2 } do
-            require("harpoon"):list("term"):remove_at(idx)
-        end
-    end,
-    group = group
-})
-
 -- Give that sweet little thing for a second on a yank, so I know what I have yanked
 vim.api.nvim_create_autocmd("TextYankPost", {
     callback = function()

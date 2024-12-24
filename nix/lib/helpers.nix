@@ -24,6 +24,9 @@
           stateVersion
           ;
       };
-      modules = [ ../home-manager ];
+      modules = [
+        inputs.nix-doom-emacs-unstraightened.hmModule
+        ../home-manager
+      ];
     };
 }

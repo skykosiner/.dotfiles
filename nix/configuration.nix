@@ -87,7 +87,7 @@ in {
     users.users.sky = {
         isNormalUser = true;
         description = "sky";
-        extraGroups = [ "networkmanager" "wheel" "docker" ];
+        extraGroups = [ "networkmanager" "wheel" "docker" "openrazer" ];
         shell = pkgs.zsh;
         hashedPassword = "$6$p011SB1zy3NpqFjq$rdHjOi.GD.w/IUss5H9wmYJGckOQsAEVerQH6NKH6g9n8eG3XQJ1iIkKU4KE/pSwaIH69Gsg7Pa07j.8ErxUA0";
     };
@@ -127,6 +127,8 @@ in {
         dunst
         stow
         cloudflared
+        openrazer-daemon
+        polychromatic
         font-manager
         acpilight
         brightnessctl
@@ -156,6 +158,7 @@ in {
         nerd-fonts.ubuntu-mono
         nerd-fonts.hack
         nerd-fonts.fira-code
+        nerd-fonts.iosevka
         berkeley-mono
     ];
 
@@ -209,6 +212,8 @@ in {
         fsType = "cifs";
         options =  cifsOptions;
     };
+
+    hardware.openrazer.enable = true;
 
     # services.kanata = {
     #     enable = true;

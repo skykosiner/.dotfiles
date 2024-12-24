@@ -12,12 +12,13 @@
     ];
 
     home.packages = with pkgs; [
+        lunar-client
         yt-dlp
         cmatrix
         lazygit
         newsboat
         beeper
-        davinci-resolve
+        # davinci-resolve
         teams-for-linux
         kitty
         spotify

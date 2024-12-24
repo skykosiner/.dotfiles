@@ -1,4 +1,4 @@
-{ config, pkgs, lib, hostname, ... }:
+{ config, pkgs, lib, hostname, inputs, system, ... }:
 
 let
   apps = import ./apps { inherit pkgs; };
@@ -18,6 +18,11 @@ in {
     home.homeDirectory = "/home/sky";
     xdg.dataHome = "/home/sky/.local/share/";
     home.stateVersion = "24.05";
+
+    programs.emacs = {
+        enable = true;
+        # package = pkgs.emacsGcc; # You can use `pkgs.emacs` or other variants as needed
+    };
 
     nixpkgs.config.allowUnfree = true;
     home.packages = with pkgs; [
