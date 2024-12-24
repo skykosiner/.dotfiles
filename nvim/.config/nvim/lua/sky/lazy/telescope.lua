@@ -34,14 +34,23 @@ return {
 
             local builtin = require "telescope.builtin"
 
-            vim.keymap.set("n", "<leader>pf", function() builtin.find_files({ hidden = true }) end)
+            vim.keymap.set("n", "<leader>pf", function()
+                builtin.find_files({ hidden = true })
+            end)
+
+            vim.keymap.set("n", "<leader>ps", function()
+                builtin.grep_string({ search = vim.fn.input("Grep For > ") })
+            end)
+
             vim.keymap.set("n", "<C-p>", builtin.git_files)
             vim.keymap.set("n", "<leader>pb", builtin.buffers)
-            vim.keymap.set("n", "<leader>ps",
-                function() builtin.grep_string({ search = vim.fn.input("Grep For > ") }) end)
             vim.keymap.set("n", "<leader>pp", builtin.live_grep)
             vim.keymap.set("n", "<leader>vih", builtin.help_tags)
             vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find)
+
+            vim.keymap.set("n", "z=", function()
+                builtin.spell_suggest(themes.get_cursor {})
+            end)
 
             vim.keymap.set("n", "<space>fa", function()
                 ---@diagnostic disable-next-line: param-type-mismatch

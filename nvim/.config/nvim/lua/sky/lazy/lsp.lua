@@ -94,18 +94,20 @@ return {
                 },
             }
 
+            vim.keymap.set("n", "<leader>qf", vim.diagnostic.setqflist, opts)
+
             lsp.on_attach(function(_, bufnr)
                 -- TURN ON THEM HINTS BBG
-                -- vim.lsp.inlay_hint.enable(true)
+                vim.lsp.inlay_hint.enable(true)
 
                 -- GIVE ME MY KEYBINDS
                 local opts = { buffer = bufnr, remap = false }
                 local builtin = require "telescope.builtin"
 
                 vim.keymap.set("n", "gd", builtin.lsp_definitions, opts)
-                vim.keymap.set("n", "gD", vim.lsp.buf.type_definition, opts)
                 vim.keymap.set("n", "<leader>vrr", builtin.lsp_references, opts)
 
+                vim.keymap.set("n", "gD", vim.lsp.buf.type_definition, opts)
                 vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
                 vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
                 vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
