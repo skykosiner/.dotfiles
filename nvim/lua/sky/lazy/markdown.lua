@@ -8,7 +8,11 @@ return {
         ---@module "render-markdown"
         ---@type render.md.UserConfig
         opts = {
+            code = {
+                border = "none",
+            },
             heading = {
+                backgrounds = {},
                 width = "block",
             }
         },

@@ -20,14 +20,14 @@ return {
             formatting = {
                 format = lspkind.cmp_format {
                     with_text = false,
-                    menu = {
-                        nvim_lsp = "[LSP]",
-                        buffer = "[buf]",
-                        lazydev = "[api]",
-                        path = "[path]",
-                        luasnip = "[snip]",
-                        nvim_px_to_rem = "[PxRem]"
-                    }
+                    -- menu = {
+                    --     nvim_lsp = "[LSP]",
+                    --     buffer = "[buf]",
+                    --     lazydev = "[api]",
+                    --     path = "[path]",
+                    --     luasnip = "[snip]",
+                    --     nvim_px_to_rem = "[PxRem]"
+                    -- }
                 },
                 fields = {"menu", "kind", "abbr"},
                 expandable_indicator = false
@@ -83,6 +83,7 @@ return {
             }, {
                 {
                     name = 'cmdline',
+                    keyword_length = 5,
                     option = {
                         ignore_cmds = { 'Man', '!' }
                     }

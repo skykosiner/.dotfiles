@@ -10,8 +10,11 @@
         background = 111111
         cursor-style = block
         cursor-style-blink = false
-        theme = rose-pine
+        theme = tokyonight
         confirm-close-surface = false
+
+        # Remove the top bar
+        gtk-titlebar = false
 
         shell-integration-features = no-cursor,no-sudo,title
     '';
