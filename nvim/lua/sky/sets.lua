@@ -1,5 +1,5 @@
 local opt = vim.opt
-
+opt.guicursor = ""
 opt.inccommand = "split"
 opt.number = true
 opt.relativenumber = true
@@ -29,17 +29,3 @@ opt.scrolloff = 8
 vim.opt.colorcolumn = "80"
 
 opt.shell = "/run/current-system/sw/bin/zsh"
-
--- vim.opt.list = true
--- Not sure if I like this or not hmmm
--- vim.opt.listchars = "tab:· ,nbsp:_,trail: ,multispace:· ,eol:↲"
--- vim.opt.listchars = "tab:· ,nbsp:_,trail: ,multispace:· "
--- vim.opt.listchars = { eol = "↲", tab = ">", space = ">" }
-
--- vim.opt.listchars = {
---     eol = ' ',
---     tab = ' ',
---     multispace = ' ',
---     tab = '  ',
---     multispace = '  ',
--- }

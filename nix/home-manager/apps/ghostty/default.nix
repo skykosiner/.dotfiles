@@ -10,7 +10,7 @@
         background = 111111
         cursor-style = block
         cursor-style-blink = false
-        theme = GruvboxDark
+        theme = rose-pine
         confirm-close-surface = false
 
         shell-integration-features = no-cursor,no-sudo,title

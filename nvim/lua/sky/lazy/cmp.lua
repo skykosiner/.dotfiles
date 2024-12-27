@@ -4,6 +4,7 @@ return {
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-cmdline",
         "onsails/lspkind-nvim",
     },
     config = function()
@@ -17,20 +18,22 @@ return {
 
         cmp.setup({
             formatting = {
-                format = lspkind.cmp_format({
-                    mode = 'symbol',
-                    maxwidth = 50,
-                    ellipsis_char = '...',
-                    show_labelDetails = true,
-
-                    before = function(_, vim_item)
-                        return vim_item
-                    end
-                })
+                format = lspkind.cmp_format {
+                    with_text = false,
+                    menu = {
+                        nvim_lsp = "[LSP]",
+                        buffer = "[buf]",
+                        lazydev = "[api]",
+                        path = "[path]",
+                        luasnip = "[snip]",
+                        nvim_px_to_rem = "[PxRem]"
+                    }
+                },
+                fields = {"menu", "kind", "abbr"},
+                expandable_indicator = false
             },
             window = {
                 completion = {
-                    -- border = "rounded",
                     winhighlight = "Normal:CmpNormal",
                 }
             },
@@ -57,14 +60,35 @@ return {
                 end,
             },
             sources = {
-                { name = "lazydev",       group_index = 0 },
                 { name = "nvim_lsp" },
-                { name = "path" },
-                { name = "nvim_lua" },
-                { name = "luasnip" },
                 { name = "buffer",        keyword_length = 5 },
+                { name = "lazydev",       group_index = 0 },
+                { name = "path" },
+                { name = "luasnip" },
                 { name = "nvim_px_to_rem" }
             }
         })
+
+        cmp.setup.cmdline('/', {
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = {
+                { name = 'buffer' }
+            }
+        })
+
+        cmp.setup.cmdline(':', {
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = cmp.config.sources({
+                { name = 'path' }
+            }, {
+                {
+                    name = 'cmdline',
+                    option = {
+                        ignore_cmds = { 'Man', '!' }
+                    }
+                }
+            })
+        })
+
     end
 }

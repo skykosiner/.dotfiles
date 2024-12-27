@@ -1,8 +1,13 @@
 -- Helper functions to map keys in different modes
+
+---@param keymap string
+---@param action string | function
 local function normal_mode(keymap, action)
     vim.keymap.set("n", keymap, action)
 end
 
+---@param keymap string
+---@param action string | function
 local function visual_mode(keymap, action)
     vim.keymap.set("v", keymap, action)
 end
@@ -10,9 +15,6 @@ end
 normal_mode("<C-f>", ":silent !tmux neww ~/.local/bin/tmux-sessionizer<CR>")
 
 normal_mode("<leader><leader>x", ":so %<CR>")
-
--- Open file explorer
---normal_mode("<leader>pv", vim.cmd.Ex)
 
 -- Quick fix list navigation
 normal_mode("<C-j>", ":cnext<CR>")
@@ -97,6 +99,7 @@ normal_mode("<CR>", function()
 end)
 
 normal_mode("<leader>sp", function()
+    ---@diagnostic disable-next-line: undefined-field
     if vim.opt.spell._value then
         vim.opt.spell = false
     else
