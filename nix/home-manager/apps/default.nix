@@ -3,6 +3,7 @@
 {
     imports = [
         ./alacritty
+        ./ghostty
         ./starship
         ./zathura
         ./lf

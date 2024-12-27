@@ -4,6 +4,7 @@ return {
         require("oil").setup {
             keymaps = {
                 ["<C-p>"] = false,
+                ["<C-h>"] = "actions.preview",
             },
             skip_confirm_for_simple_edits = true,
             prompt_save_on_select_new_entry = false,

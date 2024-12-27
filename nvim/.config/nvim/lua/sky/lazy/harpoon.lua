@@ -1,5 +1,6 @@
 return {
     "ThePrimeagen/harpoon",
+    commit = "e76cb03",
     -- dir = "~/personal/harpoon.git/get-current-mark/",
     branch = "harpoon2",
     dependencies = {
@@ -8,7 +9,7 @@ return {
     config = function()
         local harpoon = require("harpoon")
 
-        harpoon:setup({})
+        harpoon:setup {}
 
         vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
         vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)

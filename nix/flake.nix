@@ -3,16 +3,19 @@
 
     inputs = {
         nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+        ghostty.url = "github:ghostty-org/ghostty";
+        neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+        nix-doom-emacs-unstraightened.url = "github:marienz/nix-doom-emacs-unstraightened";
+
         asus-wmi-screenpad={
             url = "github:MatthewCash/asus-wmi-screenpad-module";
             inputs.nixpkgs.follows="nixpkgs";
         };
+
         home-manager = {
             url = "github:nix-community/home-manager";
             inputs.nixpkgs.follows = "nixpkgs";
         };
-        neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-        nix-doom-emacs-unstraightened.url = "github:marienz/nix-doom-emacs-unstraightened";
     };
 
     outputs = {
@@ -20,6 +23,7 @@
         nixpkgs,
         home-manager,
         asus-wmi-screenpad,
+        ghosty,
         ...
     }@inputs:
     let

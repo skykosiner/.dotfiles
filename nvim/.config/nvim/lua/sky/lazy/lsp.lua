@@ -94,7 +94,7 @@ return {
                 },
             }
 
-            vim.keymap.set("n", "<leader>qf", vim.diagnostic.setqflist, opts)
+            vim.keymap.set("n", "<leader>qf", vim.diagnostic.setqflist)
 
             lsp.on_attach(function(_, bufnr)
                 -- TURN ON THEM HINTS BBG
