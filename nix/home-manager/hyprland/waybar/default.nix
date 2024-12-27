@@ -160,7 +160,7 @@ in {
                 };
                 network = {
                     format-wifi = "󰒢 {essid}";
-                    on-click = "alacritty -e nmtui";
+                    on-click = "ghostty -e nmtui";
                     on-click-right = "nm-connection-editor";
                     format-ethernet = " wired";
                     tooltip-format = "{essid} {signalStrength}%";
@@ -208,7 +208,7 @@ in {
                         " "
                         " "
                     ];
-                    on-click = "alacritty -e pulsemixer";
+                    on-click = "ghostty -e pulsemixer";
                 };
                 "custom/todoist" = {
                     format = " {}";

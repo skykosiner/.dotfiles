@@ -1,17 +1,11 @@
 return {
-    "lmburns/lf.nvim",
+    "ptzz/lf.vim",
     dependencies = {
-        "akinsho/toggleterm.nvim"
+        "voldikss/vim-floaterm"
     },
     config = function()
-        -- This feature will not work if the plugin is lazy-loaded
-        vim.g.lf_netrw = 1
-
-        require("lf").setup({
-            escape_quit = false,
-            border = "rounded",
-        })
-
+        vim.g.lf_map_keys = 0
+        vim.g.floaterm_opener = "e"
         vim.keymap.set("n", "<M-o>", "<Cmd>Lf<CR>")
     end,
 }
