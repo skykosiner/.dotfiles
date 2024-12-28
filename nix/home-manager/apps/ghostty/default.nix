@@ -7,6 +7,7 @@
 
     home.file.".config/ghostty/config".text = ''
         font-family = Berkeley Mono
+        font-size = 16
         background = 111111
         cursor-style = block
         cursor-style-blink = false

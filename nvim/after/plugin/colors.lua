@@ -20,7 +20,7 @@ vim.api.nvim_set_hl(0, "TabLine", { bg = "none", fg = "#222222" })
 vim.api.nvim_set_hl(0, "TabLineFill", { bg = "none" })
 
 -- Markdown stuff
-vim.api.nvim_set_hl(0, "RenderMarkdownCode", { bg = "#000000" })
+vim.api.nvim_set_hl(0, "RenderMarkdownCode", { bg = "#111111" })
 vim.api.nvim_set_hl(0, "RenderMarkdownTableFill", { bg = "none" })
 vim.api.nvim_set_hl(0, "@markup.heading.1.markdown", { fg = "#B294BB" })
 vim.api.nvim_set_hl(0, "@markup.heading.2.markdown", { fg = "#FFFF87" })

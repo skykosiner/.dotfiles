@@ -11,6 +11,9 @@ return {
             code = {
                 border = "none",
             },
+            bullet = {
+                enabled = false,
+            },
             heading = {
                 backgrounds = {},
                 width = "block",
