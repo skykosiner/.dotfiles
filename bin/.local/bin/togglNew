@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [ "$1" = "saved" ]; then
+    ghostty --title="toggl" -e "toggl-cli start-saved"
+else
+    ghostty --title="toggl" -e "toggl-cli start"
+fi
