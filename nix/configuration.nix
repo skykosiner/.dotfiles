@@ -108,7 +108,6 @@ in {
         cron
         cronie
         wget
-        kanata
         home-manager
         file
         gnupg
@@ -216,71 +215,4 @@ in {
     };
 
     hardware.openrazer.enable = true;
-
-    # services.kanata = {
-    #     enable = true;
-    #     keyboards = {
-    #         extraDefCfg = "process-unmapped-keys yes";
-    #         devices = [ ];
-    #         config = {
-    #             defsrc = "caps a o e u h t n s";
-    #             defvar = {
-    #                 "tap-time" = 150;
-    #                 "hold-time" = 200;
-    #             };
-    #             defalias = {
-    #                 caps = "tap-hold 100 100 esc lctl";
-    #                 a = "tap-hold $tap-time $hold-time a lsft";
-    #                 o = "tap-hold $tap-time $hold-time o lctl";
-    #                 e = "tap-hold $tap-time $hold-time e lalt";
-    #                 u = "tap-hold $tap-time $hold-time u lmet";
-    #                 h = "tap-hold $tap-time $hold-time h rmet";
-    #                 t = "tap-hold $tap-time $hold-time t ralt";
-    #                 n = "tap-hold $tap-time $hold-time n rctl";
-    #                 s = "tap-hold $tap-time $hold-time s rsft";
-                # };
-                # deflayer = {
-                    # base = "@caps @a  @o  @e  @u  @h  @t  @n  @s";
-                # };
-            # };
-        # };
-    # };
-
-
-  services.kanata = {
-    enable = true;
-    keyboards = {
-      internalKeyboard = {
-        devices = [
-          "/dev/input/by-path/platform-i8042-serio-0-event-kbd"
-          "/dev/input/event5"
-        ];
-        extraDefCfg = "process-unmapped-keys yes";
-        config = ''
-          (defsrc
-           caps a s d f j k l ;
-          )
-          (defvar
-           tap-time 150
-           hold-time 200
-          )
-          (defalias
-           caps (tap-hold 100 100 esc lctl)
-           a (tap-hold $tap-time $hold-time a lsft)
-           s (tap-hold $tap-time $hold-time s lctl)
-           d (tap-hold $tap-time $hold-time d lalt)
-           f (tap-hold $tap-time $hold-time f lmet)
-           j (tap-hold $tap-time $hold-time j rmet)
-           k (tap-hold $tap-time $hold-time k ralt)
-           l (tap-hold $tap-time $hold-time l rctl)
-           ; (tap-hold $tap-time $hold-time ; rsft)
-          )
-
-          (deflayer base
-           @caps @a  @s  @d  @f  @j  @k  @l  @;
-          )
-        '';
-      };
-    };
-  };
 }
