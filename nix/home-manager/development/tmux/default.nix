@@ -21,7 +21,8 @@
         set -g pane-active-border-style "fg=#171717"
 
         set-option -g status-interval 1
-        set -g status-right "#(pomo)"
+        set -g status-right "#(pomo) #(toggl-cli status)"
+        set-option -g status-right-length 100
 
         set -g status-position top
         set -g status-style "fg=#665c54"

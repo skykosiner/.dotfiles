@@ -11,9 +11,9 @@ vim.api.nvim_set_hl(0, "SpellBad", { fg = "#A9352B" })
 vim.api.nvim_set_hl(0, "SpellCap", { fg = "#A9352B" })
 
 -- Line numbers
-vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#222222" })
-vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#222222" })
-vim.api.nvim_set_hl(0, "LineNr", { fg = "#FFFF87" })
+-- vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#222222" })
+-- vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#222222" })
+vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#FFFF87" })
 
 -- Tab line
 vim.api.nvim_set_hl(0, "TabLine", { bg = "none", fg = "#222222" })

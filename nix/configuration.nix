@@ -12,6 +12,7 @@ let
     ];
 
     berkeley-mono = pkgs.callPackage ./packages/berkeley-mono.nix { inherit pkgs; };
+    TX-02 = pkgs.callPackage ./packages/TX-02.nix { inherit pkgs; };
 in {
     nix = {
         package = pkgs.nixVersions.stable;
@@ -160,6 +161,7 @@ in {
         nerd-fonts.fira-code
         nerd-fonts.iosevka
         berkeley-mono
+        TX-02
     ];
 
     networking.wireguard.enable = true;
