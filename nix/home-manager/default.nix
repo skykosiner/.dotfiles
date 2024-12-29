@@ -73,5 +73,11 @@ in {
         enable = true;
     };
 
+    xdg.configFile = {
+        "toggl" = {
+            source = ../../private_stuff/toggl;
+        };
+    };
+
     programs.home-manager.enable = true;
 }
