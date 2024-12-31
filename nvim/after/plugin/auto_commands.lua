@@ -76,3 +76,13 @@ vim.api.nvim_create_autocmd("WinEnter", {
         vim.opt.cursorline = true
     end,
 })
+
+vim.api.nvim_create_autocmd("WinResized", {
+    group = group,
+    pattern = "*",
+    callback = function()
+        if vim.g.resize then
+            vim.cmd(":wincmd =")
+        end
+    end
+})

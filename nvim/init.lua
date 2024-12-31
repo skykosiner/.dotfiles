@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+vim.g.resize = true
 require("sky.sets")
 require("sky.keymaps")
 -- require("sky.winbar")
@@ -24,4 +25,3 @@ require("lazy").setup({
         notify = false,
     },
 })
-

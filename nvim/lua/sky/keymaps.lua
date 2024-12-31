@@ -112,3 +112,13 @@ normal_mode("<space>th", function()
 end)
 
 vim.keymap.set("i", "<C-c>", "<esc>")
+
+
+-- Resize windows automatically toggle
+normal_mode("<leader>re", function()
+    if vim.g.resize then
+        vim.g.resize = false
+    else
+        vim.g.resize = true
+    end
+end)
