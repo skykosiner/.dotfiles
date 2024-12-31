@@ -23,7 +23,7 @@ opt.incsearch = true
 opt.ignorecase = true -- Ignore case when searching...
 opt.smartcase = true  -- ... unless there is a capital letter in the query
 
-opt.signcolumn = "no"
+opt.signcolumn = "yes"
 
 -- Start to scroll 8 lines before the bottom/top
 opt.scrolloff = 8

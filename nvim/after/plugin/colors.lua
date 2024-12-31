@@ -1,10 +1,11 @@
 vim.cmd.colorscheme("gruvbuddy")
 
 -- General
-vim.cmd("highlight ColorColumn ctermbg=0 guibg=#555555")
+vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#555555" })
+
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "ZenBg", { bg = "none" })
-vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#000000", bg ="#000000" })
+vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#000000", bg = "#000000" })
 
 -- Spelling stuff
 vim.api.nvim_set_hl(0, "SpellBad", { fg = "#A9352B" })

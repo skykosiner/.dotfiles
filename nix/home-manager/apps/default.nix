@@ -13,6 +13,7 @@
     ];
 
     home.packages = with pkgs; [
+        calibre
         lunar-client
         yt-dlp
         cmatrix
