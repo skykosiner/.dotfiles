@@ -86,3 +86,19 @@ vim.api.nvim_create_autocmd("WinResized", {
         end
     end
 })
+
+vim.api.nvim_create_autocmd("TermLeave", {
+    group = group,
+    callback = function()
+        vim.opt_local.relativenumber = true
+        vim.opt_local.number = true
+    end
+})
+
+vim.api.nvim_create_autocmd("TermEnter", {
+    group = group,
+    callback = function()
+        vim.opt_local.relativenumber = false
+        vim.opt_local.number = false
+    end
+})
