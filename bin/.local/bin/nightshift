@@ -1,0 +1,6 @@
+#!/bin/sh
+if [ ! -z $(pgrep wlsunset) ]; then
+    pkill wlsunset
+else
+    wlsunset -t 4900
+fi

@@ -122,3 +122,10 @@ normal_mode("<leader>re", function()
         vim.g.resize = true
     end
 end)
+
+-- Toggle themes
+normal_mode("<leader>dm", function()
+    vim.fn.system("/home/sky/.local/bin/darkMode")
+    vim.cmd.hi("clear")
+    vim.cmd.so("/home/sky/.config/nvim/after/plugin/colors.lua")
+end)

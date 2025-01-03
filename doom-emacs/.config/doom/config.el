@@ -1,7 +1,7 @@
 (setq user-full-name "Sky Kosiner"
       user-mail-address "sky@skykosiner.com")
 
-; (setq doom-font (font-spec :family "BerkeleyMono Nerd Font":size 16))
+(setq doom-font (font-spec :family "TX-02":size 23))
 (after! doom-themes
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t))
@@ -37,7 +37,7 @@
 (global-set-key (kbd "C-c i") 'lsp-ui-imenu)
 
 (define-key ctl-x-map "\C-i"
-  #'endless/ispell-word-then-abbrev)
+            #'endless/ispell-word-then-abbrev)
 
 (defun endless/simple-get-word ()
   (car-safe (save-excursion (ispell-get-word nil))))

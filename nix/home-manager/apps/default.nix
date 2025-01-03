@@ -21,6 +21,7 @@
         newsboat
         beeper
         # davinci-resolve
+        wlsunset
         teams-for-linux
         kitty
         spotify

@@ -84,3 +84,7 @@ _new() {
     read newItem
     zet new "$newItem"
 }
+
+gc() {
+    git commit -m "$1"
+}
