@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-nix-shell -p git --run "git clone https://github.com/skykosiner/.dotfiles /etc/nixos"
+nix-shell -p git --run "git clone https://github.com/skykosiner/.dotfiles" /etc/nixos
 nixos-generate-config
 nixos-install --flake /etc/nixos/.dotfiles/nix
