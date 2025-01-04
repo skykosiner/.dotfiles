@@ -36,23 +36,31 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- Terminal stuff
 normal_mode("<leader>ts", function()
-    vim.cmd("belowright 12split")
-    vim.cmd("set winfixheight")
-    vim.cmd("term")
-    vim.cmd("startinsert")
+    local b = vim.api.nvim_create_buf(false, true)
+    vim.api.nvim_open_win(b, true, {
+        split = "below",
+        height = 12,
+        fixed = true,
+    })
+
+    vim.cmd.term()
+    vim.cmd.startinsert()
 end)
 
 normal_mode("<leader>tv", function()
-    vim.cmd("vsplit")
-    vim.cmd("term")
-    vim.cmd("startinsert")
+    local b = vim.api.nvim_create_buf(false, true)
+    vim.api.nvim_open_win(b, true, {
+        split = "left",
+    })
+
+    vim.cmd.term()
+    vim.cmd.startinsert()
 end)
 
 normal_mode("<leader>tt", function()
     vim.cmd.tabnew()
-    vim.cmd.terminal()
+    vim.cmd.term()
     vim.cmd.startinsert()
-    require("harpoon"):list("term"):add()
 end)
 
 -- TODO: Finish setting up the floating terminal
@@ -110,9 +118,6 @@ end)
 normal_mode("<space>th", function()
     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = 0 }, { bufnr = 0 })
 end)
-
-vim.keymap.set("i", "<C-c>", "<esc>")
-
 
 -- Resize windows automatically toggle
 normal_mode("<leader>re", function()

@@ -2,6 +2,9 @@
 
 if [[ "$(gsettings get org.gnome.desktop.interface color-scheme)" == "'prefer-dark'" ]]; then
     gsettings set org.gnome.desktop.interface color-scheme "prefer-light"
+    # Reload colors in neovim window
+    # tmux send-keys  ":source ~/.config/nvim/after/plugin/colors.lua" Enter
 else
     gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
+    # tmux send-keys  ":source ~/.config/nvim/after/plugin/colors.lua" Enter
 fi

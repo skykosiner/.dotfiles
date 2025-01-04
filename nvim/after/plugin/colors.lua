@@ -8,16 +8,11 @@ if theme == "prefer-dark\n" then
     vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#555555" })
     vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#000000", bg = "#000000" })
 
-    -- Spelling stuff
-    vim.api.nvim_set_hl(0, "SpellBad", { fg = "#A9352B" })
-    vim.api.nvim_set_hl(0, "SpellCap", { fg = "#A9352B" })
 
     -- Line numbers
     -- vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#222222" })
     -- vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#222222" })
     vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#FFFF87", bg = "#111111" })
-
-    -- Tab line
 
     -- Markdown stuff
     vim.api.nvim_set_hl(0, "RenderMarkdownCode", { bg = "#111111" })
@@ -29,10 +24,6 @@ if theme == "prefer-dark\n" then
 
     -- CMP menu
     vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#000000" })
-    vim.api.nvim_set_hl(0, "CmpItemKind", { fg = "#FFFF87", bold = true })
-    vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#B294BB" })
-    vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = "#B294BB" })
-    vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecated", { fg = "#A9352B" })
 else
     vim.opt.background = "light"
     vim.cmd.colorscheme("default")
@@ -43,3 +34,13 @@ vim.api.nvim_set_hl(0, "ZenBg", { bg = "none" })
 
 vim.api.nvim_set_hl(0, "TabLine", { bg = "none", fg = "#222222" })
 vim.api.nvim_set_hl(0, "TabLineFill", { bg = "none" })
+
+-- Spelling stuff
+vim.api.nvim_set_hl(0, "SpellBad", { fg = "#A9352B" })
+vim.api.nvim_set_hl(0, "SpellCap", { fg = "#A9352B" })
+
+-- CMP STUFF
+vim.api.nvim_set_hl(0, "CmpItemKind", { fg = "#FFFF87", bold = true })
+vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#B294BB" })
+vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = "#B294BB" })
+vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecated", { fg = "#A9352B" })

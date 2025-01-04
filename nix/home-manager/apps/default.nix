@@ -13,6 +13,7 @@
     ];
 
     home.packages = with pkgs; [
+        chatterino2
         calibre
         lunar-client
         yt-dlp

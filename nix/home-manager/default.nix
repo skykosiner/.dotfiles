@@ -41,6 +41,7 @@ in {
         python312Packages.docx2txt
         exiftool
         networkmanagerapplet
+        flat-remix-gtk
         catdoc
         msmtp
         mediainfo
