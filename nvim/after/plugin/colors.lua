@@ -1,13 +1,12 @@
-local theme = vim.fn.system [[ gsettings get org.gnome.desktop.interface color-scheme | sed "s/'//g" ]]
+local theme = vim.fn.system [[ gsettings get org.gnome.desktop.interface color-scheme ]]
 
-if theme == "prefer-dark\n" then
+if theme == "'prefer-dark'\n" then
     vim.opt.background = "dark"
     vim.cmd.colorscheme("gruvbuddy")
 
     -- General
     vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#555555" })
     vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#000000", bg = "#000000" })
-
 
     -- Line numbers
     -- vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#222222" })
@@ -30,6 +29,8 @@ else
 end
 
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
 vim.api.nvim_set_hl(0, "ZenBg", { bg = "none" })
 
 vim.api.nvim_set_hl(0, "TabLine", { bg = "none", fg = "#222222" })

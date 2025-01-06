@@ -32,6 +32,16 @@ return {
                 }),
             })
 
+            -- markdown
+            ls.add_snippets("markdown", {
+                snippet("out", {
+                    t { "As always,",
+                        "Sincerely yours,",
+                        "Sky ❤️"
+                    }
+                }),
+            })
+
             -- Go snippets
             ls.add_snippets("go", {
                 snippet("ee", {
