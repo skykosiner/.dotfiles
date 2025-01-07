@@ -13,6 +13,7 @@
     ];
 
     home.packages = with pkgs; [
+        sqlitebrowser
         chatterino2
         calibre
         lunar-client
