@@ -37,7 +37,7 @@ alias c="clear"
 alias ..="cd .."
 alias :q="exit"
 alias livestream_screenkey="command screenkey -s large --scr 0 -p bottom --geometry 800x300+1760+1180 --timeout 0.55"
-alias td="vim -c ':ObsidianToday'"
+alias td="zet today"
 alias grep="grep --color=auto"
 alias lf="lfub"
 alias bc="bc -ql"
@@ -50,5 +50,4 @@ alias fixAudio="systemctl --user restart wireplumber pipewire pipewire-pulse"
 
 # For Mac
 alias urlS="/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -dump URLSchemeBinding"
-alias iCloud="cd $HOME/Library/Mobile\ Documents/com~apple~CloudDocs"
 

@@ -13,6 +13,8 @@
     ];
 
     home.packages = with pkgs; [
+        vesktop
+        discord
         sqlitebrowser
         chatterino2
         calibre

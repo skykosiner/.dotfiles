@@ -49,7 +49,7 @@ case "$(printf "%s\n" "$(readlink -f "$1")" | tr '[:upper:]' '[:lower:]')" in
         image "${CACHE}.jpg" "$2" "$3" "$4" "$5"
         ;;
     *)
-        bat --theme gruvbox-dark --terminal-width "$(($4-2))" -f "$1"
+        bat --theme GitHub --terminal-width "$(($4-2))" -f "$1"
         ;;
 esac
 exit 0

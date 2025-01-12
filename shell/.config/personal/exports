@@ -23,7 +23,6 @@ export BEMOJI_PICKER_CMD="fuzzel --dmenu --width 48"
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export QT_STYLE_OVERRIDE="Fusion"
 
-
 # Clean up home dir
 export GOPATH=$HOME/.local/go/
 export GOBIN=$HOME/.local/go/bin/
