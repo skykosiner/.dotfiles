@@ -35,6 +35,8 @@ return {
             lsp.setup_servers({
                 "basedpyright",
                 "lua_ls",
+                "html",
+                "cssls",
                 "gopls",
                 "rust_analyzer",
                 "lua_ls",
@@ -64,8 +66,6 @@ return {
                     }
                 }
             }
-
-            require("lspconfig").rust_analyzer.setup {}
 
             require("lspconfig").lua_ls.setup {
                 settings = {

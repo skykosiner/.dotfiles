@@ -20,6 +20,6 @@ end
 vim.keymap.set("n", "<leader>af", function()
     local alt_file = get_alt_file()
     if alt_file ~= "" then
-        vim.cmd(":e " .. get_alt_file())
+        vim.cmd.edit(alt_file)
     end
 end)
