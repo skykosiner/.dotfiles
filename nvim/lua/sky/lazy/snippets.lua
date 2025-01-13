@@ -42,6 +42,18 @@ return {
                 }),
             })
 
+            ls.add_snippets("python", {
+                snippet("start", {
+                    t "def main():",
+                    t { "", "    " }, i(1, "# function body"), t { "", "    " },
+                    t {
+                        "",
+                        'if __name__ == "__main__":',
+                        "     main()"
+                    }
+                }),
+            })
+
             -- Go snippets
             ls.add_snippets("go", {
                 snippet("ee", {
