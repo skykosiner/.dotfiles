@@ -10,5 +10,6 @@
         rustc
         go
         clang-tools
+        templ
     ];
 }

@@ -1,3 +1,9 @@
+vim.filetype.add({
+    extension = {
+       templ  = "templ",
+    },
+})
+
 vim.g.mapleader = " "
 vim.g.resize = true
 require("sky.sets")

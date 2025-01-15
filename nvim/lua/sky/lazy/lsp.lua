@@ -41,6 +41,7 @@ return {
                 "rust_analyzer",
                 "lua_ls",
                 "vtsls",
+                "templ"
             })
 
             require("lspconfig").gopls.setup {
@@ -77,7 +78,12 @@ return {
                 }
             }
 
+            require("lspconfig").html.setup {
+                filetypes = { "html", "templ" },
+            }
+
             require("lspconfig").vtsls.setup {
+                filetypes = { "javascrit", "typescript", "react" },
                 settings = {
                     typescript = {
                         inlayHints = {
@@ -117,4 +123,18 @@ return {
             lsp.setup()
         end
     },
+    {
+        "stevearc/conform.nvim",
+        opts = {
+            formatters_by_ft = {
+                go = { "goimports", "gofmt", "golines" },
+                templ = { "templ" },
+
+                lua = { "stylua" },
+            },
+            format_after_save = {
+                lsp_fallback = true,
+            },
+        }
+    }
 }
