@@ -27,6 +27,8 @@
         openssl
         pkg-config
 
+        sqlite
+
         bc
         arp-scan
 
