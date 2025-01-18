@@ -215,4 +215,5 @@ in {
     };
 
     hardware.openrazer.enable = true;
+    networking.firewall.allowedTCPPorts = [ 42069 ];
 }
