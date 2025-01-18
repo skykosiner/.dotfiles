@@ -19,7 +19,7 @@ in {
         # };
                 lines = 16;
                 terminal = "alacritty";
-                tabs = 2;
+                tabs = 4;
                 width = 69;
                 horizontal-pad = 32;
                 vertical-pad = 32;

@@ -9,7 +9,6 @@ in {
         zsh-autosuggestions
     ];
 
-
     home.file = {
         ".zshrc".source = mkOutOfStoreSymlink "/home/sky/.dotfiles/zsh/.zshrc";
         ".zshenv".source = mkOutOfStoreSymlink "/home/sky/.dotfiles/zsh/.zshenv";
