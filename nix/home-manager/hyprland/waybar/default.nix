@@ -124,7 +124,7 @@ in {
         settings = [
             {
                 layer = "top";
-                position = "top";
+                position = "bottom";
                 height = 35;
                 # margin-top = 10;
                 # margin-left = 10;

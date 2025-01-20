@@ -31,6 +31,7 @@ in {
         figlet
         cowsay
         gh-markdown-preview
+        playerctl
         groff
         pfetch
         killall

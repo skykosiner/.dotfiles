@@ -12,11 +12,7 @@
         font-style-bold = "ExtraBold"
         font-style-bold-italic = "ExtraBold Oblique"
         font-size = 16
-
-        # SYNTHETIC FONT STYLE GENERATION
         font-synthetic-style = false
-
-        # DISABLE FONT LIGATURES: -calt -liga -dlig
         font-feature = -calt
 
         cursor-style = block
