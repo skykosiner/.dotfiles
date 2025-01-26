@@ -32,7 +32,7 @@ in {
 
         loader = {
             systemd-boot.enable = true;
-            efi.canTouchEfiVariables = true;
+            efi.canTouchEfiVariables = false;
         };
     };
 
@@ -55,11 +55,8 @@ in {
         };
     };
 
-    services.xserver.enable = true;
-    programs.hyprland.enable = true;
-    services.displayManager.sddm.enable = true;
-
     services.xserver = {
+        enable = true;
         xkb = {
             layout = "us";
             extraLayouts.real-prog-dvorak = {
@@ -69,6 +66,9 @@ in {
             };
         };
     };
+
+    programs.hyprland.enable = true;
+    services.displayManager.sddm.enable = true;
 
     virtualisation.docker.enable = true;
 

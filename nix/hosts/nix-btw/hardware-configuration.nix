@@ -29,6 +29,11 @@
       fsType = "ext4";
     };
 
+  fileSystems."/home/sky/Media" =
+    { device = "/dev/disk/by-uuid/2aeae586-bd54-48d0-a8dd-f439d6090e1e";
+      fsType = "ext4";
+    };
+
   swapDevices =
     [ { device = "/dev/disk/by-uuid/b2ab27e1-f842-4c80-bbc2-dbba7c9b982d"; }
     ];
