@@ -29,7 +29,7 @@
       fsType = "ext4";
     };
 
-  fileSystems."/home/sky/Media" =
+  fileSystems."/mnt/backups" =
     { device = "/dev/disk/by-uuid/2aeae586-bd54-48d0-a8dd-f439d6090e1e";
       fsType = "ext4";
     };

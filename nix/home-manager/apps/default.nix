@@ -13,6 +13,7 @@
     ];
 
     home.packages = with pkgs; [
+        timeshift
         vesktop
         discord
         sqlitebrowser
