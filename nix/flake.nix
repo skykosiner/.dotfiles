@@ -6,6 +6,8 @@
         neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
         nix-doom-emacs-unstraightened.url = "github:marienz/nix-doom-emacs-unstraightened";
 
+        zen-browser.url = "github:MarceColl/zen-browser-flake";
+
         asus-wmi-screenpad={
             url = "github:MatthewCash/asus-wmi-screenpad-module";
             inputs.nixpkgs.follows="nixpkgs";

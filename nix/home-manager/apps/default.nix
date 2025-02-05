@@ -37,6 +37,7 @@
         mpv
         obsidian
         brave
+        google-chrome
         nsxiv
         qbittorrent
         bitwarden-desktop
