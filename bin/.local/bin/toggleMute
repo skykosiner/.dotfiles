@@ -1,0 +1,3 @@
+#!/bin/sh
+
+pulsemixer --list-sources | cut -f3 | grep "AT2020USB+ Analog Stereo" | cut -d ',' -f 1 | cut -c 6-

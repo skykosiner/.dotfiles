@@ -11,9 +11,11 @@ case "$1" in
         ;;
     "-prev")
         spotifycli --prev
+        pkill -SIGRTMIN+10 waybar
         ;;
     "-next")
         spotifycli --next
+        pkill -SIGRTMIN+10 waybar
         ;;
     "-status")
         if spotifycli --status;

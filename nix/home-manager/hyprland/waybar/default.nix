@@ -113,12 +113,14 @@ in {
 
         #custom-todoist {
             color: #DCA3A2;
-            padding-right: 5px;
         }
 
         #custom-aircon {
             color: #B5DEDB;
-            padding-right: 5px;
+        }
+
+        #custom-spotify {
+            color: #20E5A4;
         }
         '';
         settings = [
@@ -136,7 +138,7 @@ in {
                     "custom/dot"
                     "custom/aircon"
                     "custom/dot"
-                    "custom/todoist"
+                    "custom/spotify"
                 ];
                 modules-center = [
                     "hyprland/workspaces"
@@ -145,6 +147,8 @@ in {
                     "battery"
                     "custom/dot"
                 ] ++ [
+                    "custom/todoist"
+                    "custom/dot"
                     "pulseaudio"
                     "custom/dot"
                     "network"
@@ -172,9 +176,14 @@ in {
                     on-scroll-up = "hyprctl dispatch workspace e+1";
                     on-scroll-down = "hyprctl dispatch workspace e-1";
                     format-icons = {
-                        urgent = "";
-                        active = "";
-                        default = "";
+                        "1" = "1";
+                        "2" = "2";
+                        "3" = "3";
+                        "4" = "4";
+                        "6" = "6";
+                        "7" = "7";
+                        "8" = "8";
+                        "9" = "9";
                     };
                 };
                 clock = {
@@ -222,8 +231,8 @@ in {
                     signal = 9;
                 };
                 "custom/spotify" = {
-                    format = " ${airconIcon} {}";
-                    interval = 60;
+                    format = "   {}";
+                    interval = 1;
                     exec = "/home/sky/.local/bin/statusbar/sb-music";
                     signal = 10;
                 };
