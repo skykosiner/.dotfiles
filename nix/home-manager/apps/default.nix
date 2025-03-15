@@ -13,6 +13,8 @@
     ];
 
     home.packages = with pkgs; [
+        steam
+        todoist-electron
         timeshift
         vesktop
         discord
