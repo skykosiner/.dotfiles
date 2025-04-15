@@ -26,6 +26,7 @@ in {
 
     nixpkgs.config.allowUnfree = true;
     home.packages = with pkgs; [
+        android-tools
         highlight
         lolcat
         figlet

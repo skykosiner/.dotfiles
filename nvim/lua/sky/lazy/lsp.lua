@@ -38,6 +38,7 @@ return {
                 "html",
                 "cssls",
                 "gopls",
+                "clangd",
                 "rust_analyzer",
                 "lua_ls",
                 "vtsls",
@@ -49,9 +50,9 @@ return {
                 settings = {
                     gopls = {
                         ["ui.inlayhint.hints"] = {
-                            compositeLiteralFields = true,
-                            constantValues = true,
-                            parameterNames = true
+                            compositeLiteralFields = false,
+                            constantValues = false,
+                            parameterNames = false
                         },
                     },
                 },
@@ -88,12 +89,12 @@ return {
                 settings = {
                     typescript = {
                         inlayHints = {
-                            parameterNames = { enabled = "all" },
-                            parameterTypes = { enabled = true },
-                            variableTypes = { enabled = true },
-                            propertyDeclarationTypes = { enabled = true },
-                            functionLikeReturnTypes = { enabled = true },
-                            enumMemberValues = { enabled = true },
+                            -- parameterNames = { enabled = "all" },
+                            parameterTypes = { enabled = false },
+                            variableTypes = { enabled = false },
+                            propertyDeclarationTypes = { enabled = false },
+                            functionLikeReturnTypes = { enabled = false },
+                            enumMemberValues = { enabled = false },
                         },
                     },
                 },
