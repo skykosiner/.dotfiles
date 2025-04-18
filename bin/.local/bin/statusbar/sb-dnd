@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+level=$(dunstctl get-pause-level)
+
+if [[ $level == 100 ]]; then
+    echo -e "\uf186"
+else
+    echo -e "\uf0f3"
+fi
