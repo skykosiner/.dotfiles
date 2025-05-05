@@ -15,6 +15,8 @@
         font-synthetic-style = false
         font-feature = -calt
 
+        background-opacity = 0.8
+
         cursor-style = block
         cursor-style-blink = false
         theme = nord-custom
