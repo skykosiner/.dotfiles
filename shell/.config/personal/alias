@@ -25,7 +25,7 @@ alias gd="git diff --shortstat | command cat"
 alias gaa="git commit --amend"
 alias ig="vim -c 'G'"
 
-alias rm="rm -i"
+alias rm="trash"
 alias cp="cp -i"
 alias mv="mv -i"
 

@@ -5,6 +5,7 @@ return {
             vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
             vim.keymap.set("n", "<leader>gp", function() vim.cmd.Git("pull") end)
             vim.keymap.set("n", "<leader>gl", function() vim.cmd.Git("log") end)
+            vim.keymap.set("n", ",gd", function() vim.cmd.Git("diff") end)
 
             local Sky_Fugitive = vim.api.nvim_create_augroup("Sky_Fugitive", {})
 

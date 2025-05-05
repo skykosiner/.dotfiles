@@ -13,6 +13,7 @@
     ];
 
     home.packages = with pkgs; [
+        trash-cli
         steam
         todoist-electron
         timeshift
@@ -29,6 +30,7 @@
         beeper
         # davinci-resolve
         wlsunset
+        thunderbird
         teams-for-linux
         kitty
         spotify

@@ -122,6 +122,10 @@ in {
         #custom-spotify {
             color: #20E5A4;
         }
+
+        #custom-dnd {
+            color: #9D4040;
+        }
         '';
         settings = [
             {
@@ -139,6 +143,8 @@ in {
                     "custom/aircon"
                     "custom/dot"
                     "custom/spotify"
+                    "custom/dot"
+                    "custom/dnd"
                 ];
                 modules-center = [
                     "hyprland/workspaces"
@@ -234,6 +240,13 @@ in {
                     format = "   {}";
                     interval = 1;
                     exec = "/home/sky/.local/bin/statusbar/sb-music";
+                    signal = 10;
+                };
+                "custom/dnd" = {
+                    format = " {}";
+                    interval = 60;
+                    exec = "/home/sky/.local/bin/statusbar/sb-dnd";
+                    on-click = "dunstctl set-paused toggle";
                     signal = 10;
                 };
             }

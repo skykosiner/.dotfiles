@@ -46,7 +46,7 @@ cmd delete ${{
 	printf "%s\n\t" "$fx"
 	printf "delete?[y/N]"
 	read ans
-	[ $ans = "y" ] && rm -rf -- $fx
+	[ $ans = "y" ] && trash -rf -- $fx
 }}
 
 cmd moveto ${{
@@ -90,8 +90,6 @@ cmd openSQL ${{
 cmd bulkrename $vidir
 
 map <c-p>
-map d
-map d dragon
 map <c-f> $lf -remote "send $id select '$(fzf)'"
 map b setbg $f
 map gh
@@ -109,7 +107,7 @@ map X !$f
 map O $mimeopen --ask $f
 
 map A rename # at the very end
-map c push A<c-u> # new rename
+# map c push A<c-u> # new rename
 map I push A<c-a> # at the very beginning
 map i push A<a-b><a-b><a-f> # before extention
 map a push A<a-b> # after extention

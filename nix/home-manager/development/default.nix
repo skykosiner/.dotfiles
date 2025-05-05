@@ -11,6 +11,10 @@
     ];
 
     home.packages = with pkgs; [
+        bun
+        gjs
+
+        inetutils
         wirelesstools
         unzip
         ripgrep
