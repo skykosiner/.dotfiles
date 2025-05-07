@@ -15,7 +15,7 @@
         font-synthetic-style = false
         font-feature = -calt
 
-        background-opacity = 0.8
+        background-opacity = 0.7
 
         cursor-style = block
         cursor-style-blink = false
