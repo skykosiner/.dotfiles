@@ -8,7 +8,7 @@ return {
         local todoist = require("todoist")
         todoist:setup({
             api_key = todoist_api_key,
-            update_time = 5000,
+            update_time = 5*60000,
         })
 
         vim.keymap.set("n", "<leader>td", function()
