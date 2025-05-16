@@ -159,6 +159,8 @@ in {
                     "custom/dot"
                     "network"
                     "custom/dot"
+                    "custom/time-tracking"
+                    "custom/dot"
                     "clock"
                 ];
                 "custom/linux" = {
@@ -248,6 +250,11 @@ in {
                     exec = "/home/sky/.local/bin/statusbar/sb-dnd";
                     on-click = "dunstctl set-paused toggle";
                     signal = 10;
+                };
+                "custom/time-tracking" = {
+                    format = " {}";
+                    interval = 1;
+                    exec = "/home/sky/.local/bin/statusbar/sb-time-tracking";
                 };
             }
         ];
