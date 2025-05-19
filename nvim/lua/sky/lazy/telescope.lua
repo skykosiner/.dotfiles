@@ -64,6 +64,7 @@ return {
             vim.keymap.set("n", "<leader>vrc", function()
                 require("telescope.builtin").find_files({
                     prompt_title = ".dotfiles",
+                    find_command = { "rg", "--files", "--color", "never", "--no-require-git", "-g", "!backgrounds/", "-g", "!.git/"},
                     cwd = os.getenv("HOME") .. "/.dotfiles",
                     hidden = true,
                 })
