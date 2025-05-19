@@ -3,7 +3,7 @@
 let
   apps = import ./apps { inherit pkgs; };
   theme = import ./theme { inherit pkgs lib hostname; };
-  hyprland = import ./hyprland { inherit pkgs; };
+  hyprland = import ./hyprland { inherit pkgs hostname; };
   development = import ./development { inherit pkgs; };
 
 in {
