@@ -43,8 +43,19 @@ return {
                 "lua_ls",
                 "vtsls",
                 "sqls",
-                "templ"
+                "templ",
+                "nil_ls"
             })
+
+            require("lspconfig").nil_ls.setup {
+                settings = {
+                    ['nil'] = {
+                        formatting = {
+                            command = { "nixfmt" },
+                        },
+                    },
+                },
+            }
 
             require("lspconfig").gopls.setup {
                 settings = {
@@ -131,7 +142,6 @@ return {
             formatters_by_ft = {
                 go = { "goimports", "gofmt", "golines" },
                 templ = { "templ" },
-
                 lua = { "stylua" },
             },
             format_after_save = {

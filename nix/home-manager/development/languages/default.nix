@@ -5,6 +5,8 @@
         python3
         python312Packages.pip
         nodePackages.vscode-langservers-extracted
+        nil
+        nixfmt
         nodejs
         cargo
         rustc
