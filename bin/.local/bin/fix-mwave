@@ -1,0 +1,12 @@
+#!/bin/sh
+
+while true; do
+  if [ -d /run/media/sky/MWAVE ]; then
+    sudo cp /home/sky/Downloads/20250202-ansi-WINDOWS-5662f45-6a6ce16/20250202-ansi-WINDOWS-5662f45-6a6ce16.uf2 /run/media/sky/MWAVE
+    # sudo cp /home/sky/personal/zmk-config-mwave/build/zephyr/zmk.uf2 /run/media/sky/MWAVE
+    echo "Firmware copied!"
+    break
+  fi
+  sleep 0.1
+done
+
