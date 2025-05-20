@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+PRIVATE=false
+HELP=false
+ERROR=false
+
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        -p|--private)
+            PRIVATE=true
+            shift
+            ;;
+        -h|--help)
+            HELP=true
+            shift
+            ;;
+        *)
+            echo "Error: Unknown option $1"
+            ERROR=true
+            shift
+            ;;
+    esac
+done
+
+if [ "$HELP" = true ] || [ "$ERROR" = true ]; then
+    echo "Usage: $0 [OPTIONS]"
+    echo "Options:"
+    echo "  -p, --private   Create a private repository (default is public)"
+    echo "  -h, --help      Show this help message"
+    exit $([ "$ERROR" = true ] && echo 1 || echo 0)
+fi
+
+# Determine visibility flag
+VISIBILITY_FLAG="--public"
+if [ "$PRIVATE" = true ]; then
+    VISIBILITY_FLAG="--private"
+fi
+
+# Create and push the repository
+if ! gh repo create "$VISIBILITY_FLAG" --source . --push; then
+    echo "Error: Failed to create repository" >&2
+    exit 1
+fi
+
+echo "Repository created and pushed successfully!"
+exit 0
