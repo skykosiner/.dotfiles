@@ -11,6 +11,8 @@
     ];
 
     home.packages = with pkgs; [
+        ansible
+
         bun
         gjs
 

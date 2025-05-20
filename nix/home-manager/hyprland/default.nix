@@ -179,7 +179,7 @@ in {
         "waybar"
       ];
 
-      exec = [ "~/.local/bin/screenLock" ];
+      exec = (if isLaptop then [ "~/.local/bin/screenLock" ] else [ ]);
 
       general = {
         gaps_in = 0;
