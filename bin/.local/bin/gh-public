@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [ $1 == "true" ]; then
+    gh repo edit --visibility "public" --accept-visibility-change-consequences
+elif [ $1 == "false" ]; then
+    gh repo edit --visibility "private" --accept-visibility-change-consequences
+fi
