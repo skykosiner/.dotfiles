@@ -13,6 +13,7 @@
     ];
 
     home.packages = with pkgs; [
+        nextcloud-client
         trash-cli
         steam
         todoist-electron
