@@ -28,15 +28,15 @@ in {
     };
   };
 
-  boot = {
-    kernelModules = [ "v4l2loopback" "sg" ];
-    extraModulePackages = [ pkgs.linuxPackages.v4l2loopback ];
-
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = false;
-    };
-  };
+  # boot = {
+  #   kernelModules = [ "v4l2loopback" ];
+  #   extraModulePackages = [ pkgs.linuxPackages.v4l2loopback ];
+  #
+  #   loader = {
+  #     systemd-boot.enable = true;
+  #     efi.canTouchEfiVariables = false;
+  #   };
+  # };
 
   networking.networkmanager.enable = true;
 
@@ -106,7 +106,10 @@ in {
 
   programs.zsh.enable = true;
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowUnsupportedSystem = true;
+  };
 
   environment.systemPackages = with pkgs; [
     cron
