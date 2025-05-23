@@ -29,7 +29,7 @@ in {
   };
 
   boot = {
-    kernelModules = [ "v4l2loopback" ];
+    kernelModules = [ "v4l2loopback" "sg" ];
     extraModulePackages = [ pkgs.linuxPackages.v4l2loopback ];
 
     loader = {

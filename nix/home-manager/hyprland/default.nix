@@ -159,6 +159,9 @@ in {
       misc = {
         enable_swallow = true;
         swallow_regex = "^(com.mitchellh.ghostty)$";
+        force_default_wallpaper = 0;
+        disable_hyprland_logo = true;
+        background_color = "0x222222";
       };
 
       device = [{
@@ -174,8 +177,8 @@ in {
 
       "exec-once" = [
         "hyprctl setcursor Bibata-Modern-Classic 16"
-        "swww init"
-        "swww restore"
+        # "swww init"
+        # "swww restore"
         "waybar"
       ];
 

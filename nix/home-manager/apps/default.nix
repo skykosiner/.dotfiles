@@ -13,6 +13,7 @@
     ];
 
     home.packages = with pkgs; [
+        makemkv
         nextcloud-client
         trash-cli
         steam
