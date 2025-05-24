@@ -19,6 +19,8 @@
     useExperimentalGPUDriver = true;
   };
 
+  services.xserver.libinput.disableWhileTyping = true;
+
   networking.hostName = "mac-btw";
 }
 

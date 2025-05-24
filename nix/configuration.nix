@@ -106,10 +106,8 @@ in {
 
   programs.zsh.enable = true;
 
-  nixpkgs.config = {
-    allowUnfree = true;
-    allowUnsupportedSystem = true;
-  };
+  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnsupportedSystem = true;
 
   environment.systemPackages = with pkgs; [
     cron
