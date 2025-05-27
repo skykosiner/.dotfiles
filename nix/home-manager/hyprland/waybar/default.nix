@@ -132,10 +132,10 @@ in {
                 layer = "top";
                 position = "bottom";
                 height = 35;
-                # margin-top = 10;
-                # margin-left = 10;
-                # margin-bottom = 0;
-                # margin-right = 10;
+                margin-top = 0;
+                margin-left = 0;
+                margin-bottom = 0;
+                margin-right = 5;
                 spacing = 0;
                 modules-left = [
                     "custom/linux"

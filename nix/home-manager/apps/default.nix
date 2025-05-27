@@ -18,7 +18,7 @@ in {
       cmatrix
       lazygit
       newsboat
-      # davinci-resolve
+      davinci-resolve
       wlsunset
       thunderbird
       teams-for-linux

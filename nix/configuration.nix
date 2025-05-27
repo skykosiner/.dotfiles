@@ -28,15 +28,15 @@ in {
     };
   };
 
-  # boot = {
-  #   kernelModules = [ "v4l2loopback" ];
-  #   extraModulePackages = [ pkgs.linuxPackages.v4l2loopback ];
-  #
-  #   loader = {
-  #     systemd-boot.enable = true;
-  #     efi.canTouchEfiVariables = false;
-  #   };
-  # };
+   boot = {
+     kernelModules = [ "v4l2loopback" ];
+     extraModulePackages = [ pkgs.linuxPackages.v4l2loopback ];
+
+     loader = {
+       systemd-boot.enable = true;
+       efi.canTouchEfiVariables = false;
+     };
+   };
 
   networking.networkmanager.enable = true;
 
@@ -214,5 +214,5 @@ in {
   };
 
   hardware.openrazer.enable = true;
-  networking.firewall.allowedTCPPorts = [ 43665 ];
+  networking.firewall.allowedTCPPorts = [ 42069 ];
 }
