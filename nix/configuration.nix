@@ -28,15 +28,15 @@ in {
     };
   };
 
-   boot = {
-     kernelModules = [ "v4l2loopback" ];
-     extraModulePackages = [ pkgs.linuxPackages.v4l2loopback ];
+  boot = {
+    kernelModules = [ "v4l2loopback" ];
+    extraModulePackages = [ pkgs.linuxPackages.v4l2loopback ];
 
-     loader = {
-       systemd-boot.enable = true;
-       efi.canTouchEfiVariables = false;
-     };
-   };
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = false;
+    };
+  };
 
   networking.networkmanager.enable = true;
 
@@ -111,7 +111,6 @@ in {
 
   environment.systemPackages = with pkgs; [
     cron
-    cronie
     wget
     home-manager
     file
@@ -212,6 +211,9 @@ in {
     fsType = "cifs";
     options = cifsOptions;
   };
+
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "sky" ];
 
   hardware.openrazer.enable = true;
   networking.firewall.allowedTCPPorts = [ 42069 ];

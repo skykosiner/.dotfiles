@@ -16,6 +16,7 @@ in {
 
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
+    wineWow64Packages.full
     android-tools
     highlight
     lolcat

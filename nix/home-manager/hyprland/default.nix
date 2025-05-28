@@ -78,6 +78,8 @@ in {
         "ALT, space, exec, $HOME/.local/bin/quick-add-task"
         ''
           $mainMod SHIFT, s, exec, grim -g "$(slurp)" ~/Pictures/Captures/"$(date +%d%m%y%s).png"''
+        ''
+          $mainMod SHIFT, n, exec, grim -g "$(slurp)" - | wl-copy''
         "$mainMod SHIFT, P, exec, hyprpicker -a | wl-copy"
         "$mainMod, w, exec, nsxiv -t $HOME/.dotfiles/backgrounds/"
         "$mainMod SHIFT, B, exec, pkill waybar || waybar"
@@ -355,6 +357,9 @@ in {
 
       bind = ,s,exec,$HOME/.local/bin/snipets
       bind = ,s,submap,reset
+
+      bind = ,v,exec,$HOME/.local/bin/VMs
+      bind = ,v,submap,reset
 
       bind = ,t,exec,$HOME/.local/bin/togglNew saved
       bind = ,t,submap,reset

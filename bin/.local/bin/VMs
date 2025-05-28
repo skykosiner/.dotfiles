@@ -1,0 +1,6 @@
+#!/bin/sh
+
+vms=$(VBoxManage list vms | awk '{gsub(/"/,""); print $1}')
+vm=$(echo "$vms" | fuzzel --dmenu)
+
+VBoxManage startvm "$vm"
