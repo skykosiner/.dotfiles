@@ -39,6 +39,11 @@
     fsType = "ext4";
   };
 
+#  fileSystems."/mnt/steam-libary" = {
+#    device = "/dev/sdb2";
+#    fsType = "ntfs";
+#  };
+
   swapDevices =
     [{ device = "/dev/disk/by-uuid/b2ab27e1-f842-4c80-bbc2-dbba7c9b982d"; }];
 

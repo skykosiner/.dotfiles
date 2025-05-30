@@ -18,6 +18,7 @@ in {
     wl-clipboard
     networkmanagerapplet
     hyprpicker
+    wayvnc
   ];
 
   wayland.windowManager.hyprland = {
@@ -78,8 +79,7 @@ in {
         "ALT, space, exec, $HOME/.local/bin/quick-add-task"
         ''
           $mainMod SHIFT, s, exec, grim -g "$(slurp)" ~/Pictures/Captures/"$(date +%d%m%y%s).png"''
-        ''
-          $mainMod SHIFT, n, exec, grim -g "$(slurp)" - | wl-copy''
+        ''$mainMod SHIFT, n, exec, grim -g "$(slurp)" - | wl-copy''
         "$mainMod SHIFT, P, exec, hyprpicker -a | wl-copy"
         "$mainMod, w, exec, nsxiv -t $HOME/.dotfiles/backgrounds/"
         "$mainMod SHIFT, B, exec, pkill waybar || waybar"
@@ -100,7 +100,7 @@ in {
         "$mainMod, t, togglegroup"
 
         "$mainMod, o, exec, $terminal -e /home/sky/.local/bin/lfub"
-        "$mainMod SHIFT, w, exec, brave"
+        "$mainMod SHIFT, w, exec, zen"
       ];
       bindm = [
         "$mainMod, mouse:272, movewindow"
@@ -352,7 +352,7 @@ in {
       bind = SHIFT,e,exec,export BEMOJI_PICKER_CMD="fuzzel --dmenu --width 48" && bemoji
       bind = SHIFT,e,submap,reset
 
-      bind = ,w,exec,fuzzel --dmenu --lines 0 --placeholder "Type your search" | sed 's/^/"&/g;s/$/"/g' | xargs -I {} brave --new-window "https://search.brave.com/search?q={}"
+      bind = ,w,exec,fuzzel --dmenu --lines 0 --placeholder "Type your search" | sed 's/^/"&/g;s/$/"/g' | xargs -I {} zen --new-window "https://google.com/search?q={}"
       bind = ,w,submap,reset
 
       bind = ,s,exec,$HOME/.local/bin/snipets

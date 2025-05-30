@@ -40,6 +40,13 @@ in {
 
   networking.networkmanager.enable = true;
 
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+    localNetworkGameTransfers.openFirewall = true;
+  };
+
   time.timeZone = "Europe/London";
 
   i18n = {
@@ -200,6 +207,8 @@ in {
 
   system.stateVersion = "24.05"; # Keep this as your first install version
 
+  services.usbmuxd = { enable = true; };
+
   fileSystems."/mnt/server" = {
     device = "//10.0.0.36/Files";
     fsType = "cifs";
@@ -213,8 +222,9 @@ in {
   };
 
   virtualisation.virtualbox.host.enable = true;
+  nixpkgs.config.virtualbox.host.enableExtensionPack = true;
   users.extraGroups.vboxusers.members = [ "sky" ];
 
   hardware.openrazer.enable = true;
-  networking.firewall.allowedTCPPorts = [ 42069 ];
+  networking.firewall.allowedTCPPorts = [ 42069 5900 ];
 }

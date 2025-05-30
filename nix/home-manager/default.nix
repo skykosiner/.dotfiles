@@ -7,7 +7,8 @@ let
   development = import ./development { inherit pkgs; };
 
 in {
-  imports = [ apps theme hyprland development ];
+  imports =
+    [ apps theme hyprland development inputs.zen-browser.homeModules.beta ];
 
   home.username = "sky";
   home.homeDirectory = "/home/sky";
@@ -42,6 +43,14 @@ in {
     atool
     pulsemixer
   ];
+
+  programs.zen-browser = {
+    enable = true;
+    policies = {
+      DisableAppUpdate = true;
+      DisableTelemetry = true;
+    };
+  };
 
   home.sessionVariables = { EDITOR = "nvim"; };
 
