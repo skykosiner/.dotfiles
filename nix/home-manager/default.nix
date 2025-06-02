@@ -10,49 +10,56 @@ in {
   imports =
     [ apps theme hyprland development inputs.zen-browser.homeModules.beta ];
 
-  home.username = "sky";
-  home.homeDirectory = "/home/sky";
-  xdg.dataHome = "/home/sky/.local/share/";
-  home.stateVersion = "24.05";
+  home = {
+    username = "sky";
+    homeDirectory = "/home/sky";
+    stateVersion = "24.05";
+    sessionVariables = { EDITOR = "nvim"; };
 
-  nixpkgs.config.allowUnfree = true;
-  home.packages = with pkgs; [
-    wineWow64Packages.full
-    android-tools
-    highlight
-    lolcat
-    figlet
-    cowsay
-    gh-markdown-preview
-    playerctl
-    groff
-    pfetch
-    killall
-    udiskie
-    ffmpegthumbnailer
-    pandoc
-    poppler_utils
-    python312Packages.docx2txt
-    exiftool
-    networkmanagerapplet
-    flat-remix-gtk
-    catdoc
-    msmtp
-    mediainfo
-    lynx
-    atool
-    pulsemixer
-  ];
-
-  programs.zen-browser = {
-    enable = true;
-    policies = {
-      DisableAppUpdate = true;
-      DisableTelemetry = true;
-    };
+    packages = with pkgs; [
+      wineWow64Packages.full
+      android-tools
+      highlight
+      lolcat
+      figlet
+      cowsay
+      gh-markdown-preview
+      playerctl
+      groff
+      pfetch
+      killall
+      udiskie
+      ffmpegthumbnailer
+      pandoc
+      poppler_utils
+      python312Packages.docx2txt
+      exiftool
+      networkmanagerapplet
+      flat-remix-gtk
+      catdoc
+      msmtp
+      mediainfo
+      lynx
+      atool
+      pulsemixer
+    ];
   };
 
-  home.sessionVariables = { EDITOR = "nvim"; };
+  xdg.dataHome = "/home/sky/.local/share/";
+
+  nixpkgs.config.allowUnfree = true;
+
+  programs = {
+    zen-browser = {
+      enable = true;
+      policies = {
+        DisableAppUpdate = true;
+        DisableTelemetry = true;
+      };
+    };
+
+    home-manager.enable = true;
+  };
 
   services.udiskie = { enable = true; };
 
@@ -71,6 +78,4 @@ in {
     };
     enable = true;
   };
-
-  programs.home-manager.enable = true;
 }

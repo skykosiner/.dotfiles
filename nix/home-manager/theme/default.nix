@@ -2,12 +2,6 @@
 
 let desktop = (hostname == "nix-btw");
 in {
-  home.pointerCursor = {
-    gtk.enable = true;
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Classic";
-    size = 16;
-  };
 
   gtk = {
     enable = true;
@@ -46,10 +40,19 @@ in {
     "org/gtk/settings/file-chooser" = { sort-directories-first = true; };
   };
 
-  home.packages = with pkgs; [ libsForQt5.qt5ct ];
+  home = {
+    packages = with pkgs; [ libsForQt5.qt5ct ];
 
-  home.sessionVariables = {
-    QT_QPA_PLATFORMTHEME = "qt5ct";
-    QT_STYLE_OVERRIDE = "Fusion";
+    pointerCursor = {
+      gtk.enable = true;
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Classic";
+      size = 16;
+    };
+
+    sessionVariables = {
+      QT_QPA_PLATFORMTHEME = "qt5ct";
+      QT_STYLE_OVERRIDE = "Fusion";
+    };
   };
 }

@@ -7,7 +7,7 @@ in {
 
   home.packages = with pkgs;
     (if notMac then [ discord beeper spotify google-chrome ] else [ ]) ++ [
-      nextcloud-client
+      makemkv
       trash-cli
       timeshift
       vesktop

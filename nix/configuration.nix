@@ -38,13 +38,40 @@ in {
     };
   };
 
-  networking.networkmanager.enable = true;
+  networking = {
+    networkmanager.enable = true;
+    wireguard.enable = true;
 
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-    localNetworkGameTransfers.openFirewall = true;
+    firewall.allowedTCPPorts = [ 42069 5900 ];
+
+    wg-quick.interfaces = {
+      wg0 = {
+        address = [ "10.132.18.7/24" ];
+        dns = [ "10.132.18.1" ];
+        privateKeyFile = "/home/sky/.dotfiles/private_stuff/privateKey";
+
+        peers = [{
+          publicKey = "9MAJnKepYwy2WSis4BHbIANfPoam7+1V30R40GxGVW0=";
+          presharedKeyFile = "/home/sky/.dotfiles/private_stuff/presharedKey";
+          endpoint = builtins.readFile
+            "/home/sky/.dotfiles/private_stuff/endpoint_ip.txt";
+          allowedIPs = [ "0.0.0.0/0" "::/0" ];
+        }];
+      };
+    };
+  };
+
+  programs = {
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+      localNetworkGameTransfers.openFirewall = true;
+    };
+
+    hyprland.enable = true;
+    zsh.enable = true;
+    gnupg.agent.enable = true;
   };
 
   time.timeZone = "Europe/London";
@@ -64,57 +91,42 @@ in {
     };
   };
 
-  services.xserver = {
-    enable = true;
-    xkb = {
-      layout = "us";
-      extraLayouts.real-prog-dvorak = {
-        description = "real-prog-dvoark";
-        languages = [ "eng" ];
-        symbolsFile = ./symbols/real-prog-dvorak;
+  services = {
+    xserver = {
+      enable = true;
+      xkb = {
+        layout = "us";
+        extraLayouts.real-prog-dvorak = {
+          description = "real-prog-dvoark";
+          languages = [ "eng" ];
+          symbolsFile = ./symbols/real-prog-dvorak;
+        };
       };
     };
+
+    davmail = {
+      enable = true;
+      config = {
+        davmail.url = "https://outlook.office365.com/EWS/Exchange.asmx";
+        davmail.mode = "O365Modern";
+      };
+    };
+
+    openssh = {
+      enable = true;
+      settings = { X11Forwarding = true; };
+    };
+
+    cloudflared.enable = true;
+    udisks2.enable = true;
+    usbmuxd.enable = true;
   };
 
-  programs.hyprland.enable = true;
-  services.displayManager.sddm.enable = true;
-
-  virtualisation.docker.enable = true;
-
-  console.keyMap = "uk";
-
-  services.printing.enable = true;
-
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowUnsupportedSystem = true;
+    virtualbox.host.enableExtensionPack = true;
   };
-
-  users.users.sky = {
-    isNormalUser = true;
-    description = "sky";
-    extraGroups = [ "networkmanager" "wheel" "docker" "openrazer" ];
-    shell = pkgs.zsh;
-    hashedPassword =
-      "$6$p011SB1zy3NpqFjq$rdHjOi.GD.w/IUss5H9wmYJGckOQsAEVerQH6NKH6g9n8eG3XQJ1iIkKU4KE/pSwaIH69Gsg7Pa07j.8ErxUA0";
-  };
-
-  security.sudo.extraRules = [{
-    users = [ "sky" ];
-    commands = [{
-      command = "ALL";
-      options = [ "NOPASSWD" ];
-    }];
-  }];
-
-  programs.zsh.enable = true;
-
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.allowUnsupportedSystem = true;
 
   environment.systemPackages = with pkgs; [
     cron
@@ -146,16 +158,6 @@ in {
     davmail
   ];
 
-  services.davmail = {
-    enable = true;
-    config = {
-      davmail.url = "https://outlook.office365.com/EWS/Exchange.asmx";
-      davmail.mode = "O365Modern";
-    };
-  };
-
-  programs.gnupg.agent.enable = true;
-
   fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk-sans
@@ -173,41 +175,19 @@ in {
     TX-02
   ];
 
-  networking.wireguard.enable = true;
-  networking.wg-quick.interfaces = {
-    wg0 = {
-      address = [ "10.132.18.7/24" ];
-      dns = [ "10.132.18.1" ];
-      privateKeyFile = "/home/sky/.dotfiles/private_stuff/privateKey";
-
-      peers = [{
-        publicKey = "9MAJnKepYwy2WSis4BHbIANfPoam7+1V30R40GxGVW0=";
-        presharedKeyFile = "/home/sky/.dotfiles/private_stuff/presharedKey";
-        endpoint =
-          builtins.readFile "/home/sky/.dotfiles/private_stuff/endpoint_ip.txt";
-        allowedIPs = [ "0.0.0.0/0" "::/0" ];
-      }];
+  hardware = {
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
     };
+
+    keyboard = {
+      zsa.enable = true;
+      qmk.enable = true;
+    };
+
+    openrazer.enable = true;
   };
-
-  services.cloudflared = { enable = true; };
-
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
-
-  hardware.keyboard.zsa.enable = true;
-  hardware.keyboard.qmk.enable = true;
-
-  services.udisks2.enable = true;
-
-  services.openssh = {
-    enable = true;
-    settings = { X11Forwarding = true; };
-  };
-
-  system.stateVersion = "24.05"; # Keep this as your first install version
-
-  services.usbmuxd = { enable = true; };
 
   fileSystems."/mnt/server" = {
     device = "//10.0.0.36/Files";
@@ -222,9 +202,24 @@ in {
   };
 
   virtualisation.virtualbox.host.enable = true;
-  nixpkgs.config.virtualbox.host.enableExtensionPack = true;
   users.extraGroups.vboxusers.members = [ "sky" ];
 
-  hardware.openrazer.enable = true;
-  networking.firewall.allowedTCPPorts = [ 42069 5900 ];
+  users.users.sky = {
+    isNormalUser = true;
+    description = "sky";
+    extraGroups = [ "networkmanager" "wheel" "docker" "openrazer" ];
+    shell = pkgs.zsh;
+    hashedPassword =
+      "$6$p011SB1zy3NpqFjq$rdHjOi.GD.w/IUss5H9wmYJGckOQsAEVerQH6NKH6g9n8eG3XQJ1iIkKU4KE/pSwaIH69Gsg7Pa07j.8ErxUA0";
+  };
+
+  security.sudo.extraRules = [{
+    users = [ "sky" ];
+    commands = [{
+      command = "ALL";
+      options = [ "NOPASSWD" ];
+    }];
+  }];
+
+  system.stateVersion = "24.05";
 }

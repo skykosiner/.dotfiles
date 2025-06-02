@@ -25,6 +25,6 @@ pkgs.stdenv.mkDerivation {
     install -Dm644 ./TX-02-SemiCondensed-Oblique.otf -t $out/share/fonts
     install -Dm644 ./TX-02-SemiCondensed.otf -t $out/share/fonts
     runHook postInstall
-    '';
+  '';
 }
 
