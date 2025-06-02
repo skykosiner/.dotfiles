@@ -15,6 +15,14 @@ let
     pkgs.callPackage ./packages/berkeley-mono.nix { inherit pkgs; };
   TX-02 = pkgs.callPackage ./packages/TX-02.nix { inherit pkgs; };
 in {
+
+  sops = {
+    defaultSopsFile = ./secrets/secrets.json;
+    defaultSopsFormat = "json";
+    age.keyFile = "/home/sky/.config/sops/age/keys.txt";
+    secerts."endpoint_ip" = { };
+  };
+
   nix = {
     settings.warn-dirty = false;
     package = pkgs.nixVersions.stable;
@@ -156,6 +164,7 @@ in {
     acpilight
     brightnessctl
     davmail
+    sops
   ];
 
   fonts.packages = with pkgs; [

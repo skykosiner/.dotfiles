@@ -7,6 +7,9 @@
     nix-doom-emacs-unstraightened.url =
       "github:marienz/nix-doom-emacs-unstraightened";
 
+    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+
     apple-silicon = {
       url = "github:tpwrules/nixos-apple-silicon";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,7 +28,7 @@
   };
 
   outputs = { self, nixpkgs, home-manager, asus-wmi-screenpad, apple-silicon
-    , zen-browser, ... }@inputs:
+    , zen-browser, sops-nix, ... }@inputs:
     let
       inherit (self) outputs;
       lib = nixpkgs.lib;
@@ -36,6 +39,7 @@
         nixos-btw = lib.nixosSystem {
           modules = [
             ./hosts/nixos-btw/configuration.nix
+            sops-nix.nixosModules.sops
             {
               _module.args = {
                 inputs = { inherit asus-wmi-screenpad; };
@@ -48,6 +52,7 @@
         mac-btw = lib.nixosSystem {
           modules = [
             ./hosts/mac-btw/configuration.nix
+            sops-nix.nixosModules.sops
             {
               _module.args = {
                 inputs = { inherit apple-silicon; };
@@ -59,7 +64,8 @@
 
         nix-btw = lib.nixosSystem {
           system = "x86_64-linux";
-          modules = [ ./hosts/nix-btw/configuration.nix ];
+          modules =
+            [ ./hosts/nix-btw/configuration.nix sops-nix.nixosModules.sops ];
         };
       };
 
