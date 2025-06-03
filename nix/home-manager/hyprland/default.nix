@@ -100,7 +100,7 @@ in {
         "$mainMod, t, togglegroup"
 
         "$mainMod, o, exec, $terminal -e /home/sky/.local/bin/lfub"
-        "$mainMod SHIFT, w, exec, zen"
+        "$mainMod SHIFT, w, exec, brave"
       ];
       bindm = [
         "$mainMod, mouse:272, movewindow"
@@ -242,8 +242,13 @@ in {
         "workspace 7, class:Microsoft Teams - Preview"
         "workspace special:spotify, class:Spotify"
         "opacity 0.90 0.90, class:Spotify"
+
         "opacity 0.90 0.90, class:Beeper"
         "workspace special:message, class:Beeper"
+
+        "opacity 0.90 0.90, initialTitle:Snapchat"
+        "workspace special:message, initialTitle:Snapchat"
+
         "workspace special:message, class:vesktop"
         "noanim, class:^ueberzugpp"
         "float, title:^toggl$"
@@ -352,7 +357,7 @@ in {
       bind = SHIFT,e,exec,export BEMOJI_PICKER_CMD="fuzzel --dmenu --width 48" && bemoji
       bind = SHIFT,e,submap,reset
 
-      bind = ,w,exec,fuzzel --dmenu --lines 0 --placeholder "Type your search" | sed 's/^/"&/g;s/$/"/g' | xargs -I {} zen --new-window "https://google.com/search?q={}"
+      bind = ,w,exec,fuzzel --dmenu --lines 0 --placeholder "Type your search" | sed 's/^/"&/g;s/$/"/g' | xargs -I {} brave --new-window "https://google.com/search?q={}"
       bind = ,w,submap,reset
 
       bind = ,s,exec,$HOME/.local/bin/snipets

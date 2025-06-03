@@ -63,6 +63,8 @@ HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
 setopt appendhistory
 compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
 
+eval $(ssh-agent -s) >&/dev/null
+
 _does_exist zoxide && eval "$(zoxide init zsh)"
 _does_exist fzf && eval "$(fzf --zsh)"
 _does_exist zet && eval "$(zet completion zsh)"

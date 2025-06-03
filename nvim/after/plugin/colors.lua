@@ -1,5 +1,5 @@
 vim.opt.background = "dark"
-vim.cmd.colorscheme("gruvbox")
+vim.cmd.colorscheme("ayu-mirage")
 
 if vim.opt.background._value ~= "light" then
     -- General

@@ -15,14 +15,6 @@ let
     pkgs.callPackage ./packages/berkeley-mono.nix { inherit pkgs; };
   TX-02 = pkgs.callPackage ./packages/TX-02.nix { inherit pkgs; };
 in {
-
-  sops = {
-    defaultSopsFile = ./secrets/secrets.json;
-    defaultSopsFormat = "json";
-    age.keyFile = "/home/sky/.config/sops/age/keys.txt";
-    secerts."endpoint_ip" = { };
-  };
-
   nix = {
     settings.warn-dirty = false;
     package = pkgs.nixVersions.stable;
@@ -128,6 +120,7 @@ in {
     cloudflared.enable = true;
     udisks2.enable = true;
     usbmuxd.enable = true;
+    displayManager.sddm.enable = true;
   };
 
   nixpkgs.config = {
@@ -213,6 +206,21 @@ in {
   virtualisation.virtualbox.host.enable = true;
   users.extraGroups.vboxusers.members = [ "sky" ];
 
+  virtualisation.docker.enable = true;
+
+  console.keyMap = "uk";
+
+  services.printing.enable = true;
+
+  services.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
   users.users.sky = {
     isNormalUser = true;
     description = "sky";
@@ -229,6 +237,8 @@ in {
       options = [ "NOPASSWD" ];
     }];
   }];
+
+  programs.ssh.startAgent = true;
 
   system.stateVersion = "24.05";
 }
