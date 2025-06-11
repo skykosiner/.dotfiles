@@ -8,6 +8,7 @@ in {
   home.packages = with pkgs;
     (if notMac then [ discord beeper spotify google-chrome ] else [ ]) ++ [
       makemkv
+          lunar-client
       trash-cli
       timeshift
       vesktop

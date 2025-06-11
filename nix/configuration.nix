@@ -158,6 +158,8 @@ in {
     brightnessctl
     davmail
     sops
+    libimobiledevice
+    ifuse
   ];
 
   fonts.packages = with pkgs; [
@@ -239,6 +241,8 @@ in {
   }];
 
   programs.ssh.startAgent = true;
+
+  services.flatpak = { enable = true; };
 
   system.stateVersion = "24.05";
 }
