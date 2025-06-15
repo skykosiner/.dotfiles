@@ -3,7 +3,7 @@
 let notMac = hostname != "mac-btw";
 in {
   imports = (if notMac then [ ./obs ] else [ ])
-    ++ [ ./alacritty ./ghostty ./starship ./zathura ./lf ./fastfetch ./pass ];
+    ++ [ ./alacritty ./ghostty ./starship ./zathura ./lf ./fastfetch ./pass ./mpv ];
 
   home.packages = with pkgs;
     (if notMac then [ discord beeper spotify google-chrome ] else [ ]) ++ [
@@ -28,7 +28,6 @@ in {
       xfce.xfconf
       xfce.thunar
       libreoffice
-      mpv
       obsidian
       brave
       nsxiv

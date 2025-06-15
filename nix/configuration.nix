@@ -46,13 +46,12 @@ in {
 
     wg-quick.interfaces = {
       wg0 = {
-        address = [ "10.132.18.7/24" ];
-        dns = [ "10.132.18.1" ];
+        address = [ "10.100.0.2/32" ];
+        dns = [ "1.1.1.1" ];
         privateKeyFile = "/home/sky/.dotfiles/private_stuff/privateKey";
 
         peers = [{
-          publicKey = "9MAJnKepYwy2WSis4BHbIANfPoam7+1V30R40GxGVW0=";
-          presharedKeyFile = "/home/sky/.dotfiles/private_stuff/presharedKey";
+          publicKey = "fwS4fgjfM+AUDCS1mwcZ9toAh9r8VuXyQ5CVshQTgXE=";
           endpoint = builtins.readFile
             "/home/sky/.dotfiles/private_stuff/endpoint_ip.txt";
           allowedIPs = [ "0.0.0.0/0" "::/0" ];

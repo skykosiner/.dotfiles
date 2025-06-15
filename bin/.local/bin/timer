@@ -10,7 +10,7 @@ trap 'echo "${curon}"; echo "${clear}"; exit; trap -- - SIGINT SIGTERM' SIGTERM 
 echo "${clear}"
 while true; do
     echo "${top}"
-    pomo | cut -d" " -f2 | figlet -f "/home/sky/Downloads/future.tlf" -c | head -6 | lolcat
+    pomo | cut -d" " -f2 | figlet -f "/home/sky/Downloads/future.tlf" -c | head -6 | lolcat &2>/dev/null
     echo "${curoff}"
     sleep 0.1
 done
