@@ -162,9 +162,9 @@ in {
       misc = {
         enable_swallow = true;
         swallow_regex = "^(com.mitchellh.ghostty)$";
-        force_default_wallpaper = 0;
-        disable_hyprland_logo = true;
-        background_color = "0x222222";
+        # force_default_wallpaper = 0;
+        # disable_hyprland_logo = true;
+        # background_color = "0x222222";
       };
 
       device = [{
@@ -180,17 +180,17 @@ in {
 
       "exec-once" = [
         "hyprctl setcursor Bibata-Modern-Classic 16"
-        # "swww init"
-        # "swww restore"
+        "swww init"
+        "swww restore"
         "waybar"
       ];
 
       exec = (if isLaptop then [ "~/.local/bin/screenLock" ] else [ ]);
 
       general = {
-        gaps_in = 0;
-        gaps_out = 0;
-        border_size = 1;
+        gaps_in = 5;
+        gaps_out = 20;
+        border_size = 2;
         "col.active_border" = "rgba(ff0000ee)";
         "col.inactive_border" = "rgba(595959aa)";
         resize_on_border = false;
@@ -208,12 +208,16 @@ in {
       };
 
       decoration = {
-        rounding = 0;
+        rounding = 10;
         active_opacity = 1.0;
         inactive_opacity = 1.0;
         blur = {
-          enabled = false;
-          size = 2;
+          enabled = true;
+          size = 8;
+          ignore_opacity = true;
+          passes = 3;
+          noise = 1.0e-2;
+          vibrancy = 0.1696;
         };
       };
 
@@ -255,126 +259,134 @@ in {
         "float, title:^toggl$"
         "size 900x900, title:^toggl$"
         "move center, title:^toggl$"
+
+        #"bordersize 0, floating:0, onworkspace:w[tv1]"
+        #"rounding 0, floating:0, onworkspace:w[tv1]"
+        #"bordersize 0, floating:0, onworkspace:f[1]"
+        #"rounding 0, floating:0, onworkspace:f[1]"
       ];
     };
     extraConfig = ''
-      bind = SUPER, M, submap, appsubmaps
-      submap = appsubmaps
+              # workspace = w[tv1], gapsout:0, gapsin:0
+              # workspace = f[1], gapsout:0, gapsin:0
 
-      bind = ,n,exec,$HOMe
-      bind = ,n,submap,reset
+              bind = SUPER, M, submap, appsubmaps
+              submap = appsubmaps
 
-      bind = ,e,exec,thunderbird -mail
-      bind = ,e,submap,reset
+              bind = ,n,exec,$HOMe
+              bind = ,n,submap,reset
 
-      bind = ,c,exec,thunderbird -calendar
-      bind = ,c,submap,reset
+              bind = ,e,exec,thunderbird -mail
+              bind = ,e,submap,reset
 
-      bind = ,f,exec, thunar
-      bind = ,f,submap,reset
+              bind = ,c,exec,thunderbird -calendar
+              bind = ,c,submap,reset
 
-      bind = ,h,exec, $terminal -e htop
-      bind = ,h,submap,reset
+              bind = ,f,exec, thunar
+              bind = ,f,submap,reset
 
-      bind = ,n,exec, $terminal -e nmtui
-      bind = ,n,submap,reset
+              bind = ,h,exec, $terminal -e htop
+              bind = ,h,submap,reset
 
-      bind = ,p,exec, $terminal -e pulsemixer
-      bind = ,p,submap,reset
+              bind = ,n,exec, $terminal -e nmtui
+              bind = ,n,submap,reset
 
-      bind=,escape,submap,reset
-      submap = reset
+              bind = ,p,exec, $terminal -e pulsemixer
+              bind = ,p,submap,reset
+
+              bind=,escape,submap,reset
+              submap = reset
 
       # Lights keychords
-      bind = ALT, L, submap, lightsubmaps
-      submap = lightsubmaps
+              bind = ALT, L, submap, lightsubmaps
+              submap = lightsubmaps
 
-      bind = ,l,exec,/home/sky/.local/go/bin/lights ceiling
-      bind = ,l,submap,reset
+              bind = ,l,exec,/home/sky/.local/go/bin/lights ceiling
+              bind = ,l,submap,reset
 
-      bind = ,s,exec,/home/sky/.local/go/bin/lights studio
-      bind = ,s,submap,reset
+              bind = ,s,exec,/home/sky/.local/go/bin/lights studio
+              bind = ,s,submap,reset
 
-      bind = ,r,exec,/home/sky/.local/go/bin/lights others
-      bind = ,r,submap,reset
+              bind = ,r,exec,/home/sky/.local/go/bin/lights others
+              bind = ,r,submap,reset
 
-      bind = ,a,exec,/home/sky/.local/go/bin/lights all
-      bind = ,a,submap,reset
+              bind = ,a,exec,/home/sky/.local/go/bin/lights all
+              bind = ,a,submap,reset
 
-      bind = ,p,exec,/home/sky/.local/bin/light-percent
-      bind = ,p,submap,reset
+              bind = ,p,exec,/home/sky/.local/bin/light-percent
+              bind = ,p,submap,reset
 
-      bind = ,t,exec,/home/sky/.local/bin/light-temp
-      bind = ,t,submap,reset
+              bind = ,t,exec,/home/sky/.local/bin/light-temp
+              bind = ,t,submap,reset
 
-      bind=,escape,submap,reset
-      submap = reset
+              bind=,escape,submap,reset
+              submap = reset
 
       # Aircon keycohrds
-      bind = SUPER, a, submap, airconsubmaps
-      submap = airconsubmaps
+              bind = SUPER, a, submap, airconsubmaps
+              submap = airconsubmaps
 
-      bind = ,o,exec,/home/sky/.local/go/bin/aircon toggle
-      bind = ,o,submap,reset
+              bind = ,o,exec,/home/sky/.local/go/bin/aircon toggle
+              bind = ,o,submap,reset
 
-      bind = ,c,exec,/home/sky/.local/bin/airconControl -cold
-      bind = ,c,submap,reset
+              bind = ,c,exec,/home/sky/.local/bin/airconControl -cold
+              bind = ,c,submap,reset
 
-      bind = ,h,exec,/home/sky/.local/bin/airconControl -heat
-      bind = ,h,submap,reset
+              bind = ,h,exec,/home/sky/.local/bin/airconControl -heat
+              bind = ,h,submap,reset
 
-      bind = ,n,exec,/home/sky/.local/bin/airconControl -set-temp
-      bind = ,n,submap,reset
+              bind = ,n,exec,/home/sky/.local/bin/airconControl -set-temp
+              bind = ,n,submap,reset
 
-      bind = ,f,exec,/home/sky/.local/bin/airconControl -set-fan
-      bind = ,f,submap,reset
+              bind = ,f,exec,/home/sky/.local/bin/airconControl -set-fan
+              bind = ,f,submap,reset
 
-      bind=,escape,submap,reset
-      submap = reset
+              bind=,escape,submap,reset
+              submap = reset
 
       # Sptoify control
-      bind = SUPER, s, submap, spotifysubmaps
-      submap = spotifysubmaps
+              bind = SUPER, s, submap, spotifysubmaps
+              submap = spotifysubmaps
 
-      bind = ,p,exec,/home/sky/.local/bin/spotify-control -togglePlay
-      bind = ,p,submap,reset
+              bind = ,p,exec,/home/sky/.local/bin/spotify-control -togglePlay
+              bind = ,p,submap,reset
 
-      bind = ,period,exec,/home/sky/.local/bin/spotify-control -next
-      bind = ,period,submap,reset
+              bind = ,period,exec,/home/sky/.local/bin/spotify-control -next
+              bind = ,period,submap,reset
 
-      bind = ,comma,exec,/home/sky/.local/bin/spotify-control -prev
-      bind = ,comma,submap,reset
+              bind = ,comma,exec,/home/sky/.local/bin/spotify-control -prev
+              bind = ,comma,submap,reset
 
-      bind=,escape,submap,reset
-      submap = reset
+              bind=,escape,submap,reset
+              submap = reset
 
       # Launechr stuff
-      bind = SUPER, p, submap, launchersubmaps
-      submap = launchersubmaps
+              bind = SUPER, p, submap, launchersubmaps
+              submap = launchersubmaps
 
-      bind = ,p,exec,$menu
-      bind = ,p,submap,reset
+              bind = ,p,exec,$menu
+              bind = ,p,submap,reset
 
-      bind = SHIFT,e,exec,export BEMOJI_PICKER_CMD="fuzzel --dmenu --width 48" && bemoji
-      bind = SHIFT,e,submap,reset
+              bind = SHIFT,e,exec,export BEMOJI_PICKER_CMD="fuzzel --dmenu --width 48" && bemoji
+              bind = SHIFT,e,submap,reset
 
-      bind = ,w,exec,fuzzel --dmenu --lines 0 --placeholder "Type your search" | sed 's/^/"&/g;s/$/"/g' | xargs -I {} brave --new-window "https://google.com/search?q={}"
-      bind = ,w,submap,reset
+              bind = ,w,exec,fuzzel --dmenu --lines 0 --placeholder "Type your search" | sed 's/^/"&/g;s/$/"/g' | xargs -I {} brave --new-window "https://google.com/search?q={}"
+              bind = ,w,submap,reset
 
-      bind = ,s,exec,$HOME/.local/bin/snipets
-      bind = ,s,submap,reset
+              bind = ,s,exec,$HOME/.local/bin/snipets
+              bind = ,s,submap,reset
 
-      bind = ,v,exec,$HOME/.local/bin/VMs
-      bind = ,v,submap,reset
+              bind = ,v,exec,$HOME/.local/bin/VMs
+              bind = ,v,submap,reset
 
-      bind = ,t,exec,$HOME/.local/bin/togglNew saved
-      bind = ,t,submap,reset
+              bind = ,t,exec,$HOME/.local/bin/togglNew saved
+              bind = ,t,submap,reset
 
-      bind = ,n,exec,$HOME/.local/bin/togglNew
-      bind = ,n,submap,reset
+              bind = ,n,exec,$HOME/.local/bin/togglNew
+              bind = ,n,submap,reset
 
-      bind=,escape,submap,reset
-      submap = reset
+              bind=,escape,submap,reset
+              submap = reset
     '';
   };
 }

@@ -18,8 +18,8 @@ in {
       }
 
       window#waybar {
-          /*border-radius: 10px;*/
-          background-color: rgba(42, 47, 58, 0.9);
+          border-radius: 10px;
+          background-color: rgba(42, 47, 58, 0.7);
           color: #d9e0ee;
       }
 
@@ -130,9 +130,9 @@ in {
       position = "bottom";
       height = 35;
       margin-top = 0;
-      margin-left = 0;
-      margin-bottom = 0;
-      margin-right = 5;
+      margin-left = 20;
+      margin-bottom = 10;
+      margin-right = 20;
       spacing = 0;
       modules-left = [
         "custom/linux"
