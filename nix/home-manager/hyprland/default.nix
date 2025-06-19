@@ -150,9 +150,10 @@ in {
         "eDP-1,1920x1080@60,0x0,1"
         "DP-1,1920x515@60,0x1080,1"
       ] else if hostname == "nix-btw" then [
-        "DP-2,1920x1080@120,0x0,1,transform,3"
-        "DP-3,2560x1440@170,1080x0,1"
-        "HDMI-A-1,1920x1080,3640x0,1"
+        # "DP-2,1920x1080@120,0x0,1,transform,3"
+        "DP-2,1920x1080@120,0x0,1"
+        "DP-3,2560x1440@170,1920x0,1"
+        # "HDMI-A-1,1920x1080,3640x0,1"
       ] else
         [
           # Fallback (safe default)

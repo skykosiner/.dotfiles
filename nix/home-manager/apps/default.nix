@@ -10,7 +10,7 @@ in {
       makemkv
           lunar-client
       trash-cli
-      timeshift
+      pika-backup
       vesktop
       sqlitebrowser
       chatterino2
