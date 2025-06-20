@@ -130,9 +130,9 @@ in {
       position = "bottom";
       height = 35;
       margin-top = 0;
-      margin-left = 20;
-      margin-bottom = 10;
-      margin-right = 20;
+      margin-left = 5;
+      margin-bottom = 5;
+      margin-right = 5;
       spacing = 0;
       modules-left = [
         "custom/linux"

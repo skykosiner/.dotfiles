@@ -4,27 +4,27 @@
   home.packages = with pkgs; [ pkgs.ghostty ];
 
   home.file.".config/ghostty/config".text = ''
-    font-family = "TX-02"
-    font-style = "Medium"
-    font-style-italic = "Medium Oblique"
-    font-style-bold = "ExtraBold"
-    font-style-bold-italic = "ExtraBold Oblique"
-    font-size = 16
-    font-synthetic-style = false
-    font-feature = -calt
+          font-family = "TX-02"
+          font-style = "Medium"
+          font-style-italic = "Medium Oblique"
+          font-style-bold = "ExtraBold"
+          font-style-bold-italic = "ExtraBold Oblique"
+          font-size = 16
+          font-synthetic-style = false
+          font-feature = -calt
 
-    background-opacity = 0.85
+          background-opacity = 0.85
 
-    cursor-style = block
-    cursor-style-blink = false
+          cursor-style = block
+          cursor-style-blink = false
     # theme = light:nord-light,dark:nord-custom
-    theme = nord-custom
-    confirm-close-surface = false
+          theme = nord-custom
+          confirm-close-surface = false
 
     # Remove the top bar
-    gtk-titlebar = false
+          gtk-titlebar = false
 
-    shell-integration-features = no-cursor,no-sudo,title
+          shell-integration-features = no-cursor,no-sudo,title
   '';
 
   home.file.".config/ghostty/themes/nord-custom".text = ''
