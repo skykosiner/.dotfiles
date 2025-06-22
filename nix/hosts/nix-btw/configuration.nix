@@ -20,8 +20,6 @@
 
   services.cron = {
     enable = true;
-    systemCronJobs = [
-      "0 10 * * 1 /home/sky/.local/bin/updateServers"
-    ];
+    systemCronJobs = [ "0 10 * * 1 /home/sky/.local/bin/updateServers" ];
   };
 }

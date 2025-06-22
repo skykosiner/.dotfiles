@@ -36,13 +36,11 @@ case "$1" in
             fi
         ;;
     "-select-playlist")
-            id=$(spt list --playlists --limit 50 | sort | dmenu -i -p "Playlist:" -l 30 -fn "JetBrainsMono Nerd Font-15" | awk -F 'playlist:' '{print $2}' | sed "s/)//")
+            uri=$(spt playlists | sort | fuzzel --dmenu | cut -d" " -f3)
 
-            if [[ ! -z $id ]]; then
-                qdbus org.mpris.MediaPlayer2.spotify \
-                    /org/mpris/MediaPlayer2 \
-                    org.mpris.MediaPlayer2.Player.OpenUri \
-                    spotify:playlist:$id
+            if [[ ! -z $uri ]]; then
+                echo $uri
+                spt play "$uri"
             fi
             ;;
 

@@ -182,6 +182,7 @@ in {
         "hyprctl setcursor Bibata-Modern-Classic 16"
         "swww init"
         "swww restore"
+        "swww-daemon"
         "waybar"
       ];
 
@@ -213,7 +214,7 @@ in {
         inactive_opacity = 1.0;
         blur = {
           enabled = true;
-          size = 8;
+          size = 2;
           ignore_opacity = true;
           passes = 3;
           noise = 1.0e-2;
