@@ -243,6 +243,8 @@ in {
 
   services.flatpak = { enable = true; };
 
+  services.playerctld = { enable = true; };
+
   system.stateVersion = "24.05";
 
   services.tumbler.enable = true;

@@ -2,13 +2,22 @@
 
 let notMac = hostname != "mac-btw";
 in {
-  imports = (if notMac then [ ./obs ] else [ ])
-    ++ [ ./alacritty ./ghostty ./starship ./zathura ./lf ./fastfetch ./pass ./mpv ];
+  imports = (if notMac then [ ./obs ] else [ ]) ++ [
+    ./alacritty
+    ./ghostty
+    ./starship
+    ./zathura
+    ./lf
+    ./fastfetch
+    ./pass
+    ./mpv
+  ];
 
   home.packages = with pkgs;
     (if notMac then [ discord beeper spotify google-chrome ] else [ ]) ++ [
       makemkv
-          lunar-client
+      lunar-client
+      plasma5Packages.kdeconnect-kde
       trash-cli
       pika-backup
       vesktop
