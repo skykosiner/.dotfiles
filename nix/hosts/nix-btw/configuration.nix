@@ -22,4 +22,11 @@
     enable = true;
     systemCronJobs = [ "0 10 * * 1 /home/sky/.local/bin/updateServers" ];
   };
+
+  services.sunshine = {
+    enable = true;
+    autoStart = true;
+    capSysAdmin = true;
+    openFirewall = true;
+  };
 }

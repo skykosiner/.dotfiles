@@ -10,5 +10,7 @@ return {
                 end
             end
         })
+
+        vim.cmd("call firenvim#add_site_config('x.com')")
     end
 }

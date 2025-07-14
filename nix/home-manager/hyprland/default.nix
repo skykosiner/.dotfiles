@@ -388,6 +388,8 @@ in {
 
               bind=,escape,submap,reset
               submap = reset
+
+              monitor = HEADLESS-2,disable
     '';
   };
 }
