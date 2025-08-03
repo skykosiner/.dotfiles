@@ -1,5 +1,5 @@
 vim.opt.background = "dark"
-vim.cmd.colorscheme("catppuccin-mocha")
+vim.cmd.colorscheme("tokyonight")
 
 if vim.opt.background._value ~= "light" then
     -- General
