@@ -15,6 +15,7 @@ let
     pkgs.callPackage ./packages/berkeley-mono.nix { inherit pkgs; };
   TX-02 = pkgs.callPackage ./packages/TX-02.nix { inherit pkgs; };
 in {
+  imports = [ /home/sky/.dotfiles/control-http-home-nix/module.nix ];
   nix = {
     settings.warn-dirty = false;
     package = pkgs.nixVersions.stable;
@@ -42,7 +43,7 @@ in {
     networkmanager.enable = true;
     wireguard.enable = true;
 
-    firewall.allowedTCPPorts = [ 42069 5900 ];
+    firewall.allowedTCPPorts = [ 42069 5900 42068 ];
 
     wg-quick.interfaces = {
       wg0 = {
@@ -248,4 +249,13 @@ in {
   system.stateVersion = "24.05";
 
   services.tumbler.enable = true;
+
+  services.control-http-home = {
+    enable = true;
+    commands = [{
+      name = "sleep";
+      action = "systemctl suspend";
+      url = "/sleep";
+    }];
+  };
 }
