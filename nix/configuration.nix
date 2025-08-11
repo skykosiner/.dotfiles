@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ lib, config, pkgs, inputs, ... }:
 
 let
   cifsOptions = [
@@ -160,6 +160,7 @@ in {
     sops
     libimobiledevice
     ifuse
+    iw
   ];
 
   fonts.packages = with pkgs; [
@@ -250,12 +251,23 @@ in {
 
   services.tumbler.enable = true;
 
+  programs.ydotool.enable = true;
+
+  services.gvfs.enable = true;
+
   services.control-http-home = {
     enable = true;
-    commands = [{
-      name = "sleep";
-      action = "systemctl suspend";
-      url = "/sleep";
-    }];
+    commands = [
+      {
+        name = "sleep";
+        action = "systemctl suspend -i";
+        url = "/sleep";
+      }
+      {
+        name = "live";
+        action = "/home/sky/.dotfiles/private_stuff/live";
+        url = "/live";
+      }
+    ];
   };
 }

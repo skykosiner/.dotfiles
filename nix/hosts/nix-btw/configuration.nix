@@ -3,7 +3,7 @@
 {
   imports = [ ../../configuration.nix ./hardware-configuration.nix ];
 
-  networking.hostName = "nix-btw";
+  networking = { hostName = "nix-btw"; };
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
@@ -28,5 +28,16 @@
     autoStart = true;
     capSysAdmin = true;
     openFirewall = true;
+  };
+
+  systemd.services.enable-wowlan = {
+    description = "Enable WoWLAN on wlp9s0";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "network.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart =
+        "/run/current-system/sw/bin/iw phy0 wowlan enable magic-packet";
+    };
   };
 }
