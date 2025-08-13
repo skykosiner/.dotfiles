@@ -69,7 +69,10 @@ in {
       localNetworkGameTransfers.openFirewall = true;
     };
 
-    hyprland.enable = true;
+    hyprland = {
+        enable = true;
+        xwayland.enable = true;
+    };
     zsh.enable = true;
     gnupg.agent.enable = true;
   };

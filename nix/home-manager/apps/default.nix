@@ -15,6 +15,7 @@ in {
 
   home.packages = with pkgs;
     (if notMac then [ discord beeper spotify google-chrome ] else [ ]) ++ [
+      todoist-electron
       makemkv
       lunar-client
       plasma5Packages.kdeconnect-kde
@@ -29,6 +30,7 @@ in {
       lazygit
       newsboat
       davinci-resolve
+      clipse
       wlsunset
       thunderbird
       teams-for-linux

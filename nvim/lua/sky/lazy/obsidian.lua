@@ -24,7 +24,7 @@ return {
                 },
                 -- Optional, for templates (see below).
                 templates = {
-                    subdir = "Templates",
+                    subdir = "Misc/Templates",
                 },
                 -- Optional, customize how names/IDs for new notes are created.
                 note_id_func = function(title)

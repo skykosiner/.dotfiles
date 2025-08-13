@@ -101,6 +101,8 @@ in {
 
         "$mainMod, o, exec, $terminal -e /home/sky/.local/bin/lfub"
         "$mainMod SHIFT, w, exec, brave"
+
+        "$mainMod, Space, togglesplit"
       ];
       bindm = [
         "$mainMod, mouse:272, movewindow"

@@ -4,11 +4,12 @@
   home.packages = with pkgs; [ pkgs.ghostty ];
 
   home.file.".config/ghostty/config".text = ''
-          font-family = "TX-02"
-          font-style = "Medium"
-          font-style-italic = "Medium Oblique"
-          font-style-bold = "ExtraBold"
-          font-style-bold-italic = "ExtraBold Oblique"
+          # font-family = "TX-02"
+          font-family = "Iosevka Nerd Font Mono"
+#         font-style = "Medium"
+#          font-style-italic = "Medium Oblique"
+#          font-style-bold = "ExtraBold"
+#          font-style-bold-italic = "ExtraBold Oblique"
           font-size = 16
           font-synthetic-style = false
           font-feature = -calt
