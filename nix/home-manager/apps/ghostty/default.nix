@@ -4,28 +4,28 @@
   home.packages = with pkgs; [ pkgs.ghostty ];
 
   home.file.".config/ghostty/config".text = ''
-          # font-family = "TX-02"
-          font-family = "Iosevka Nerd Font Mono"
-#         font-style = "Medium"
-#          font-style-italic = "Medium Oblique"
-#          font-style-bold = "ExtraBold"
-#          font-style-bold-italic = "ExtraBold Oblique"
-          font-size = 16
-          font-synthetic-style = false
-          font-feature = -calt
+               font-family = "TX-02"
+              # font-family = "Iosevka Nerd Font Mono"
+             font-style = "Medium"
+              font-style-italic = "Medium Oblique"
+              font-style-bold = "ExtraBold"
+              font-style-bold-italic = "ExtraBold Oblique"
+              font-size = 16
+              font-synthetic-style = false
+              font-feature = -calt
 
-          # background-opacity = 0.85
+              # background-opacity = 0.85
 
-          cursor-style = block
-          cursor-style-blink = false
-    # theme = light:nord-light,dark:nord-custom
-          theme = nord-custom
-          confirm-close-surface = false
+              cursor-style = block
+              cursor-style-blink = false
+              # theme = light:nord-light,dark:nord-custom
+    theme = nord-custom
+              confirm-close-surface = false
 
-    # Remove the top bar
-          gtk-titlebar = false
+        # Remove the top bar
+              gtk-titlebar = false
 
-          shell-integration-features = no-cursor,no-sudo,title
+              shell-integration-features = no-cursor,no-sudo,title
   '';
 
   home.file.".config/ghostty/themes/nord-custom".text = ''
@@ -45,7 +45,8 @@
     palette = 13=#b48ead
     palette = 14=#8fbcbb
     palette = 15=#eceff4
-    background = 222222
+    # background = 222222
+    background = 111111
     foreground = d8dee9
     cursor-color = eceff4
     selection-background = eceff4

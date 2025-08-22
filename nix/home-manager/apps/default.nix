@@ -46,5 +46,6 @@ in {
       bitwarden-desktop
       gimp
       pavucontrol
+      shotwell
     ];
 }

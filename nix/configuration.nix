@@ -70,8 +70,8 @@ in {
     };
 
     hyprland = {
-        enable = true;
-        xwayland.enable = true;
+      enable = true;
+      xwayland.enable = true;
     };
     zsh.enable = true;
     gnupg.agent.enable = true;

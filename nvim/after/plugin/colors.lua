@@ -1,14 +1,13 @@
 vim.opt.background = "dark"
-vim.cmd.colorscheme("gruvbox")
 
 if vim.opt.background._value ~= "light" then
+    vim.cmd.colorscheme("rose-pine-moon")
+
     -- General
     vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#555555" })
     vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#222222", bg = "#222222" })
 
     -- Line numbers
-    -- vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#222222" })
-    -- vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#222222" })
     vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#FFFF87", bg = "#222222" })
 
     -- Markdown stuff
@@ -35,6 +34,10 @@ if vim.opt.background._value ~= "light" then
     vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#B294BB" })
     vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = "#B294BB" })
     vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecated", { fg = "#A9352B" })
+else
+    vim.cmd.colorscheme("ayu-light")
+    vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#222222" })
+    vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#222222" })
 end
 
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
