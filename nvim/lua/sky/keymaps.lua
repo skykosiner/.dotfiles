@@ -134,3 +134,14 @@ normal_mode("<leader>dm", function()
     vim.cmd.hi("clear")
     vim.cmd.so("/home/sky/.config/nvim/after/plugin/colors.lua")
 end)
+
+normal_mode("<leader>tn", function()
+    ---@diagnostic disable-next-line: undefined-field
+    if vim.opt.number._value then
+        vim.opt.number = false
+        vim.opt.relativenumber = false
+    else
+        vim.opt.number = true
+        vim.opt.relativenumber = true
+    end
+end)
