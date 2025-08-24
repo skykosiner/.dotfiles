@@ -47,6 +47,7 @@ in {
 
     wg-quick.interfaces = {
       wg0 = {
+        autostart = false;
         address = [ "10.100.0.2/32" ];
         dns = [ "1.1.1.1" ];
         privateKeyFile = "/home/sky/.dotfiles/private_stuff/privateKey";
@@ -73,8 +74,11 @@ in {
       enable = true;
       xwayland.enable = true;
     };
+
     zsh.enable = true;
     gnupg.agent.enable = true;
+    ssh.startAgent = true;
+    ydotool.enable = true;
   };
 
   time.timeZone = "Europe/London";
@@ -120,11 +124,42 @@ in {
       settings = { X11Forwarding = true; };
     };
 
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
+
+    control-http-home = {
+      enable = true;
+      commands = [
+        {
+          name = "sleep";
+          action = "systemctl suspend -i";
+          url = "/sleep";
+        }
+        {
+          name = "live";
+          action = "/home/sky/.dotfiles/private_stuff/live";
+          url = "/live";
+        }
+      ];
+    };
+
     cloudflared.enable = true;
     udisks2.enable = true;
     usbmuxd.enable = true;
     displayManager.sddm.enable = true;
+    printing.enable = true;
+    pulseaudio.enable = false;
+    flatpak.enable = true;
+    playerctld.enable = true;
+    tumbler.enable = true;
+    gvfs.enable = true;
   };
+
+  security.rtkit.enable = true;
 
   nixpkgs.config = {
     allowUnfree = true;
@@ -209,31 +244,22 @@ in {
     options = cifsOptions;
   };
 
-  virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "sky" ];
-
-  virtualisation.docker.enable = true;
-
-  console.keyMap = "uk";
-
-  services.printing.enable = true;
-
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
+  virtualisation = {
+    virtualbox.host.enable = true;
+    docker.enable = true;
   };
 
-  users.users.sky = {
-    isNormalUser = true;
-    description = "sky";
-    extraGroups = [ "networkmanager" "wheel" "docker" "openrazer" ];
-    shell = pkgs.zsh;
-    hashedPassword =
-      "$6$p011SB1zy3NpqFjq$rdHjOi.GD.w/IUss5H9wmYJGckOQsAEVerQH6NKH6g9n8eG3XQJ1iIkKU4KE/pSwaIH69Gsg7Pa07j.8ErxUA0";
+  users = {
+    users.sky = {
+      isNormalUser = true;
+      description = "sky";
+      extraGroups = [ "networkmanager" "wheel" "docker" "openrazer" ];
+      shell = pkgs.zsh;
+      hashedPassword =
+        "$6$p011SB1zy3NpqFjq$rdHjOi.GD.w/IUss5H9wmYJGckOQsAEVerQH6NKH6g9n8eG3XQJ1iIkKU4KE/pSwaIH69Gsg7Pa07j.8ErxUA0";
+    };
+
+    extraGroups.vboxusers.members = [ "sky" ];
   };
 
   security.sudo.extraRules = [{
@@ -244,33 +270,6 @@ in {
     }];
   }];
 
-  programs.ssh.startAgent = true;
-
-  services.flatpak = { enable = true; };
-
-  services.playerctld = { enable = true; };
-
+  console.keyMap = "uk";
   system.stateVersion = "24.05";
-
-  services.tumbler.enable = true;
-
-  programs.ydotool.enable = true;
-
-  services.gvfs.enable = true;
-
-  services.control-http-home = {
-    enable = true;
-    commands = [
-      {
-        name = "sleep";
-        action = "systemctl suspend -i";
-        url = "/sleep";
-      }
-      {
-        name = "live";
-        action = "/home/sky/.dotfiles/private_stuff/live";
-        url = "/live";
-      }
-    ];
-  };
 }
