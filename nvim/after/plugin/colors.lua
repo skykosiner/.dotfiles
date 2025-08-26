@@ -1,4 +1,4 @@
-vim.opt.background = "dark"
+vim.opt.background = "light"
 
 if vim.opt.background._value ~= "light" then
     vim.cmd.colorscheme("rose-pine-moon")
@@ -38,6 +38,7 @@ else
     vim.cmd.colorscheme("ayu-light")
     vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#222222" })
     vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#222222" })
+    vim.api.nvim_set_hl(0, "LineNr", { fg = "#999999" })
 end
 
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })

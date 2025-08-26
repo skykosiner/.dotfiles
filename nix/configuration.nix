@@ -40,6 +40,7 @@ in {
   };
 
   networking = {
+    hosts = { "127.0.0.1" = [ "chatgpt.com" ]; };
     networkmanager.enable = true;
     wireguard.enable = true;
 
