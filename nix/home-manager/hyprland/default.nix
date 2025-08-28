@@ -225,7 +225,7 @@ in {
       };
 
       animations = {
-        enabled = false;
+        enabled = true;
         animation = [
           "windows, 1, 3, default, popin 5%"
           "workspaces, 1, 3, default, slidefade 5%"
@@ -248,14 +248,15 @@ in {
         "tile, class:Xdg-desktop-portal-gtk"
         "workspace 10, class:obsidian"
         "workspace 7, class:Microsoft Teams - Preview"
-        "workspace special:spotify, class:Spotify"
-        "opacity 0.90 0.90, class:Spotify"
 
-        "opacity 0.90 0.90, class:Beeper"
-        "workspace special:message, class:Beeper"
+         "workspace special:spotify, class:Spotify"
+        # "opacity 0.90 0.90, class:Spotify"
 
-        "opacity 0.90 0.90, initialTitle:Snapchat"
-        "workspace special:message, initialTitle:Snapchat"
+         "workspace special:message, class:Beeper"
+         # "opacity 0.90 0.90, class:Beeper"
+
+        # "opacity 0.90 0.90, initialTitle:Snapchat"
+        # "workspace special:message, initialTitle:Snapchat"
 
         "workspace special:message, class:vesktop"
         "noanim, class:^ueberzugpp"

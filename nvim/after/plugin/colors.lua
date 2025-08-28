@@ -1,4 +1,4 @@
-vim.opt.background = "light"
+vim.opt.background = "dark"
 
 if vim.opt.background._value ~= "light" then
     vim.cmd.colorscheme("rose-pine-moon")

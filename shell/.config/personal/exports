@@ -19,6 +19,8 @@ export WINEPREFIX="$HOME/.wine/"
 export XDG_DATA_HOME="$HOME/.local/share/"
 export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json
 
+export QT_QPA_PLATFORMTHEME="qt5ct"
+
 export BEMOJI_PICKER_CMD="fuzzel --dmenu --width 48"
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export QT_STYLE_OVERRIDE="Fusion"

@@ -14,12 +14,12 @@
               font-synthetic-style = false
               font-feature = -calt
 
-              # background-opacity = 0.85
+              background-opacity = 0.85
 
               cursor-style = block
               cursor-style-blink = false
-              theme = light:nord-light,dark:nord-custom
-    # theme = nord-custom
+              # theme = light:ayu_light,dark:nord-custom
+    theme = nord-custom
               confirm-close-surface = false
 
         # Remove the top bar
