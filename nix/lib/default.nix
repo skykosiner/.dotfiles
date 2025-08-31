@@ -1,15 +1,5 @@
-{
-  inputs,
-  outputs,
-  stateVersion,
-  ...
-}:
+{ self, inputs, outputs, stateVersion, ... }:
 let
-  helpers = import ./helpers.nix { inherit inputs outputs stateVersion; };
-in
-{
-  inherit (helpers)
-    mkHome
-    ;
-}
+  helpers = import ./helpers.nix { inherit self inputs outputs stateVersion; };
+in { inherit (helpers) mkHome; }
 

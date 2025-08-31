@@ -15,7 +15,6 @@ let
     pkgs.callPackage ./packages/berkeley-mono.nix { inherit pkgs; };
   TX-02 = pkgs.callPackage ./packages/TX-02.nix { inherit pkgs; };
 in {
-  imports = [ /home/sky/.dotfiles/control-http-home-nix/module.nix ];
   nix = {
     settings.warn-dirty = false;
     package = pkgs.nixVersions.stable;
@@ -130,22 +129,6 @@ in {
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
-    };
-
-    control-http-home = {
-      enable = true;
-      commands = [
-        {
-          name = "sleep";
-          action = "systemctl suspend -i";
-          url = "/sleep";
-        }
-        {
-          name = "live";
-          action = "/home/sky/.dotfiles/private_stuff/live";
-          url = "/live";
-        }
-      ];
     };
 
     cloudflared.enable = true;

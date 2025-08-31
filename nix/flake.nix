@@ -33,7 +33,7 @@
       inherit (self) outputs;
       lib = nixpkgs.lib;
       stateVersion = "24.05";
-      helper = import ./lib { inherit inputs outputs stateVersion; };
+      helper = import ./lib { inherit self inputs outputs stateVersion; };
     in {
       nixosConfigurations = {
         nixos-btw = lib.nixosSystem {
