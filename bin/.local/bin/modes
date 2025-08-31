@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+
+declare -A modes
+
+if [[ "$(gsettings get org.gnome.desktop.interface gtk-theme)" == "'Nordic'" ]]; then
+    modes[Light Mode]='gsettings set org.gnome.desktop.interface gtk-theme "Adwaita"'
+else
+    modes[Dark Mode]='gsettings set org.gnome.desktop.interface gtk-theme "Nordic"'
+fi
+# modes[hyprland]="$HOME/.dotfiles/hypr/"
+
+mode=$(printf "%s\n" "${!modes[@]}" | sort | fuzzel --dmenu -p "Config Edit: ")
+echo "$mode"
+
+[ ! -z "$mode" ] && $(printf "%s\n" "${modes["${mode}"]}")

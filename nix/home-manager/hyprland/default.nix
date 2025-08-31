@@ -25,7 +25,7 @@ in {
     enable = true;
     settings = {
       "$mainMod" = "SUPER";
-      "$terminal" = "ghostty";
+      "$terminal" = "alacritty";
       "$menu" = "fuzzel";
       bind = (if isLaptop then [
         "$mainMod SHIFT, equal, workspace, 1"
@@ -163,7 +163,7 @@ in {
         ];
       misc = {
         enable_swallow = true;
-        swallow_regex = "^(com.mitchellh.ghostty)$";
+        swallow_regex = "^(Alacritty)$";
         force_default_wallpaper = 0;
         disable_hyprland_logo = true;
         background_color = "0x111111";
@@ -225,7 +225,7 @@ in {
       };
 
       animations = {
-        enabled = true;
+        enabled = false;
         animation = [
           "windows, 1, 3, default, popin 5%"
           "workspaces, 1, 3, default, slidefade 5%"

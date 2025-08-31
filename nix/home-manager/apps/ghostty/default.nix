@@ -1,31 +1,28 @@
-{ pkgs, hostname, inputs, ... }:
+{ pkgs, hostname, ... }:
 
-{
+let vars = import ../../variables.nix;
+in {
   home.packages = with pkgs; [ pkgs.ghostty ];
 
   home.file.".config/ghostty/config".text = ''
-               font-family = "TX-02"
-              # font-family = "Iosevka Nerd Font Mono"
-             font-style = "Medium"
-              font-style-italic = "Medium Oblique"
-              font-style-bold = "ExtraBold"
-              font-style-bold-italic = "ExtraBold Oblique"
-              font-size = 16
-              font-synthetic-style = false
-              font-feature = -calt
+    font-family = "TX-02"
+    font-style = "Medium"
+    font-style-italic = "Medium Oblique"
+    font-style-bold = "ExtraBold"
+    font-style-bold-italic = "ExtraBold Oblique"
+    font-size = 16
+    font-synthetic-style = false
+    font-feature = -calt
 
-              background-opacity = 0.85
+    background-opacity = 0.85
 
-              cursor-style = block
-              cursor-style-blink = false
-              # theme = light:ayu_light,dark:nord-custom
+    cursor-style = block
+    cursor-style-blink = false
     theme = nord-custom
-              confirm-close-surface = false
+    confirm-close-surface = false
 
-        # Remove the top bar
-              gtk-titlebar = false
-
-              shell-integration-features = no-cursor,no-sudo,title
+    gtk-titlebar = false
+    shell-integration-features = no-cursor,no-sudo,title
   '';
 
   home.file.".config/ghostty/themes/nord-custom".text = ''

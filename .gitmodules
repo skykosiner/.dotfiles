@@ -4,6 +4,6 @@
 [submodule "prvite_stuff"]
     path = private_stuff
     url = git@github.com:skykosiner/private_stuff
-[submodule "control-http-home-nix"]
-	path = control-http-home-nix
+[submodule "nix/home-manager/control-http-home-nix"]
+	path = nix/home-manager/control-http-home-nix
 	url = git@github.com:skykosiner/control-http-home-nix

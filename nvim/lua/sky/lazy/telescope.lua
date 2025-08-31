@@ -12,7 +12,9 @@ return {
             local themes = require("telescope.themes")
 
             require("telescope").setup {
-                defaults = themes.get_ivy {
+                -- defaults = themes.get_ivy {
+                -- defaults = themes.get_cursor {
+                defaults = {
                     respect_gitignore = true,
                     mappings          = {
                         i = {
@@ -64,7 +66,7 @@ return {
             vim.keymap.set("n", "<leader>vrc", function()
                 require("telescope.builtin").find_files({
                     prompt_title = ".dotfiles",
-                    find_command = { "rg", "--files", "--color", "never", "--no-require-git", "-g", "!backgrounds/", "-g", "!.git/"},
+                    find_command = { "rg", "--files", "--color", "never", "--no-require-git", "-g", "!backgrounds/", "-g", "!.git/" },
                     cwd = os.getenv("HOME") .. "/.dotfiles",
                     hidden = true,
                 })
