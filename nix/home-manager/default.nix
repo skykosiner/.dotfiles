@@ -7,30 +7,8 @@ let
   development = import ./development { inherit pkgs; };
 
 in {
-  imports = [
-    apps
-    theme
-    hyprland
-    development
-    inputs.zen-browser.homeModules.beta
-    ./control-http-home-nix/module.nix
-  ];
-
-  services.control-http-home = {
-    enable = true;
-    commands = [
-      {
-        name = "sleep";
-        action = "systemctl suspend -i";
-        url = "/sleep";
-      }
-      {
-        name = "live";
-        action = "/home/sky/.dotfiles/private_stuff/live";
-        url = "/live";
-      }
-    ];
-  };
+  imports =
+    [ apps theme hyprland development inputs.zen-browser.homeModules.beta ];
 
   home = {
     username = "sky";

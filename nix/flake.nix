@@ -21,6 +21,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    control-http-home = {
+      url = "github:skykosiner/control-http-home-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -28,7 +33,7 @@
   };
 
   outputs = { self, nixpkgs, home-manager, asus-wmi-screenpad, apple-silicon
-    , zen-browser, sops-nix, ... }@inputs:
+    , zen-browser, sops-nix, control-http-home, ... }@inputs:
     let
       inherit (self) outputs;
       lib = nixpkgs.lib;
@@ -64,8 +69,11 @@
 
         nix-btw = lib.nixosSystem {
           system = "x86_64-linux";
-          modules =
-            [ ./hosts/nix-btw/configuration.nix sops-nix.nixosModules.sops ];
+          modules = [
+            inputs.control-http-home.nixosModules.default
+            ./hosts/nix-btw/configuration.nix
+            sops-nix.nixosModules.sops
+          ];
         };
       };
 
