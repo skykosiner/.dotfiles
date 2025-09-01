@@ -53,6 +53,9 @@ return {
         end
     },
     {
+        "shaunsingh/nord.nvim"
+    },
+    {
         "ellisonleao/gruvbox.nvim",
         config = function()
             require("gruvbox").setup({

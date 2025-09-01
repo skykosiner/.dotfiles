@@ -1,7 +1,7 @@
 vim.opt.background = "dark"
 
 if vim.opt.background._value ~= "light" then
-    vim.cmd.colorscheme("rose-pine-moon")
+    vim.cmd.colorscheme("nord")
 
     -- General
     vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#555555" })
