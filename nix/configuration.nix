@@ -60,6 +60,12 @@ in {
         }];
       };
     };
+
+    wireless.networks."The Kosiner's wifi" = {
+      ssid = "The Kosiner's wifi";
+      psk = builtins.readFile
+        "/home/sky/.dotfiles/private_stuff/wifi/home_wifi_password";
+    };
   };
 
   programs = {

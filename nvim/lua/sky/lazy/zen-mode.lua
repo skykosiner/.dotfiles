@@ -7,6 +7,7 @@ return {
         require("twilight").setup {
             dimming = {
                 alpha = 0.20,
+                term_bg = "#2e3440"
             },
         }
 

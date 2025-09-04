@@ -19,6 +19,7 @@ in {
     packages = with pkgs; [
       wineWow64Packages.full
       android-tools
+      mailsy
       highlight
       lolcat
       figlet

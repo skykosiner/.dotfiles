@@ -182,9 +182,9 @@ in {
 
       "exec-once" = [
         "hyprctl setcursor Bibata-Modern-Classic 16"
-        # "swww init"
-        # "swww restore"
-        # "swww-daemon"
+        "swww init"
+        "swww restore"
+        "swww-daemon"
         "waybar"
       ];
 

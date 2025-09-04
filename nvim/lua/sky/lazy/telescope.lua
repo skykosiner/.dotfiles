@@ -12,21 +12,22 @@ return {
             local themes = require("telescope.themes")
 
             require("telescope").setup {
-                -- defaults = themes.get_ivy {
-                -- defaults = themes.get_cursor {
-                defaults = {
-                    respect_gitignore = true,
-                    mappings          = {
-                        i = {
-                            ["<C-x>"] = false,
-                            ["<C-q>"] = actions.send_to_qflist,
-                            ["<C-s>"] = actions.select_horizontal,
-                        },
-                    }
-                },
-                extensions = {
-                    fzf = {},
-                },
+                defaults = themes.get_ivy {
+                    -- defaults = themes.get_cursor {
+                    defaults = {
+                        respect_gitignore = true,
+                        mappings          = {
+                            i = {
+                                ["<C-x>"] = false,
+                                ["<C-q>"] = actions.send_to_qflist,
+                                ["<C-s>"] = actions.select_horizontal,
+                            },
+                        }
+                    },
+                    extensions = {
+                        fzf = {},
+                    },
+                }
             }
 
             require("telescope").load_extension("git_worktree")

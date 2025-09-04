@@ -47,5 +47,6 @@ in {
       gimp
       pavucontrol
       shotwell
+      audacity
     ];
 }
