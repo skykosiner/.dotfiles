@@ -64,8 +64,15 @@ in {
           white = "#aeb3bb";
         };
       };
+
       font.size = fontsize;
       font.normal.family = "TX-02";
+
+      keyboard.bindings = [{
+        key = "G";
+        mods = "Super|Shift";
+        command = "/home/sky/.local/bin/alacrittyTransparrent";
+      }];
     };
   };
 }
