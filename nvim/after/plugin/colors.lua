@@ -21,9 +21,10 @@ if vim.opt.background._value ~= "light" then
     -- CMP menu
     vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#222222" })
 
-
     vim.api.nvim_set_hl(0, "TabLine", { bg = "none", fg = "#222222" })
     vim.api.nvim_set_hl(0, "TabLineFill", { bg = "none" })
+
+    vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
 
     -- Spelling stuff
     vim.api.nvim_set_hl(0, "SpellBad", { fg = "#A9352B" })

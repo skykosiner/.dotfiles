@@ -115,7 +115,7 @@ return {
 
             lsp.on_attach(function(_, bufnr)
                 -- TURN ON THEM HINTS BBG
-                vim.lsp.inlay_hint.enable(true)
+                vim.lsp.inlay_hint.enable(false)
 
                 -- GIVE ME MY KEYBINDS
                 local opts = { buffer = bufnr, remap = false }
