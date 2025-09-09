@@ -1,6 +1,6 @@
 { pkgs, hostname, ... }:
 
-let isLaptop = hostname == "nix-btw";
+let isDesktop = hostname == "nix-btw";
 in {
   imports = [ ./rofi ./fuzzel ./waybar ];
 
@@ -27,7 +27,7 @@ in {
       "$mainMod" = "SUPER";
       "$terminal" = "alacritty";
       "$menu" = "fuzzel";
-      bind = (if isLaptop then [
+      bind = (if isDesktop then [
         "$mainMod SHIFT, equal, workspace, 1"
         "$mainMod, bracketleft, workspace, 2"
         "$mainMod SHIFT, bracketleft, workspace, 3"
@@ -133,8 +133,8 @@ in {
       ];
 
       input = {
-        kb_layout = if isLaptop then "us" else "real-prog-dvorak";
-        kb_options = if isLaptop then "" else "caps:swapescape";
+        kb_layout = if isDesktop then "us" else "real-prog-dvorak";
+        kb_options = if isDesktop then "" else "caps:swapescape";
         kb_variant = "";
         kb_model = "";
         kb_rules = "";
@@ -151,14 +151,17 @@ in {
       monitor = if hostname == "nixos-btw" then [
         "eDP-1,1920x1080@60,0x0,1"
         "DP-1,1920x515@60,0x1080,1"
-      ] else if hostname == "nix-btw" then [
-        # "DP-2,1920x1080@120,0x0,1,transform,3"
-        # "DP-3,2560x1440@170,1080x0,1"
-        "DP-2,1920x1080@120,0x0,1"
-        "DP-3,2560x1440@170,1920x0,1"
-        # "DP-2,1920x1080@120,0x0,1"
-        # "HDMI-A-1,1920x1080,3640x0,1"
-      ] else
+      ] else if hostname == "nix-btw" then
+        [
+          # "DP-2,1920x1080@120,0x0,1,transform,3"
+          # "DP-3,2560x1440@170,1080x0,1"
+          # "DP-2,1920x1080@120,0x0,1"
+          # "DP-3,2560x1440@170,1920x0,1"
+          "DP-3,2560x1440@170,0x0,1"
+          # "DP-2,1920x1080@120,0x0,1"
+          # "HDMI-A-1,1920x1080,3640x0,1"
+        ]
+      else
         [
           # Fallback (safe default)
           ",preferred,auto,auto"
@@ -190,7 +193,7 @@ in {
         "waybar"
       ];
 
-      exec = (if isLaptop then [ "~/.local/bin/screenLock" ] else [ ]);
+      exec = (if isDesktop then [ ] else [ "~/.local/bin/screenLock" ]);
 
       general = {
         gaps_in = 0;
@@ -251,11 +254,11 @@ in {
         "workspace 10, class:obsidian"
         "workspace 7, class:Microsoft Teams - Preview"
 
-         "workspace special:spotify, class:Spotify"
+        "workspace special:spotify, class:Spotify"
         # "opacity 0.90 0.90, class:Spotify"
 
-         "workspace special:message, class:Beeper"
-         # "opacity 0.90 0.90, class:Beeper"
+        "workspace special:message, class:Beeper"
+        # "opacity 0.90 0.90, class:Beeper"
 
         # "opacity 0.90 0.90, initialTitle:Snapchat"
         # "workspace special:message, initialTitle:Snapchat"

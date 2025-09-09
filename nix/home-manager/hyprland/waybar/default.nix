@@ -18,8 +18,10 @@ in {
       }
 
       window#waybar {
-          border-radius: 10px;
-          background-color: rgba(42, 47, 58, 0.7);
+          /*border-radius: 10px;*/
+          border-radius: 0;
+          /* background-color: rgba(42, 47, 58, 0.7);*/
+          background-color: #111111;
           color: #d9e0ee;
       }
 

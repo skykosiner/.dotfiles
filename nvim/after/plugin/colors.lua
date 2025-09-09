@@ -1,7 +1,7 @@
 vim.opt.background = "dark"
 
 if vim.opt.background._value ~= "light" then
-    vim.cmd.colorscheme("nord")
+    vim.cmd.colorscheme("gruvbox-material")
 
     -- General
     vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#555555" })

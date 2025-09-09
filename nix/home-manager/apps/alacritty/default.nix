@@ -1,6 +1,6 @@
 { pkgs, hostname, ... }:
 
-let fontsize = if (hostname == "nix-btw") then 14 else 15;
+let fontsize = if (hostname == "nix-btw") then 18 else 15;
 in {
   home.packages = with pkgs; [ alacritty ];
 
@@ -8,7 +8,7 @@ in {
     enable = true;
     settings = {
       window = {
-        opacity = 0.85;
+        opacity = 1;
         padding = {
           x = 10;
           y = 10;
@@ -17,22 +17,27 @@ in {
 
       colors = {
         primary = {
-          background = "#2e3440";
+          # background = "#2e3440";
+          background = "#111111";
           foreground = "#d8dee9";
           dim_foreground = "#a5abb6";
         };
+
         cursor = {
           text = "#2e3440";
           cursor = "#d8dee9";
         };
+
         vi_mode_cursor = {
           text = "#2e3440";
           cursor = "#d8dee9";
         };
+
         selection = {
           text = "CellForeground";
           background = "#4c566a";
         };
+
         normal = {
           black = "#3b4252";
           red = "#bf616a";
@@ -43,6 +48,7 @@ in {
           cyan = "#88c0d0";
           white = "#e5e9f0";
         };
+
         bright = {
           black = "#4c566a";
           red = "#bf616a";
@@ -53,6 +59,7 @@ in {
           cyan = "#8fbcbb";
           white = "#eceff4";
         };
+
         dim = {
           black = "#373e4d";
           red = "#94545d";
