@@ -131,7 +131,24 @@ function M.golang_docs()
     }):find()
 end
 
+function M.colors(opts)
+    pickers.new(opts or {}, {
+        finder = finders.new_table(vim.fn.getcompletion("", "color")),
+        sorter = config.generic_sorter(opts),
+        attach_mappings = function(prompt_bufnr)
+            actions.select_default:replace(function()
+                actions.close(prompt_bufnr)
+
+                local selection = action_state.get_selected_entry().value
+                Colors(selection)
+            end)
+            return true
+        end,
+    }):find()
+end
+
 vim.keymap.set("n", "<leader>dl", M.docker_logs)
 vim.keymap.set("n", "<leader>go", M.golang_docs)
+vim.keymap.set("n", "<leader>cl", M.colors)
 
 return M
