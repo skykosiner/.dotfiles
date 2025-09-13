@@ -48,5 +48,6 @@ in {
       pavucontrol
       shotwell
       audacity
+      realvnc-vnc-viewer
     ];
 }

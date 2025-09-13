@@ -250,6 +250,12 @@ in {
     options = cifsOptions;
   };
 
+  fileSystems."/mnt/RANDY" = {
+    device = "//10.0.0.36/RANDY";
+    fsType = "cifs";
+    options = cifsOptions;
+  };
+
   virtualisation = {
     virtualbox.host.enable = true;
     docker.enable = true;
