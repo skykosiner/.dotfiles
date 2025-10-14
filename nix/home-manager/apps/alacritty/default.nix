@@ -8,7 +8,7 @@ in {
     enable = true;
     settings = {
       window = {
-        opacity = 0.85;
+        opacity = 1;
         padding = {
           x = 10;
           y = 10;
