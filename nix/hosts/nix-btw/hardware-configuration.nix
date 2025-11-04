@@ -34,10 +34,10 @@
     fsType = "ext4";
   };
 
-  fileSystems."/mnt/vms" = {
-    device = "/dev/disk/by-uuid/ffc37b1b-d218-48a4-8a94-954dd7cc683f";
-    fsType = "ext4";
-  };
+#  fileSystems."/mnt/vms" = {
+#    device = "/dev/disk/by-uuid/ffc37b1b-d218-48a4-8a94-954dd7cc683f";
+ #   fsType = "ext4";
+  #};
 
 #  fileSystems."/mnt/steam-libary" = {
 #    device = "/dev/sdb2";

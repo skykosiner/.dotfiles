@@ -15,10 +15,10 @@ in {
 
   home.packages = with pkgs;
     (if notMac then [ discord beeper spotify google-chrome ] else [ ]) ++ [
+      vlc
       todoist-electron
       makemkv
       lunar-client
-      plasma5Packages.kdeconnect-kde
       trash-cli
       pika-backup
       vesktop
