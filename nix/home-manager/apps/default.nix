@@ -16,6 +16,8 @@ in {
   home.packages = with pkgs;
     (if notMac then [ discord beeper spotify google-chrome ] else [ ]) ++ [
       vlc
+      ktailctl
+      moonlight-qt
       todoist-electron
       makemkv
       lunar-client
