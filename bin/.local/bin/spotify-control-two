@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+option=$(printf "🎵 Track\n🎨 Artist\n🎹 Album" | fuzzel --dmenu)
+
+play() {
+    echo "$1" | cut -d"-" -f3
+}
+
+case "$option" in
+    "🎵 Track")
+        songs=$(fuzzel --dmenu | xargs -I {} spt search-track {})
+        if [[ ! -z $songs ]]; then
+            song=$(echo "$songs" | fuzzel --dmenu)
+            play "$song"
+        fi
+esac

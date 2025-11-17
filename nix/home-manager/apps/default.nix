@@ -51,5 +51,6 @@ in {
       shotwell
       audacity
       realvnc-vnc-viewer
+      koreader
     ];
 }

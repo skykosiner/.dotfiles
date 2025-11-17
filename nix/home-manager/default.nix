@@ -32,7 +32,7 @@ in {
       udiskie
       ffmpegthumbnailer
       pandoc
-      poppler_utils
+      poppler-utils
       python312Packages.docx2txt
       exiftool
       networkmanagerapplet
