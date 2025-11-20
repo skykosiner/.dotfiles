@@ -1,3 +1,5 @@
+local koreader_src = vim.fn.expand("~/personal/koreader")
+
 return {
     "neovim/nvim-lspconfig",
     {
@@ -86,7 +88,14 @@ return {
                     Lua = {
                         hint = {
                             enable = true,
-                        }
+                        },
+                        workspace = {
+                            checkThirdParty = false,
+                            library = {
+                                koreader_src .. "/frontend",
+                                koreader_src .. "/base",
+                            },
+                        },
                     }
                 }
             }
