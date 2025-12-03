@@ -15,6 +15,7 @@ in {
 
   home.packages = with pkgs;
     (if notMac then [ discord beeper spotify google-chrome ] else [ ]) ++ [
+      prismlauncher
       vlc
       ktailctl
       moonlight-qt
@@ -52,5 +53,6 @@ in {
       audacity
       realvnc-vnc-viewer
       koreader
+      google-chrome
     ];
 }

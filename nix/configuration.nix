@@ -212,8 +212,8 @@ in {
     noto-fonts
     noto-fonts-cjk-sans
     inter
-    ubuntu_font_family
-    noto-fonts-emoji
+    ubuntu-classic
+    noto-fonts-color-emoji
     font-awesome
     nerd-fonts.jetbrains-mono
     nerd-fonts.victor-mono

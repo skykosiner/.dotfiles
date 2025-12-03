@@ -8,10 +8,10 @@ in {
     enable = true;
     settings = {
       window = {
-        opacity = 0.85;
+        opacity = 0.90;
         padding = {
-          x = 10;
-          y = 10;
+          x = 0;
+          y = 0;
         };
       };
 

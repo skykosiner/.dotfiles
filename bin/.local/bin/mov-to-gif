@@ -1,0 +1,4 @@
+#!/bin/sh
+
+ffmpeg -i "$1" -vf scale=320:-1 -r 10 output/ffout%3d.png
+convert -delay 8 -loop 0 output/ffout*.png output/animation.gif

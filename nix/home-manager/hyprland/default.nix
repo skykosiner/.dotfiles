@@ -153,6 +153,7 @@ in {
         "DP-1,1920x515@60,0x1080,1"
       ] else if hostname == "nix-btw" then [
         "DP-3,2560x1440@120,0x0,1"
+        "HDMI-A-1,1920x1080@144,2560x0,1,transform, 1"
         ",preferred,auto,auto"
       ] else
         [

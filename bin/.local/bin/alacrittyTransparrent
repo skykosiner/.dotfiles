@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-if grep -q -F "opacity = 0.85" "/home/sky/.dotfiles/nix/home-manager/apps/alacritty/default.nix"; then
+if grep -q -F "opacity = 0.90" "/home/sky/.dotfiles/nix/home-manager/apps/alacritty/default.nix"; then
     sed -i 's/opacity.*/opacity = 1;/g' /home/sky/.dotfiles/nix/home-manager/apps/alacritty/default.nix
 else
-    sed -i 's/opacity.*/opacity = 0.85;/g' /home/sky/.dotfiles/nix/home-manager/apps/alacritty/default.nix
+    sed -i 's/opacity.*/opacity = 0.90;/g' /home/sky/.dotfiles/nix/home-manager/apps/alacritty/default.nix
 fi
 
 home-manager switch --flake ~/.dotfiles/nix
