@@ -221,6 +221,7 @@ in {
     nerd-fonts.hack
     nerd-fonts.fira-code
     nerd-fonts.iosevka
+    nerd-fonts.go-mono
     berkeley-mono
     TX-02
   ];
