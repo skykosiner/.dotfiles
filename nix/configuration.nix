@@ -222,6 +222,7 @@ in {
     nerd-fonts.fira-code
     nerd-fonts.iosevka
     nerd-fonts.go-mono
+    nerd-fonts.comic-shanns-mono
     berkeley-mono
     TX-02
   ];

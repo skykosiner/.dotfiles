@@ -25,6 +25,7 @@ in {
       figlet
       cowsay
       gh-markdown-preview
+      ares-cli
       playerctl
       groff
       pfetch

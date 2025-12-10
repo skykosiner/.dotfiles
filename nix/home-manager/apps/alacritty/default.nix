@@ -17,8 +17,8 @@ in {
 
       colors = {
         primary = {
-          # background = "#2e3440";
-          background = "#111111";
+          background = "#2e3440";
+          # background = "#111111";
           foreground = "#d8dee9";
           dim_foreground = "#a5abb6";
         };
@@ -74,7 +74,8 @@ in {
 
       font.size = fontsize;
       # font.normal.family = "TX-02";
-      font.normal.family = "GoMono Nerd Font Mono";
+      # font.normal.family = "GoMono Nerd Font Mono";
+      font.normal.family = "ComicShanns Mono Nerd Font";
 
       keyboard.bindings = [{
         key = "G";
