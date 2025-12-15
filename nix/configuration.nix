@@ -187,6 +187,7 @@ in {
     blueman
     neomutt
     mutt-wizard
+    alsa-utils
     udiskie
     btop
     firefox
