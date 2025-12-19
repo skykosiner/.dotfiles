@@ -17,8 +17,8 @@ in {
 
       colors = {
         primary = {
-          background = "#2e3440";
-          # background = "#111111";
+          # background = "#2e3440";
+          background = "#111111";
           foreground = "#d8dee9";
           dim_foreground = "#a5abb6";
         };

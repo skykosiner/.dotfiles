@@ -43,7 +43,7 @@ in {
     networkmanager.enable = true;
     wireguard.enable = true;
 
-    firewall.allowedTCPPorts = [ 42069 5900 42068 ];
+    firewall.allowedTCPPorts = [ 42069 5900 42068 38165 ];
 
     wg-quick.interfaces = {
       wg0 = {
