@@ -1,10 +1,10 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 export DOTFILES=$HOME/.dotfiles
 export PATH="$PATH:$(du ~/.dotfiles/bin/.local/bin | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 #export SHELL=/run/current-system/sw/bin/zsh
 export PATH=$PATH:$HOME/.local/share/cargo/bin/
-export BROWSER=brave
+export BROWSER=zen
 export TERMINAL=alacritty
 export TFM=lf
 export XDG_CONFIG_HOME=$HOME/.config
@@ -24,6 +24,7 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 export BEMOJI_PICKER_CMD="fuzzel --dmenu --width 48"
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export QT_STYLE_OVERRIDE="Fusion"
+export QT_SCALE_FACTOR="1.5"
 
 # Clean up home dir
 export GOPATH=$HOME/.local/go/

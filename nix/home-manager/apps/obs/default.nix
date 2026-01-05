@@ -2,11 +2,7 @@
 
 # TOOD: Move setting up obs configs and evyrthing here at some point
 {
-  home.packages = with pkgs; [
-    usbmuxd
-    ffmpeg
-    droidcam
-  ];
+  home.packages = with pkgs; [ usbmuxd ffmpeg droidcam ];
 
   programs.obs-studio = {
     enable = true;

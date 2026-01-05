@@ -15,7 +15,8 @@ in {
 
   home.packages = with pkgs;
     (if notMac then [ discord beeper spotify google-chrome ] else [ ]) ++ [
-        lutris
+      lutris
+      dolphin-emu
       ryubing
       prismlauncher
       vlc

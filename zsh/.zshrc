@@ -54,8 +54,9 @@ precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:git:*' formats ' (%b) '
-setopt PROMPT_SUBST
-PROMPT='%F{green}%1~%f %F{magenta}${vcs_info_msg_0_}%f$ '
+# setopt PROMPT_SUBST
+# PROMPT='%F{green}%1~%f %F{magenta}${vcs_info_msg_0_}%f$ '
+eval "$(starship init zsh)"
 
 HISTSIZE=10000000
 SAVEHIST=10000000
