@@ -138,21 +138,21 @@ in {
       pulse.enable = true;
     };
 
-    # control-http-home = {
-    #   enable = true;
-    #   commands = [
-    #     {
-    #       name = "sleep";
-    #       action = "systemctl suspend -i";
-    #       url = "/sleep";
-    #     }
-    #     {
-    #       name = "live";
-    #       action = "/home/sky/.dotfiles/private_stuff/live";
-    #       url = "/live";
-    #     }
-    #   ];
-    # };
+    control-http-home = {
+      enable = true;
+      commands = [
+        {
+          name = "sleep";
+          action = "systemctl suspend -i";
+          url = "/sleep";
+        }
+        {
+          name = "live";
+          action = "/home/sky/.dotfiles/private_stuff/live";
+          url = "/live";
+        }
+      ];
+    };
 
     cloudflared.enable = true;
     udisks2.enable = true;
