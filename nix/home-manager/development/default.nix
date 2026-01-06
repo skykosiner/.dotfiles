@@ -8,6 +8,7 @@
         ./languages
         ./fzf
         ./bat
+        ./ssh
     ];
 
     home.packages = with pkgs; [
