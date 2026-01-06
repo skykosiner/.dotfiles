@@ -1,73 +1,63 @@
 { pkgs, ... }:
 
 {
-    imports = [
-        ./neovim
-        ./zsh
-        ./tmux
-        ./languages
-        ./fzf
-        ./bat
-        ./ssh
-    ];
+  imports = [ ./neovim ./zsh ./tmux ./languages ./fzf ./bat ./ssh ];
 
-    home.packages = with pkgs; [
-        ansible
-        hugo
+  home.packages = with pkgs; [
+    ansible
+    hugo
 
-        bun
-        gjs
+    bun
+    gjs
 
-        inetutils
-        wirelesstools
-        unzip
-        ripgrep
-        jq
-        vim
-        imagemagick
-        eza
-        gh
-        tokei
-        tldr
-        git
-        docker
-        zoxide
-        openssl
-        pkg-config
+    inetutils
+    wirelesstools
+    unzip
+    ripgrep
+    jq
+    vim
+    imagemagick
+    eza
+    gh
+    tokei
+    tldr
+    git
+    docker
+    zoxide
+    openssl
+    pkg-config
 
-        sqlite
+    sqlite
 
-        bc
-        arp-scan
+    bc
+    arp-scan
 
-        cmake
-        ninja
-        gcc
-        gnumake
+    cmake
+    ninja
+    gcc
+    gnumake
 
-        basedpyright
-        lua-language-server
-        vtsls
-        # rustup
-        rust-analyzer
-        gopls
-        shellcheck
+    basedpyright
+    lua-language-server
+    vtsls
+    # rustup
+    rust-analyzer
+    gopls
+    shellcheck
 
-        glib
-        gdk-pixbuf
-        libsoup_3
-        pango
-        gtk3
-        webkitgtk_4_1
-    ];
+    glib
+    gdk-pixbuf
+    libsoup_3
+    pango
+    gtk3
+    webkitgtk_4_1
+  ];
 
-    programs.git = {
-        enable = true;
-        userName = "Sky Kosiner";
-        userEmail = "sky@skykosiner.com";
-    };
+  programs.git = {
+    enable = true;
+    userName = "Sky Kosiner";
+    userEmail = "sky@skykosiner.com";
+  };
 
-    home.sessionVariables = {
-        NODE_ENV = "development";
-    };
+  home.sessionVariables = { NODE_ENV = "development"; };
 }

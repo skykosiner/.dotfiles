@@ -46,18 +46,58 @@ return {
                 "vtsls",
                 "sqls",
                 "templ",
-                "nil_ls"
+                "nixd"
             })
 
-            require("lspconfig").nil_ls.setup {
+
+            -- local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+            require("lspconfig").nixd.setup {
+                cmd = { "nixd" },
+                -- capabilities = capabilities, -- ADD THIS LINE
                 settings = {
-                    ['nil'] = {
+                    nixd = {
+                        nixpkgs = {
+                            expr = [[import (builtins.getFlake "/home/sky/.dotfiles/nix/").inputs.nixpkgs { }]],
+                        },
                         formatting = {
-                            command = { "nixfmt" },
+                            command = { "nixfmt" }, -- or nixfmt or nixpkgs-fmt
+                        },
+                        options = {
+                            nixos = {
+                                expr = '(builtins.getFlake "/home/sky/.dotfiles/nix/").nixosConfigurations.nix-btw.options',
+                            },
+                            home_manager = {
+                                expr = '(builtins.getFlake "/home/sky/.dotfiles/nix/").homeConfigurations."sky@nix-btw".options',
+                            },
+                            -- nix_server = {
+                            --     expr = '(builtins.getFlake "/home/sky/personal/nix-server/").nixosConfigurations.main-box.options',
+                            -- },
                         },
                     },
                 },
             }
+
+            -- require("lspconfig").nixd.setup {
+            --     settings = {
+            --         nixd = {
+            --             nixpkgs = {
+            --                 expr = "import <nixpkgs> { }",
+            --             },
+            --             formatting = {
+            --                 command = { "nixfmt" },
+            --             },
+            --             options = {
+            --                 nixos = {
+            --                     expr = '(builtins.getFlake "/PATH/TO/FLAKE").nixosConfigurations.CONFIGNAME.options',
+            --                 },
+            --                 home_manager = {
+            --                     expr = '(builtins.getFlake "/PATH/TO/FLAKE").homeConfigurations.CONFIGNAME.options',
+            --                 },
+            --             },
+            --         },
+            --     },
+            -- }
 
             require("lspconfig").gopls.setup {
                 settings = {
