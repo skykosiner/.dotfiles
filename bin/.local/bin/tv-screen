@@ -1,0 +1,9 @@
+#!/bin/sh
+
+alga volume get > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+    alga power off
+else
+    alga power on
+    alga input set HDMI_2
+fi

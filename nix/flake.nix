@@ -30,10 +30,15 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    alga = {
+      url = "github:Tenzer/alga";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, asus-wmi-screenpad, apple-silicon
-    , zen-browser, sops-nix, control-http-home, ... }@inputs:
+    , zen-browser, sops-nix, control-http-home, alga, ... }@inputs:
     let
       inherit (self) outputs;
       lib = nixpkgs.lib;

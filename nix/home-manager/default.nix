@@ -44,6 +44,8 @@ in {
       lynx
       atool
       pulsemixer
+      wol
+      inputs.alga.packages.${pkgs.system}.default
     ];
   };
 

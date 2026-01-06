@@ -99,6 +99,8 @@ in {
         "$mainMod, F, fullscreen, 0"
         "$mainMod, t, togglegroup"
 
+        "$mainMod SHIFT, v, ~/.local/bin/tv-screen"
+
         "$mainMod, o, exec, $terminal -e /home/sky/.local/bin/lfub"
         "$mainMod SHIFT, w, exec, brave"
 
