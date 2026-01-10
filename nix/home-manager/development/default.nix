@@ -1,17 +1,16 @@
-{ pkgs, ... }:
+{ pkgs, system, ... }:
 
-{
+let notArm = system != "aarch64-linux";
+in {
   imports = [ ./neovim ./zsh ./tmux ./languages ./fzf ./bat ./ssh ];
 
-  home.packages = with pkgs; [
+  home.packages = with pkgs; if notArm then [ wirelesstools webkitgtk_4_1 gjs ] else [ ] ++ [
     ansible
     hugo
 
     bun
-    gjs
 
     inetutils
-    wirelesstools
     unzip
     ripgrep
     jq
@@ -50,7 +49,6 @@
     libsoup_3
     pango
     gtk3
-    webkitgtk_4_1
   ];
 
   programs.git = {

@@ -1,29 +1,22 @@
-{ pkgs }:
+{ pkgs, fontPath }:
 
 pkgs.stdenv.mkDerivation {
   pname = "TX-02";
   version = "1.009";
 
-  src = /home/sky/.dotfiles/private_stuff/font/TX-02.zip;
+  src = fontPath;
 
-  unpackPhase = ''
-    runHook preUnpack
-    ${pkgs.unzip}/bin/unzip $src
-    runHook postUnpack
-  '';
+  nativeBuildInputs = [ pkgs.unzip ];
+  sourceRoot = ".";
+  unpackCmd = "unzip $src";
 
   installPhase = ''
     runHook preInstall
-    install -Dm644 ./TX-02-Bold-SemiCondensed-Oblique.otf -t $out/share/fonts
-    install -Dm644 ./TX-02-Bold-SemiCondensed.otf -t $out/share/fonts
-    install -Dm644 ./TX-02-ExtraBold-SemiCondensed-Oblique.otf -t $out/share/fonts
-    install -Dm644 ./TX-02-ExtraBold-SemiCondensed.otf -t $out/share/fonts
-    install -Dm644 ./TX-02-Medium-SemiCondensed-Oblique.otf -t $out/share/fonts
-    install -Dm644 ./TX-02-Medium-SemiCondensed.otf -t $out/share/fonts
-    install -Dm644 ./TX-02-Retina-SemiCondensed-Oblique.otf -t $out/share/fonts
-    install -Dm644 ./TX-02-Retina-SemiCondensed.otf -t $out/share/fonts
-    install -Dm644 ./TX-02-SemiCondensed-Oblique.otf -t $out/share/fonts
-    install -Dm644 ./TX-02-SemiCondensed.otf -t $out/share/fonts
+
+    mkdir -p $out/share/fonts/truetype
+    # Recursively find all TTF files in case they are in subfolders
+    find . -name "*.ttf" -exec install -Dm644 {} $out/share/fonts/truetype/ \;
+
     runHook postInstall
   '';
 }

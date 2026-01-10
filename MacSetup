@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+brew install neovim
+brew install ghostty
+brew install go
+brew install gopls
+
+mkdir ~/personal
+
+ln -s /Users/sky/.dotfiles/nvim/ /Users/sky/.config/
+
+pushd ~/personal
+git clone git@github.com:skykosiner/todoist.nvim
+git clone git@github.com:skykosiner/statusline.nvim
+git clone git@github.com:skykosiner/rfc.nvim
+git clone git@github.com:skykosiner/sock-et-emacs python-control-my-computer
+popd

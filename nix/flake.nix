@@ -35,10 +35,13 @@
       url = "github:Tenzer/alga";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-darwin.url = "github:nix-darwin/nix-darwin/master";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { self, nixpkgs, home-manager, asus-wmi-screenpad, apple-silicon
-    , zen-browser, sops-nix, control-http-home, alga, ... }@inputs:
+    , zen-browser, sops-nix, control-http-home, alga, nix-darwin, ... }@inputs:
     let
       inherit (self) outputs;
       lib = nixpkgs.lib;
@@ -96,6 +99,26 @@
           hostname = "nix-btw";
           username = "sky";
         };
+      };
+
+      darwinConfigurations."skys-MacBook-Air" = nix-darwin.lib.darwinSystem {
+          modules = [
+		  ./mac.nix 
+		  home-manager.darwinModules.home-manager
+		  {
+		    home-manager.useGlobalPkgs = true;
+		    home-manager.useUserPackages = true;
+		    home-manager.users.sky = import ./home-manager/mac.nix;
+
+		    # Optionally, use home-manager.extraSpecialArgs to pass
+		    # arguments to home.nix
+		    home-manager.extraSpecialArgs = {
+		      inherit inputs; 
+		      system = "aarch64-linux";
+		      hostname = "skys-MacBook-Air"; 
+		    };
+		  }
+	  ];
       };
     };
 }

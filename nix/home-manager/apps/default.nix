@@ -1,62 +1,60 @@
-{ pkgs, hostname, ... }:
+{ pkgs, system, ... }:
 
-let notMac = hostname != "mac-btw";
+let notMac = system != "aarch64-linux";
 in {
-  imports = (if notMac then [ ./obs ] else [ ]) ++ [
-    ./alacritty
-    ./ghostty
-    ./starship
-    ./zathura
-    ./lf
-    ./fastfetch
-    ./pass
-    ./mpv
-  ];
+  imports = (if notMac then [ ./obs ./ghostty ] else [ ])
+    ++ [ ./alacritty ./starship ./zathura ./lf ./fastfetch ./pass ./mpv ];
 
   home.packages = with pkgs;
-    (if notMac then [ discord beeper spotify google-chrome ] else [ ]) ++ [
+    (if notMac then [
+      discord
+      beeper
+      spotify
+      google-chrome
       lutris
       dolphin-emu
-      ryubing
-      prismlauncher
       vlc
+      xfce.xfconf
+      xfce.thunar
+      pika-backup
       ktailctl
-      moonlight-qt
       todoist-electron
       makemkv
       lunar-client
-      trash-cli
-      pika-backup
-      vesktop
-      sqlitebrowser
-      chatterino2
       calibre
-      yt-dlp
-      cmatrix
-      lazygit
-      newsboat
       davinci-resolve
-      clipse
       wlsunset
-      thunderbird
-      teams-for-linux
-      kitty
       spotify-cli-linux
-      xfce.xfconf
-      xfce.thunar
       libreoffice
-      obsidian
-      brave
-      nsxiv
-      qbittorrent
-      bitwarden-desktop
       gimp
       pavucontrol
       shotwell
-      audacity
-      realvnc-vnc-viewer
       koreader
-      google-chrome
       mupen64plus
-    ];
+    ] else
+      [ ]) ++ [
+        ryubing
+        prismlauncher
+        moonlight-qt
+        trash-cli
+        vesktop
+        sqlitebrowser
+        chatterino2
+        yt-dlp
+        cmatrix
+        lazygit
+        newsboat
+        clipse
+        thunderbird
+        teams-for-linux
+        kitty
+        obsidian
+        brave
+        nsxiv
+        qbittorrent
+        bitwarden-desktop
+        audacity
+        realvnc-vnc-viewer
+        google-chrome
+      ];
 }

@@ -11,9 +11,13 @@ let
     "nofail"
   ];
 
+   homeDir = if pkgs.stdenv.isDarwin then "/Users/sky" else "/home/sky";
+  berkeleyPath = /. + "${homeDir}/.dotfiles/private_stuff/berkeley-mono-regular.zip";
+  TX-02Path = /. + "${homeDir}/.dotfiles/private_stuff/font/TX-02.zip";
+
   berkeley-mono =
-    pkgs.callPackage ./packages/berkeley-mono.nix { inherit pkgs; };
-  TX-02 = pkgs.callPackage ./packages/TX-02.nix { inherit pkgs; };
+    pkgs.callPackage ./packages/berkeley-mono.nix { fontPath = berkeleyPath; };
+  TX-02 = pkgs.callPackage ./packages/TX-02.nix { fontPath = TX-02Path; };
 in {
   nix = {
     settings.warn-dirty = false;

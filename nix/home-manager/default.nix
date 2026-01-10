@@ -1,10 +1,10 @@
 { config, pkgs, lib, hostname, inputs, system, ... }:
 
 let
-  apps = import ./apps { inherit pkgs hostname; };
+  apps = import ./apps { inherit pkgs system; };
   theme = import ./theme { inherit pkgs lib hostname; };
   hyprland = import ./hyprland { inherit pkgs hostname; };
-  development = import ./development { inherit pkgs; };
+  development = import ./development { inherit pkgs system; };
 
 in {
   imports =
