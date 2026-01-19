@@ -51,6 +51,7 @@
       nixosConfigurations = {
         nixos-btw = lib.nixosSystem {
           modules = [
+            inputs.control-http-home.nixosModules.default
             ./hosts/nixos-btw/configuration.nix
             sops-nix.nixosModules.sops
             {
