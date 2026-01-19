@@ -11,8 +11,9 @@ let
     "nofail"
   ];
 
-   homeDir = if pkgs.stdenv.isDarwin then "/Users/sky" else "/home/sky";
-  berkeleyPath = /. + "${homeDir}/.dotfiles/private_stuff/berkeley-mono-regular.zip";
+  homeDir = if pkgs.stdenv.isDarwin then "/Users/sky" else "/home/sky";
+  berkeleyPath = /.
+    + "${homeDir}/.dotfiles/private_stuff/berkeley-mono-regular.zip";
   TX-02Path = /. + "${homeDir}/.dotfiles/private_stuff/font/TX-02.zip";
 
   berkeley-mono =

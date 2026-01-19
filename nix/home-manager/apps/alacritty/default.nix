@@ -73,8 +73,8 @@ in {
       };
 
       font.size = fontsize;
-      # font.normal.family = "TX-02";
-      font.normal.family = "GoMono Nerd Font Mono";
+      font.normal.family = "TX-02";
+      # font.normal.family = "GoMono Nerd Font Mono";
       # font.normal.family = "ComicShanns Mono Nerd Font";
 
       keyboard.bindings = [{

@@ -12,7 +12,7 @@ let
   else
     "/Users/sky/.dotfiles/zsh/.zshenv";
   personalShellPath = if notArm then
-    "/Users/sky/.dotfiles/shell/.config/personal/"
+    "/home/sky/.dotfiles/shell/.config/personal/"
   else
     "/Users/sky/.dotfiles/shell/.config/personal/";
 

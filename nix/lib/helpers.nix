@@ -23,6 +23,7 @@
           username
           stateVersion
           ;
+        system = platform;
       };
       modules = [
         inputs.nix-doom-emacs-unstraightened.hmModule

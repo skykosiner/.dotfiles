@@ -81,6 +81,12 @@
             inputs.control-http-home.nixosModules.default
             ./hosts/nix-btw/configuration.nix
             sops-nix.nixosModules.sops
+            {
+              _module.args = {
+                # inputs = { inherit asus-wmi-screenpad; };
+                system = "x86_64-linux";
+              };
+            }
           ];
         };
       };
@@ -103,7 +109,7 @@
 
       darwinConfigurations."skys-MacBook-Air" = nix-darwin.lib.darwinSystem {
           modules = [
-		  ./mac.nix 
+		  ./mac.nix
 		  home-manager.darwinModules.home-manager
 		  {
 		    home-manager.useGlobalPkgs = true;
@@ -113,9 +119,9 @@
 		    # Optionally, use home-manager.extraSpecialArgs to pass
 		    # arguments to home.nix
 		    home-manager.extraSpecialArgs = {
-		      inherit inputs; 
+		      inherit inputs;
 		      system = "aarch64-linux";
-		      hostname = "skys-MacBook-Air"; 
+		      hostname = "skys-MacBook-Air";
 		    };
 		  }
 	  ];

@@ -56,5 +56,6 @@ in {
         audacity
         realvnc-vnc-viewer
         google-chrome
+        localsend
       ];
 }

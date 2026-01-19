@@ -3,7 +3,7 @@ vim.opt.background = "dark"
 ---@param color string
 function Colors(color)
     if vim.opt.background._value ~= "light" then
-        vim.cmd.colorscheme(color or "gruvbox-material")
+        vim.cmd.colorscheme(color or "gruvbuddy")
 
         -- General
         vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#555555" })
@@ -48,6 +48,8 @@ function Colors(color)
     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
     vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
     vim.api.nvim_set_hl(0, "ZenBg", { bg = "none" })
+    -- vim.api.nvim_set_hl(0, "@markup.list.unchecked.markdown", { bg = "none", fg = "none" })
+    -- vim.api.nvim_set_hl(0, "@markup.list.markdown", { bg = "none", fg = "none" })
 end
 
 Colors()
