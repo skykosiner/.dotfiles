@@ -35,6 +35,7 @@ in {
       pandoc
       poppler-utils
       python312Packages.docx2txt
+      python312Packages.ffmpeg-progress-yield
       exiftool
       networkmanagerapplet
       flat-remix-gtk
@@ -46,6 +47,7 @@ in {
       pulsemixer
       wol
       inputs.alga.packages.${pkgs.system}.default
+      usbutils
     ];
   };
 

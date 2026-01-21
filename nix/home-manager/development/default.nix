@@ -8,6 +8,8 @@ in {
     ansible
     hugo
 
+    arduino-ide
+
     bun
 
     inetutils

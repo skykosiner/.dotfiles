@@ -48,7 +48,7 @@ in {
     networkmanager.enable = true;
     wireguard.enable = true;
 
-    firewall.allowedTCPPorts = [ 42069 5900 42068 38165 ];
+    firewall.allowedTCPPorts = [ 42069 5900 42068 38165 53317 ];
 
     wg-quick.interfaces = {
       wg0 = {
@@ -276,7 +276,7 @@ in {
     users.sky = {
       isNormalUser = true;
       description = "sky";
-      extraGroups = [ "networkmanager" "wheel" "docker" "openrazer" ];
+      extraGroups = [ "networkmanager" "wheel" "docker" "openrazer" "dialout" ];
       shell = pkgs.zsh;
       hashedPassword =
         "$6$p011SB1zy3NpqFjq$rdHjOi.GD.w/IUss5H9wmYJGckOQsAEVerQH6NKH6g9n8eG3XQJ1iIkKU4KE/pSwaIH69Gsg7Pa07j.8ErxUA0";
