@@ -33,26 +33,32 @@ return {
         config = function()
             vim.diagnostic.config { jump = { float = true } }
             local lsp = require("lsp-zero")
-            lsp.extend_lspconfig()
-            lsp.setup_servers({
-                "basedpyright",
-                "lua_ls",
-                "html",
-                "cssls",
-                "gopls",
-                "clangd",
-                "rust_analyzer",
-                "lua_ls",
-                "vtsls",
-                "sqls",
-                "templ",
-                "nixd"
-            })
 
+            local simple_servers = { "html", "cssls", "clangd", "rust_analyzer", "sqls", "templ" }
+            for _, name in ipairs(simple_servers) do
+                vim.lsp.config(name, {})
+            end
+
+            -- lsp.extend_lspconfig()
+            -- lsp.setup_servers({
+            --     "basedpyright",
+            --     "lua_ls",
+            --     "html",
+            --     "cssls",
+            --     "gopls",
+            --     "clangd",
+            --     "rust_analyzer",
+            --     "lua_ls",
+            --     "vtsls",
+            --     "sqls",
+            --     "templ",
+            --     "nixd"
+            -- })
+            --
 
             -- local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-            require("lspconfig").nixd.setup {
+            vim.lsp.config("nixd", {
                 cmd = { "nixd" },
                 -- capabilities = capabilities, -- ADD THIS LINE
                 settings = {
@@ -76,7 +82,7 @@ return {
                         },
                     },
                 },
-            }
+            })
 
             -- require("lspconfig").nixd.setup {
             --     settings = {
@@ -99,7 +105,7 @@ return {
             --     },
             -- }
 
-            require("lspconfig").gopls.setup {
+            vim.lsp.config("gopls", {
                 settings = {
                     gopls = {
                         ["ui.inlayhint.hints"] = {
@@ -109,9 +115,9 @@ return {
                         },
                     },
                 },
-            }
+            })
 
-            require("lspconfig").basedpyright.setup {
+            vim.lsp.config("basedpyright", {
                 settings = {
                     basedpyright = {
                         analysis = {
@@ -121,9 +127,9 @@ return {
                         }
                     }
                 }
-            }
+            })
 
-            require("lspconfig").lua_ls.setup {
+            vim.lsp.config("lua_ls", {
                 settings = {
                     Lua = {
                         hint = {
@@ -138,13 +144,13 @@ return {
                         },
                     }
                 }
-            }
+            })
 
-            require("lspconfig").html.setup {
+            vim.lsp.config("html", {
                 filetypes = { "html", "templ" },
-            }
+            })
 
-            require("lspconfig").vtsls.setup {
+            vim.lsp.config("vtsls", {
                 filetypes = { "javascrit", "typescript", "react" },
                 settings = {
                     typescript = {
@@ -158,7 +164,7 @@ return {
                         },
                     },
                 },
-            }
+            })
 
             vim.keymap.set("n", "<leader>qf", vim.diagnostic.setqflist)
 

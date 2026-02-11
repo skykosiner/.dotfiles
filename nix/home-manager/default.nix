@@ -53,7 +53,10 @@ in {
 
   xdg.dataHome = "/home/sky/.local/share/";
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    permittedInsecurePackages = [ "ciscoPacketTracer8-8.2.2" ];
+  };
 
   programs = {
     zen-browser = {

@@ -63,9 +63,9 @@ return {
                 contrast = "hard",
             })
         end
-    },
-    {
-        "davidmh/mdx.nvim",
-        config = true
     }
+    -- {
+    --     "davidmh/mdx.nvim",
+    --     config = true
+    -- }
 }

@@ -2,3 +2,4 @@ bin/.local/share
 bin/.local/lib
 bin/.local/lib/
 bin/.local/bin/smartthings
+nix/pkgs/CiscoPacketTracer822_amd64_signed.deb
