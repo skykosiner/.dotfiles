@@ -40,6 +40,7 @@
           type = "os";
           key = "OS";
           keyColor = "yellow";
+          format = "Big Kirk OS";
         }
         {
           type = "kernel";
