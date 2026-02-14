@@ -6,6 +6,8 @@ in {
 
   home.packages = with pkgs; (if notArm then [ wirelesstools webkitgtk_4_1 gjs ] else [ ]) ++ [
     nmap
+    bettercap
+    aircrack-ng
 
     ansible
     hugo
