@@ -5,6 +5,8 @@ in {
   imports = [ ./neovim ./zsh ./tmux ./languages ./fzf ./bat ./ssh ];
 
   home.packages = with pkgs; (if notArm then [ wirelesstools webkitgtk_4_1 gjs ] else [ ]) ++ [
+    nmap
+
     ansible
     hugo
 

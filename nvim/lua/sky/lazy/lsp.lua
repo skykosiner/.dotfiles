@@ -34,7 +34,7 @@ return {
             vim.diagnostic.config { jump = { float = true } }
             local lsp = require("lsp-zero")
 
-            local simple_servers = { "html", "cssls", "clangd", "rust_analyzer", "sqls", "templ" }
+            local simple_servers = { "html", "cssls", "clangd", "rust_analyzer", "sqls", "templ", "basedpyright" }
             for _, name in ipairs(simple_servers) do
                 vim.lsp.config(name, {})
             end
