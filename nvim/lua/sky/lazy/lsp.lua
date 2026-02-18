@@ -151,7 +151,7 @@ return {
             })
 
             vim.lsp.config("vtsls", {
-                filetypes = { "javascrit", "typescript", "react" },
+                filetypes = { "javascript", "typescript", "react", "typescriptreact" },
                 settings = {
                     typescript = {
                         inlayHints = {
