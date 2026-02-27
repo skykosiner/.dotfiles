@@ -101,6 +101,8 @@ in {
 
         "$mainMod SHIFT, v, exec, ~/.local/bin/tv-screen"
 
+        "$mainMod SHIFT, i, exec, swww img '/home/sky/Downloads/inshallah.jpg'"
+
         "$mainMod, o, exec, $terminal -e /home/sky/.local/bin/lfub"
         "$mainMod SHIFT, w, exec, brave"
 
