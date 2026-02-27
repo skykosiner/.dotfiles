@@ -20,9 +20,6 @@ let
     pkgs.callPackage ./packages/berkeley-mono.nix { fontPath = berkeleyPath; };
   TX-02 = pkgs.callPackage ./packages/TX-02.nix { fontPath = TX-02Path; };
 
-  packetTracer = pkgs.ciscoPacketTracer8.override {
-    packetTracerSource = ./pkgs/CiscoPacketTracer822_amd64_signed.deb;
-  };
 in {
   nix = {
     settings.warn-dirty = false;
@@ -181,7 +178,6 @@ in {
     allowUnfree = true;
     allowUnsupportedSystem = true;
     virtualbox.host.enableExtensionPack = true;
-    permittedInsecurePackages = [ "ciscoPacketTracer8-8.2.2" ];
   };
 
   environment.systemPackages = with pkgs; [
@@ -245,7 +241,7 @@ in {
       settings = {
         General = {
           Experimental = true;
-          ControllerMode = "le";
+          ControllerMode = "dual";
         };
       };
     };
@@ -303,16 +299,6 @@ in {
       options = [ "NOPASSWD" ];
     }];
   }];
-
-  programs.firejail = {
-    enable = true;
-    wrappedBinaries = {
-      packettracer8 = {
-        executable = "${packetTracer}/bin/packettracer8";
-        extraArgs = [ "--noprofile" "--net=none" ];
-      };
-    };
-  };
 
   console.keyMap = "uk";
   system.stateVersion = "24.05";

@@ -15,7 +15,7 @@ pkgs.stdenv.mkDerivation {
 
     mkdir -p $out/share/fonts/truetype
     # Recursively find all TTF files in case they are in subfolders
-    find . -name "*.ttf" -exec install -Dm644 {} $out/share/fonts/truetype/ \;
+    find . -name "*.otf" -exec install -Dm644 {} $out/share/fonts/truetype/ \;
 
     runHook postInstall
   '';
