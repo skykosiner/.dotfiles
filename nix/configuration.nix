@@ -47,31 +47,45 @@ in {
   networking = {
     hosts = { "127.0.0.1" = [ "chatgpt.com" "chat.openai.com" ]; };
     networkmanager.enable = true;
-    wireguard.enable = true;
+    networkmanager.wifi.backend = "iwd";
+    wireless.iwd.enable = true;
+
+    # wireguard.enable = true;
+
+    # interfaces.wlp9s0 = {
+    #     useDHCP = false;
+    #     ipv4.address = [{
+    #         address = "10.0.0.73";
+    #         prefixLength = 24;
+    #     }];
+    # };
+    #
+    # defaultGateway = "10.0.0.1";
+    # nameservers = ["1.1.1.1", "8.8.8.8"];
 
     firewall.allowedTCPPorts = [ 42069 5900 42068 38165 53317 ];
 
-    wg-quick.interfaces = {
-      wg0 = {
-        autostart = false;
-        address = [ "10.100.0.2/32" ];
-        dns = [ "1.1.1.1" ];
-        privateKeyFile = "/home/sky/.dotfiles/private_stuff/privateKey";
+    # wg-quick.interfaces = {
+    #   wg0 = {
+    #     autostart = false;
+    #     address = [ "10.100.0.2/32" ];
+    #     dns = [ "1.1.1.1" ];
+    #     privateKeyFile = "/home/sky/.dotfiles/private_stuff/privateKey";
+    #
+    #     peers = [{
+    #       publicKey = "fwS4fgjfM+AUDCS1mwcZ9toAh9r8VuXyQ5CVshQTgXE=";
+    #       endpoint = builtins.readFile
+    #         "/home/sky/.dotfiles/private_stuff/endpoint_ip.txt";
+    #       allowedIPs = [ "0.0.0.0/0" "::/0" ];
+    #     }];
+    #   };
+    # };
 
-        peers = [{
-          publicKey = "fwS4fgjfM+AUDCS1mwcZ9toAh9r8VuXyQ5CVshQTgXE=";
-          endpoint = builtins.readFile
-            "/home/sky/.dotfiles/private_stuff/endpoint_ip.txt";
-          allowedIPs = [ "0.0.0.0/0" "::/0" ];
-        }];
-      };
-    };
-
-    wireless.networks."The Kosiner's wifi" = {
-      ssid = "The Kosiner's wifi";
-      psk = builtins.readFile
-        "/home/sky/.dotfiles/private_stuff/wifi/home_wifi_password";
-    };
+    # wireless.networks."The Kosiner's wifi" = {
+    #   ssid = "The Kosiner's wifi";
+    #   psk = builtins.readFile
+    #     "/home/sky/.dotfiles/private_stuff/wifi/home_wifi_password";
+    # };
   };
 
   programs = {

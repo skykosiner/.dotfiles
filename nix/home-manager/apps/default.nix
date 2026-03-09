@@ -31,6 +31,7 @@ in {
       shotwell
       koreader
       mupen64plus
+      yubioath-flutter
     ] else
       [ ]) ++ [
         ryubing
