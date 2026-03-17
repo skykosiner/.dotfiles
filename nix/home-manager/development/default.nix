@@ -4,58 +4,61 @@ let notArm = system != "aarch64-linux";
 in {
   imports = [ ./neovim ./zsh ./tmux ./languages ./fzf ./bat ./ssh ];
 
-  home.packages = with pkgs; (if notArm then [ wirelesstools webkitgtk_4_1 gjs ] else [ ]) ++ [
-    nmap
-    bettercap
-    aircrack-ng
+  home.packages = with pkgs;
+    (if notArm then [ wirelesstools webkitgtk_4_1 gjs ] else [ ]) ++ [
 
-    ansible
-    hugo
+      burpsuite
+      nmap
+      bettercap
+      aircrack-ng
 
-    arduino-ide
+      ansible
+      hugo
 
-    bun
+      arduino-ide
 
-    inetutils
-    unzip
-    ripgrep
-    jq
-    vim
-    imagemagick
-    eza
-    gh
-    tokei
-    tldr
-    git
-    docker
-    zoxide
-    openssl
-    pkg-config
+      bun
 
-    sqlite
+      inetutils
+      unzip
+      ripgrep
+      jq
+      vim
+      imagemagick
+      eza
+      gh
+      tokei
+      tldr
+      git
+      docker
+      zoxide
+      openssl
+      pkg-config
 
-    bc
-    arp-scan
+      sqlite
 
-    cmake
-    ninja
-    gcc
-    gnumake
+      bc
+      arp-scan
 
-    basedpyright
-    lua-language-server
-    vtsls
-    # rustup
-    rust-analyzer
-    gopls
-    shellcheck
+      cmake
+      ninja
+      gcc
+      gnumake
 
-    glib
-    gdk-pixbuf
-    libsoup_3
-    pango
-    gtk3
-  ];
+      basedpyright
+      lua-language-server
+      vtsls
+      # rustup
+      rust-analyzer
+      gopls
+      shellcheck
+
+      glib
+      gdk-pixbuf
+      libsoup_3
+      pango
+      gtk3
+    ];
 
   programs.git = {
     enable = true;

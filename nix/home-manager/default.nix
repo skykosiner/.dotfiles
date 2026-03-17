@@ -48,6 +48,7 @@ in {
       wol
       inputs.alga.packages.${pkgs.system}.default
       usbutils
+      hyfetch
     ];
   };
 
@@ -72,7 +73,36 @@ in {
 
   services.udiskie = { enable = true; };
 
+  fonts.fontconfig = {
+    enable = true;
+    defaultFonts = { emoji = [ "Noto Color Emoji" ]; };
+  };
+
   xdg = {
+    configFile."fontconfig/conf.d/10-beeper-emoji.conf".text = ''
+      <?xml version="1.0"?>
+      <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+      <fontconfig>
+        <match target="pattern">
+          <test qual="any" name="family"><string>serif</string></test>
+          <edit name="family" mode="append" binding="weak">
+            <string>Noto Color Emoji</string>
+          </edit>
+        </match>
+        <match target="pattern">
+          <test qual="any" name="family"><string>sans-serif</string></test>
+          <edit name="family" mode="append" binding="weak">
+            <string>Noto Color Emoji</string>
+          </edit>
+        </match>
+        <match target="pattern">
+          <test qual="any" name="family"><string>monospace</string></test>
+          <edit name="family" mode="append" binding="weak">
+            <string>Noto Color Emoji</string>
+          </edit>
+        </match>
+      </fontconfig>
+    '';
     mimeApps = {
       enable = true;
       defaultApplications = {

@@ -229,24 +229,29 @@ in {
     iw
   ];
 
-  fonts.packages = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk-sans
-    inter
-    ubuntu-classic
-    noto-fonts-color-emoji
-    font-awesome
-    nerd-fonts.jetbrains-mono
-    nerd-fonts.victor-mono
-    nerd-fonts.ubuntu-mono
-    nerd-fonts.hack
-    nerd-fonts.fira-code
-    nerd-fonts.iosevka
-    nerd-fonts.go-mono
-    nerd-fonts.comic-shanns-mono
-    berkeley-mono
-    TX-02
-  ];
+  fonts = {
+    packages = with pkgs; [
+      noto-fonts
+      noto-fonts-cjk-sans
+      inter
+      ubuntu-classic
+      noto-fonts-color-emoji
+      font-awesome
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.victor-mono
+      nerd-fonts.ubuntu-mono
+      nerd-fonts.hack
+      nerd-fonts.fira-code
+      nerd-fonts.iosevka
+      nerd-fonts.go-mono
+      nerd-fonts.comic-shanns-mono
+      berkeley-mono
+      TX-02
+      noto-fonts-color-emoji
+    ];
+
+    fontconfig = { defaultFonts = { emoji = [ "Noto Color Emoji" ]; }; };
+  };
 
   hardware = {
     bluetooth = {

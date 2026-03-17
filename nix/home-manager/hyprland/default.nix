@@ -157,8 +157,9 @@ in {
         "DP-1,1920x515@60,0x1080,1"
       ] else if hostname == "nix-btw" then [
         "DP-3,2560x1440@120,0x0,1"
-        "HDMI-A-1,1920x1080@144,2560x0,1,transform, 1"
-        "DP-2,2560x1400@60,3640x0,1.3"
+        # "HDMI-A-1,1920x1080@144,2560x0,1,transform, 1"
+        "HDMI-A-1,1920x1080@144,2560x0,1"
+        "DP-2,2560x1400@60,4480x0,1.3"
         ",preferred,auto,auto"
       ] else
         [
@@ -219,7 +220,7 @@ in {
         active_opacity = 1.0;
         inactive_opacity = 1.0;
         blur = {
-          enabled = false;
+          enabled = true;
           size = 2;
           ignore_opacity = true;
           passes = 3;
@@ -229,7 +230,7 @@ in {
       };
 
       animations = {
-        enabled = false;
+        enabled = true;
         animation = [
           "windows, 1, 3, default, popin 5%"
           "workspaces, 1, 3, default, slidefade 5%"
