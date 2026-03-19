@@ -221,7 +221,7 @@ in {
         inactive_opacity = 1.0;
         blur = {
           enabled = true;
-          size = 2;
+          size = 1;
           ignore_opacity = true;
           passes = 3;
           noise = 1.0e-2;
