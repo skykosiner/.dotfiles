@@ -3,5 +3,5 @@ bf ~/.dotfiles/.bookmfiles
 sn ~/.dotfiles/snipets
 zh ~/.zshrc
 psn ~/.dotfiles/private_stuff/private-snips
-vc ~/.dotfiles/nvim/.config/nvim/
+vc ~/.dotfiles/nvim/
 co ~/Documents/Linux-btw/College/

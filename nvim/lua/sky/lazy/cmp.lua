@@ -20,16 +20,16 @@ return {
             formatting = {
                 format = lspkind.cmp_format {
                     with_text = false,
-                    -- menu = {
-                    --     nvim_lsp = "[LSP]",
-                    --     buffer = "[buf]",
-                    --     lazydev = "[api]",
-                    --     path = "[path]",
-                    --     luasnip = "[snip]",
-                    --     nvim_px_to_rem = "[PxRem]"
-                    -- }
+                    menu = {
+                        nvim_lsp = "[LSP]",
+                        buffer = "[buf]",
+                        lazydev = "[api]",
+                        path = "[path]",
+                        luasnip = "[snip]",
+                        nvim_px_to_rem = "[PxRem]"
+                    }
                 },
-                fields = {"menu", "kind", "abbr"},
+                fields = { "menu", "kind", "abbr" },
                 expandable_indicator = false
             },
             window = {
@@ -90,6 +90,5 @@ return {
                 }
             })
         })
-
     end
 }

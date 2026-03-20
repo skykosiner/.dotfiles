@@ -37,6 +37,7 @@ return {
             local simple_servers = { "html", "cssls", "clangd", "rust_analyzer", "sqls", "templ", "basedpyright" }
             for _, name in ipairs(simple_servers) do
                 vim.lsp.config(name, {})
+                vim.lsp.enable(name)
             end
 
             -- lsp.extend_lspconfig()
@@ -83,6 +84,7 @@ return {
                     },
                 },
             })
+            vim.lsp.enable("nixd")
 
             -- require("lspconfig").nixd.setup {
             --     settings = {
@@ -116,6 +118,7 @@ return {
                     },
                 },
             })
+            vim.lsp.enable("gopls")
 
             vim.lsp.config("basedpyright", {
                 settings = {
@@ -128,6 +131,7 @@ return {
                     }
                 }
             })
+            vim.lsp.enable("basedpyright")
 
             vim.lsp.config("lua_ls", {
                 settings = {
@@ -145,10 +149,12 @@ return {
                     }
                 }
             })
+            vim.lsp.enable("lsp_ls")
 
             vim.lsp.config("html", {
                 filetypes = { "html", "templ" },
             })
+            vim.lsp.enable("html")
 
             vim.lsp.config("vtsls", {
                 filetypes = { "javascript", "typescript", "react", "typescriptreact" },
@@ -165,6 +171,7 @@ return {
                     },
                 },
             })
+            vim.lsp.enable("vtsls")
 
             vim.keymap.set("n", "<leader>qf", vim.diagnostic.setqflist)
 
