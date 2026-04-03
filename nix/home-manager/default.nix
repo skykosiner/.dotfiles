@@ -50,6 +50,7 @@ in {
       inputs.alga.packages.${pkgs.system}.default
       usbutils
       hyfetch
+      hyprsunset
     ];
   };
 

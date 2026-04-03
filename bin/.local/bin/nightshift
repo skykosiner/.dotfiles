@@ -1,6 +1,6 @@
 #!/bin/sh
-if [ ! -z $(pgrep wlsunset) ]; then
-    pkill wlsunset
+if [ ! -z $(pgrep hyprsunset) ]; then
+    pkill hyprsunset
 else
-    wlsunset -t 4900
+    hyprsunset -t 4900
 fi

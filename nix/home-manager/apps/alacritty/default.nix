@@ -3,7 +3,7 @@
 let
   fontsize = if (hostname == "nix-btw") then 18 else 15;
   dark = {
-    bg = "#111111";
+    bg = "#1d2021";
     fg = "#d8dee9";
     dim_fg = "#a5abb6";
     cursor_bg = "#d8dee9";
@@ -110,7 +110,7 @@ in {
       general.import = [ "~/.config/alacritty/active_theme.toml" ];
 
       window = {
-        opacity = 1;
+        opacity = 0.80;
         padding = {
           x = 0;
           y = 0;
@@ -118,8 +118,8 @@ in {
       };
 
       font.size = fontsize;
-      font.normal.family = "Iosevka Nerd Font";
-      # font.normal.family = "TX-02";
+      # font.normal.family = "Iosevka Nerd Font";
+      font.normal.family = "TX-02";
       # font.normal.family = "GoMono Nerd Font Mono";
       # font.normal.family = "ComicShanns Mono Nerd Font";
 

@@ -10,7 +10,8 @@ function Colors(color)
         vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#222222", bg = "#222222" })
 
         -- Line numbers
-        vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#FFFF87", bg = "#222222" })
+        vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#FFFF87", bg = "None" })
+        vim.api.nvim_set_hl(0, "LineNr", { fg = "#d5c4a1", bg = "None" })
 
         -- Markdown stuff
         vim.api.nvim_set_hl(0, "RenderMarkdownCode", { bg = "#222222" })
