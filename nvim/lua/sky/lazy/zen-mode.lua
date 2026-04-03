@@ -4,12 +4,12 @@ return {
         "folke/twilight.nvim",
     },
     config = function()
-        require("twilight").setup {
-            -- dimming = {
-            --     alpha = 0.20,
-            --     term_bg = "#2e3440"
-            -- },
-        }
+        -- require("twilight").setup {
+        --     dimming = {
+        --         alpha = 0.20,
+        --         term_bg = "#2e3440"
+        --     },
+        -- }
 
         require("zen-mode").setup {
             window = {
@@ -19,7 +19,7 @@ return {
                 }
             },
             pluigns = {
-                twilight = { enabled = true },
+                twilight = { enabled = false },
                 tmux = { enabled = false },
             },
             on_open = function(_)
