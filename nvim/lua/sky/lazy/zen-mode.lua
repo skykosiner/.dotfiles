@@ -5,10 +5,10 @@ return {
     },
     config = function()
         require("twilight").setup {
-            dimming = {
-                alpha = 0.20,
-                term_bg = "#2e3440"
-            },
+            -- dimming = {
+            --     alpha = 0.20,
+            --     term_bg = "#2e3440"
+            -- },
         }
 
         require("zen-mode").setup {

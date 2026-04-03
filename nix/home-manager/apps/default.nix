@@ -64,16 +64,16 @@ in {
         #})
       ];
 
-  programs.sm64ex = {
-    enable = true;
-    baserom = "/home/sky/Documents/baserom.us.z64";
-
-    settings = {
-      fullscreen = true;
-      window_w = 3840;
-      window_h = 2160;
-      texture_filtering = 1; # Linear filtering for HD textures
-      skip_intro = 1;
-    };
-  };
+  # programs.sm64ex = {
+  #   enable = true;
+  #   baserom = "/home/sky/Documents/baserom.us.z64";
+  #
+  #   settings = {
+  #     fullscreen = true;
+  #     window_w = 3840;
+  #     window_h = 2160;
+  #     texture_filtering = 1; # Linear filtering for HD textures
+  #     skip_intro = 1;
+  #   };
+  # };
 }

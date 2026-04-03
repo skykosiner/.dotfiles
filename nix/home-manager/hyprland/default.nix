@@ -230,7 +230,7 @@ in {
       };
 
       animations = {
-        enabled = true;
+        enabled = false;
         animation = [
           "windows, 1, 3, default, popin 5%"
           "workspaces, 1, 3, default, slidefade 5%"
@@ -246,28 +246,50 @@ in {
 
       # gestures = { workspace_swipe = true; };
 
-      windowrulev2 = [
-        "suppressevent maximize, class:.*"
-        "nofocus, class:^$, title:^$, xwayland:1, floating:1, fullscreen:0, pinned:0"
-        "tile, class:Nsxiv"
-        "tile, class:Xdg-desktop-portal-gtk"
-        "workspace 10, class:obsidian"
-        "workspace 7, class:Microsoft Teams - Preview"
+      windowrule = [
+        # General Rules
+        "match:class .*, suppress_event maximize"
+        "match:class ^$ match:title ^$ match:x_wayland 1 match:floating 1 match:fullscreen 0 match:pinned 1, no_focus 1"
+        "match:class Nsxiv, tile 1"
+        "match:class Xdg-desktop-portal-gtk, tile 1"
 
-        "workspace special:spotify, class:Spotify"
+        # App Workspaces
+        "match:class obsidian, workspace 10"
+        "match:class Microsoft Teams - Preview, workspace 7"
+        "match:class spotify, workspace special:spotify"
+        "match:class BeeperTexts, workspace special:message"
+        "match:class vesktop, workspace special:message"
+
+        "match:class ^ueberzugpp, float 1"
+        "match:class ^ueberzugpp, no_anim 1"
+        "match:class ^ueberzugpp, no_focus 1"
+        "match:class ^ueberzugpp, no_shadow 1"
+
+        # Utilities
+        "match:title ^toggl$, float 1"
+        "match:title ^toggl$, size 900 900"
+        "match:title ^toggl$, move center"
+        # "suppressevent maximize, class:.*"
+        # "nofocus, class:^$, title:^$, xwayland:1, floating:1, fullscreen:0, pinned:0"
+        # "tile, class:Nsxiv"
+        # "tile, class:Xdg-desktop-portal-gtk"
+        # "workspace 10, class:obsidian"
+        # "workspace 7, class:Microsoft Teams - Preview"
+
+        # "workspace special:spotify, class:Spotify"
         # "opacity 0.90 0.90, class:Spotify"
 
-        "workspace special:message, class:Beeper"
+        # "workspace special:message, class:Beeper"
         # "opacity 0.90 0.90, class:Beeper"
 
         # "opacity 0.90 0.90, initialTitle:Snapchat"
         # "workspace special:message, initialTitle:Snapchat"
 
-        "workspace special:message, class:vesktop"
-        "noanim, class:^ueberzugpp"
-        "float, title:^toggl$"
-        "size 900x900, title:^toggl$"
-        "move center, title:^toggl$"
+        # "workspace special:message, class:vesktop"
+        # "noanim, class:^ueberzugpp"
+        # "float, title:^toggl$"
+        # "size 900x900, title:^toggl$"
+        # "move center, title:^toggl$"
 
         #"bordersize 0, floating:0, onworkspace:w[tv1]"
         #"rounding 0, floating:0, onworkspace:w[tv1]"

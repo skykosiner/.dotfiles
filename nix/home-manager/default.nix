@@ -39,6 +39,7 @@ in {
       exiftool
       networkmanagerapplet
       flat-remix-gtk
+      neovim-remote
       catdoc
       msmtp
       mediainfo

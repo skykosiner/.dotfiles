@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+CURRENT_MODE=$(dconf read /org/gnome/desktop/interface/color-scheme)
+
+ACTIVE_CONFIG="$HOME/.config/alacritty/active_theme.toml"
+DARK_THEME="$HOME/.config/alacritty/themes/dark.toml"
+LIGHT_THEME="$HOME/.config/alacritty/themes/light.toml"
+
+/home/sky/.config/nvim/after/plugin/colors.lua
+NVIM_COLORS="$HOME/.config/nvim/after/plugin/colors.lua"
+
+if [ "$CURRENT_MODE" = "'prefer-dark'" ]; then
+    dconf write /org/gnome/desktop/interface/color-scheme "'prefer-light'"
+    dconf write /org/gnome/desktop/interface/gtk-theme "'Adwaita'"
+    hyprctl keyword general:col.active_border "rgba(33ccffee)"
+
+    printf "[general]\nimport = [ \"$LIGHT_THEME\" ]\n" > "$ACTIVE_CONFIG"
+    nvr --serverlist | xargs -I {} nvr --servername {} -c  "lua vim.opt.background='light'; Colors()"
+    sed -i "1s/.*/vim.opt.background = \"light\"/" "$NVIM_COLORS"
+
+    notify-send "Light Mode"
+else
+    dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
+    dconf write /org/gnome/desktop/interface/gtk-theme "'Nordic'"
+    hyprctl keyword general:col.active_border "rgba(ff0000ee)"
+
+    sed -i "1s/.*/vim.opt.background = \"dark\"/" "$NVIM_COLORS"
+    printf "[general]\nimport = [ \"$DARK_THEME\" ]\n" > "$ACTIVE_CONFIG"
+    nvr --serverlist | xargs -I {} nvr --servername {} -c  "lua vim.opt.background='dark'; Colors()"
+
+    notify-send "Dark Mode"
+fi

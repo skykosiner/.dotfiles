@@ -1,9 +1,9 @@
-vim.opt.background = "dark"
+vim.opt.background = "light"
 
 ---@param color string
 function Colors(color)
     if vim.opt.background._value ~= "light" then
-        vim.cmd.colorscheme(color or "rose-pine-moon")
+        vim.cmd.colorscheme(color or "gruvbuddy")
 
         -- General
         vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#555555" })
@@ -38,7 +38,7 @@ function Colors(color)
         vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = "#B294BB" })
         vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecated", { fg = "#A9352B" })
     else
-        vim.cmd.colorscheme("ayu-light")
+        vim.cmd.colorscheme("gruvbox")
         vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#222222" })
         vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#222222" })
         vim.api.nvim_set_hl(0, "LineNr", { fg = "#999999" })
