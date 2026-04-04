@@ -260,10 +260,11 @@ in {
         "match:class BeeperTexts, workspace special:message"
         "match:class vesktop, workspace special:message"
 
-        "match:class ^ueberzugpp, float 1"
-        "match:class ^ueberzugpp, no_anim 1"
-        "match:class ^ueberzugpp, no_focus 1"
-        "match:class ^ueberzugpp, no_shadow 1"
+        "match:class ^ueberzugpp.*, float 1"
+        "match:class ^ueberzugpp.*, pin 1"
+        "match:class ^ueberzugpp.*, no_anim 1"
+        "match:class ^ueberzugpp.*, no_focus 1"
+        "match:class ^ueberzugpp.*, no_shadow 1"
 
         # Utilities
         "match:title ^toggl$, float 1"

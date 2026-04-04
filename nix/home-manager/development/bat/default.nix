@@ -1,11 +1,12 @@
 { pkgs, ... }:
 
 {
-    home.packages = with pkgs; [
-        bat
-    ];
+  home.packages = with pkgs; [ bat ];
 
-    programs.bat = {
-        enable = true;
-    };
+  programs.bat = {
+      enable = true;
+      config = {
+          theme = "base16";
+      };
+  };
 }

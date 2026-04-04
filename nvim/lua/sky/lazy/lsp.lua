@@ -4,9 +4,7 @@ return {
     "neovim/nvim-lspconfig",
     {
         "jsongerber/nvim-px-to-rem",
-        config = function()
-            require("nvim-px-to-rem").setup {}
-        end
+        config = true
     },
     {
         "stevearc/conform.nvim",
@@ -36,11 +34,10 @@ return {
 
             local simple_servers = { "html", "cssls", "clangd", "rust_analyzer", "sqls", "templ", "basedpyright" }
             for _, name in ipairs(simple_servers) do
-                vim.lsp.config(name, {})
                 vim.lsp.enable(name)
             end
 
-            -- lsp.extend_lspconfig()
+            lsp.extend_lspconfig()
             -- lsp.setup_servers({
             --     "basedpyright",
             --     "lua_ls",
@@ -149,11 +146,13 @@ return {
                     }
                 }
             })
-            vim.lsp.enable("lsp_ls")
+
+            vim.lsp.enable("lua_ls")
 
             vim.lsp.config("html", {
                 filetypes = { "html", "templ" },
             })
+
             vim.lsp.enable("html")
 
             vim.lsp.config("vtsls", {
