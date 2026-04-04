@@ -12,22 +12,32 @@ return {
             local themes = require("telescope.themes")
 
             require("telescope").setup {
-                defaults = themes.get_ivy {
-                    -- defaults = themes.get_cursor {
-                    defaults = {
-                        respect_gitignore = true,
-                        mappings          = {
-                            i = {
-                                ["<C-x>"] = false,
-                                ["<C-q>"] = actions.send_to_qflist,
-                                ["<C-s>"] = actions.select_horizontal,
-                            },
-                        }
+                defaults = {
+                    dynamic_preview_title = true,
+                    results_title = false,
+                    borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
+                    layout_strategy = "horizontal",
+                    layout_config = {
+                        horizontal = {
+                            prompt_position = "top",
+                            width = { padding = 0 },
+                            height = { padding = 0 },
+                            preview_width = 0.5,
+                        },
                     },
-                    extensions = {
-                        fzf = {},
-                    },
-                }
+                    sorting_strategy = "ascending",
+                    respect_gitignore = true,
+                    mappings          = {
+                        i = {
+                            ["<C-x>"] = false,
+                            ["<C-q>"] = actions.send_to_qflist,
+                            ["<C-s>"] = actions.select_horizontal,
+                        },
+                    }
+                },
+                extensions = {
+                    fzf = {},
+                },
             }
 
             require("telescope").load_extension("git_worktree")

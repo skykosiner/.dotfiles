@@ -49,6 +49,7 @@ function Colors(color)
     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
     vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
     vim.api.nvim_set_hl(0, "ZenBg", { bg = "none" })
+
     -- vim.api.nvim_set_hl(0, "@markup.list.unchecked.markdown", { bg = "none", fg = "none" })
     -- vim.api.nvim_set_hl(0, "@markup.list.markdown", { bg = "none", fg = "none" })
 end

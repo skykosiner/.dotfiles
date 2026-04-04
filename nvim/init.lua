@@ -1,6 +1,6 @@
 vim.filetype.add({
     extension = {
-       templ  = "templ",
+        templ = "templ",
     },
 })
 
@@ -33,7 +33,7 @@ require("lazy").setup({
 })
 
 vim.filetype.add({
-  extension = {
-    mdx = "markdown",
-  },
+    extension = {
+        mdx = "markdown",
+    },
 })
