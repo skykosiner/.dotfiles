@@ -13,6 +13,9 @@ else
 fi
 
 if [ "$IS_DARK" = "Dark" ]; then
+    NEW_BG="light"
+    nvr --serverlist | xargs -I {} nvr --servername {} -c  "lua vim.opt.background='$NEW_BG'; Colors()" 2>/dev/null
+
     if [[ "$OSTYPE" == "darwin"* ]]; then
         osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to false'
     else
@@ -22,11 +25,17 @@ if [ "$IS_DARK" = "Dark" ]; then
     fi
 
     printf "[general]\nimport = [ \"$LIGHT_THEME\" ]\n" > "$ACTIVE_CONFIG"
-    sed -i '' "1s/.*/vim.opt.background = \"light\"/" "$NVIM_COLORS" || sed -i "1s/.*/vim.opt.background = \"light\"/" "$NVIM_COLORS"
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        sed -i '' "1s/.*/vim.opt.background = \"$NEW_BG\"/" "$NVIM_COLORS"
+    else
+        sed -i "1s/.*/vim.opt.background = \"$NEW_BG\"/" "$NVIM_COLORS"
+    fi
 
-    NEW_BG="light"
     MSG="Light Mode"
 else
+    NEW_BG="dark"
+    nvr --serverlist | xargs -I {} nvr --servername {} -c  "lua vim.opt.background='$NEW_BG'; Colors()" 2>/dev/null
+
     if [[ "$OSTYPE" == "darwin"* ]]; then
         osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to true'
     else
@@ -36,13 +45,16 @@ else
     fi
 
     printf "[general]\nimport = [ \"$DARK_THEME\" ]\n" > "$ACTIVE_CONFIG"
-    sed -i '' "1s/.*/vim.opt.background = \"dark\"/" "$NVIM_COLORS" || sed -i "1s/.*/vim.opt.background = \"dark\"/" "$NVIM_COLORS"
 
-    NEW_BG="dark"
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        sed -i '' "1s/.*/vim.opt.background = \"$NEW_BG\"/" "$NVIM_COLORS"
+    else
+        sed -i "1s/.*/vim.opt.background = \"$NEW_BG\"/" "$NVIM_COLORS"
+    fi
+
     MSG="Dark Mode"
 fi
 
-nvr --serverlist | xargs -I {} nvr --servername {} -c "lua vim.opt.background='$NEW_BG'; Colors()" &
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     osascript -e "display notification \"Switched to $MSG\" with title \"Theme Swapper\""

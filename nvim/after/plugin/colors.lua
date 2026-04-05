@@ -1,7 +1,7 @@
-vim.opt.background = "light"
+vim.opt.background = "dark"
 
 ---@param color string
-function Colors(color)
+function _G.Colors(color)
     if vim.opt.background._value ~= "light" then
         vim.cmd.colorscheme(color or "gruvbuddy")
 
@@ -54,4 +54,4 @@ function Colors(color)
     -- vim.api.nvim_set_hl(0, "@markup.list.markdown", { bg = "none", fg = "none" })
 end
 
-Colors()
+_G.Colors()
