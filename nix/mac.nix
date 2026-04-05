@@ -63,7 +63,7 @@ in {
     enable = true;
 
     taps = [ ];
-    brews = [ "cowsay" "htop" ];
+    brews = [ "cowsay" "htop" "pass" ];
     casks = [ "handbrake-app" "gimp" "calibre" "todoist" ];
   };
 
@@ -93,11 +93,11 @@ in {
     TX-02
   ];
 
-  system.activationScripts.applications.text = lib.mkForce ''
-    echo "Setting up /Applications/Nix Apps" >&2
-    appsSrc="/etc/profiles/per-user/sky/bin"
-    baseDir="/Applications/Nix Apps"
-    mkdir -p "$baseDir"
-    ${pkgs.rsync}/bin/rsync --archive --checksum --chmod=-w --copy-unsafe-links --delete "$appsSrc" "$baseDir"
-  '';
+  # system.activationScripts.applications.text = lib.mkForce ''
+  #   echo "Setting up /Applications/Nix Apps" >&2
+  #   appsSrc="/etc/profiles/per-user/sky/bin"
+  #   baseDir="/Applications/Nix Apps"
+  #   mkdir -p "$baseDir"
+  #   ${pkgs.rsync}/bin/rsync --archive --checksum --chmod=-w --copy-unsafe-links --delete "$appsSrc" "$baseDir"
+  # '';
 }

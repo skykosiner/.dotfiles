@@ -2,19 +2,22 @@
 
 let
   inherit (config.lib.file) mkOutOfStoreSymlink;
-  notArm = system != "aarch64-linux";
-  zshrcPath = if notArm then
-    "/home/sky/.dotfiles/zsh/.zshrc"
+  isDarwin = system == "aarch64-darwin";
+
+  zshrcPath = if isDarwin then
+    "/Users/sky/.dotfiles/zsh/.zshrc"
   else
-    "/Users/sky/.dotfiles/zsh/.zshrc";
-  zshenvPath = if notArm then
-    "/home/sky/.dotfiles/zsh/.zshenv"
+    "/home/sky/.dotfiles/zsh/.zshrc";
+
+  zshenvPath = if isDarwin then
+    "/Users/sky/.dotfiles/zsh/.zshenv"
   else
-    "/Users/sky/.dotfiles/zsh/.zshenv";
-  personalShellPath = if notArm then
-    "/home/sky/.dotfiles/shell/.config/personal/"
+    "/home/sky/.dotfiles/zsh/.zshenv";
+
+  personalShellPath = if isDarwin then
+    "/Users/sky/.dotfiles/shell/.config/personal/"
   else
-    "/Users/sky/.dotfiles/shell/.config/personal/";
+    "/home/sky/.dotfiles/shell/.config/personal/";
 
 in {
   home.packages = with pkgs; [

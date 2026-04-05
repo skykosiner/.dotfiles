@@ -1,33 +1,51 @@
 #!/usr/bin/env bash
 
-CURRENT_MODE=$(dconf read /org/gnome/desktop/interface/color-scheme)
-
 ACTIVE_CONFIG="$HOME/.config/alacritty/active_theme.toml"
 DARK_THEME="$HOME/.config/alacritty/themes/dark.toml"
 LIGHT_THEME="$HOME/.config/alacritty/themes/light.toml"
-
 NVIM_COLORS="$HOME/.config/nvim/after/plugin/colors.lua"
 
-if [ "$CURRENT_MODE" = "'prefer-dark'" ]; then
-    dconf write /org/gnome/desktop/interface/color-scheme "'prefer-light'"
-    dconf write /org/gnome/desktop/interface/gtk-theme "'Adwaita'"
-    hyprctl keyword general:col.active_border "rgba(33ccffee)"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    IS_DARK=$(defaults read -g AppleInterfaceStyle 2>/dev/null)
+else
+    CURRENT_MODE=$(dconf read /org/gnome/desktop/interface/color-scheme)
+    [[ "$CURRENT_MODE" == "'prefer-dark'" ]] && IS_DARK="Dark" || IS_DARK=""
+fi
+
+if [ "$IS_DARK" = "Dark" ]; then
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to false'
+    else
+        dconf write /org/gnome/desktop/interface/color-scheme "'prefer-light'"
+        dconf write /org/gnome/desktop/interface/gtk-theme "'Adwaita'"
+        hyprctl keyword general:col.active_border "rgba(33ccffee)" 2>/dev/null
+    fi
 
     printf "[general]\nimport = [ \"$LIGHT_THEME\" ]\n" > "$ACTIVE_CONFIG"
+    sed -i '' "1s/.*/vim.opt.background = \"light\"/" "$NVIM_COLORS" || sed -i "1s/.*/vim.opt.background = \"light\"/" "$NVIM_COLORS"
 
-    nvr --serverlist | xargs -I {} nvr --servername {} -c  "lua vim.opt.background='light'; Colors()" &
-    sed -i "1s/.*/vim.opt.background = \"light\"/" "$NVIM_COLORS"
-
-    notify-send "Light Mode"
+    NEW_BG="light"
+    MSG="Light Mode"
 else
-    dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
-    dconf write /org/gnome/desktop/interface/gtk-theme "'Nordic'"
-    hyprctl keyword general:col.active_border "rgba(ff0000ee)"
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to true'
+    else
+        dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
+        dconf write /org/gnome/desktop/interface/gtk-theme "'Nordic'"
+        hyprctl keyword general:col.active_border "rgba(ff0000ee)" 2>/dev/null
+    fi
 
     printf "[general]\nimport = [ \"$DARK_THEME\" ]\n" > "$ACTIVE_CONFIG"
+    sed -i '' "1s/.*/vim.opt.background = \"dark\"/" "$NVIM_COLORS" || sed -i "1s/.*/vim.opt.background = \"dark\"/" "$NVIM_COLORS"
 
-    nvr --serverlist | xargs -I {} nvr --servername {} -c  "lua vim.opt.background='dark'; Colors()" &
-    sed -i "1s/.*/vim.opt.background = \"dark\"/" "$NVIM_COLORS"
+    NEW_BG="dark"
+    MSG="Dark Mode"
+fi
 
-    notify-send "Dark Mode"
+nvr --serverlist | xargs -I {} nvr --servername {} -c "lua vim.opt.background='$NEW_BG'; Colors()" &
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    osascript -e "display notification \"Switched to $MSG\" with title \"Theme Swapper\""
+else
+    notify-send "$MSG"
 fi

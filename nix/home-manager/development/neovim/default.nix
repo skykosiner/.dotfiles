@@ -2,11 +2,11 @@
 
 let
   inherit (config.lib.file) mkOutOfStoreSymlink;
-  notArm = system != "aarch64-linux";
-  neovimPath = if notArm then
-    "/home/sky/.dotfiles/nvim/"
+  isDarwin = system == "aarch64-darwin";
+  neovimPath = if isDarwin then
+    "/Users/sky/.dotfiles/nvim/"
   else
-    "/Users/sky/.dotfiles/nvim/";
+    "/home/sky/.dotfiles/nvim/";
 
 in {
   home.packages = with pkgs; [ luajitPackages.luarocks luajit fd tree-sitter ];

@@ -108,7 +108,7 @@
         };
       };
 
-      darwinConfigurations."skys-MacBook-Air" = nix-darwin.lib.darwinSystem {
+      darwinConfigurations."Skys-MacBook-Pro" = nix-darwin.lib.darwinSystem {
           modules = [
 		  ./mac.nix
 		  home-manager.darwinModules.home-manager
@@ -121,8 +121,8 @@
 		    # arguments to home.nix
 		    home-manager.extraSpecialArgs = {
 		      inherit inputs;
-		      system = "aarch64-linux";
-		      hostname = "skys-MacBook-Air";
+		      system = "aarch64-darwin";
+		      hostname = "Skys-MacBook-Pro";
 		    };
 		  }
 	  ];

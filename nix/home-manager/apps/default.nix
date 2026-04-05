@@ -1,12 +1,12 @@
 { pkgs, system, ... }:
 
-let notMac = system != "aarch64-linux";
+let isDarwin = system == "aarch64-darwin";
 in {
-  imports = (if notMac then [ ./obs ./ghostty ] else [ ])
-    ++ [ ./alacritty ./starship ./zathura ./lf ./fastfetch ./pass ./mpv ];
+  imports = (if !isDarwin then [ ./obs ./ghostty ./pass] else [ ])
+    ++ [ ./alacritty ./starship ./zathura ./lf ./fastfetch ./mpv ];
 
   home.packages = with pkgs;
-    (if notMac then [
+    (if !isDarwin then [
       discord
       beeper
       spotify
@@ -32,6 +32,8 @@ in {
       koreader
       mupen64plus
       yubioath-flutter
+      quickgui
+      newsboat
     ] else
       [ ]) ++ [
         ryubing
@@ -44,7 +46,6 @@ in {
         yt-dlp
         cmatrix
         lazygit
-        newsboat
         clipse
         thunderbird
         teams-for-linux
@@ -58,7 +59,6 @@ in {
         realvnc-vnc-viewer
         google-chrome
         localsend
-        quickgui
         #(ciscoPacketTracer8.override {
         #  packetTracerSource = ./pkgs/CiscoPacketTracer822_amd64_signed.deb;
         #})
