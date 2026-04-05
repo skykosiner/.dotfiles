@@ -14,10 +14,10 @@ return {
             require("telescope").setup {
                 defaults = {
                     dynamic_preview_title = true,
-                    results_title = false,
-                    borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
-                    layout_strategy = "horizontal",
-                    layout_config = {
+                    results_title         = false,
+                    borderchars           = { " ", " ", " ", " ", " ", " ", " ", " " },
+                    layout_strategy       = "horizontal",
+                    layout_config         = {
                         horizontal = {
                             prompt_position = "top",
                             width = { padding = 0 },
@@ -25,9 +25,9 @@ return {
                             preview_width = 0.5,
                         },
                     },
-                    sorting_strategy = "ascending",
-                    respect_gitignore = true,
-                    mappings          = {
+                    sorting_strategy      = "ascending",
+                    respect_gitignore     = true,
+                    mappings              = {
                         i = {
                             ["<C-x>"] = false,
                             ["<C-q>"] = actions.send_to_qflist,

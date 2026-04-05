@@ -110,7 +110,7 @@ in {
       general.import = [ "~/.config/alacritty/active_theme.toml" ];
 
       window = {
-        opacity = 1;
+        opacity = 0.95;
         padding = {
           x = 0;
           y = 0;
