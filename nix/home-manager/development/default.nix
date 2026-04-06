@@ -20,6 +20,7 @@ in {
       arduino-ide
     ] else
       [ ]) ++ [
+        htmlq
         bruno
         bruno-cli
 
