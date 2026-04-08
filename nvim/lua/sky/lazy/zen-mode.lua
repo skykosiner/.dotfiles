@@ -1,8 +1,8 @@
 return {
     "folke/zen-mode.nvim",
-    dependencies = {
-        "folke/twilight.nvim",
-    },
+    -- dependencies = {
+    --     "folke/twilight.nvim",
+    -- },
     config = function()
         -- require("twilight").setup {
         --     dimming = {

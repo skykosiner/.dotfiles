@@ -32,7 +32,8 @@ let
 
   # --- LIGHT THEME (Gruvbox Material Light) ---
   light = {
-    bg = "#fbf1c7";
+    # bg = "#fbf1c7";
+    bg = "#E0E2EA";
     fg = "#3c3836";
     dim_fg = "#7c6f64";
     cursor_bg = "#3c3836";
@@ -110,7 +111,7 @@ in {
       general.import = [ "~/.config/alacritty/active_theme.toml" ];
 
       window = {
-        opacity = 0.95;
+        opacity = 0.85;
         padding = {
           x = 0;
           y = 0;
