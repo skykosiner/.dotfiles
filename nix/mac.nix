@@ -63,7 +63,7 @@ in {
     enable = true;
 
     taps = [ ];
-    brews = [ "cowsay" "htop" "pass" ];
+    brews = [ "cowsay" "htop" "pass" "neovim-remote" ];
     casks = [ "handbrake-app" "gimp" "calibre" "todoist" ];
   };
 
