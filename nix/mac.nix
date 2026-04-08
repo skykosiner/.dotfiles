@@ -63,8 +63,8 @@ in {
     enable = true;
 
     taps = [ ];
-    brews = [ "cowsay" "htop" "pass" "neovim-remote" ];
-    casks = [ "handbrake-app" "gimp" "calibre" "todoist" ];
+    brews = [ "cowsay" "htop" "pass" "neovim-remote"];
+    casks = [ "handbrake-app" "gimp" "calibre" "todoist-app" "raycast" ];
   };
 
   security.pam.services.sudo_local.touchIdAuth = true;
