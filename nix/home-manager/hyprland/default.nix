@@ -75,7 +75,7 @@ in {
         "$mainMod, F1, exec, $HOME/.local/bin/nightshift"
         ", F6, togglespecialworkspace, spotify"
         ", F7, togglespecialworkspace, message"
-        "SHIFT, F7, togglespecialworkspace, hidden"
+        "$mainMod SHIFT, d, togglespecialworkspace, todoist"
         "ALT, space, exec, $HOME/.local/bin/quick-add-task"
         ''
           $mainMod SHIFT, s, exec, grim -g "$(slurp)" ~/Pictures/Captures/"$(date +%d%m%y%s).png"''
@@ -175,8 +175,8 @@ in {
       };
 
       device = [{
-        name = "kinesis-corporation-form-keyboard";
-        kb_layout = "real-prog-dvorak";
+        # name = "kinesis-corporation-form-keyboard";
+        # kb_layout = "real-prog-dvorak";
       }];
 
       env = [
@@ -259,6 +259,7 @@ in {
         "match:class spotify, workspace special:spotify"
         "match:class BeeperTexts, workspace special:message"
         "match:class vesktop, workspace special:message"
+        "match:class Todoist, workspace special:todoist"
 
         "match:class ^ueberzugpp.*, float 1"
         "match:class ^ueberzugpp.*, pin 1"
