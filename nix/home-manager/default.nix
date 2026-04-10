@@ -51,6 +51,7 @@ in {
       usbutils
       hyfetch
       hyprsunset
+      terminaltexteffects
     ];
   };
 
