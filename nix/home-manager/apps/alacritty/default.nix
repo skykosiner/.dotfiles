@@ -3,7 +3,8 @@
 let
   fontsize = if (hostname == "nix-btw") then 18 else 15;
   dark = {
-    bg = "#1d2021";
+    # bg = "#1d2021";
+    bg = "#2B2B2B";
     fg = "#d8dee9";
     dim_fg = "#a5abb6";
     cursor_bg = "#d8dee9";

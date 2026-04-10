@@ -37,6 +37,9 @@ return {
                 },
                 extensions = {
                     fzf = {},
+                    ["ui-select"] = {
+                        require("telescope.themes").get_cursor {}
+                    }
                 },
             }
 
@@ -60,6 +63,8 @@ return {
             vim.keymap.set("n", "<leader>pp", builtin.live_grep)
             vim.keymap.set("n", "<leader>vih", builtin.help_tags)
             vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find)
+
+            vim.keymap.set("n", "<leader>gb", builtin.git_branches)
 
             vim.keymap.set("n", "z=", function()
                 builtin.spell_suggest(themes.get_cursor {})

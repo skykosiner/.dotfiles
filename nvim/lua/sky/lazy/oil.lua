@@ -35,6 +35,27 @@ return {
                     vim.api.nvim_win_set_width(0, 40)
                     require("oil").open_preview {}
                 end, opts)
+
+                -- Shortcuts from within oil
+                vim.keymap.set("n", "<M-h>", function()
+                    vim.cmd(":Oil ~/personal/")
+                end, opts)
+
+                vim.keymap.set("n", "<M-t>", function()
+                    vim.cmd(":Oil ~/work/")
+                end, opts)
+
+                vim.keymap.set("n", "<M-n>", function()
+                    vim.cmd(":Oil ~/Documents/Linux-btw/")
+                end, opts)
+
+                vim.keymap.set("n", "<M-c>", function()
+                    vim.cmd(":Oil ~/Documents/Linux-btw/College/")
+                end, opts)
+
+                vim.keymap.set("n", "<M-s>", function()
+                    vim.cmd(":Oil ~/personal/nix-server")
+                end, opts)
             end,
         })
     end

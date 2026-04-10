@@ -63,7 +63,7 @@ return {
             ls.add_snippets("python", {
                 snippet("start", {
                     t "def main():",
-                    t { "", "    " }, i(1, "# function body"), t { "", "    " },
+                    t { "", "    " }, i(1, "pass"), t { "", "    " },
                     t {
                         "",
                         'if __name__ == "__main__":',

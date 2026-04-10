@@ -21,6 +21,10 @@
         user = "sky";
         proxyCommand = "cloudflared access ssh --hostname %h";
       };
+      "ssh-mac.kosiner.codes" = {
+        user = "skykosiner";
+        proxyCommand = "cloudflared access ssh --hostname %h";
+      };
       "ssh-main.kosiner.codes" = {
         user = "sky";
         proxyCommand = "cloudflared access ssh --hostname %h";

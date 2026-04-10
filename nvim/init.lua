@@ -1,5 +1,5 @@
 if vim.fn.has('mac') == 1 then
-  vim.fn.serverstart('/tmp/nvim.' .. vim.loop.os_getpid() .. '.sock')
+    vim.fn.serverstart('/tmp/nvim.' .. vim.loop.os_getpid() .. '.sock')
 end
 
 vim.filetype.add({

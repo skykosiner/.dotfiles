@@ -1,11 +1,16 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
-{
+let inherit (config.lib.file) mkOutOfStoreSymlink;
+in {
   home.packages = with pkgs; [ tmux ];
+  xdg.configFile."tmux/.tmux-chat-command".source =
+    mkOutOfStoreSymlink "../../../../tmux/.tmux-chat-command";
+  xdg.configFile."tmux/.tux-cht-languages".source =
+    mkOutOfStoreSymlink "../../../../tmux/.tmux-cht-languages";
 
   programs.tmux = {
     enable = true;
-    # terminal = "xterm-256color";
+    terminal = "xterm-256color";
     prefix = "C-a";
     shortcut = "a";
     keyMode = "vi";

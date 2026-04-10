@@ -1,17 +1,17 @@
-vim.opt.background = "dark"
+vim.opt.background = "light"
 
 ---@param color string
 function _G.Colors(color)
     if vim.opt.background._value ~= "light" then
-        vim.cmd.colorscheme(color or "gruvbuddy")
+        vim.cmd.colorscheme(color or "gruvbox")
 
         -- General
         vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#555555" })
         vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#222222", bg = "#222222" })
 
         -- Line numbers
-        vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#FFFF87", bg = "None" })
-        vim.api.nvim_set_hl(0, "LineNr", { fg = "#d5c4a1", bg = "None" })
+        -- vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#FFFF87", bg = "None" })
+        -- vim.api.nvim_set_hl(0, "LineNr", { fg = "#d5c4a1", bg = "None" })
 
         -- Markdown stuff
         vim.api.nvim_set_hl(0, "RenderMarkdownCode", { bg = "#222222" })
@@ -27,7 +27,7 @@ function _G.Colors(color)
         vim.api.nvim_set_hl(0, "TabLine", { bg = "none", fg = "#222222" })
         vim.api.nvim_set_hl(0, "TabLineFill", { bg = "none" })
 
-        vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+        -- vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
 
         -- Spelling stuff
         vim.api.nvim_set_hl(0, "SpellBad", { fg = "#A9352B" })
@@ -39,7 +39,7 @@ function _G.Colors(color)
         vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = "#B294BB" })
         vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecated", { fg = "#A9352B" })
     else
-        vim.cmd.colorscheme("ayu-light")
+        vim.cmd.colorscheme("gruvbox")
         vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#222222" })
         vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#222222" })
         vim.api.nvim_set_hl(0, "LineNr", { fg = "#999999" })

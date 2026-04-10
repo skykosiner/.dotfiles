@@ -174,10 +174,12 @@ in {
         background_color = "0x111111";
       };
 
-      device = [{
-        # name = "kinesis-corporation-form-keyboard";
-        # kb_layout = "real-prog-dvorak";
-      }];
+      device = [
+        {
+          # name = "kinesis-corporation-form-keyboard";
+          # kb_layout = "real-prog-dvorak";
+        }
+      ];
 
       env = [
         "XCURSOR_SIZE,16"
@@ -196,8 +198,8 @@ in {
       exec = (if isDesktop then [ ] else [ "~/.local/bin/screenLock" ]);
 
       general = {
-        gaps_in = 0;
-        gaps_out = 0;
+        gaps_in = 20;
+        gaps_out = 20;
         border_size = 2;
         "col.active_border" = "rgba(ff0000ee)";
         "col.inactive_border" = "rgba(595959aa)";

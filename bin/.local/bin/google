@@ -1,5 +1,5 @@
 #!/bin/sh
 
 # Stolen from rwxrob
-url="https://google.com/search?q=$(urlencode "$*")"
-lynx "https://google.com/search?q=$url"
+url="https://duckduckgo.com/?q=$(urlencode "$*")"
+lynx "$url"
