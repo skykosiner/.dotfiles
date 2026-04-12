@@ -53,7 +53,8 @@ alias fixAudio="systemctl --user restart wireplumber pipewire pipewire-pulse"
 
 # Copy to clipboard by adding "C" to the end of the command like `echo hello C`
 # will copy hello to my clipboard
-alias -g C='| wl-copy'
+alias -g C="| wl-copy"
+alias -g JQ="| jq"
 
 # For Mac
 alias urlS="/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -dump URLSchemeBinding"
