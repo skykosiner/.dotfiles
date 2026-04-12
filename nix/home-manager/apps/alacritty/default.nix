@@ -1,7 +1,7 @@
 { pkgs, hostname, lib, ... }:
 
 let
-  fontsize = if (hostname == "nix-btw") then 18 else 15;
+  # fontsize = if (hostname == "nix-btw") then 18 else 18;
   dark = {
     # bg = "#1d2021";
     bg = "#2B2B2B";
@@ -119,7 +119,7 @@ in {
         };
       };
 
-      font.size = fontsize;
+      font.size = 18;
       font.normal.family = "JetBrainsMono Nerd Font";
       # font.normal.family = "Iosevka Nerd Font";
       # font.normal.family = "TX-02";
