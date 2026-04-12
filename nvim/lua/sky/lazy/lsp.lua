@@ -69,10 +69,12 @@ return {
                         },
                         options = {
                             nixos = {
-                                expr = '(builtins.getFlake "/home/sky/.dotfiles/nix/").nixosConfigurations.nix-btw.options',
+                                expr =
+                                '(builtins.getFlake "/home/sky/.dotfiles/nix/").nixosConfigurations.nix-btw.options',
                             },
                             home_manager = {
-                                expr = '(builtins.getFlake "/home/sky/.dotfiles/nix/").homeConfigurations."sky@nix-btw".options',
+                                expr =
+                                '(builtins.getFlake "/home/sky/.dotfiles/nix/").homeConfigurations."sky@nix-btw".options',
                             },
                             -- nix_server = {
                             --     expr = '(builtins.getFlake "/home/sky/personal/nix-server/").nixosConfigurations.main-box.options',
@@ -176,7 +178,8 @@ return {
 
             lsp.on_attach(function(_, bufnr)
                 -- TURN ON THEM HINTS BBG
-                vim.lsp.inlay_hint.enable(false)
+                vim.lsp.inlay_hint.enable(true)
+                vim.lsp.codelens.enable()
 
                 -- GIVE ME MY KEYBINDS
                 local opts = { buffer = bufnr, remap = false }
@@ -184,13 +187,13 @@ return {
 
                 vim.keymap.set("n", "gd", builtin.lsp_definitions, opts)
                 vim.keymap.set("n", "<leader>vrr", builtin.lsp_references, opts)
-
                 vim.keymap.set("n", "gD", vim.lsp.buf.type_definition, opts)
                 vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
                 vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
                 vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
                 vim.keymap.set("n", "<leader>vca", vim.lsp.buf.code_action, opts)
                 vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts)
+                vim.keymap.set("n", "<leader>ca", vim.lsp.codelens.run, opts)
             end)
 
 

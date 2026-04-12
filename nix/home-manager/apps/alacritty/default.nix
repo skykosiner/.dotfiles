@@ -112,7 +112,7 @@ in {
       general.import = [ "~/.config/alacritty/active_theme.toml" ];
 
       window = {
-        opacity = 1;
+        opacity = 0.85;
         padding = {
           x = 0;
           y = 0;
@@ -120,8 +120,9 @@ in {
       };
 
       font.size = fontsize;
+      font.normal.family = "JetBrainsMono Nerd Font";
       # font.normal.family = "Iosevka Nerd Font";
-      font.normal.family = "TX-02";
+      # font.normal.family = "TX-02";
       # font.normal.family = "GoMono Nerd Font Mono";
       # font.normal.family = "ComicShanns Mono Nerd Font";
 

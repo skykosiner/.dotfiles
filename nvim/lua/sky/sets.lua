@@ -6,7 +6,7 @@ opt.relativenumber = true
 
 -- opt.conceallevel = 1
 --
-opt.cursorline = true
+-- opt.cursorline = true
 
 -- Some sane defaults
 opt.tabstop = 4

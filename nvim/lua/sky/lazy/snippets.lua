@@ -61,7 +61,7 @@ return {
             })
 
             ls.add_snippets("python", {
-                snippet("start", {
+                snippet("main", {
                     t "def main():",
                     t { "", "    " }, i(1, "pass"), t { "", "    " },
                     t {
@@ -69,6 +69,10 @@ return {
                         'if __name__ == "__main__":',
                         "     main()"
                     }
+                }),
+
+                snippet("str", {
+                    i(1, "name"), t ' = "', i(2, "value"), t '"',
                 }),
             })
 

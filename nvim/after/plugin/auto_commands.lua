@@ -61,21 +61,21 @@ vim.api.nvim_create_autocmd("BufWritePost", {
     end,
 })
 
-vim.api.nvim_create_autocmd("WinLeave", {
-    group = group,
-    pattern = "*",
-    callback = function()
-        vim.opt.cursorline = false
-    end,
-})
-
-vim.api.nvim_create_autocmd("WinEnter", {
-    group = group,
-    pattern = "*",
-    callback = function()
-        vim.opt.cursorline = true
-    end,
-})
+-- vim.api.nvim_create_autocmd("WinLeave", {
+--     group = group,
+--     pattern = "*",
+--     callback = function()
+--         vim.opt.cursorline = false
+--     end,
+-- })
+--
+-- vim.api.nvim_create_autocmd("WinEnter", {
+--     group = group,
+--     pattern = "*",
+--     callback = function()
+--         vim.opt.cursorline = true
+--     end,
+-- })
 
 vim.api.nvim_create_autocmd("WinResized", {
     group = group,

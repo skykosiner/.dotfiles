@@ -60,7 +60,6 @@ in {
         basedpyright
         lua-language-server
         vtsls
-        # rustup
         rust-analyzer
         gopls
         shellcheck

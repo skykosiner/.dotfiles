@@ -52,6 +52,7 @@ in {
       hyfetch
       hyprsunset
       terminaltexteffects
+      jp2a
     ];
   };
 

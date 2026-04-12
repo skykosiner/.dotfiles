@@ -26,6 +26,9 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 export QT_STYLE_OVERRIDE="Fusion"
 export QT_SCALE_FACTOR="1.5"
 
+# React Native
+export NIXPKGS_ACCEPT_ANDROID_SDK_LICENSE=1
+
 # Clean up home dir
 export GOPATH=$HOME/.local/go/
 export GOBIN=$HOME/.local/go/bin/

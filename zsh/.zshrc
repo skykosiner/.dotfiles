@@ -49,14 +49,23 @@ bindkey -s ^n "_new\n"
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-autoload -Uz vcs_info
-precmd_vcs_info() { vcs_info }
-precmd_functions+=( precmd_vcs_info )
-zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:git:*' formats ' (%b) '
+bindkey " " magic-space
+
+# autoload -Uz vcs_info
+# precmd_vcs_info() { vcs_info }
+# precmd_functions+=( precmd_vcs_info )
+# zstyle ':vcs_info:*' enable git
+# zstyle ':vcs_info:git:*' formats ' (%b) '
 # setopt PROMPT_SUBST
 # PROMPT='%F{green}%1~%f %F{magenta}${vcs_info_msg_0_}%f$ '
 eval "$(starship init zsh)"
+
+# Autoload into python venv when opening a directory with a venv
+chpwd() {
+    if [[ -d venv ]]; then
+        source venv/bin/activate
+    fi
+}
 
 HISTSIZE=10000000
 SAVEHIST=10000000
@@ -66,7 +75,7 @@ compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
 
 eval $(ssh-agent -s) >&/dev/null
 
-_does_exist zoxide && eval "$(zoxide init zsh)"
+_does_exist zoxide && eval "$(zoxide init zsh --cmd cd)"
 _does_exist fzf && eval "$(fzf --zsh)"
 _does_exist zet && eval "$(zet completion zsh)"
 _does_exist pomo && eval "$(pomo completion zsh)"

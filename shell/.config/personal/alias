@@ -22,7 +22,8 @@ alias ga="git add ."
 alias gp="git push"
 alias gl="git log"
 alias gd="git diff --shortstat | command cat"
-alias gaa="git commit --amend"
+alias gc="git commit -m"
+alias gca="git commit --amend"
 alias ig="vim -c 'G'"
 
 alias rm="trash"
@@ -49,6 +50,10 @@ alias switch="home-manager switch --flake ~/.dotfiles/nix"
 alias ffmpeg="ffmpeg -hwaccel cuda"
 
 alias fixAudio="systemctl --user restart wireplumber pipewire pipewire-pulse"
+
+# Copy to clipboard by adding "C" to the end of the command like `echo hello C`
+# will copy hello to my clipboard
+alias -g C='| wl-copy'
 
 # For Mac
 alias urlS="/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -dump URLSchemeBinding"
