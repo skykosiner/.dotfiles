@@ -59,6 +59,7 @@ in {
         realvnc-vnc-viewer
         google-chrome
         localsend
+        browsh
         #(ciscoPacketTracer8.override {
         #  packetTracerSource = ./pkgs/CiscoPacketTracer822_amd64_signed.deb;
         #})

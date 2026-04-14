@@ -110,8 +110,8 @@ in {
       ];
 
       cursor = {
-          hide_on_key_press = true;
-          warp_on_change_workspace = 1;
+        hide_on_key_press = true;
+        warp_on_change_workspace = 1;
       };
 
       bindm = [
@@ -198,6 +198,7 @@ in {
         "swww init"
         "swww restore"
         "swww-daemon"
+        "clipse -listen"
         "waybar"
       ];
 
@@ -276,9 +277,9 @@ in {
         "match:class ^ueberzugpp.*, no_shadow 1"
 
         # Utilities
-        "match:title ^toggl$, float 1"
-        "match:title ^toggl$, size 900 900"
-        "match:title ^toggl$, move center"
+        "match:title ^clipboard$, float 1"
+        "match:title ^clipboard$, size 900 900"
+        "match:title ^clipboard$, move center"
         # "suppressevent maximize, class:.*"
         # "nofocus, class:^$, title:^$, xwayland:1, floating:1, fullscreen:0, pinned:0"
         # "tile, class:Nsxiv"
@@ -425,6 +426,9 @@ in {
 
       bind = ,t,exec,$HOME/.local/bin/theme-switch
       bind = ,t,submap,reset
+
+      bind = ,c,exec,$HOME/.local/bin/clipboard
+      bind = ,c,submap,reset
 
       bind=,escape,submap,reset
       submap = reset

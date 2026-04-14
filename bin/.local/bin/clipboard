@@ -1,0 +1,3 @@
+#!/bin/sh
+
+alacritty --title="clipboard" -e "clipse"
