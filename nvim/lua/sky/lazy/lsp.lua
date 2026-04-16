@@ -138,6 +138,9 @@ return {
                         hint = {
                             enable = true,
                         },
+                        diagnostics = {
+                            globals = { 'vim' },
+                        },
                         workspace = {
                             checkThirdParty = false,
                             library = {

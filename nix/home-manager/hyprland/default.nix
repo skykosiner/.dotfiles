@@ -199,6 +199,7 @@ in {
         "swww restore"
         "swww-daemon"
         "clipse -listen"
+        "systemctl --user start hyprpolkitagent"
         "waybar"
       ];
 
@@ -280,6 +281,13 @@ in {
         "match:title ^clipboard$, float 1"
         "match:title ^clipboard$, size 900 900"
         "match:title ^clipboard$, move center"
+
+        "match:class one.alynx.showmethekey, float 1"
+        "match:class one.alynx.showmethekey, pin 1"
+        "match:class one.alynx.showmethekey, opacity 0.8 0.8"
+        "match:class one.alynx.showmethekey, size 420 127"
+        "match:class one.alynx.showmethekey, move 2129 1264"
+
         # "suppressevent maximize, class:.*"
         # "nofocus, class:^$, title:^$, xwayland:1, floating:1, fullscreen:0, pinned:0"
         # "tile, class:Nsxiv"

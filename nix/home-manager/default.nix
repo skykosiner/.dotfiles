@@ -53,6 +53,7 @@ in {
       hyprsunset
       terminaltexteffects
       jp2a
+      showmethekey
     ];
   };
 

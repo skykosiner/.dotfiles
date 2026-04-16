@@ -187,6 +187,7 @@ in {
   };
 
   security.rtkit.enable = true;
+  security.polkit.enable = true;
 
   nixpkgs.config = {
     allowUnfree = true;
@@ -203,6 +204,7 @@ in {
     isync
     htop
     pinentry-gtk2
+    hyprpolkitagent
     acpi
     blueman
     neomutt
