@@ -144,6 +144,8 @@ in {
         "custom/spotify"
         "custom/dot"
         "custom/dnd"
+        "custom/dot"
+        "custom/theme"
       ];
       modules-center = [ "hyprland/workspaces" ];
       modules-right = lib.optionals laptop [ "battery" "custom/dot" ] ++ [
@@ -233,6 +235,13 @@ in {
         interval = 60;
         exec = "/home/sky/.local/bin/statusbar/sb-dnd";
         on-click = "dunstctl set-paused toggle";
+        signal = 10;
+      };
+      "custom/theme" = {
+        format = " {}";
+        interval = 60;
+        exec = "/home/sky/.local/bin/statusbar/sb-theme";
+        on-click = "/home/sky/.local/bin/theme-switch";
         signal = 10;
       };
       # "custom/time-tracking" = {

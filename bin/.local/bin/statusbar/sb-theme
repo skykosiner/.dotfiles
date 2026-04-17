@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+theme=$(dconf read /org/gnome/desktop/interface/color-scheme 2>/dev/null)
+
+if [[ $theme == "'prefer-dark'" ]]; then
+    echo -e "\uf6c4"
+else
+    echo -e "\uf185"
+fi
