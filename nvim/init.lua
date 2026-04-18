@@ -2,16 +2,17 @@ if vim.fn.has('mac') == 1 then
     vim.fn.serverstart('/tmp/nvim.' .. vim.loop.os_getpid() .. '.sock')
 end
 
-vim.filetype.add({
+vim.filetype.add {
     extension = {
         templ = "templ",
+        mdx = "markdown",
     },
-})
+}
 
 vim.g.mapleader = " "
 vim.g.resize = true
-require("sky.sets")
-require("sky.keymaps")
+require "sky.sets"
+require "sky.keymaps"
 -- require("sky.winbar")
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.uv.fs_stat(lazypath) then
@@ -33,11 +34,5 @@ require("lazy").setup({
     lockfile = os.getenv("HOME") .. "/.dotfiles/nvim/.config/nvim/lazy-lock.json", -- lockfile generated after running update.
     change_detection = {
         notify = false,
-    },
-})
-
-vim.filetype.add({
-    extension = {
-        mdx = "markdown",
     },
 })

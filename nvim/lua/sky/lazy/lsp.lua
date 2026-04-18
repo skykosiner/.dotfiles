@@ -1,4 +1,4 @@
-local koreader_src = vim.fn.expand("~/personal/koreader")
+-- local koreader_src = vim.fn.expand("~/personal/koreader")
 
 return {
     "neovim/nvim-lspconfig",
@@ -143,10 +143,10 @@ return {
                         },
                         workspace = {
                             checkThirdParty = false,
-                            library = {
-                                koreader_src .. "/frontend",
-                                koreader_src .. "/base",
-                            },
+                            -- library = {
+                            --     koreader_src .. "/frontend",
+                            --     koreader_src .. "/base",
+                            -- },
                         },
                     }
                 }
@@ -181,8 +181,8 @@ return {
 
             lsp.on_attach(function(_, bufnr)
                 -- TURN ON THEM HINTS BBG
-                vim.lsp.inlay_hint.enable(true)
-                vim.lsp.codelens.enable()
+                vim.lsp.inlay_hint.enable(false)
+                -- vim.lsp.codelens.enable()
 
                 -- GIVE ME MY KEYBINDS
                 local opts = { buffer = bufnr, remap = false }
