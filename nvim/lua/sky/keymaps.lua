@@ -145,3 +145,19 @@ normal_mode("<leader>tl", function()
         vim.opt.relativenumber = true
     end
 end)
+
+-- idk I got bored in class
+normal_mode("<M-b>",
+    ":!tmux split-window -h mpv --vo=tct ~/personal/kirk-ascii/surfers.mp4<CR>")
+
+normal_mode("<M-f>",
+    ":!tmux split-window vh mpv --vo=tct ~/personal/kirk-ascii/family-guy.webm<CR>")
+
+normal_mode("<M-k>",
+    ":!tmux split-window -h mpv --vo=tct ~/personal/kirk-ascii/kirked.mp4<CR>")
+
+normal_mode("<M-h>",
+    ":!tmux split-window -h mpv --vo=tct ~/house.mkv<CR>")
+
+normal_mode("<M-p>",
+    ":!tmux split-window -h mpv --vo=tct ~/Downloads/haram-pig.mp4<CR>")

@@ -33,6 +33,8 @@ in {
       bind C-f display-popup -E "~/.local/bin/tmux-sessionizer"
       bind g display-popup -w 100 -h 30 -E "lazygit"
 
+      bind C-c display-popup -w 101 -h 30 "$SHELL -c 'tte -i ~/personal/kirk-ascii/test.txt --frame-rate 900 --canvas-width 0 --canvas-height 0 --reuse-canvas --anchor-canvas c --anchor-text c --existing-color-handling always print; read'"
+
       bind r source-file ~/.config/tmux/tmux.conf
       set -g base-index 1
 
