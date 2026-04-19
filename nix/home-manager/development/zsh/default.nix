@@ -1,8 +1,8 @@
-{ pkgs, config, system, ... }:
+{ pkgs, config, platform, ... }:
 
 let
   inherit (config.lib.file) mkOutOfStoreSymlink;
-  isDarwin = system == "aarch64-darwin";
+  isDarwin = platform == "aarch64-darwin";
 
   zshrcPath = if isDarwin then
     "/Users/sky/.dotfiles/zsh/.zshrc"

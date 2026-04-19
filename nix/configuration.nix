@@ -1,4 +1,10 @@
-{ lib, config, pkgs, inputs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 let
   cifsOptions = [
@@ -12,15 +18,14 @@ let
   ];
 
   homeDir = if pkgs.stdenv.isDarwin then "/Users/sky" else "/home/sky";
-  berkeleyPath = /.
-    + "${homeDir}/.dotfiles/private_stuff/berkeley-mono-regular.zip";
+  berkeleyPath = /. + "${homeDir}/.dotfiles/private_stuff/berkeley-mono-regular.zip";
   TX-02Path = /. + "${homeDir}/.dotfiles/private_stuff/font/TX-02.zip";
 
-  berkeley-mono =
-    pkgs.callPackage ./packages/berkeley-mono.nix { fontPath = berkeleyPath; };
+  berkeley-mono = pkgs.callPackage ./packages/berkeley-mono.nix { fontPath = berkeleyPath; };
   TX-02 = pkgs.callPackage ./packages/TX-02.nix { fontPath = TX-02Path; };
 
-in {
+in
+{
   nix = {
     settings.warn-dirty = false;
     package = pkgs.nixVersions.stable;
@@ -45,7 +50,12 @@ in {
   };
 
   networking = {
-    hosts = { "127.0.0.1" = [ "chatgpt.com" "chat.openai.com" ]; };
+    hosts = {
+      "127.0.0.1" = [
+        "chatgpt.com"
+        "chat.openai.com"
+      ];
+    };
     networkmanager.enable = true;
     networkmanager.wifi.backend = "iwd";
     wireless.iwd.enable = true;
@@ -63,7 +73,13 @@ in {
     # defaultGateway = "10.0.0.1";
     # nameservers = ["1.1.1.1", "8.8.8.8"];
 
-    firewall.allowedTCPPorts = [ 42069 5900 42068 38165 53317 ];
+    firewall.allowedTCPPorts = [
+      42069
+      5900
+      42068
+      38165
+      53317
+    ];
 
     # wg-quick.interfaces = {
     #   wg0 = {
@@ -148,7 +164,9 @@ in {
 
     openssh = {
       enable = true;
-      settings = { X11Forwarding = true; };
+      settings = {
+        X11Forwarding = true;
+      };
     };
 
     pipewire = {
@@ -252,7 +270,11 @@ in {
       noto-fonts-color-emoji
     ];
 
-    fontconfig = { defaultFonts = { emoji = [ "Noto Color Emoji" ]; }; };
+    fontconfig = {
+      defaultFonts = {
+        emoji = [ "Noto Color Emoji" ];
+      };
+    };
   };
 
   hardware = {
@@ -304,22 +326,31 @@ in {
     users.sky = {
       isNormalUser = true;
       description = "sky";
-      extraGroups = [ "networkmanager" "wheel" "docker" "openrazer" "dialout" ];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "docker"
+        "openrazer"
+        "dialout"
+      ];
       shell = pkgs.zsh;
-      hashedPassword =
-        "$6$p011SB1zy3NpqFjq$rdHjOi.GD.w/IUss5H9wmYJGckOQsAEVerQH6NKH6g9n8eG3XQJ1iIkKU4KE/pSwaIH69Gsg7Pa07j.8ErxUA0";
+      hashedPassword = "$6$p011SB1zy3NpqFjq$rdHjOi.GD.w/IUss5H9wmYJGckOQsAEVerQH6NKH6g9n8eG3XQJ1iIkKU4KE/pSwaIH69Gsg7Pa07j.8ErxUA0";
     };
 
     extraGroups.vboxusers.members = [ "sky" ];
   };
 
-  security.sudo.extraRules = [{
-    users = [ "sky" ];
-    commands = [{
-      command = "ALL";
-      options = [ "NOPASSWD" ];
-    }];
-  }];
+  security.sudo.extraRules = [
+    {
+      users = [ "sky" ];
+      commands = [
+        {
+          command = "ALL";
+          options = [ "NOPASSWD" ];
+        }
+      ];
+    }
+  ];
 
   console.keyMap = "uk";
   system.stateVersion = "24.05";

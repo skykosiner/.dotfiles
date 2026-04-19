@@ -57,7 +57,7 @@
             {
               _module.args = {
                 inputs = { inherit asus-wmi-screenpad; };
-                system = "x86_64-linux";
+                # system = "x86_64-linux";
               };
             }
           ];
@@ -70,14 +70,14 @@
             {
               _module.args = {
                 inputs = { inherit apple-silicon; };
-                system = "aarch64-linux";
+                # system = "aarch64-linux";
               };
             }
           ];
         };
 
         nix-btw = lib.nixosSystem {
-          system = "x86_64-linux";
+          # system = "x86_64-linux";
           modules = [
             inputs.control-http-home.nixosModules.default
             ./hosts/nix-btw/configuration.nix
@@ -85,7 +85,7 @@
             {
               _module.args = {
                 # inputs = { inherit asus-wmi-screenpad; };
-                system = "x86_64-linux";
+                # system = "x86_64-linux";
               };
             }
           ];
@@ -121,7 +121,7 @@
 		    # arguments to home.nix
 		    home-manager.extraSpecialArgs = {
 		      inherit inputs;
-		      system = "aarch64-darwin";
+		      # system = "aarch64-darwin";
 		      hostname = "Skys-MacBook-Pro";
 		    };
 		  }

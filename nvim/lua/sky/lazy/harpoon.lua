@@ -1,6 +1,5 @@
 return {
     "ThePrimeagen/harpoon",
-    commit = "e76cb03",
     -- dir = "~/personal/harpoon.git/get-current-mark/",
     branch = "harpoon2",
     dependencies = {

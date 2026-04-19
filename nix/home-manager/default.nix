@@ -1,20 +1,44 @@
-{ config, pkgs, lib, hostname, inputs, system, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  hostname,
+  inputs,
+  platform,
+  ...
+}:
 
 let
-  apps = import ./apps { inherit pkgs system; };
-  theme = import ./theme { inherit pkgs lib hostname; };
+  apps = import ./apps { inherit pkgs platform; };
+  theme = import ./theme {
+    inherit
+      pkgs
+      lib
+      hostname
+      config
+      ;
+  };
   hyprland = import ./hyprland { inherit pkgs hostname; };
-  development = import ./development { inherit pkgs system; };
+  development = import ./development { inherit pkgs platform; };
 
-in {
-  imports =
-    [ apps theme hyprland development inputs.zen-browser.homeModules.beta ];
+in
+{
+  imports = [
+    apps
+    theme
+    hyprland
+    development
+    inputs.zen-browser.homeModules.beta
+  ];
 
   home = {
     username = "sky";
     homeDirectory = "/home/sky";
     stateVersion = "24.05";
-    sessionVariables = { EDITOR = "nvim"; };
+    sessionVariables = {
+      EDITOR = "nvim";
+      GTK_THEME = "Nordic";
+    };
 
     packages = with pkgs; [
       wineWow64Packages.full
@@ -47,7 +71,7 @@ in {
       atool
       pulsemixer
       wol
-      inputs.alga.packages.${pkgs.system}.default
+      inputs.alga.packages.${pkgs.stdenv.hostPlatform.system}.default
       usbutils
       hyfetch
       hyprsunset
@@ -76,11 +100,15 @@ in {
     home-manager.enable = true;
   };
 
-  services.udiskie = { enable = true; };
+  services.udiskie = {
+    enable = true;
+  };
 
   fonts.fontconfig = {
     enable = true;
-    defaultFonts = { emoji = [ "Noto Color Emoji" ]; };
+    defaultFonts = {
+      emoji = [ "Noto Color Emoji" ];
+    };
   };
 
   xdg = {

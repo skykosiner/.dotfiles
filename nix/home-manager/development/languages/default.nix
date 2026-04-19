@@ -6,7 +6,7 @@
     python312Packages.pip
     nodePackages.vscode-langservers-extracted
     nixd
-    nixfmt-classic
+    nixfmt
     nodejs
     cargo
     rustc

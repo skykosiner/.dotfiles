@@ -4,7 +4,13 @@
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
+
     matchBlocks = {
+      "*" = {
+        addKeysToAgent = "yes";
+        identityFile = "~/.ssh/id_rsa";
+      };
+
       "mac" = {
         hostname = "mac-mini.lan";
         user = "skykosiner";

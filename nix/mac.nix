@@ -63,7 +63,7 @@ in {
     enable = true;
 
     taps = [ ];
-    brews = [ "cowsay" "htop" "pass" "neovim-remote" ];
+    brews = [ "cowsay" "htop" "pass" "neovim-remote" "cloudflared" ];
     casks = [ "handbrake-app" "gimp" "calibre" "todoist-app" "raycast" ];
   };
 
@@ -116,7 +116,8 @@ in {
         alt-minus = "resize smart -50";
         alt-equal = "resize smart +50";
 
-        alt-enter = "exec-and-forget open -n /etc/profiles/per-user/sky/bin/alacritty";
+        alt-enter =
+          "exec-and-forget open -n /etc/profiles/per-user/sky/bin/alacritty";
 
         alt-1 = "workspace 1";
         alt-2 = "workspace 2";

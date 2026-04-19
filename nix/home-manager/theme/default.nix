@@ -1,4 +1,4 @@
-{ pkgs, hostname, lib, ... }:
+{ pkgs, hostname, lib, config, ... }:
 
 let desktop = (hostname == "nix-btw");
 in {
@@ -31,9 +31,12 @@ in {
           "file:///home/sky/work"
           "file:///home/sky/Pictures"
           "file:///home/sky/.dotfiles/backgrounds"
+          "file:///home/sky/Documents/Memes"
+          "file:///home/sky/Videos"
         ];
       extraConfig = { gtk-key-theme-name = "Emacs"; };
     };
+    gtk4.theme = config.gtk.theme;
   };
 
   dconf.settings = {

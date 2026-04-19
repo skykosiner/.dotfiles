@@ -1,8 +1,8 @@
-{ pkgs, system, ... }:
+{ pkgs, platform, ... }:
 
-let isDarwin = system == "aarch64-darwin";
+let isDarwin = platform == "aarch64-darwin";
 in {
-  imports = (if !isDarwin then [ ./obs ./ghostty ./pass] else [ ])
+  imports = (if !isDarwin then [ ./obs ./ghostty ./pass ] else [ ])
     ++ [ ./alacritty ./starship ./zathura ./lf ./fastfetch ./mpv ];
 
   home.packages = with pkgs;
@@ -14,8 +14,8 @@ in {
       lutris
       dolphin-emu
       vlc
-      xfce.xfconf
-      xfce.thunar
+      xfconf
+      thunar
       pika-backup
       ktailctl
       todoist-electron

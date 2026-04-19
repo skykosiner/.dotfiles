@@ -29,7 +29,10 @@ return {
     {
         "VonHeikemen/lsp-zero.nvim",
         config = function()
-            vim.diagnostic.config { jump = { float = true } }
+            vim.diagnostic.config {
+                virtual_text = true,
+                jump = { float = true }
+            }
             local lsp = require("lsp-zero")
 
             local simple_servers = { "html", "cssls", "clangd", "rust_analyzer", "sqls", "templ", "basedpyright" }

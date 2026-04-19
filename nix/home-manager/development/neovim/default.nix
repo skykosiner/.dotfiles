@@ -1,8 +1,8 @@
-{ pkgs, inputs, config, system, ... }:
+{ pkgs, inputs, config, platform, ... }:
 
 let
   inherit (config.lib.file) mkOutOfStoreSymlink;
-  isDarwin = system == "aarch64-darwin";
+  isDarwin = platform == "aarch64-darwin";
   neovimPath = if isDarwin then
     "/Users/sky/.dotfiles/nvim/"
   else
@@ -13,7 +13,7 @@ in {
 
   programs.neovim = {
     enable = true;
-    package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
+    package = inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.default;
     plugins = [ pkgs.vimPlugins.nvim-treesitter ];
   };
 
