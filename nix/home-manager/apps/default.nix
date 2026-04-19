@@ -2,8 +2,18 @@
 
 let isDarwin = platform == "aarch64-darwin";
 in {
-  imports = (if !isDarwin then [ ./obs ./ghostty ./pass ] else [ ])
-    ++ [ ./alacritty ./starship ./zathura ./lf ./fastfetch ./mpv ];
+
+  imports = [
+    ./obs
+    ./ghostty
+    ./pass
+    ./alacritty
+    ./starship
+    ./zathura
+    ./lf
+    ./fastfetch
+    ./mpv
+  ];
 
   home.packages = with pkgs;
     (if !isDarwin then [

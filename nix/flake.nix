@@ -108,24 +108,30 @@
         };
       };
 
-      darwinConfigurations."Skys-MacBook-Pro" = nix-darwin.lib.darwinSystem {
-          modules = [
-		  ./mac.nix
-		  home-manager.darwinModules.home-manager
-		  {
-		    home-manager.useGlobalPkgs = true;
-		    home-manager.useUserPackages = true;
-		    home-manager.users.sky = import ./home-manager/mac.nix;
+      darwinConfigurations."Skys-MacBook-Pro" = let platform = "aarch64-darwin";
+      in nix-darwin.lib.darwinSystem {
+        specialArgs = {
+          inherit inputs;
+          platform = "aarch64-darwin"; # Add this line
+        };
 
-		    # Optionally, use home-manager.extraSpecialArgs to pass
-		    # arguments to home.nix
-		    home-manager.extraSpecialArgs = {
-		      inherit inputs;
-		      # system = "aarch64-darwin";
-		      hostname = "Skys-MacBook-Pro";
-		    };
-		  }
-	  ];
+        modules = [
+          ./mac.nix
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.sky = import ./home-manager/mac.nix;
+
+            # Optionally, use home-manager.extraSpecialArgs to pass
+            # arguments to home.nix
+            home-manager.extraSpecialArgs = {
+              inherit inputs platform;
+              system = "aarch64-darwin";
+              hostname = "Skys-MacBook-Pro";
+            };
+          }
+        ];
       };
     };
 }
