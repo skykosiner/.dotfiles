@@ -85,10 +85,6 @@ _new() {
     zet new "$newItem"
 }
 
-gc() {
-    git commit -m "$1"
-}
-
 run() {
     nix run nixpkgs#$1
 }
