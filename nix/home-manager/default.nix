@@ -19,7 +19,7 @@ let
       ;
   };
   hyprland = import ./hyprland { inherit pkgs hostname; };
-  development = import ./development { inherit pkgs platform; };
+  development = import ./development { inherit pkgs platform config; };
 
 in
 {

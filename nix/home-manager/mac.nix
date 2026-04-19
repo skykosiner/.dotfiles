@@ -2,7 +2,7 @@
 
 let
   apps = import ./apps { inherit pkgs platform; };
-  development = import ./development { inherit pkgs platform; };
+  development = import ./development { inherit pkgs platform config; };
 
 in {
   imports = [ apps development ];

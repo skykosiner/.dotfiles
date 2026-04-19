@@ -1,4 +1,9 @@
-{ pkgs, platform, ... }:
+{
+  pkgs,
+  platform,
+  config,
+  ...
+}:
 
 let
   isDarwin = platform == "aarch64-darwin";
@@ -79,6 +84,7 @@ in
       rust-analyzer
       gopls
       shellcheck
+
     ];
 
   programs.git = {
@@ -87,6 +93,7 @@ in
     settings = {
       user.name = "Sky Kosiner";
       user.email = "sky@skykosiner.com";
+      gpg.ssh.allowedSignersFile = "~/.ssh/allowed_signers";
     };
 
     signing = {
@@ -95,6 +102,10 @@ in
       format = "ssh";
     };
   };
+
+  home.file.".ssh/allowed_signers".text = ''
+    sky@skykosiner.com ${config.programs.git.signing.key}
+  '';
 
   home.sessionVariables = {
     NODE_ENV = "development";
