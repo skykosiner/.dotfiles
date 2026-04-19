@@ -86,3 +86,6 @@ _does_exist spt && eval "$(spt completion zsh)"
 _source_if_exists $HOME/.nix-profile/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 _source_if_exists $HOME/.nix-profile/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 _source_if_exists $HOME/.tokens
+
+# For Mac
+_source_if_exists /etc/profiles/per-user/sky/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

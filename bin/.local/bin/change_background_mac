@@ -1,5 +1,14 @@
 #!/usr/bin/env bash
 
-directory="/Users/sky/.dotfiles/background"
-result=$(rg --files $directory| fzf)
-osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"$result\""
+directory="/Users/sky/.dotfiles/backgrounds"
+
+result=$(rg --files "$directory" | fzf \
+  --bind 'space:execute(qlmanage -p {} >/dev/null 2>&1)' \
+  --preview 'chafa -f symbols --symbols sex --color-extractor median --size ${FZF_PREVIEW_COLUMNS}x${FZF_PREVIEW_LINES} {}')
+
+
+if [ -n "$result" ]; then
+  osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"$result\""
+fi
+
+exit

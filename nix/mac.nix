@@ -52,6 +52,9 @@ in {
       Clicking = true;
       TrackpadThreeFingerDrag = true;
     };
+    CustomUserPreferences = {
+      "com.apple.finder" = { CreateDesktop = false; };
+    };
   };
 
   nixpkgs.hostPlatform = "aarch64-darwin";
@@ -63,11 +66,16 @@ in {
     enable = true;
 
     taps = [ ];
-    brews = [ "cowsay" "htop" "pass" "neovim-remote" "cloudflared" ];
+    brews =
+      [ "cowsay" "htop" "btop" "pass" "neovim-remote" "cloudflared" "chafa" ];
     casks = [ "handbrake-app" "gimp" "calibre" "todoist-app" "raycast" ];
   };
 
-  security.pam.services.sudo_local.touchIdAuth = true;
+  security.pam.services.sudo_local = {
+    enable = true;
+    touchIdAuth = true;
+    reattach = true;
+  };
 
   users.users.sky = {
     name = "sky";
@@ -93,31 +101,57 @@ in {
     TX-02
   ];
 
+  # TODO: keychord like setup
   services.aerospace = {
     enable = true;
     settings = {
+      on-window-detected = [{
+        "if".window-title-regex-substring = "Wallpaper Picker";
+        run = "layout floating";
+      }];
       gaps = {
-        outer.left = 0;
-        outer.bottom = 0;
-        outer.top = 0;
-        outer.right = 0;
+        outer.left = 10;
+        outer.bottom = 10;
+        outer.top = 10;
+        outer.right = 10;
+
+        inner.horizontal = 5;
+        inner.vertical = 5;
       };
       mode.main.binding = {
         alt-j = "focus left";
         alt-c = "focus down";
-        alt-k = "focus up";
+        alt-v = "focus up";
         alt-p = "focus right";
 
         alt-shift-j = "move left";
         alt-shift-c = "move down";
-        alt-shift-k = "move up";
+        alt-shift-v = "move up";
         alt-shift-p = "move right";
 
         alt-minus = "resize smart -50";
         alt-equal = "resize smart +50";
 
         alt-enter =
-          "exec-and-forget open -n /etc/profiles/per-user/sky/bin/alacritty";
+          "exec-and-forget open -n -a /etc/profiles/per-user/sky/bin/alacritty";
+
+        alt-n =
+          "exec-and-forget /etc/profiles/per-user/sky/bin/alacritty -T 'Wallpaper Picker' -e /etc/profiles/per-user/sky/bin/zsh -l -c '/Users/sky/.local/bin/change_background_mac'";
+
+        alt-k = "exec-and-forget /Users/sky/.local/bin/theme-switch";
+
+        # alt-slash = "split horizontal";
+        # alt-peirod = "split vertical";
+
+        alt-y = "fullscreen";
+
+        alt-semicolon = "layout v_accordion";
+        alt-comma = "layout h_accordion";
+        alt-d = "layout tiles horizontal vertical";
+
+        alt-shift-space = "layout floating tiling";
+
+        alt-shift-i = "close";
 
         alt-1 = "workspace 1";
         alt-2 = "workspace 2";

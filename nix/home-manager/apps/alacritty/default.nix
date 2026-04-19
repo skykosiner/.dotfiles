@@ -2,6 +2,7 @@
 
 let
   # fontsize = if (hostname == "nix-btw") then 18 else 18;
+  # blur = if (hostname == "Skys-MacBook-Pro") then true else false;
   dark = {
     # bg = "#1d2021";
     bg = "#2B2B2B";
@@ -112,7 +113,9 @@ in {
       general.import = [ "~/.config/alacritty/active_theme.toml" ];
 
       window = {
+        decorations = "Buttonless";
         opacity = 0.85;
+        # blur = blur;
         padding = {
           x = 0;
           y = 0;
