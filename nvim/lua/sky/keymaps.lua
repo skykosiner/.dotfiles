@@ -161,3 +161,17 @@ normal_mode("<M-h>",
 
 normal_mode("<M-p>",
     ":!tmux split-window -h mpv --vo=tct ~/Downloads/haram-pig.mp4<CR>")
+
+normal_mode("<leader>os", function()
+    vim.cmd "bel 10new"
+    local buf = vim.api.nvim_get_current_buf()
+    for name, value in pairs {
+        filetype = "scratch",
+        buftype = "nofile",
+        bufhidden = "wipe",
+        swapfile = false,
+        modifiable = true,
+    } do
+        vim.api.nvim_set_option_value(name, value, { buf = buf })
+    end
+end)

@@ -4,8 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-    nix-doom-emacs-unstraightened.url =
-      "github:marienz/nix-doom-emacs-unstraightened";
+    nix-doom-emacs-unstraightened.url = "github:marienz/nix-doom-emacs-unstraightened";
 
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
@@ -38,16 +37,38 @@
 
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    # spicetify-nix.url = "github:Gerg-L/spicetify-nix";
   };
 
-  outputs = { self, nixpkgs, home-manager, asus-wmi-screenpad, apple-silicon
-    , zen-browser, sops-nix, control-http-home, alga, nix-darwin, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      asus-wmi-screenpad,
+      apple-silicon,
+      zen-browser,
+      sops-nix,
+      control-http-home,
+      alga,
+      # spicetify-nix,
+      nix-darwin,
+      ...
+    }@inputs:
     let
       inherit (self) outputs;
       lib = nixpkgs.lib;
       stateVersion = "24.05";
-      helper = import ./lib { inherit self inputs outputs stateVersion; };
-    in {
+      helper = import ./lib {
+        inherit
+          self
+          inputs
+          outputs
+          stateVersion
+          ;
+      };
+    in
+    {
       nixosConfigurations = {
         nixos-btw = lib.nixosSystem {
           modules = [
@@ -108,30 +129,33 @@
         };
       };
 
-      darwinConfigurations."Skys-MacBook-Pro" = let platform = "aarch64-darwin";
-      in nix-darwin.lib.darwinSystem {
-        specialArgs = {
-          inherit inputs;
-          platform = "aarch64-darwin"; # Add this line
+      darwinConfigurations."Skys-MacBook-Pro" =
+        let
+          platform = "aarch64-darwin";
+        in
+        nix-darwin.lib.darwinSystem {
+          specialArgs = {
+            inherit inputs;
+            platform = "aarch64-darwin"; # Add this line
+          };
+
+          modules = [
+            ./mac.nix
+            home-manager.darwinModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.sky = import ./home-manager/mac.nix;
+
+              # Optionally, use home-manager.extraSpecialArgs to pass
+              # arguments to home.nix
+              home-manager.extraSpecialArgs = {
+                inherit inputs platform;
+                system = "aarch64-darwin";
+                hostname = "Skys-MacBook-Pro";
+              };
+            }
+          ];
         };
-
-        modules = [
-          ./mac.nix
-          home-manager.darwinModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.sky = import ./home-manager/mac.nix;
-
-            # Optionally, use home-manager.extraSpecialArgs to pass
-            # arguments to home.nix
-            home-manager.extraSpecialArgs = {
-              inherit inputs platform;
-              system = "aarch64-darwin";
-              hostname = "Skys-MacBook-Pro";
-            };
-          }
-        ];
-      };
     };
 }

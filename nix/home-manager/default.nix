@@ -29,6 +29,7 @@ in
     hyprland
     development
     inputs.zen-browser.homeModules.beta
+    # inputs.spicetify-nix.homeManagerModules.spicetify
   ];
 
   home = {
@@ -96,6 +97,10 @@ in
         DisableTelemetry = true;
       };
     };
+
+    # spicetify = {
+    #     enable = true;
+    # };
 
     home-manager.enable = true;
   };

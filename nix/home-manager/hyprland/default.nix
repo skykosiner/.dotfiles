@@ -165,7 +165,7 @@ in {
         "DP-3,2560x1440@120,0x0,1"
         # "HDMI-A-1,1920x1080@144,2560x0,1,transform, 1"
         "HDMI-A-1,1920x1080@144,2560x0,1"
-        "DP-2,2560x1400@60,4480x0,1.3"
+        "DP-2,2560x1400@60,4480x0,1.33"
         ",preferred,auto,auto"
       ] else
         [
@@ -272,10 +272,13 @@ in {
         "match:class Todoist, workspace special:todoist"
 
         "match:class ^ueberzugpp.*, float 1"
-        "match:class ^ueberzugpp.*, pin 1"
+        # "match:class ^ueberzugpp.*, pin 1"
         "match:class ^ueberzugpp.*, no_anim 1"
         "match:class ^ueberzugpp.*, no_focus 1"
         "match:class ^ueberzugpp.*, no_shadow 1"
+
+        "match:title Picture-in-Picture, pin 1"
+        "match:title Picture-in-Picture, float 1"
 
         # Utilities
         "match:title ^clipboard$, float 1"

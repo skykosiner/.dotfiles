@@ -14,18 +14,18 @@ return {
             require("telescope").setup {
                 defaults = {
                     dynamic_preview_title = true,
-                    results_title         = false,
-                    borderchars           = { " ", " ", " ", " ", " ", " ", " ", " " },
+                    -- results_title         = false,
+                    -- borderchars           = { " ", " ", " ", " ", " ", " ", " ", " " },
                     layout_strategy       = "horizontal",
-                    layout_config         = {
-                        horizontal = {
-                            prompt_position = "top",
-                            width = { padding = 0 },
-                            height = { padding = 0 },
-                            preview_width = 0.5,
-                        },
-                    },
-                    sorting_strategy      = "ascending",
+                    -- layout_config         = {
+                    --     horizontal = {
+                    --         prompt_position = "top",
+                    --         width = { padding = 0 },
+                    --         height = { padding = 0 },
+                    --         preview_width = 0.5,
+                    --     },
+                    -- },
+                    -- sorting_strategy      = "ascending",
                     respect_gitignore     = true,
                     mappings              = {
                         i = {

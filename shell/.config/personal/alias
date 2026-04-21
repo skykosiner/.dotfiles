@@ -51,6 +51,8 @@ alias ffmpeg="ffmpeg -hwaccel cuda"
 
 alias fixAudio="systemctl --user restart wireplumber pipewire pipewire-pulse"
 
+alias gri="git ls-files --ignored --exclude-standard | xargs -0 git rm -r"
+
 # Copy to clipboard by adding "C" to the end of the command like `echo hello C`
 # will copy hello to my clipboard
 alias -g C="| wl-copy"
