@@ -1,8 +1,14 @@
 { pkgs, hostname, ... }:
 
-let isDesktop = hostname == "nix-btw";
-in {
-  imports = [ ./rofi ./fuzzel ./waybar ];
+let
+  isDesktop = hostname == "nix-btw";
+in
+{
+  imports = [
+    ./rofi
+    ./fuzzel
+    ./waybar
+  ];
 
   home.packages = with pkgs; [
     swww
@@ -27,87 +33,93 @@ in {
       "$mainMod" = "SUPER";
       "$terminal" = "alacritty";
       "$menu" = "fuzzel";
-      bind = (if isDesktop then [
-        "$mainMod SHIFT, equal, workspace, 1"
-        "$mainMod, bracketleft, workspace, 2"
-        "$mainMod SHIFT, bracketleft, workspace, 3"
-        "$mainMod SHIFT, 9, workspace, 4"
-        "$mainMod SHIFT, 7, workspace, 5"
-        "$mainMod, equal, workspace, 6"
-        "$mainMod SHIFT, 0, workspace, 7"
-        "$mainMod SHIFT, bracketright, workspace, 8"
-        "$mainMod, bracketright, workspace, 9"
-        "$mainMod SHIFT, 8, workspace, 10"
+      bind =
+        (
+          if isDesktop then
+            [
+              "$mainMod SHIFT, equal, workspace, 1"
+              "$mainMod, bracketleft, workspace, 2"
+              "$mainMod SHIFT, bracketleft, workspace, 3"
+              "$mainMod SHIFT, 9, workspace, 4"
+              "$mainMod SHIFT, 7, workspace, 5"
+              "$mainMod, equal, workspace, 6"
+              "$mainMod SHIFT, 0, workspace, 7"
+              "$mainMod SHIFT, bracketright, workspace, 8"
+              "$mainMod, bracketright, workspace, 9"
+              "$mainMod SHIFT, 8, workspace, 10"
 
-        "$mainMod, 1, movetoworkspacesilent, 1"
-        "$mainMod, 2, movetoworkspacesilent, 2"
-        "$mainMod, 3, movetoworkspacesilent, 3"
-        "$mainMod, 4, movetoworkspacesilent, 4"
-        "$mainMod, 5, movetoworkspacesilent, 5"
-        "$mainMod, 6, movetoworkspacesilent, 6"
-        "$mainMod, 7, movetoworkspacesilent, 7"
-        "$mainMod, 8, movetoworkspacesilent, 8"
-        "$mainMod, 9, movetoworkspacesilent, 9"
-        "$mainMod, 0, movetoworkspacesilent, 10"
-      ] else [
-        "$mainMod, plus, workspace, 1"
-        "$mainMod, bracketleft, workspace, 2"
-        "$mainMod, braceleft, workspace, 3"
-        "$mainMod, parenleft, workspace, 4"
-        "$mainMod, ampersand, workspace, 5"
-        "$mainMod, equal, workspace, 6"
-        "$mainMod, parenright, workspace, 7"
-        "$mainMod, braceright, workspace, 8"
-        "$mainMod, bracketright, workspace, 9"
-        "$mainMod, asterisk, workspace, 10"
+              "$mainMod, 1, movetoworkspacesilent, 1"
+              "$mainMod, 2, movetoworkspacesilent, 2"
+              "$mainMod, 3, movetoworkspacesilent, 3"
+              "$mainMod, 4, movetoworkspacesilent, 4"
+              "$mainMod, 5, movetoworkspacesilent, 5"
+              "$mainMod, 6, movetoworkspacesilent, 6"
+              "$mainMod, 7, movetoworkspacesilent, 7"
+              "$mainMod, 8, movetoworkspacesilent, 8"
+              "$mainMod, 9, movetoworkspacesilent, 9"
+              "$mainMod, 0, movetoworkspacesilent, 10"
+            ]
+          else
+            [
+              "$mainMod, plus, workspace, 1"
+              "$mainMod, bracketleft, workspace, 2"
+              "$mainMod, braceleft, workspace, 3"
+              "$mainMod, parenleft, workspace, 4"
+              "$mainMod, ampersand, workspace, 5"
+              "$mainMod, equal, workspace, 6"
+              "$mainMod, parenright, workspace, 7"
+              "$mainMod, braceright, workspace, 8"
+              "$mainMod, bracketright, workspace, 9"
+              "$mainMod, asterisk, workspace, 10"
 
-        "$mainMod SHIFT, plus, movetoworkspacesilent, 1"
-        "$mainMod SHIFT, bracketleft, movetoworkspacesilent, 2"
-        "$mainMod SHIFT, braceleft, movetoworkspacesilent, 3"
-        "$mainMod SHIFT, parenleft, movetoworkspacesilent, 4"
-        "$mainMod SHIFT, ampersand, movetoworkspacesilent, 5"
-        "$mainMod SHIFT, equal, movetoworkspacesilent, 6"
-        "$mainMod SHIFT, parenright, movetoworkspacesilent, 7"
-        "$mainMod SHIFT, braceright, movetoworkspacesilent, 8"
-        "$mainMod SHIFT, bracketright, movetoworkspacesilent, 9"
-        "$mainMod SHIFT, asterisk, movetoworkspacesilent, 10"
-      ]) ++ [
-        "$mainMod, F1, exec, $HOME/.local/bin/nightshift"
-        ", F6, togglespecialworkspace, spotify"
-        ", F7, togglespecialworkspace, message"
-        "$mainMod SHIFT, d, togglespecialworkspace, todoist"
-        "ALT, space, exec, $HOME/.local/bin/quick-add-task"
-        ''
-          $mainMod SHIFT, s, exec, grim -g "$(slurp)" ~/Pictures/Captures/"$(date +%d%m%y%s).png"''
-        ''$mainMod SHIFT, n, exec, grim -g "$(slurp)" - | wl-copy''
-        "$mainMod SHIFT, P, exec, hyprpicker -a | wl-copy"
-        "$mainMod, w, exec, nsxiv -t $HOME/.dotfiles/backgrounds/"
-        "$mainMod SHIFT, B, exec, pkill waybar || waybar"
-        "$mainMod, comma, movecurrentworkspacetomonitor, +1"
-        "$mainMod, return, exec, $terminal"
-        "$mainMod SHIFT, C, killactive,"
-        "$mainMod SHIFT, period, exit,"
-        "$mainMod SHIFT, T, togglefloating,"
-        "$mainMod, h, exec, ~/.local/bin/move_or_group left"
-        "$mainMod, j, exec, ~/.local/bin/move_or_group down"
-        "$mainMod, k, exec, ~/.local/bin/move_or_group up"
-        "$mainMod, l, exec, ~/.local/bin/move_or_group right"
-        "$mainMod SHIFT, h, movewindoworgroup, l"
-        "$mainMod SHIFT, l, movewindoworgroup, r"
-        "$mainMod SHIFT, k, movewindoworgroup, u"
-        "$mainMod SHIFT, j, movewindoworgroup, d"
-        "$mainMod, F, fullscreen, 0"
-        "$mainMod, t, togglegroup"
+              "$mainMod SHIFT, plus, movetoworkspacesilent, 1"
+              "$mainMod SHIFT, bracketleft, movetoworkspacesilent, 2"
+              "$mainMod SHIFT, braceleft, movetoworkspacesilent, 3"
+              "$mainMod SHIFT, parenleft, movetoworkspacesilent, 4"
+              "$mainMod SHIFT, ampersand, movetoworkspacesilent, 5"
+              "$mainMod SHIFT, equal, movetoworkspacesilent, 6"
+              "$mainMod SHIFT, parenright, movetoworkspacesilent, 7"
+              "$mainMod SHIFT, braceright, movetoworkspacesilent, 8"
+              "$mainMod SHIFT, bracketright, movetoworkspacesilent, 9"
+              "$mainMod SHIFT, asterisk, movetoworkspacesilent, 10"
+            ]
+        )
+        ++ [
+          "$mainMod, F1, exec, $HOME/.local/bin/nightshift"
+          ", F6, togglespecialworkspace, spotify"
+          ", F7, togglespecialworkspace, message"
+          "$mainMod SHIFT, d, togglespecialworkspace, todoist"
+          "ALT, space, exec, $HOME/.local/bin/quick-add-task"
+          ''$mainMod SHIFT, s, exec, grim -g "$(slurp)" ~/Pictures/Captures/"$(date +%d%m%y%s).png"''
+          ''$mainMod SHIFT, n, exec, grim -g "$(slurp)" - | wl-copy''
+          "$mainMod SHIFT, P, exec, hyprpicker -a | wl-copy"
+          "$mainMod, w, exec, nsxiv -t $HOME/.dotfiles/backgrounds/"
+          "$mainMod SHIFT, B, exec, pkill waybar || waybar"
+          "$mainMod, comma, movecurrentworkspacetomonitor, +1"
+          "$mainMod, return, exec, $terminal"
+          "$mainMod SHIFT, C, killactive,"
+          "$mainMod SHIFT, period, exit,"
+          "$mainMod SHIFT, T, togglefloating,"
+          "$mainMod, h, exec, ~/.local/bin/move_or_group left"
+          "$mainMod, j, exec, ~/.local/bin/move_or_group down"
+          "$mainMod, k, exec, ~/.local/bin/move_or_group up"
+          "$mainMod, l, exec, ~/.local/bin/move_or_group right"
+          "$mainMod SHIFT, h, movewindoworgroup, l"
+          "$mainMod SHIFT, l, movewindoworgroup, r"
+          "$mainMod SHIFT, k, movewindoworgroup, u"
+          "$mainMod SHIFT, j, movewindoworgroup, d"
+          "$mainMod, F, fullscreen, 1"
+          "$mainMod, t, togglegroup"
 
-        "$mainMod SHIFT, v, exec, ~/.local/bin/tv-screen"
+          "$mainMod SHIFT, v, exec, ~/.local/bin/tv-screen"
 
-        "$mainMod SHIFT, i, exec, swww img '/home/sky/Downloads/inshallah.jpg'"
+          "$mainMod SHIFT, i, exec, swww img '/home/sky/Downloads/inshallah.jpg'"
 
-        "$mainMod, o, exec, $terminal -e /home/sky/.local/bin/lfub"
-        "$mainMod SHIFT, w, exec, brave"
+          "$mainMod, o, exec, $terminal -e /home/sky/.local/bin/lfub"
+          "$mainMod SHIFT, w, exec, brave"
 
-        "$mainMod, Space, togglesplit"
-      ];
+          "$mainMod, Space, togglesplit"
+        ];
 
       cursor = {
         hide_on_key_press = true;
@@ -155,23 +167,30 @@ in {
         follow_mouse = 1;
         sensitivity = 0;
 
-        touchpad = { natural_scroll = false; };
+        touchpad = {
+          natural_scroll = false;
+        };
       };
 
-      monitor = if hostname == "nixos-btw" then [
-        "eDP-1,1920x1080@60,0x0,1"
-        "DP-1,1920x515@60,0x1080,1"
-      ] else if hostname == "nix-btw" then [
-        "DP-3,2560x1440@120,0x0,1"
-        # "HDMI-A-1,1920x1080@144,2560x0,1,transform, 1"
-        "HDMI-A-1,1920x1080@144,2560x0,1"
-        "DP-2,2560x1400@60,4480x0,1.33"
-        ",preferred,auto,auto"
-      ] else
-        [
-          # Fallback (safe default)
-          ",preferred,auto,auto"
-        ];
+      monitor =
+        if hostname == "nixos-btw" then
+          [
+            "eDP-1,1920x1080@60,0x0,1"
+            "DP-1,1920x515@60,0x1080,1"
+          ]
+        else if hostname == "nix-btw" then
+          [
+            "DP-3,2560x1440@120,0x0,1"
+            # "HDMI-A-1,1920x1080@144,2560x0,1,transform, 1"
+            "HDMI-A-1,1920x1080@144,2560x0,1"
+            "DP-2,2560x1400@60,4480x0,1.33"
+            ",preferred,auto,auto"
+          ]
+        else
+          [
+            # Fallback (safe default)
+            ",preferred,auto,auto"
+          ];
       misc = {
         enable_swallow = true;
         swallow_regex = "^(Alacritty)$";
@@ -191,6 +210,7 @@ in {
         "XCURSOR_SIZE,16"
         "HYPRCURSOR_SIZE,16"
         "XCURSOR_THEME,Bibata-Modern-Classic"
+        "SSH_AUTH_SOCK,$XDG_RUNTIME_DIR/ssh-agent"
       ];
 
       "exec-once" = [
@@ -201,6 +221,7 @@ in {
         "clipse -listen"
         "systemctl --user start hyprpolkitagent"
         "waybar"
+        "ssh-add ~/.ssh/id_rsa"
       ];
 
       exec = (if isDesktop then [ ] else [ "~/.local/bin/screenLock" ]);
@@ -252,7 +273,9 @@ in {
         preserve_split = true;
       };
 
-      master = { mfact = 0.5; };
+      master = {
+        mfact = 0.5;
+      };
 
       # gestures = { workspace_swipe = true; };
 

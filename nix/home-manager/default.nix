@@ -73,6 +73,7 @@ in
       pulsemixer
       wol
       inputs.alga.packages.${pkgs.stdenv.hostPlatform.system}.default
+      inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
       usbutils
       hyfetch
       hyprsunset

@@ -104,6 +104,10 @@ in
     # };
   };
 
+  environment.sessionVariables = {
+    SSH_AUTH_SOCK = "/run/user/1000/ssh-agent";
+  };
+
   programs = {
     steam = {
       enable = true;
