@@ -119,7 +119,9 @@ in
 
     zsh.enable = true;
     gnupg.agent.enable = true;
-    ssh.startAgent = true;
+    ssh = {
+      startAgent = true;
+    };
     ydotool.enable = true;
   };
 
@@ -166,6 +168,7 @@ in
       enable = true;
       settings = {
         X11Forwarding = true;
+        PasswordAuthentication = false;
       };
     };
 
