@@ -222,6 +222,7 @@ in
         "systemctl --user start hyprpolkitagent"
         "waybar"
         "ssh-add ~/.ssh/id_rsa"
+        "twitch-notify"
       ];
 
       exec = (if isDesktop then [ ] else [ "~/.local/bin/screenLock" ]);

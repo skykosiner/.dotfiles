@@ -80,6 +80,7 @@ _does_exist pomo && eval "$(pomo completion zsh)"
 _does_exist aircon && eval "$(aircon completion zsh)"
 _does_exist toggl-cli && eval "$(toggl-cli completion zsh)"
 _does_exist spt && eval "$(spt completion zsh)"
+_does_exist tlogs && eval "$(tlogs completion zsh)"
 
 _source_if_exists $HOME/.nix-profile/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 _source_if_exists $HOME/.nix-profile/share/zsh-autosuggestions/zsh-autosuggestions.zsh
