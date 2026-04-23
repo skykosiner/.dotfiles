@@ -68,7 +68,7 @@ in {
     taps = [ ];
     brews =
       [ "cowsay" "htop" "btop" "pass" "neovim-remote" "cloudflared" "chafa" ];
-    casks = [ "handbrake-app" "gimp" "calibre" "todoist-app" "raycast" ];
+    casks = [ "handbrake-app" "gimp" "calibre" "todoist-app" "raycast" "figma" ];
   };
 
   security.pam.services.sudo_local = {
