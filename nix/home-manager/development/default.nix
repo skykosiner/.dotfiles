@@ -17,6 +17,7 @@ in
     ./fzf
     ./bat
     ./ssh
+    ./emacs
   ];
 
   home.packages =

@@ -26,7 +26,6 @@
         # system = platform;
       };
       modules = [
-        inputs.nix-doom-emacs-unstraightened.hmModule
         ../home-manager
       ];
     };
