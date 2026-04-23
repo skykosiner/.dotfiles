@@ -1,15 +1,20 @@
-{ lib, config, pkgs, inputs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 let
   homeDir = if pkgs.stdenv.isDarwin then "/Users/sky" else "/home/sky";
-  berkeleyPath = /.
-    + "${homeDir}/.dotfiles/private_stuff/berkeley-mono-regular.zip";
+  berkeleyPath = /. + "${homeDir}/.dotfiles/private_stuff/berkeley-mono-regular.zip";
   TX-02Path = /. + "${homeDir}/.dotfiles/private_stuff/font/TX-02.zip";
 
-  berkeley-mono =
-    pkgs.callPackage ./packages/berkeley-mono.nix { fontPath = berkeleyPath; };
+  berkeley-mono = pkgs.callPackage ./packages/berkeley-mono.nix { fontPath = berkeleyPath; };
   TX-02 = pkgs.callPackage ./packages/TX-02.nix { fontPath = TX-02Path; };
 
-in {
+in
+{
   nix.enable = false;
   nix.settings.experimental-features = "nix-command flakes";
   system = {
@@ -47,13 +52,17 @@ in {
       magnification = true;
       largesize = 50;
     };
-    finder = { _FXShowPosixPathInTitle = false; };
+    finder = {
+      _FXShowPosixPathInTitle = false;
+    };
     trackpad = {
       Clicking = true;
       TrackpadThreeFingerDrag = true;
     };
     CustomUserPreferences = {
-      "com.apple.finder" = { CreateDesktop = false; };
+      "com.apple.finder" = {
+        CreateDesktop = false;
+      };
     };
   };
 
@@ -66,9 +75,24 @@ in {
     enable = true;
 
     taps = [ ];
-    brews =
-      [ "cowsay" "htop" "btop" "pass" "neovim-remote" "cloudflared" "chafa" ];
-    casks = [ "handbrake-app" "gimp" "calibre" "todoist-app" "raycast" "figma" ];
+    brews = [
+      "cowsay"
+      "htop"
+      "btop"
+      "pass"
+      "neovim-remote"
+      "cloudflared"
+      "chafa"
+    ];
+    casks = [
+      "handbrake-app"
+      "gimp"
+      "calibre"
+      "todoist-app"
+      "raycast"
+      "figma"
+      "libreoffice"
+    ];
   };
 
   security.pam.services.sudo_local = {
@@ -105,10 +129,12 @@ in {
   services.aerospace = {
     enable = true;
     settings = {
-      on-window-detected = [{
-        "if".window-title-regex-substring = "Wallpaper Picker";
-        run = "layout floating";
-      }];
+      on-window-detected = [
+        {
+          "if".window-title-regex-substring = "Wallpaper Picker";
+          run = "layout floating";
+        }
+      ];
       gaps = {
         outer.left = 10;
         outer.bottom = 10;
@@ -132,11 +158,9 @@ in {
         alt-minus = "resize smart -50";
         alt-equal = "resize smart +50";
 
-        alt-enter =
-          "exec-and-forget open -n -a /etc/profiles/per-user/sky/bin/alacritty";
+        alt-enter = "exec-and-forget open -n -a /etc/profiles/per-user/sky/bin/alacritty";
 
-        alt-n =
-          "exec-and-forget /etc/profiles/per-user/sky/bin/alacritty -T 'Wallpaper Picker' -e /etc/profiles/per-user/sky/bin/zsh -l -c '/Users/sky/.local/bin/change_background_mac'";
+        alt-n = "exec-and-forget /etc/profiles/per-user/sky/bin/alacritty -T 'Wallpaper Picker' -e /etc/profiles/per-user/sky/bin/zsh -l -c '/Users/sky/.local/bin/change_background_mac'";
 
         alt-k = "exec-and-forget /Users/sky/.local/bin/theme-switch";
 
