@@ -74,7 +74,7 @@ in
   homebrew = {
     enable = true;
 
-    taps = [ ];
+    taps = [ "FelixKratz/formulae" ];
     brews = [
       "cowsay"
       "htop"
@@ -83,6 +83,7 @@ in
       "neovim-remote"
       "cloudflared"
       "chafa"
+      "felixkratz/formulae/borders"
     ];
     casks = [
       "handbrake-app"
@@ -92,6 +93,7 @@ in
       "raycast"
       "figma"
       "libreoffice"
+      "cloudflare-warp"
     ];
   };
 
@@ -129,6 +131,9 @@ in
   services.aerospace = {
     enable = true;
     settings = {
+      after-startup-command = [
+        "exec-and-forget /opt/homebrew/bin/borders active_color=0xff0000ee inactive_color=0x595959aa width=2.0"
+      ];
       on-window-detected = [
         {
           "if".window-title-regex-substring = "Wallpaper Picker";
