@@ -63,6 +63,13 @@ return {
                 contrast = "hard",
             })
         end
+    },
+    {
+        "NTBBloodbath/doom-one.nvim",
+        config = function()
+            vim.g.doom_one_diagnostics_text_color = true
+            vim.g.doom_one_transparent_background = true
+        end
     }
     -- {
     --     "davidmh/mdx.nvim",
