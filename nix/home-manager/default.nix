@@ -149,9 +149,12 @@ in
         "image/png" = [ "nsxiv.desktop" ];
         "text/plain" = [ "nvim.desktop" ];
         "inode/directory" = [ "thunar.desktop" ];
+        "text/csv" = ["calc.desktop"];
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = ["writer.desktop"];
+        "application/vnd.oasis.opendocument.text" = ["writer.desktop"];
         "x-scheme-handler/http" = [ "brave-browser.desktop" ];
         "x-scheme-handler/https" = [ "brave-browser.desktop" ];
-        "x-scheme-handler/mailto" = [ "neomutt.desktop" ];
+        "x-scheme-handler/mailto" = [ "thunderbird.desktop" ];
       };
     };
     enable = true;
