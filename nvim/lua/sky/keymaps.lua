@@ -83,9 +83,10 @@ visual_mode(">", ">gv")
 visual_mode("J", ":m '>+1<CR>gv=gv")
 visual_mode("K", ":m '<-2<CR>gv=gv")
 
--- Switch between tabs
+-- Tab stuff
 normal_mode("<Left>", "gT")
 normal_mode("<Right>", "gt")
+normal_mode("<leader>nt", ":tabnew<CR>")
 
 normal_mode("<leader>co", ":!/home/sky/.local/bin/compiler %<CR>")
 

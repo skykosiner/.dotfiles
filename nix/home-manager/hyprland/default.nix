@@ -374,6 +374,9 @@ in
       bind = ,o,exec, $terminal -e /home/sky/.local/bin/tmux-sessionizer /home/sky/Documents/Linux-btw/
       bind = ,o,submap,reset
 
+      bind = ,s,exec, $terminal -e spotify_player
+      bind = ,s,submap,reset
+
       bind=,escape,submap,reset
       submap = reset
 
