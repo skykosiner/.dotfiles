@@ -29,6 +29,7 @@ in
           lutris
           dolphin-emu
           vlc
+          handbrake
           xfconf
           thunar
           pika-backup
@@ -54,6 +55,7 @@ in
         [ ]
     )
     ++ [
+      blanket
       spotify-player
       ryubing
       prismlauncher
