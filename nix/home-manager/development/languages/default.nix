@@ -4,7 +4,7 @@
   home.packages = with pkgs; [
     python3
     python312Packages.pip
-    nodePackages.vscode-langservers-extracted
+    vscode-langservers-extracted
     nixd
     nixfmt
     nodejs

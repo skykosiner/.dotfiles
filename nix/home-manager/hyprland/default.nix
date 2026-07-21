@@ -11,7 +11,7 @@ in
   ];
 
   home.packages = with pkgs; [
-    swww
+    awww
     mpvpaper
     wtype
     hyprland
@@ -29,6 +29,7 @@ in
 
   wayland.windowManager.hyprland = {
     enable = true;
+    configType = "hyprlang";
     settings = {
       "$mainMod" = "SUPER";
       "$terminal" = "alacritty";

@@ -77,7 +77,7 @@ in
       qbittorrent
       bitwarden-desktop
       audacity
-      realvnc-vnc-viewer
+      # realvnc-vnc-viewer
       google-chrome
       localsend
       browsh

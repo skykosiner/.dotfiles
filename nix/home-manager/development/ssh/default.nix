@@ -5,7 +5,7 @@
     enable = true;
     enableDefaultConfig = false;
 
-    matchBlocks = {
+    settings = {
       "*" = {
         addKeysToAgent = "yes";
         identityFile = "~/.ssh/id_rsa";
@@ -44,10 +44,8 @@
         port = 9922;
         user = "prisoner";
         identityFile = "~/.ssh/lg_tv_webos";
-        extraOptions = {
-          "HostKeyAlgorithms" = "+ssh-rsa";
-          "PubKeyacceptedkeytypes" = "+ssh-rsa";
-        };
+        hostKeyAlgorithms = "+ssh-rsa";
+        pubKeyacceptedkeytypes = "+ssh-rsa";
       };
     };
   };
