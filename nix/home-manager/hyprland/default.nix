@@ -114,12 +114,12 @@ in
 
           "$mainMod SHIFT, v, exec, ~/.local/bin/tv-screen"
 
-          "$mainMod SHIFT, i, exec, swww img '/home/sky/Downloads/inshallah.jpg'"
+          "$mainMod SHIFT, i, exec, awww img '/home/sky/Downloads/inshallah.jpg'"
 
           "$mainMod, o, exec, $terminal -e /home/sky/.local/bin/lfub"
           "$mainMod SHIFT, w, exec, brave"
 
-          "$mainMod, Space, togglesplit"
+          # "$mainMod, Space, togglesplit"
         ];
 
       cursor = {
@@ -216,9 +216,9 @@ in
 
       "exec-once" = [
         "hyprctl setcursor Bibata-Modern-Classic 16"
-        "swww init"
-        "swww restore"
-        "swww-daemon"
+        "awww init"
+        "awww restore"
+        "awww-daemon"
         "clipse -listen"
         "systemctl --user start hyprpolkitagent"
         "waybar"
@@ -271,7 +271,7 @@ in
       };
 
       dwindle = {
-        pseudotile = true;
+        # pseudotile = true;
         preserve_split = true;
       };
 
@@ -308,7 +308,7 @@ in
         # Utilities
         "match:title ^clipboard$, float 1"
         "match:title ^clipboard$, size 900 900"
-        "match:title ^clipboard$, move center"
+        # "match:title ^clipboard$, move center"
 
         "match:class one.alynx.showmethekey, float 1"
         "match:class one.alynx.showmethekey, pin 1"

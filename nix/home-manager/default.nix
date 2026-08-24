@@ -63,7 +63,7 @@ in
       python312Packages.ffmpeg-progress-yield
       exiftool
       networkmanagerapplet
-      flat-remix-gtk
+      # flat-remix-gtk
       neovim-remote
       catdoc
       msmtp

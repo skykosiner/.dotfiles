@@ -88,3 +88,5 @@ _source_if_exists $HOME/.tokens
 
 # For Mac
 _source_if_exists /etc/profiles/per-user/sky/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+export PATH=$PATH:/home/sky/.spicetify
