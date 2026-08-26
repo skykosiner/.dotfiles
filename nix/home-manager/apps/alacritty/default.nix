@@ -1,4 +1,9 @@
-{ pkgs, hostname, lib, ... }:
+{
+  pkgs,
+  hostname,
+  lib,
+  ...
+}:
 
 let
   # fontsize = if (hostname == "nix-btw") then 18 else 18;
@@ -102,7 +107,8 @@ let
     white = "${c.white}"
   '';
 
-in {
+in
+{
   home.packages = with pkgs; [ alacritty ];
   xdg.configFile."alacritty/themes/dark.toml".text = mkAlacrittyTheme dark;
   xdg.configFile."alacritty/themes/light.toml".text = mkAlacrittyTheme light;
@@ -123,17 +129,20 @@ in {
       };
 
       font.size = 18;
+      font.normal.family = "UbuntuMono Nerd Font Mono";
       # font.normal.family = "JetBrainsMono Nerd Font";
       # font.normal.family = "Iosevka Nerd Font";
-      font.normal.family = "TX-02";
+      # font.normal.family = "TX-02";
       # font.normal.family = "GoMono Nerd Font Mono";
       # font.normal.family = "ComicShanns Mono Nerd Font";
 
-      keyboard.bindings = [{
-        key = "G";
-        mods = "Super|Shift";
-        command = "/home/sky/.local/bin/alacrittyTransparrent";
-      }];
+      keyboard.bindings = [
+        {
+          key = "G";
+          mods = "Super|Shift";
+          command = "/home/sky/.local/bin/alacrittyTransparrent";
+        }
+      ];
     };
   };
 }

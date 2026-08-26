@@ -228,7 +228,7 @@ in
     gnupg
     isync
     htop
-    pinentry-gtk2
+    pinentry-gnome3
     hyprpolkitagent
     acpi
     blueman
