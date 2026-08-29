@@ -120,7 +120,7 @@ in
 
       window = {
         decorations = "Buttonless";
-        opacity = 0.85;
+        opacity = 1;
         # blur = blur;
         padding = {
           x = 0;
@@ -129,9 +129,9 @@ in
       };
 
       font.size = 18;
-      font.normal.family = "UbuntuMono Nerd Font Mono";
+      # font.normal.family = "UbuntuMono Nerd Font Mono";
       # font.normal.family = "JetBrainsMono Nerd Font";
-      # font.normal.family = "Iosevka Nerd Font";
+      font.normal.family = "Iosevka Nerd Font";
       # font.normal.family = "TX-02";
       # font.normal.family = "GoMono Nerd Font Mono";
       # font.normal.family = "ComicShanns Mono Nerd Font";
