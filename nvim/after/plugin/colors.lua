@@ -1,4 +1,4 @@
-vim.opt.background = "light"
+vim.opt.background = "dark"
 
 ---@param color string
 function _G.Colors(color)
