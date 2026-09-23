@@ -79,6 +79,7 @@ in
       42068
       38165
       53317
+      22
     ];
 
     # wg-quick.interfaces = {

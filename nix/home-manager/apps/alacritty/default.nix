@@ -120,7 +120,7 @@ in
 
       window = {
         decorations = "Buttonless";
-        opacity = 1;
+        opacity = 0.85;
         # blur = blur;
         padding = {
           x = 0;

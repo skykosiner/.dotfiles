@@ -5,6 +5,9 @@ return {
     {
         dir = os.getenv("HOME") .. "/personal/rfc.nvim/"
     },
+    -- {
+    --     dir = os.getenv("HOME") .. "/personal/condemn-piker.nvim/"
+    -- },
     {
         dir = os.getenv("HOME") .. "/personal/tmux-commands.nvim/",
         config = function()
