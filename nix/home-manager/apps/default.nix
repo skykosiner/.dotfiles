@@ -56,6 +56,7 @@ in
     )
     ++ [
       blanket
+      projectlibre
       spotify-player
       ryubing
       prismlauncher
