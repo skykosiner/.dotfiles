@@ -18,7 +18,7 @@ return {
                     bold = true,
                     italic = true,
                     transparency = true,
-                },
+                }
             })
         end
     },

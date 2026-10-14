@@ -273,6 +273,7 @@ in
       nerd-fonts.iosevka
       nerd-fonts.go-mono
       nerd-fonts.comic-shanns-mono
+      nerd-fonts.terminess-ttf
       berkeley-mono
       TX-02
       noto-fonts-color-emoji

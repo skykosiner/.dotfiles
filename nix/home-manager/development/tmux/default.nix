@@ -1,7 +1,9 @@
 { pkgs, config, ... }:
 
-let inherit (config.lib.file) mkOutOfStoreSymlink;
-in {
+let
+  inherit (config.lib.file) mkOutOfStoreSymlink;
+in
+{
   home.packages = with pkgs; [ tmux ];
   xdg.configFile."tmux/.tmux-chat-command".source =
     mkOutOfStoreSymlink "../../../../tmux/.tmux-chat-command";
@@ -17,8 +19,8 @@ in {
     mouse = true;
     extraConfig = ''
       # set -g default-terminal "tmux-256color"
-      set -g default-terminal "xterm-256color"
-      # set -ga terminal-overrides ",xterm-256color:Tc"
+      # set -g default-terminal "xterm-256color"
+      set -ga terminal-overrides ",xterm-256color:Tc"
 
       set -g pane-border-style "fg=#171717"
       set -g pane-active-border-style "fg=#171717"

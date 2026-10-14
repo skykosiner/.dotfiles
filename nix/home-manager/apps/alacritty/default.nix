@@ -10,7 +10,8 @@ let
   # blur = if (hostname == "Skys-MacBook-Pro") then true else false;
   dark = {
     # bg = "#1d2021";
-    bg = "#2B2B2B";
+    # bg = "#2B2B2B";
+    bg = "#222738";
     fg = "#d8dee9";
     dim_fg = "#a5abb6";
     cursor_bg = "#d8dee9";
@@ -129,10 +130,11 @@ in
       };
 
       font.size = 18;
+      font.normal.family = "TX-02";
       # font.normal.family = "UbuntuMono Nerd Font Mono";
       # font.normal.family = "JetBrainsMono Nerd Font";
       # font.normal.family = "Iosevka Nerd Font";
-      font.normal.family = "TX-02";
+      # font.normal.family = "Terminess Nerd Font"";
       # font.normal.family = "GoMono Nerd Font Mono";
       # font.normal.family = "ComicShanns Mono Nerd Font";
 

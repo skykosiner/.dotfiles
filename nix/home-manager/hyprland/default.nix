@@ -265,7 +265,7 @@ in
       };
 
       animations = {
-        enabled = false;
+        enabled = true;
         animation = [
           "windows, 1, 3, default, popin 5%"
           "workspaces, 1, 3, default, slidefade 5%"
