@@ -87,7 +87,9 @@ cmd openSQL ${{
     sqlitebrowser "$f"
 }}
 
-cmd bulkrename $vidir
+cmd bulkrename ${{
+    nvim
+}}
 
 map <c-p>
 map <c-f> $lf -remote "send $id select '$(fzf)'"

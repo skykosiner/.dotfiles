@@ -63,6 +63,8 @@ normal_mode("<leader>tt", function()
     vim.cmd.startinsert()
 end)
 
+normal_mode("<leader>tnn", vim.cmd.tabnew)
+
 -- TODO: Finish setting up the floating terminal
 --[[normal_mode("<leader>tf", function()
     require("plenary.window.float").percentage_range_window(0.7, 0.7)

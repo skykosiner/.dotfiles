@@ -117,7 +117,8 @@ in
           "$mainMod SHIFT, i, exec, awww img '/home/sky/Downloads/inshallah.jpg'"
 
           "$mainMod, o, exec, $terminal -e /home/sky/.local/bin/lfub"
-          "$mainMod SHIFT, w, exec, brave"
+           # THE BRAVE LARP IS OVER, and zen kinda sucks with it's firefox backend sorry zen, I tried for almost a year :(
+          "$mainMod SHIFT, w, exec, helium --new-window"
 
           # "$mainMod, Space, togglesplit"
         ];

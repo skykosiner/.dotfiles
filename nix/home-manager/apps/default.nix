@@ -55,6 +55,7 @@ in
         [ ]
     )
     ++ [
+      feishin
       blanket
       projectlibre
       spotify-player
