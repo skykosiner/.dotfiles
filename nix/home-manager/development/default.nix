@@ -70,6 +70,7 @@ in
       pkg-config
 
       sqlite
+      postgresql
 
       bc
       arp-scan

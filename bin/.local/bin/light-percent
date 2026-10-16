@@ -1,6 +1,6 @@
 #!/bin/sh
 
-value=$(fuzzel --dmenu -p "Enter light percent: ")
+value=$(fuzzel --dmenu -p "Enter light percent: " -w 22)
 
 if [ ! -z $value ]; then
     percent=$(( ($value * 254) / 100 ))

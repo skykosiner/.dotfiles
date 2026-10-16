@@ -1,6 +1,9 @@
 return {
     "tjdevries/colorbuddy.nvim",
     {
+        url = "https://git.0x7be.net/dirk/neovim-tango-colors",
+    },
+    {
         "catppuccin/nvim",
         name = "catppuccin",
         config = function()

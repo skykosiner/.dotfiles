@@ -1,14 +1,7 @@
 #!/usr/bin/env bash
 
-temp=$(printf "Cool - 154\nMedium - 250\nHigh - 350\nCustom" | fuzzel --dmenu -p "What temperature do you want to set the lights to?")
+temp=$(printf "Cool - 154\nMedium - 250\nHigh - 350" | fuzzel --dmenu -p "Light Temp: ")
 
 [[ -z $temp ]] && exit
-
-if [[ "$temp" == "Custom" ]]; then
-    temp=$(dmenu -c -p "What temperature do you want to set the lights to?" <&- && echo)
-    [[ -z $temp ]] && exit
-    /home/sky/.local/go/bin/lights ct $temp
-    exit
-fi
 
 /home/sky/.local/go/bin/lights ct $(echo "$temp" | cut -d"-" -f2 | sed "s/ //")

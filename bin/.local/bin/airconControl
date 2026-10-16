@@ -35,7 +35,7 @@ case "$1" in
     ;;
 
     "-set-fan")
-        fanMode=$(printf "Night\n1\n2\n3\n4\n5" | fuzzel --dmenu -p "Select Fan Mode")
+        fanMode=$(printf "Night\n1\n2\n3\n4\n5" | fuzzel --dmenu -p "Select Fan Mode: ")
         $aircon fan $fanMode
         pkill -SIGRTMIN+9 waybar
     ;;
