@@ -2,12 +2,11 @@
 
 declare -A configs
 
-configs[$TERMINAL]="$HOME/.dotfiles/$TERMINAL/"
-configs[hyprland]="$HOME/.dotfiles/hypr/"
+configs[hyprland]="$HOME/.dotfiles/nix/home-manager/hyprland/"
 configs[nix]="$HOME/.dotfiles/nix/"
 configs[zsh]="$HOME/.dotfiles/zsh/"
 configs[shell]="$HOME/.dotfiles/shell/.config/personal/"
-configs[nvim]="$HOME/.dotfiles/nvim/.config/nvim/"
+configs[nvim]="$HOME/.dotfiles/nvim/"
 configs[scripts]="$HOME/.dotfiles/bin/.local/bin/"
 configs[lf]="$HOME/.dotfiles/lf/.config/lf/"
 configs[bookmarks]="$HOME/.dotfiles/.bookm"
@@ -15,4 +14,4 @@ configs[bookmarked files]="$HOME/.dotfiles/.bookmfiles"
 
 configToEdit=$(printf "%s\n" "${!configs[@]}" | sort | fuzzel --dmenu -p "Config Edit: ")
 
-[ ! -z "$configToEdit" ] && $TERMINAL -e nvim $(printf "%s\n" "${configs["${configToEdit}"]}")
+[ ! -z "$configToEdit" ] && alacritty -e nvim $(printf "%s\n" "${configs["${configToEdit}"]}")

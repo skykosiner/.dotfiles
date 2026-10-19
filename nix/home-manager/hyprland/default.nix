@@ -117,7 +117,7 @@ in
           "$mainMod SHIFT, i, exec, awww img '/home/sky/Downloads/inshallah.jpg'"
 
           "$mainMod, o, exec, $terminal -e /home/sky/.local/bin/lfub"
-           # THE BRAVE LARP IS OVER, and zen kinda sucks with it's firefox backend sorry zen, I tried for almost a year :(
+          # THE BRAVE LARP IS OVER, and zen kinda sucks with it's firefox backend sorry zen, I tried for almost a year :(
           "$mainMod SHIFT, w, exec, helium --new-window"
 
           # "$mainMod, Space, togglesplit"
@@ -141,8 +141,8 @@ in
       ];
 
       bindel = [
-        ",XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
-        ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        ",XF86AudioRaiseVolume, exec, /home/sky/.local/bin/volumeControl up"
+        ",XF86AudioLowerVolume, exec, /home/sky/.local/bin/volumeControl down"
         ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
         ",XF86MonBrightnessUp, exec, brightnessctl s 10%+"
@@ -354,7 +354,7 @@ in
       bind = SUPER, M, submap, appsubmaps
       submap = appsubmaps
 
-      bind = ,n,exec,$HOMe
+      bind = ,n,exec,$HOME
       bind = ,n,submap,reset
 
       bind = ,e,exec,thunderbird -mail
@@ -438,6 +438,9 @@ in
       bind = ,p,exec,/home/sky/.local/bin/spotify-control -togglePlay
       bind = ,p,submap,reset
 
+      bind = ,s,exec,/home/sky/.local/bin/spotify-control-two
+      bind = ,s,submap,reset
+
       bind = ,period,exec,/home/sky/.local/bin/spotify-control -next
       bind = ,period,submap,reset
 
@@ -457,7 +460,7 @@ in
       bind = SHIFT,e,exec,export BEMOJI_PICKER_CMD="fuzzel --dmenu --width 48" && bemoji
       bind = SHIFT,e,submap,reset
 
-      bind = ,w,exec,fuzzel --dmenu --lines 0 --placeholder "Type your search" | sed 's/^/"&/g;s/$/"/g' | xargs -I {} brave --new-window "https://google.com/search?q={}"
+      bind = ,w,exec,fuzzel --dmenu --lines 0 --placeholder "Type your search" | sed 's/^/"&/g;s/$/"/g' | xargs -I {} helium --new-window "https://google.com/search?q={}"
       bind = ,w,submap,reset
 
       bind = ,s,exec,$HOME/.local/bin/snipets
@@ -471,6 +474,12 @@ in
 
       bind = ,c,exec,$HOME/.local/bin/clipboard
       bind = ,c,submap,reset
+
+      bind = SHIFT,c,exec,$HOME/.local/bin/configEdit
+      bind = SHIFT,c,submap,reset
+
+      bind = SHIFT,p,exec,$HOME/.local/bin/pass-search
+      bind = SHIFT,p,submap,reset
 
       bind=,escape,submap,reset
       submap = reset

@@ -129,14 +129,14 @@ in
         };
       };
 
-      font.size = 18;
+      font.size = 23;
       # font.normal.family = "TX-02";
       # font.normal.family = "Berkeley Mono";
       # font.normal.family = "UbuntuMono Nerd Font Mono";
       # font.normal.family = "JetBrainsMono Nerd Font";
       # font.normal.family = "Iosevka Nerd Font";
-      # font.normal.family = "Terminess Nerd Font"";
-      font.normal.family = "GoMono Nerd Font Mono";
+      font.normal.family = "Terminess Nerd Font";
+      # font.normal.family = "GoMono Nerd Font Mono";
       # font.normal.family = "ComicShanns Mono Nerd Font";
 
       keyboard.bindings = [

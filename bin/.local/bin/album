@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+base_url="https://www.tapmusic.net/collage.php?user=skykosiner"
+
+make_request() {
+    days="7"
+    size="5x5"
+
+    if [[ $1 = "month" ]]; then
+        days="1month"
+        size="10x10"
+    fi
+
+    curl -o /tmp/album.png "$base_url&type=$days&size=$size"
+    wl-copy < /tmp/album.png
+}
+
+case "$1" in
+    "week") make_request "week"
+    ;;
+    "month") make_request "month"
+    ;;
+    *) exit
+    ;;
+esac
+

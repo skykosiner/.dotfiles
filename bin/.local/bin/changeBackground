@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+selected=$(find "/home/sky/.dotfiles/backgrounds/" -type f | while read -r img; do
+    echo -e "$(basename "$img")\0icon\x1f$img"
+done | fuzzel --dmenu)

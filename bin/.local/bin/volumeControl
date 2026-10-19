@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#
+
 send_notif() {
     volume=$(pulsemixer --get-volume | awk '{print $1}')
     if [[ $1 == "up" ]]; then
@@ -11,21 +11,21 @@ send_notif() {
 
 case $1 in
     "up")
-        pactl set-sink-volume @DEFAULT_SINK@ +5%
+        wpctl set-volume @DEFAULT_SINK@ 5%+
         send_notif $1
         pkill -SIGRTMIN+10 i3blocks
         ;;
     "down")
-        pactl set-sink-volume @DEFAULT_SINK@ -5%
+        wpctl set-volume @DEFAULT_SINK@ 5%-
         send_notif $1
         pkill -SIGRTMIN+10 i3blocks
         ;;
     "mute")
-        pactl set-sink-mute @DEFAULT_SINK@ toggle
+        wpctl set-mute @DEFAULT_SINK@ toggle
         pkill -SIGRTMIN+10 i3blocks
         ;;
-    "-mute-mic")
-        MICMUTE=$(pactl list sources | grep "Mute" | sed 's/Mute://g' | xargs | awk '{print $1}')
+    "mute-mic")
+        MICMUTE=$(wpctl list sources | grep "Mute" | sed 's/Mute://g' | xargs | awk '{print $1}')
 
         if [[ $MICMUTE == "yes" ]];
         then
@@ -35,7 +35,7 @@ case $1 in
         fi
 
         notify-send "Toggle mute mic" "$micMuteVal" -t 300
-        pactl set-source-mute @DEFAULT_SOURCE@ toggle
+        wpctl set-mute @DEFAULT_SOURCE@ toggle
         ;;
     *) echo "Unavailable command... $curr"
 esac

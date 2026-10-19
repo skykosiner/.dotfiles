@@ -1,16 +1,35 @@
 #!/usr/bin/env bash
 
-option=$(printf "🎵 Track\n🎨 Artist\n🎹 Album" | fuzzel --dmenu)
+option=$(printf "🎵 Track\n🎶 Playlist\n🎹 Album" | fuzzel --dmenu)
 
 play() {
-    echo "$1" | cut -d"-" -f3
+    id=$(echo "$1" | grep -oP 'spotify[^ ]+')
+    spt play "$id"
 }
 
 case "$option" in
     "🎵 Track")
-        songs=$(fuzzel --dmenu | xargs -I {} spt search-track {})
+        songs=$(fuzzel --dmenu -w 50 | xargs spt search-tracks)
+        # No idea why the single bracket doesn't work here but does everywhere else
         if [[ ! -z $songs ]]; then
-            song=$(echo "$songs" | fuzzel --dmenu)
-            play "$song"
+            song=$(echo "$songs" | fuzzel --dmenu -w 50)
+            if [ ! -z "$song" ]; then
+                play "$song"
+            fi
         fi
+        ;;
+    "🎶 Playlist")
+        playlist=$(spt playlists | sort | fuzzel --dmenu -w 50)
+
+        if [ ! -z "$playlist" ]; then
+            play "$playlist"
+        fi
+        ;;
+    "🎹 Album")
+        album=$(spt albums | sort | fuzzel --dmenu -w 50)
+
+        if [ ! -z "$album" ]; then
+            play "$album"
+        fi
+        ;;
 esac

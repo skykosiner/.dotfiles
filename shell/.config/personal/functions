@@ -89,6 +89,10 @@ run() {
     nix run nixpkgs#$1
 }
 
+search() {
+    nix search nixpkgs $1
+}
+
 os_age() {
     birth_install=$(stat -c %W /); current=$(date +%s)
     time_progression=$((current - birth_install))
