@@ -11,6 +11,11 @@
         identityFile = "~/.ssh/id_rsa";
       };
 
+      "lucinda" = {
+          hostname = "100.112.162.108";
+          user = "lucinda";
+      };
+
       "mac" = {
         hostname = "mac-mini.lan";
         user = "skykosiner";

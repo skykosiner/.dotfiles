@@ -112,6 +112,9 @@ in
           "$mainMod, F, fullscreen, 1"
           "$mainMod, t, togglegroup"
 
+          # TODO: there is probs a builtin way to do this??
+          "$mainMod ALT, k, exec, hyprctl kill"
+
           "$mainMod SHIFT, v, exec, ~/.local/bin/tv-screen"
 
           "$mainMod SHIFT, i, exec, awww img '/home/sky/Downloads/inshallah.jpg'"
@@ -405,6 +408,25 @@ in
 
       bind = ,t,exec,/home/sky/.local/bin/light-temp
       bind = ,t,submap,reset
+
+      bind=,escape,submap,reset
+      submap = reset
+
+      # Gaps
+      bind = SUPER, g, submap, gapsubmaps
+      submap = gapsubmaps
+
+      bind = ,i,exec,/home/sky/.local/bin/change_gaps -inc
+      bind = ,i,submap,reset
+
+      bind = ,d,exec,/home/sky/.local/bin/change_gaps -dec
+      bind = ,d,submap,reset
+
+      bind = ,z,exec,/home/sky/.local/bin/change_gaps -none
+      bind = ,z,submap,reset
+
+      bind = ,r,exec,/home/sky/.local/bin/change_gaps -reset
+      bind = ,r,submap,reset
 
       bind=,escape,submap,reset
       submap = reset

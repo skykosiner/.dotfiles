@@ -154,7 +154,7 @@ normal_mode("<M-b>",
     ":!tmux split-window -h mpv --vo=tct ~/personal/kirk-ascii/surfers.mp4<CR>")
 
 normal_mode("<M-f>",
-    ":!tmux split-window vh mpv --vo=tct ~/personal/kirk-ascii/family-guy.webm<CR>")
+    ":!tmux split-window -vh mpv --vo=tct ~/personal/kirk-ascii/family-guy.webm<CR>")
 
 normal_mode("<M-k>",
     ":!tmux split-window -h mpv --vo=tct ~/personal/kirk-ascii/kirked.mp4<CR>")

@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+gaps_in=$(hyprctl getoption general:gaps_in | xargs | awk '{match ($0, /[0-9]+/,m); print m[0]}')
+gaps_out=$(hyprctl getoption general:gaps_out | xargs | awk '{match ($0, /[0-9]+/,m); print m[0]}')
+
+case "$1" in
+    "-inc")
+        hyprctl keyword general:gaps_in $(($gaps_in+5))
+        hyprctl keyword general:gaps_out $(($gaps_out+5))
+    ;;
+    "-dec")
+        hyprctl keyword general:gaps_in $(($gaps_in-5))
+        hyprctl keyword general:gaps_out $(($gaps_out-5))
+    ;;
+"-none")
+        hyprctl keyword general:gaps_in 0
+        hyprctl keyword general:gaps_out 0
+    ;;
+"-reset")
+        hyprctl keyword general:gaps_in 5
+        hyprctl keyword general:gaps_out 10
+    ;;
+    *) exit
+    ;;
+esac
+

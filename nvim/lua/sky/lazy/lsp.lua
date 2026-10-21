@@ -131,6 +131,7 @@ return {
                 settings = {
                     basedpyright = {
                         analysis = {
+                            typeCheckingMode = "standard",
                             autoSearchPaths = true,
                             diagnosticMode = "openFilesOnly",
                             useLibraryCodeForTypes = true
@@ -193,7 +194,7 @@ return {
                 -- vim.lsp.codelens.enable()
 
                 -- GIVE ME MY KEYBINDS
-                local opts = { buffer = bufnr, remap = false }
+
                 local builtin = require "telescope.builtin"
 
                 vim.keymap.set("n", "gd", builtin.lsp_definitions, opts)

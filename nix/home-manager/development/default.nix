@@ -53,6 +53,8 @@ in
 
       bun
 
+      python3Packages.tkinter
+
       inetutils
       unzip
       ripgrep

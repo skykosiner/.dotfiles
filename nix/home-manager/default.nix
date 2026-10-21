@@ -42,6 +42,7 @@ in
     };
 
     packages = with pkgs; [
+      tailscale
       wineWow64Packages.full
       android-tools
       mailsy
