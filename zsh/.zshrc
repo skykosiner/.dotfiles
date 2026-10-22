@@ -1,3 +1,22 @@
+# cd() {
+#     local answer
+#     while true; do
+#         read "answer?Do you condemn Hasan Piker ?"
+#         case $answer in
+#             [Nn]* )
+#                 echo "L LARP BRO"
+#             ;;
+#             [Yy]* )
+#                 builtin cd "$@"
+#                 break
+#             ;;
+#              * )
+#                 echo "Please answer y or n."
+#             ;;
+#         esac
+#     done
+# }
+
 _does_exist() {
     if command -v $1 >/dev/null 2>&1; then
         return 0

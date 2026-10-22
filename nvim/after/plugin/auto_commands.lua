@@ -63,7 +63,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 
 -- vim.api.nvim_create_autocmd("WinLeave", {
 --     group = group,
---     pattern = "*",
+--     pattern = "*"
 --     callback = function()
 --         vim.opt.cursorline = false
 --     end,
