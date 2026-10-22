@@ -50,13 +50,13 @@ in
           yubioath-flutter
           quickgui
           newsboat
+          blanket
         ]
       else
         [ ]
     )
     ++ [
       feishin
-      blanket
       projectlibre
       spotify-player
       ryubing
