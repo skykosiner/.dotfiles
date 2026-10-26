@@ -86,6 +86,7 @@ in
       "felixkratz/formulae/borders"
     ];
     casks = [
+      "helium-browser"
       "handbrake-app"
       "gimp"
       "calibre"
@@ -123,6 +124,7 @@ in
     nerd-fonts.iosevka
     nerd-fonts.go-mono
     nerd-fonts.comic-shanns-mono
+    nerd-fonts.terminess-ttf
     berkeley-mono
     TX-02
   ];
