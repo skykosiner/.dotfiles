@@ -42,6 +42,7 @@ in
     };
 
     packages = with pkgs; [
+      inputs.hyprsaver.packages.${pkgs.system}.default
       tailscale
       wineWow64Packages.full
       android-tools

@@ -12,7 +12,7 @@ alias pkt="pkill tmux"
 alias shutdown="sudo shutdown -h now"
 alias restart="sudo shutdown -r now"
 
-# alias ls="exa"
+alias ls="exa"
 alias la="exa -a --group-directories-first"
 alias ll="exa -la --group-directories-first"
 

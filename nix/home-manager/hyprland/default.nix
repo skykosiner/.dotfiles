@@ -27,6 +27,19 @@ in
     wayvnc
   ];
 
+  services.hypridle = {
+    enable = true;
+    settings = {
+      listener = [
+        {
+          timeout = 300;
+          on-timeout = "hyprsaver";
+          on-resume = "hyprsaver --quit";
+        }
+      ];
+    };
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
     configType = "hyprlang";

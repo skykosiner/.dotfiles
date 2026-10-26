@@ -7,20 +7,20 @@ case "$1" in
     "-inc")
         hyprctl keyword general:gaps_in $(($gaps_in+5))
         hyprctl keyword general:gaps_out $(($gaps_out+5))
-    ;;
+        ;;
     "-dec")
         hyprctl keyword general:gaps_in $(($gaps_in-5))
         hyprctl keyword general:gaps_out $(($gaps_out-5))
-    ;;
-"-none")
+        ;;
+    "-none")
         hyprctl keyword general:gaps_in 0
         hyprctl keyword general:gaps_out 0
-    ;;
-"-reset")
+        ;;
+    "-reset")
         hyprctl keyword general:gaps_in 5
         hyprctl keyword general:gaps_out 10
-    ;;
+        ;;
     *) exit
-    ;;
+        ;;
 esac
 

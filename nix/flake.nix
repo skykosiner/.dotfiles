@@ -41,6 +41,8 @@
       url = "github:AlvaroParker/helium-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hyprsaver.url = "github:maravexa/hyprsaver";
   };
 
   outputs =
@@ -54,6 +56,7 @@
       sops-nix,
       control-http-home,
       alga,
+      hyprsaver,
       # spicetify-nix,
       nix-darwin,
       ...
