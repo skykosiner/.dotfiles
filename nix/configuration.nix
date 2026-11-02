@@ -74,6 +74,7 @@ in
     # nameservers = ["1.1.1.1", "8.8.8.8"];
 
     firewall.allowedTCPPorts = [
+      3000
       42069
       5900
       42068
@@ -320,11 +321,11 @@ in
     options = cifsOptions;
   };
 
-  fileSystems."/mnt/RANDY" = {
-    device = "//10.0.0.36/RANDY";
-    fsType = "cifs";
-    options = cifsOptions;
-  };
+  # fileSystems."/mnt/RANDY" = {
+  #   device = "//10.0.0.36/RANDY";
+  #   fsType = "cifs";
+  #   options = cifsOptions;
+  # };
 
   virtualisation = {
     virtualbox.host.enable = true;
