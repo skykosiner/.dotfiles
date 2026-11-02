@@ -507,6 +507,9 @@ in
       bind = ,t,exec,$HOME/.local/bin/theme-switch
       bind = ,t,submap,reset
 
+      bind = ,b,exec,$HOME/.local/bin/blur
+      bind = ,b,submap,reset
+
       bind = ,c,exec,$HOME/.local/bin/clipboard
       bind = ,c,submap,reset
 

@@ -9,9 +9,10 @@ let
   # fontsize = if (hostname == "nix-btw") then 18 else 18;
   # blur = if (hostname == "Skys-MacBook-Pro") then true else false;
   dark = {
+    bg = "#000000";
     # bg = "#1d2021";
     # bg = "#2B2B2B";
-    bg = "#222738";
+    # bg = "#222738";
     fg = "#d8dee9";
     dim_fg = "#a5abb6";
     cursor_bg = "#d8dee9";
@@ -121,7 +122,7 @@ in
 
       window = {
         decorations = "Buttonless";
-        opacity = 1;
+        opacity = 0.85;
         # blur = blur;
         padding = {
           x = 0;

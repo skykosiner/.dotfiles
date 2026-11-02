@@ -39,6 +39,7 @@ return {
 
             vim.keymap.set("n", "[g", ":Gitsigns prev_hunk<CR>")
             vim.keymap.set("n", "]g", ":Gitsigns next_hunk<CR>")
+            vim.keymap.set("n", ",gb", function() vim.cmd.Gitsigns("blame") end)
         end,
     }
 }

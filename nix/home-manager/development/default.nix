@@ -56,6 +56,7 @@ in
       python3Packages.tkinter
 
       inetutils
+      websocat
       unzip
       ripgrep
       jq
@@ -87,6 +88,7 @@ in
       vtsls
       rust-analyzer
       gopls
+      gore
       shellcheck
 
     ];

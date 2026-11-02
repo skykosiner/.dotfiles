@@ -45,7 +45,7 @@
         port = 42069;
       };
       "lg_tv" = {
-        hostname = "10.0.0.200";
+        hostname = "10.0.0.14";
         port = 9922;
         user = "prisoner";
         identityFile = "~/.ssh/lg_tv_webos";

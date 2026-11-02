@@ -26,7 +26,7 @@ function _G.Colors(color)
         -- CMP menu
         vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#222222" })
 
-        vim.api.nvim_set_hl(0, "TabLine", { bg = "none", fg = "#222222" })
+        vim.api.nvim_set_hl(0, "TabLine", { bg = "#2B2B2B", fg = "#AAAAAA" })
         vim.api.nvim_set_hl(0, "TabLineFill", { bg = "none" })
 
         -- vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
@@ -42,7 +42,7 @@ function _G.Colors(color)
         vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecated", { fg = "#A9352B" })
         vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "#333333" })
     else
-        vim.cmd.colorscheme("tokyonight-day")
+        vim.cmd.colorscheme("ayu-light")
         vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#222222" })
         vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#222222" })
         vim.api.nvim_set_hl(0, "LineNr", { fg = "#999999" })

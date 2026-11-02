@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+current=$(hyprctl getoption decoration:blur:enabled | grep -Po "(\d)")
+
+if [[ $current = "0" ]]; then
+    hyprctl keyword decoration:blur:enabled true
+else
+    hyprctl keyword decoration:blur:enabled false
+fi
