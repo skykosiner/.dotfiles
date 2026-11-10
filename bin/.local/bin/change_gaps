@@ -15,10 +15,12 @@ case "$1" in
     "-none")
         hyprctl keyword general:gaps_in 0
         hyprctl keyword general:gaps_out 0
+        hyprctl keyword decoration:rounding 0
         ;;
     "-reset")
         hyprctl keyword general:gaps_in 5
         hyprctl keyword general:gaps_out 10
+        hyprctl keyword decoration:rounding 5
         ;;
     *) exit
         ;;
