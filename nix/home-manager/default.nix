@@ -157,8 +157,8 @@ in
         "text/csv" = [ "calc.desktop" ];
         "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = [ "writer.desktop" ];
         "application/vnd.oasis.opendocument.text" = [ "writer.desktop" ];
-        "x-scheme-handler/http" = [ "brave-browser.desktop" ];
-        "x-scheme-handler/https" = [ "brave-browser.desktop" ];
+        "x-scheme-handler/http" = [ "helium.desktop" ];
+        "x-scheme-handler/https" = [ "helium.desktop" ];
         "x-scheme-handler/mailto" = [ "thunderbird.desktop" ];
       };
     };
