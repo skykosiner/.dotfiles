@@ -237,10 +237,10 @@ in
         "awww restore"
         "awww-daemon"
         "clipse -listen"
-        "systemctl --user start hyprpolkitagent"
         "waybar"
         "ssh-add ~/.ssh/id_rsa"
         "twitch-notify"
+        "systemctl --user start hyprpolkitagent"
       ];
 
       exec = (if isDesktop then [ ] else [ "~/.local/bin/screenLock" ]);

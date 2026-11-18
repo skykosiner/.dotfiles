@@ -1,6 +1,8 @@
 { ... }:
 
 {
+  services.ssh-agent.enable = true;
+
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
@@ -12,8 +14,8 @@
       };
 
       "lucinda" = {
-          hostname = "100.112.162.108";
-          user = "lucinda";
+        hostname = "100.112.162.108";
+        user = "lucinda";
       };
 
       "mac" = {
