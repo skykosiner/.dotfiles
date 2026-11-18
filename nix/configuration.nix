@@ -118,6 +118,8 @@ in
       localNetworkGameTransfers.openFirewall = true;
     };
 
+    gamescope.enable = true;
+
     hyprland = {
       enable = true;
       xwayland.enable = true;
