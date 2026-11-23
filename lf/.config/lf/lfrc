@@ -67,6 +67,10 @@ cmd copyto ${{
 	notify-send "📋 File(s) copied." "File(s) copies to $dest."
 }}
 
+cmd mfc ${{
+    /home/sky/.local/bin/mfc "$f"
+}}
+
 cmd dragon ${{
 	dragon "$f"
 }}
@@ -100,6 +104,7 @@ map D delete
 map E extract
 map C copyto
 map M moveto
+map c mfc $f
 map <c-n> push :mkdir<space>
 map <c-r> reload
 map . set hidden!

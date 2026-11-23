@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+path=$(find ~/Documents/Linux-btw/College/Year\ 3 -maxdepth 3 -type d | fzf)
+mv "$1" "$path"
